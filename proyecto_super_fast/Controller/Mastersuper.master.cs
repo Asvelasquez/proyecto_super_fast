@@ -11,4 +11,9 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
 }
