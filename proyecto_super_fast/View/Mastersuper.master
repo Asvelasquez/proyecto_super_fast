@@ -6,6 +6,8 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    
+
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -13,42 +15,53 @@
             width: 100%;
         }
         .auto-style2 {
-            width: 392px;
-            height: 97px;
+            width: 50%;
+            height: 33%;
         }
         .auto-style3 {
-            height: 97px;
+            height: 50%;
+            width: 33%;
+            text-align: right;
         }
         .auto-style6 {
-            width: 141px;
+            width: 33%;
+            height: 481px;
         }
-        .auto-style7 {
-            width: 268px;
+        .auto-style8 {
+            width: 33%;
+            text-align: right;
+            height: 481px;
         }
-    </style>
+        .auto-style9 {
+            height: 7px;
+        }
+        </style>
 </head>
-<body style="background-color:#33A8FF;">
+<body style="background-color:#33A8FF;" >
     
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
     <div>
+    </div>
         <table class="auto-style1" >
             <tr>
-                <td class="auto-style2" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td class="auto-style2" colspan="2">
                     <asp:Image ID="Image1" runat="server" Height="88px" ImageUrl="~/Imagenes/superfast1.jpg" Width="88px"  />
-&nbsp; &nbsp;&nbsp;&nbsp;<asp:Label ID="Label1" runat="server" Font-Bold="False" Font-Italic="False" Font-Names="Arial Black" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Height="70px" Text="Super Fast" Width="232px"></asp:Label>
-                    &nbsp;</td>
-                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button1" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button2" runat="server" BackColor="#3399FF" Height="30px" Text="Iniciar sesion" Width="95px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button3" runat="server" BackColor="#3399FF" Height="30px" Text="Nosotros" Width="95px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<asp:Label ID="Label1" runat="server" Font-Bold="False" Font-Italic="False" Font-Names="Arial Black" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Height="50%" Text="Super Fast" Width="77%"></asp:Label>
+                    </td>
+                <td class="auto-style3">
+                    <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" />
+
+                    <asp:Button ID="BT_Registrarse" runat="server" BackColor="#3399FF" Height="30px" PostBackUrl="~/View/Registrarse.aspx" Text="Registrarse" Width="95px" />
+
+                    <asp:Button ID="BT_IniciarSesion" runat="server" BackColor="#3399FF" Height="30px" Text="Iniciar sesion" Width="95px" />
+
+                    <asp:Button ID="BT_nosotros" runat="server" BackColor="#3399FF" Height="30px" Text="Nosotros" Width="95px" />
+
                     <asp:ImageButton ID="ImageButton1" runat="server" Height="36px" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" Width="35px" />
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="3" class="auto-style9">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
         
         </asp:ContentPlaceHolder>
@@ -56,10 +69,10 @@
             </tr>
             <tr>
                 <td class="auto-style6">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   
                     <asp:Image ID="Image2" runat="server" Height="92px" ImageUrl="~/Imagenes/superfast1.jpg" Width="88px" />
                 </td>
-                <td class="auto-style7" >
+                <td class="auto-style6" >
                     <asp:Button ID="Button4" runat="server" BackColor="#33A8FF" Text="¿Como trabajar con nosotros?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" />
                     <br />
                     <br />
@@ -68,29 +81,28 @@
                     <br />
                     <asp:Label ID="Label2" runat="server" BackColor="#3399FF" Height="22px" Text="¡Tu Elijes, Nosotros te lo llevamos!" Width="235px"></asp:Label>
                 </td>
-                <td>
+                <td class="auto-style8">
                     <asp:Label ID="Label3" runat="server" Text="Contacto"></asp:Label>
                     <br />
                     <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" />
                     <asp:Button ID="Button6" runat="server" BackColor="#3399FF" Text="3147426862" BorderColor="#33A8FF" BorderStyle="None" />
-&nbsp;&nbsp;
+
                     <asp:Image ID="Image4" runat="server" ImageUrl="~/Imagenes/Iconos/facebook.png" />
                     <asp:Button ID="Button8" runat="server" BackColor="#3399FF" Text="Super Fast" Width="111px" />
-&nbsp;&nbsp;
+
                     <br />
                     <asp:Image ID="Image3" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" />
                     <asp:Button ID="Button7" runat="server" BackColor="#3399FF" Text="3144733509" />
-&nbsp;&nbsp;
+
                     <asp:Image ID="Image5" runat="server" ImageUrl="~/Imagenes/Iconos/instagram.png" />
                     <asp:Button ID="Button9" runat="server" BackColor="#3399FF" Text="super_fast_col" Width="111px" />
-&nbsp;&nbsp;
+
                     <asp:Image ID="Image6" runat="server" ImageUrl="~/Imagenes/Iconos/gmail.png" />
                     <asp:Button ID="Button10" runat="server" BackColor="#3399FF" Text="sop.superfast@gmail.com" Width="161px" />
                     <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" NavigateUrl="https://www.facebook.com/SuperFast">como trabajar con nosotros</asp:HyperLink>
                 </td>
             </tr>
         </table>
-    </div>
     </form>
 </body>
 </html>

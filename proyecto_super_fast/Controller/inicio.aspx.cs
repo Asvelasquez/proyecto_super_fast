@@ -11,4 +11,14 @@ public partial class View_inicio : System.Web.UI.Page
     {
 
     }
+
+    protected void Menu_principal_MenuItemClick(object sender, MenuEventArgs e)
+    {
+
+    }
+
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
 }
