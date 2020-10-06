@@ -12,6 +12,10 @@ public class prueba2
     {
         //
         // TODO: Agregar aquí la lógica del constructor
+
         //
+
+        
     }
+    private int nicolas;
 }
