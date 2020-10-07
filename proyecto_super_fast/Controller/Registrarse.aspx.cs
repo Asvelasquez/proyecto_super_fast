@@ -11,4 +11,24 @@ public partial class View_Registrarse : System.Web.UI.Page
     {
 
     }
+
+    protected void BT_Registrar_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            Cliente cliente = new Cliente();
+            cliente.Nombre = TB_Nombre.Text;
+            cliente.Apellido = TB_Apellido.Text;
+            cliente.Correo = TB_Correo.Text;
+            cliente.Telefono = TB_Telefono.Text;
+            cliente.Contrasenia = TB_Contrasenia.Text;
+            cliente.Direccion = TB_Direccion.Text;
+            new DAOCliente().insertCliente(cliente);
+            Response.Redirect("Inicio.aspx");
+        }
+        catch(Exception ex)
+        { return; }
+        
+    }
 }
