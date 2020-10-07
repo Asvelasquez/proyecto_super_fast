@@ -13,6 +13,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
+            height: 462px;
         }
         .auto-style2 {
             width: 50%;
@@ -23,17 +24,21 @@
             width: 33%;
             text-align: right;
         }
-        .auto-style6 {
-            width: 33%;
-            height: 481px;
-        }
         .auto-style8 {
             width: 33%;
-            text-align: right;
+            text-align: left;
             height: 481px;
         }
         .auto-style9 {
             height: 7px;
+        }
+        .auto-style11 {
+            width: 12%;
+            height: 481px;
+        }
+        .auto-style12 {
+            width: 11%;
+            height: 481px;
         }
         </style>
 </head>
@@ -51,11 +56,19 @@
                 <td class="auto-style3">
                     <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" />
 
+                    &nbsp;
+
                     <asp:Button ID="BT_Registrarse" runat="server" BackColor="#3399FF" Height="30px" PostBackUrl="~/View/Registrarse.aspx" Text="Registrarse" Width="95px" />
+
+                    &nbsp;
 
                     <asp:Button ID="BT_IniciarSesion" runat="server" BackColor="#3399FF" Height="30px" Text="Iniciar sesion" Width="95px" />
 
+                    &nbsp;
+
                     <asp:Button ID="BT_nosotros" runat="server" BackColor="#3399FF" Height="30px" Text="Nosotros" Width="95px" />
+
+                    &nbsp;
 
                     <asp:ImageButton ID="ImageButton1" runat="server" Height="36px" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" Width="35px" />
                 </td>
@@ -68,38 +81,51 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style6">
+                <td class="auto-style11">
                    
                     <asp:Image ID="Image2" runat="server" Height="92px" ImageUrl="~/Imagenes/superfast1.jpg" Width="88px" />
                 </td>
-                <td class="auto-style6" >
+                <td class="auto-style12" >
                     <asp:Button ID="Button4" runat="server" BackColor="#33A8FF" Text="¿Como trabajar con nosotros?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" />
                     <br />
                     <br />
                     <asp:Button ID="Button5" runat="server" BackColor="#33A8FF" Text="¿Como ser nuestro aliado?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" />
                     <br />
                     <br />
-                    <asp:Label ID="Label2" runat="server" BackColor="#3399FF" Height="22px" Text="¡Tu Elijes, Nosotros te lo llevamos!" Width="235px"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Height="22px" Text="¡Tu Elijes, Nosotros te lo llevamos!" Width="228px"></asp:Label>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                 </td>
                 <td class="auto-style8">
-                    <asp:Label ID="Label3" runat="server" Text="Contacto"></asp:Label>
+                    <asp:Label ID="Label9" runat="server" Text="Contacto"></asp:Label>
                     <br />
-                    <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" />
-                    <asp:Button ID="Button6" runat="server" BackColor="#3399FF" Text="3147426862" BorderColor="#33A8FF" BorderStyle="None" />
-
-                    <asp:Image ID="Image4" runat="server" ImageUrl="~/Imagenes/Iconos/facebook.png" />
-                    <asp:Button ID="Button8" runat="server" BackColor="#3399FF" Text="Super Fast" Width="111px" />
+                    &nbsp;<asp:HyperLink ID="HyperLink_whatsapp" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" NavigateUrl="https://wa.me/573144726862" Target="_blank">HyperLink</asp:HyperLink>
+&nbsp;<asp:Label ID="Label5" runat="server" Height="30px" Text="3147426862"></asp:Label>
+&nbsp;
+                    &nbsp;<asp:HyperLink ID="HyperLink_facebook" runat="server" ImageUrl="~/Imagenes/Iconos/facebook.png" NavigateUrl="https://www.facebook.com/SuperFast" Target="_blank">aaaaaaaaaaaaaaaaa</asp:HyperLink>
+&nbsp;<asp:Label ID="Label4" runat="server" Height="30px" Text="Super Fast"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                     <br />
-                    <asp:Image ID="Image3" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" />
-                    <asp:Button ID="Button7" runat="server" BackColor="#3399FF" Text="3144733509" />
-
-                    <asp:Image ID="Image5" runat="server" ImageUrl="~/Imagenes/Iconos/instagram.png" />
-                    <asp:Button ID="Button9" runat="server" BackColor="#3399FF" Text="super_fast_col" Width="111px" />
-
-                    <asp:Image ID="Image6" runat="server" ImageUrl="~/Imagenes/Iconos/gmail.png" />
-                    <asp:Button ID="Button10" runat="server" BackColor="#3399FF" Text="sop.superfast@gmail.com" Width="161px" />
-                    <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" NavigateUrl="https://www.facebook.com/SuperFast">como trabajar con nosotros</asp:HyperLink>
+                    &nbsp;<asp:HyperLink ID="HyperLink_whatsapp1" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" NavigateUrl="https://wa.me/573144733509">HyperLink</asp:HyperLink>
+&nbsp;<asp:Label ID="Label6" runat="server" Height="30px" Text="3144733509"></asp:Label>
+&nbsp;
+                    &nbsp;<asp:HyperLink ID="HyperLink_instagram" runat="server" ImageUrl="~/Imagenes/Iconos/instagram.png" NavigateUrl="https://www.instagram.com/super_fast_co/" Target="_blank">HyperLink_instagram</asp:HyperLink>
+&nbsp;<asp:Label ID="Label7" runat="server" Height="30px" Text="super_fast_col"></asp:Label>
+&nbsp;
+                    &nbsp;<asp:HyperLink ID="HyperLink2" runat="server" ImageUrl="~/Imagenes/Iconos/gmail.png">HyperLink_correo</asp:HyperLink>
+                    <asp:Label ID="Label8" runat="server" Height="30px" Text="sop.superfast@gmail.com"></asp:Label>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                 </td>
             </tr>
         </table>
