@@ -122,7 +122,7 @@
                     <asp:Image ID="Image2" runat="server" Height="92px" ImageUrl="~/Imagenes/superfast1.jpg" Width="88px" />
                 </td>
                 <td class="auto-style12" >
-                    <asp:Button ID="BTN_trabajarnoso" runat="server" BackColor="#33A8FF" Text="¿Como trabajar con nosotros?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" />
+                    <asp:Button ID="BTN_trabajarnoso" runat="server" BackColor="#33A8FF" Text="¿Como trabajar con nosotros?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" PostBackUrl="~/View/trabajarnosotros.aspx" />
                     <br />
                     <br />
                     <asp:Button ID="BTN_seraliado" runat="server" BackColor="#33A8FF" Text="¿Como ser nuestro aliado?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" />
