@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Login ID="LG_Principal" align="center"  runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="100%" Width="100%" CssClass="auto-style15" UserNameLabelText="Correo">
+                <asp:Login ID="LG_Principal" align="center"  runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="100%" Width="100%" CssClass="auto-style15" UserNameLabelText="Correo" OnAuthenticate="LG_Principal_Authenticate">
                     <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                     <LoginButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
                     <TextBoxStyle Font-Size="0.8em" />

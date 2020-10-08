@@ -14,7 +14,7 @@ public partial class View_Registrarse : System.Web.UI.Page
 
     protected void BT_Registrar_Click(object sender, EventArgs e)
     {
-
+    
         try
         {
             Cliente cliente = new Cliente();

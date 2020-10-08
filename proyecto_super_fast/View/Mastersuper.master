@@ -54,7 +54,7 @@
 <asp:Label ID="Label1" runat="server" Font-Bold="False" Font-Italic="False" Font-Names="Arial Black" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Height="50%" Text="Super Fast" Width="77%"></asp:Label>
                     </td>
                 <td class="auto-style3">
-                    <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" />
+                    <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" PostBackUrl="~/View/Inicio.aspx" />
 
                     &nbsp;
 
