@@ -24,9 +24,7 @@ aprobracion del administrador." Height="199px" Width="200px" BorderColor="White"
 <asp:Image ID="Image4" runat="server" Height="200px" ImageUrl="~/Imagenes/_CCC7766.jpg" Width="300px" />
 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:Button ID="BTN_iniciarsesion" runat="server" BackColor="#3399FF" BorderColor="White" OnClick="Button2_Click" Text="Iniciar sesion" Width="95px" />
 &nbsp;&nbsp;&nbsp;&nbsp;
-<asp:Button ID="BNT_registrarse" runat="server" BackColor="#3399FF" BorderColor="White" OnClick="Button1_Click" Text="Regitrarse" Width="95px" />
 <br />
 &nbsp;
 </asp:Content>
