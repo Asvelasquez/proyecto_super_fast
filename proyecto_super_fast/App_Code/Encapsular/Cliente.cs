@@ -28,6 +28,10 @@ public class Cliente
     private string contrasenia;
     private string direccion;
     private string telefono;
+    private int rol_id;
+
+    private string nombre_rol;
+
 
     [Key]
     [Column("id_cliente")]
@@ -44,4 +48,9 @@ public class Cliente
     public string Direccion { get => direccion; set => direccion = value; }
     [Column("telefono")]
     public string Telefono { get => telefono; set => telefono = value; }
+    [NotMapped]
+    public string Nombre_rol { get => nombre_rol; set => nombre_rol = value; }
+    [Column("rol_id")]
+    public int Rol_id { get => rol_id; set => rol_id = value; }
+    
 }
