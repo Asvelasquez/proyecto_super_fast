@@ -22,7 +22,7 @@ public partial class View_Login : System.Web.UI.Page
         cliente = new DAOCliente().login(cliente);
         if (cliente == null)
         {
-            ((Label)LG_Principal.FindControl("L_Mensaje")).Text = "Usuario o Clave incorrecto.";
+          
             Session["user"] = null;
         }
         else

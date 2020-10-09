@@ -29,7 +29,6 @@ public class Cliente
     private string direccion;
     private string telefono;
     private int rol_id;
-
     private string nombre_rol;
 
 

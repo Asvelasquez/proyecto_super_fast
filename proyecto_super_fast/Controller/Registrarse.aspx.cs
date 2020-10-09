@@ -24,6 +24,7 @@ public partial class View_Registrarse : System.Web.UI.Page
             cliente.Telefono = TB_Telefono.Text;
             cliente.Contrasenia = TB_Contrasenia.Text;
             cliente.Direccion = TB_Direccion.Text;
+           
             new DAOCliente().insertCliente(cliente);
             Response.Redirect("Inicio.aspx");
         }
