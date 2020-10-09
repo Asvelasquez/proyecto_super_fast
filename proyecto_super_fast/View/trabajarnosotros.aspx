@@ -20,12 +20,13 @@ hoja de vida 10-03 en formato pdf y esperar
 aprobracion del administrador." Height="199px" Width="200px" BorderColor="White"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <asp:Image ID="Image3" runat="server" Height="200px" ImageUrl="~/Imagenes/_CCC7703.jpg" Width="300px" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:Image ID="Image4" runat="server" Height="200px" ImageUrl="~/Imagenes/_CCC7766.jpg" Width="300px" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Image ID="Image4" runat="server" Height="200px" ImageUrl="~/Imagenes/_CCC7766.jpg" Width="280px" />
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Button ID="Button1" runat="server" BackColor="White" PostBackUrl="~/View/registrar_domiciliario.aspx" Text="Registrarse" />
 &nbsp;
 </asp:Content>
 

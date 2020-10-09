@@ -17,8 +17,7 @@ public class DAOCliente
         return new Mapeo().client.Where(x => x.Correo.ToUpper().Equals(cliente.Correo.ToUpper()) && x.Contrasenia.Equals(cliente.Contrasenia)).FirstOrDefault();
     }
     //metodo insertar cliente
-    public void insertCliente(Cliente cliente)
-    {
+    public void insertCliente(Cliente cliente){
         using (var db = new Mapeo())
         {
             db.client.Add(cliente);

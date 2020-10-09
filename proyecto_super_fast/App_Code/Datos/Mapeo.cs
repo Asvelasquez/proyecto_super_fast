@@ -14,17 +14,15 @@ public class Mapeo: DbContext
         Database.SetInitializer<Mapeo>(null);
     }
 
-    public Mapeo()
-        : base("name=bd_inicial")
+    public Mapeo(): base("name=bd_inicial")
     {
 
     }
     public DbSet<Cliente> client { get; set; }
     public DbSet<Rol> rol { get; set; }
-    protected override void OnModelCreating(DbModelBuilder builder)
-    {
+    public DbSet<Domiciliario> domiciliari { get; set; }
+    protected override void OnModelCreating(DbModelBuilder builder){
         builder.HasDefaultSchema("public");
-
         base.OnModelCreating(builder);
     }
 }
