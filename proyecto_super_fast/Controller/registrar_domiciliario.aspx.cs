@@ -11,8 +11,7 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
     {
 
     }
-
-
+    
     protected void BTND_registrar_Click(object sender, EventArgs e)
     {
         ClientScriptManager cm = this.ClientScript;
@@ -32,8 +31,7 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             return;}
         
 
-        try
-        {
+        try{
             FUD_hojavida.PostedFile.SaveAs(saveLocation);
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El archivo ha sido cargado');</script>");
 
@@ -46,7 +44,6 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             domiciliario1.Telefono_d = TBD_telefono.Text;
             domiciliario1.Hojavida_d = "~\\Hojas_de_vida" + "\\" + nombreArchivo; ;
             domiciliario1.Tipovehiculo_d = DDLD_tipovehiculo.Text;
-
             new DAODomiciliario().insertDomiciliario(domiciliario1);
             Cliente cliente = new Cliente();
             cliente.Nombre = TBD_nombre.Text;

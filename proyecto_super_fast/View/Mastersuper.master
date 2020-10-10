@@ -125,7 +125,7 @@
                     <asp:Button ID="BTN_trabajarnoso" runat="server" BackColor="#33A8FF" Text="¿Como trabajar con nosotros?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" PostBackUrl="~/View/trabajarnosotros.aspx" />
                     <br />
                     <br />
-                    <asp:Button ID="BTN_seraliado" runat="server" BackColor="#33A8FF" Text="¿Como ser nuestro aliado?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" />
+                    <asp:Button ID="BTN_seraliado" runat="server" BackColor="#33A8FF" Text="¿Como ser nuestro aliado?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" PostBackUrl="~/View/Registrar_aliado.aspx" />
                     <br />
                     <br />
                     <asp:Label ID="Label2" runat="server" Height="22px" Text="¡Tu Elijes, Nosotros te lo llevamos!" Width="228px"></asp:Label>

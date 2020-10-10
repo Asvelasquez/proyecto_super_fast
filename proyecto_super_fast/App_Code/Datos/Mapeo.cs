@@ -21,6 +21,8 @@ public class Mapeo: DbContext
     public DbSet<Cliente> client { get; set; }
     public DbSet<Rol> rol { get; set; }
     public DbSet<Domiciliario> domiciliari { get; set; }
+    public DbSet<Aliado> aliad { get; set; }
+
     protected override void OnModelCreating(DbModelBuilder builder){
         builder.HasDefaultSchema("public");
         base.OnModelCreating(builder);
