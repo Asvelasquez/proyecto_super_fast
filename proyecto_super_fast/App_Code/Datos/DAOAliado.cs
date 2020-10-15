@@ -8,10 +8,8 @@ using System.Web;
 /// </summary>
 public class DAOAliado
 {
-    public void insertAliado(Aliado aliado)
-    {
-        using (var db = new Mapeo())
-        {
+    public void insertAliado(Aliado aliado){
+        using (var db = new Mapeo()){
             db.aliad.Add(aliado);
             db.SaveChanges();
         }

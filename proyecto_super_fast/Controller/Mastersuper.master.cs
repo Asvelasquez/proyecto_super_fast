@@ -26,7 +26,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage
     {
         if (Session["user"] != null)
         {
-            switch (((Cliente)Session["user"]).Rol_id)
+            switch (((Usuario)Session["user"]).Id_rol)
             {
                 case 1:
                     rolCliente();
@@ -77,6 +77,11 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage
         M_Cliente.Visible = false;
     }
     protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+    {
+
+    }
+
+    protected void M_Admin_MenuItemClick(object sender, MenuEventArgs e)
     {
 
     }

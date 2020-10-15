@@ -15,24 +15,35 @@ public partial class View_Login : System.Web.UI.Page
 
     protected void LG_Principal_Authenticate(object sender, AuthenticateEventArgs e)
     {
-        Cliente cliente = new Cliente();
-        cliente.Correo = LG_Principal.UserName;
-        cliente.Contrasenia = LG_Principal.Password;
-
-        cliente = new DAOCliente().login(cliente);
-        if (cliente == null)
-        {
-          
+        Usuario usuario = new Usuario();
+        usuario.Correo = LG_Principal.UserName;
+        usuario.Contrasennia = LG_Principal.Password;
+        ClientScriptManager cm = this.ClientScript;
+        usuario = new DAOUsuario().loginusuario(usuario);
+        if (usuario == null){          
             Session["user"] = null;
         }
-        else
-        {
-            Session["user"] = cliente;
-            if (cliente.Rol_id == 1)
+        else{
+            Session["user"] = usuario;
+            if (usuario.Id_rol == 1) { 
                 Response.Redirect("Registrarse.aspx");
-            else
-                Response.Redirect("Inicio.aspx");
-
+            }else {
+                if (usuario.Id_rol == 2 && usuario.Aprobacion==1)                {
+                    Response.Redirect("ser_aliado.aspx");
+                }else{
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como aliado, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');</script>");
+                    //Response.Redirect("Login.aspx");
+                    }
+                if (usuario.Id_rol == 3 && usuario.Aprobacion == 1)
+                {
+                    Response.Redirect("ser_aliado.aspx");
+                }
+                else
+                {
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como domiciliario, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');</script>");
+                    //Response.Redirect("Login.aspx");
+                }
+            }
 
         }
 

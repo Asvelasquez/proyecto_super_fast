@@ -70,37 +70,25 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Ya existe un archivo en el servidor con ese nombre');</script>");
             return;
         }
-        FUA_logo.PostedFile.SaveAs(saveLocation);
-        FUA_rut.PostedFile.SaveAs(saveLocation1);
-
-        Aliado aliado1 = new Aliado();
-        aliado1.Nombre_a = TBA_nombrecomercial.Text;
-        aliado1.Nit_a = TBA_nit.Text;
-        aliado1.Correo_a = TBA_correo.Text;
-        aliado1.Contrasenia_a = TBA_password.Text;
-        aliado1.Telefono_a = TBA_telefono.Text;
-        aliado1.Direccion_a = TBA_direccion.Text;
-        aliado1.Actividadcomercial_a = TBA_actividadcomercial.Text;
-        aliado1.Logo = "~\\Aliado\\logo" + "\\" + nombreArchivo; ;
-        aliado1.Rut = "~\\Aliado\\rut" + "\\" + nombreArchivo1; ;
-        new DAOAliado().insertAliado(aliado1);
-
-        Cliente cliente = new Cliente();
-        cliente.Nombre = TBA_nombrecomercial.Text;
-        cliente.Apellido = " ";
-        cliente.Correo = TBA_correo.Text;
-        cliente.Telefono = TBA_telefono.Text;
-        cliente.Direccion = TBA_direccion.Text;
-        cliente.Contrasenia = TBA_password.Text;
-        int rol3 = 2;
-        cliente.Rol_id = rol3;
-        new DAOCliente().insertCliente(cliente);
-        cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud sera revisada y respondida al correo que ingreso');</script>");
-
-        //  Response.Redirect("Inicio.aspx");
+        
         try
         {
-            
+            FUA_logo.PostedFile.SaveAs(saveLocation);
+            FUA_rut.PostedFile.SaveAs(saveLocation1);
+
+            Usuario aliado1 = new Usuario();
+            aliado1.Nombre = TBA_nombrecomercial.Text;
+            aliado1.Documento = TBA_nit.Text;
+            aliado1.Correo = TBA_correo.Text;
+            aliado1.Contrasennia = TBA_password.Text;
+            aliado1.Telefono = TBA_telefono.Text;
+            aliado1.Direccion = TBA_direccion.Text;
+            aliado1.Actividadcomercial = TBA_actividadcomercial.Text;
+            aliado1.Imagenperfil = "~\\Aliado\\logo" + "\\" + nombreArchivo; ;
+            aliado1.Rut = "~\\Aliado\\rut" + "\\" + nombreArchivo1; ;
+            new DAOUsuario().insertUsuario(aliado1);
+
+            //  Response.Redirect("Inicio.aspx");
         }
         catch (Exception ex)
         { return; }

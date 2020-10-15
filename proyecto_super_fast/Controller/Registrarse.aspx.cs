@@ -17,15 +17,15 @@ public partial class View_Registrarse : System.Web.UI.Page
     
         try
         {
-            Cliente cliente = new Cliente();
+            Usuario cliente = new Usuario();
             cliente.Nombre = TB_Nombre.Text;
             cliente.Apellido = TB_Apellido.Text;
             cliente.Correo = TB_Correo.Text;
             cliente.Telefono = TB_Telefono.Text;
-            cliente.Contrasenia = TB_Contrasenia.Text;
+            cliente.Contrasennia = TB_Contrasenia.Text;
             cliente.Direccion = TB_Direccion.Text;
            
-            new DAOCliente().insertCliente(cliente);
+            new DAOUsuario().insertUsuario(cliente);
             Response.Redirect("Inicio.aspx");
         }
         catch(Exception ex)

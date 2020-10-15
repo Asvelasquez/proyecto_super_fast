@@ -8,7 +8,7 @@ using System.Web;
 [Serializable]
 [Table("domiciliario", Schema = "informacion")]
 
-/*"Id_domiciliario" integer NOT NULL DEFAULT nextval('informacion."domiciliario_Id_domiciliario_seq"'::regclass),
+/*"Id_Usuario" integer NOT NULL DEFAULT nextval('informacion."Usuario_Id_Usuario_seq"'::regclass),
 nombre_d text COLLATE pg_catalog."default" NOT NULL,
 apellido_d text COLLATE pg_catalog."default" NOT NULL,
 correo_d text COLLATE pg_catalog."default" NOT NULL,
@@ -17,7 +17,7 @@ documento_d text COLLATE pg_catalog."default" NOT NULL,
 telefono text COLLATE pg_catalog."default" NOT NULL,
 hojavida_d text COLLATE pg_catalog."default" NOT NULL,
 tipovehiculo_d text COLLATE pg_catalog."default" NOT NULL,
-CONSTRAINT pk_informacion_domiciliario PRIMARY KEY ("Id_domiciliario")
+CONSTRAINT pk_informacion_Usuario PRIMARY KEY ("Id_Usuario")
 */
 public class Domiciliario{
     private int id_domiciliario;
@@ -31,7 +31,7 @@ public class Domiciliario{
     private string tipovehiculo_d;
     [Key]
     [Column("id_domiciliario")]
-    public int Id_domiciliario { get => id_domiciliario; set => id_domiciliario = value; }
+    public int Id_Usuario { get => id_domiciliario; set => id_domiciliario = value; }
     [Column("nombre_d")]
     public string Nombre_d { get => nombre_d; set => nombre_d = value; }
     [Column("apellido_d")]

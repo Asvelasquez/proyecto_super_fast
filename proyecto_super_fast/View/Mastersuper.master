@@ -75,7 +75,7 @@
             </tr>
             <tr>
                 <td class="auto-style2" colspan="2">
-                    <asp:Menu ID="M_Admin" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="Large" ForeColor="#284E98" StaticSubMenuIndent="10px">
+                    <asp:Menu ID="M_Admin" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="Large" ForeColor="#284E98" StaticSubMenuIndent="10px" OnMenuItemClick="M_Admin_MenuItemClick">
                         <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
                         <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                         <DynamicMenuStyle BackColor="#B5C7DE" />
