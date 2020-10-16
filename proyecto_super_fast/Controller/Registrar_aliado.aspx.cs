@@ -80,7 +80,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             aliado1.Nombre = TBA_nombrecomercial.Text;
             aliado1.Documento = TBA_nit.Text;
             aliado1.Correo = TBA_correo.Text;
-            aliado1.Contrasennia = TBA_password.Text;
+            aliado1.Contrasenia = TBA_password.Text;
             aliado1.Telefono = TBA_telefono.Text;
             aliado1.Direccion = TBA_direccion.Text;
             aliado1.Actividadcomercial = TBA_actividadcomercial.Text;

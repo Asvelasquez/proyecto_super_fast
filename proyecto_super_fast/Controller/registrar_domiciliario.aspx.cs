@@ -39,7 +39,7 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             domiciliario.Nombre = TBD_nombre.Text;
             domiciliario.Apellido = TBD_apellido.Text;
             domiciliario.Correo = TBD_correo.Text;
-            domiciliario.Contrasennia = TBD_contrasena.Text;
+            domiciliario.Contrasenia = TBD_contrasena.Text;
             domiciliario.Documento = TBD_ndocumento.Text;
             domiciliario.Telefono = TBD_telefono.Text;
             domiciliario.Hojavida = "~\\Hojas_de_vida" + "\\" + nombreArchivo; ;

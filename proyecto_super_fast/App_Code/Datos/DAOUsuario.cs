@@ -8,16 +8,16 @@ using System.Web;
 /// </summary>
 public class DAOUsuario
 {
-    public void insertUsuario(Usuario usuario){
+    public void insertUsuario(Usuario usuario2){
         using (var db = new Mapeo()){
-            db.usuari.Add(usuario);
+            db.usuari.Add(usuario2);
             db.SaveChanges();
         }
     }
 
     public Usuario loginusuario(Usuario usuario)
     {
-        return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasennia.Equals(usuario.Contrasennia)).FirstOrDefault();
+        return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
     }
 
     public List<Usuario> mostraraliado() {

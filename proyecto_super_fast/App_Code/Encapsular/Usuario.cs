@@ -50,8 +50,8 @@ public class Usuario
     public string Apellido { get => apellido; set => apellido = value; }
     [Column("correo")]
     public string Correo { get => correo; set => correo = value; }
-    [Column("contrasennia")]
-    public string Contrasennia { get => contrasennia; set => contrasennia = value; }
+    [Column("contrasenia")]
+    public string Contrasenia { get => contrasennia; set => contrasennia = value; }
     [Column("direccion")]
     public string Direccion { get => direccion; set => direccion = value; }
     [Column("telefono")]

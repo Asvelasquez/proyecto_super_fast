@@ -17,7 +17,7 @@ public partial class View_Login : System.Web.UI.Page
     {
         Usuario usuario = new Usuario();
         usuario.Correo = LG_Principal.UserName;
-        usuario.Contrasennia = LG_Principal.Password;
+        usuario.Contrasenia = LG_Principal.Password;
         ClientScriptManager cm = this.ClientScript;
         usuario = new DAOUsuario().loginusuario(usuario);
         if (usuario == null){          
