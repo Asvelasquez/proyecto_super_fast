@@ -9,6 +9,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         if (!Page.AppRelativeVirtualPath.Contains("Login.aspx"))
         {
             Response.Cache.SetNoStore();

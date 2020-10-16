@@ -86,6 +86,9 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             aliado1.Actividadcomercial = TBA_actividadcomercial.Text;
             aliado1.Imagenperfil = "~\\Aliado\\logo" + "\\" + nombreArchivo; ;
             aliado1.Rut = "~\\Aliado\\rut" + "\\" + nombreArchivo1; ;
+            int rol2 = 2, aprob = 0;
+            aliado1.Id_rol = rol2;
+            aliado1.Aprobacion = aprob;
             new DAOUsuario().insertUsuario(aliado1);
 
             //  Response.Redirect("Inicio.aspx");
