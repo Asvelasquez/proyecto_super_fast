@@ -24,4 +24,9 @@ public class DAOUsuario
         return new Mapeo().usuari.Where(x => x.Id_rol==2).ToList<Usuario>();
     }
 
+    public List<Usuario> mostrardomiciliario()
+    {
+        return new Mapeo().usuari.Where(x => x.Id_rol == 3).ToList<Usuario>();
+    }
+
 }
