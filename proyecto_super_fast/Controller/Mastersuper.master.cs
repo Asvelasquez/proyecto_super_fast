@@ -15,12 +15,15 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage
             Response.Cache.SetNoStore();
             if (Session["user"] == null)
                 Response.Redirect("Login.aspx");
-
+           
             menu();
-        }
+            
+        }       
         else
+
         {
             sinRol();
+            
         }
     }
     protected void menu()
@@ -75,7 +78,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage
     protected void sinRol()
     {
         M_Admin.Visible = false;
-        M_Cliente.Visible = false;
+        M_Cliente.Visible = true;
     }
     protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
     {

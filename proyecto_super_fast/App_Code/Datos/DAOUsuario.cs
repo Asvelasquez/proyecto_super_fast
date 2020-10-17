@@ -19,6 +19,10 @@ public class DAOUsuario
     {
         return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
     }
+    public Usuario getUserByUserName(string correo)
+    {
+        return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(correo.ToUpper())).FirstOrDefault();
+    }
 
     public List<Usuario> mostraraliado() {
         return new Mapeo().usuari.Where(x => x.Id_rol==2).ToList<Usuario>();
