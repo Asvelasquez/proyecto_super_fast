@@ -20,22 +20,22 @@ public class DAOSeguridad
 
     public Token getTokenByUser(int userId)
     {
-        return new Mapeo().token.Where(x => x.UserId == userId && x.Vigencia > DateTime.Now).FirstOrDefault();
+        return new Mapeo().token.Where(x => x.User_id == userId && x.Vigencia > DateTime.Now).FirstOrDefault();
     }
 
     public Token getTokenByToken(string token)
     {
-        return new Mapeo().token.Where(x => x.TokenGenerado == token).FirstOrDefault();
+        return new Mapeo().token.Where(x => x.Tokeng == token).FirstOrDefault();
     }
 
     public void updateClave(Usuario usuario)
     {
         using (var db = new Mapeo())
         {
-            Usuario usuarioAnterior = db.usuari.Where(x => x.Id == usuario.Id).First();
+            Usuario usuarioAnterior = db.user.Where(x => x.Id == usuario.Id).First();
             usuarioAnterior.Contrasenia = usuario.Contrasenia;
 
-            db.usuari.Attach(usuarioAnterior);
+            db.user.Attach(usuarioAnterior);
 
             var entry = db.Entry(usuarioAnterior);
             entry.State = EntityState.Modified;

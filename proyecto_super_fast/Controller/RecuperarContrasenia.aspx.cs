@@ -11,18 +11,18 @@ public partial class View_RecuperarContrasenia : System.Web.UI.Page
     {
         if (Request.QueryString.Count > 0)
         {
-            //Token token = new DAOSeguridad().getTokenByToken(Request.QueryString[0]);
+            Token token = new DAOSeguridad().getTokenByToken(Request.QueryString[0]);
 
-            //if (token == null)
-            //    this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('El Token es invalido. Genere uno nuevo');window.location=\"Login.aspx\"</script>");
-            //else if (token.Vigencia < DateTime.Now)
-            //    this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('El Token esta vencido. Genere uno nuevo');window.location=\"Login.aspx\"</script>");
-            //else
-            //    Session["user_id"] = token.UserId;
+            if (token == null)
+                this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('El Token es invalido. Genere uno nuevo');window.location=\"Login.aspx\"</script>");
+            else if (token.Vigencia < DateTime.Now)
+                this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('El Token esta vencido. Genere uno nuevo');window.location=\"Login.aspx\"</script>");
+            else
+                Session["user_id"] = token.User_id;
         }
 
         else
-            Response.Redirect("Loggin.aspx");
+            Response.Redirect("Login.aspx");
     }
 
     protected void B_Cambiar_Click(object sender, EventArgs e)

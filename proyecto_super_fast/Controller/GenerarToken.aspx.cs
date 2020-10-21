@@ -9,23 +9,6 @@ public partial class View_GenerarToken : System.Web.UI.Page
     {
 
     }
-
-    
-    private string encriptar(string input)
-    {
-        SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();
-
-        byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-        byte[] hashedBytes = provider.ComputeHash(inputBytes);
-
-        StringBuilder output = new StringBuilder();
-
-        for (int i = 0; i < hashedBytes.Length; i++)
-            output.Append(hashedBytes[i].ToString("x2").ToLower());
-
-        return output.ToString();
-    }
-
     protected void B_Recuperar_Click(object sender, EventArgs e)
     {
         Usuario usuario = new DAOUsuario().getUserByUserName(TB_Correo.Text);
@@ -43,17 +26,17 @@ public partial class View_GenerarToken : System.Web.UI.Page
 
             Token token = new Token();
             token.Creado = DateTime.Now;
-            token.UserId = usuario.Id;
-            token.Vigencia = DateTime.Now.AddHours(1);
+            token.User_id = usuario.Id;
+            token.Vigencia = DateTime.Now.AddHours(2);
 
 
-            token.TokenGenerado = encriptar(JsonConvert.SerializeObject(token));
+            token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
             new DAOSeguridad().insertarToken(token);
 
             Correo correo = new Correo();
 
-            String mensaje = "su link de acceso es: " + "http://localhost:56248/View/RecuperarContrasenia.aspx?" + token.TokenGenerado;
-            correo.enviarCorreo("velasquezalan07@gmail.com", token.TokenGenerado, mensaje);
+            String mensaje = "su link de acceso es: " + "http://localhost:61374/View/Recuperar.aspx?" + token.Tokeng;
+            correo.enviarCorreo("velasquezalan07@gmail.com", token.Tokeng, mensaje);
 
             LB_Mensaje.Text = "Su nueva contraseña ha sido enviada a su correo";
             //}
@@ -61,8 +44,25 @@ public partial class View_GenerarToken : System.Web.UI.Page
 
         else
         {
-            LB_Mensaje.Text = "El usuario digitado no existe";
+            LB_Mensaje.Text = "El usurio digitado no existe";
         }
 
     }
+
+    private string encriptar(string input)
+    {
+        SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();
+
+        byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+        byte[] hashedBytes = provider.ComputeHash(inputBytes);
+
+        StringBuilder output = new StringBuilder();
+
+        for (int i = 0; i < hashedBytes.Length; i++)
+            output.Append(hashedBytes[i].ToString("x2").ToLower());
+
+        return output.ToString();
+    }
+
+
 }

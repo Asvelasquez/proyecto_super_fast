@@ -9,18 +9,19 @@ using System.Web;
 /// Descripción breve de Rol
 /// </summary>
 [Serializable]
-[Table("rol", Schema = "usuario")]
+[Table("rol", Schema = "informacion")]
 public class Rol
 {
-    /*id_rol integer NOT NULL DEFAULT nextval('informacion.rol_id_rol_seq'::regclass),
-    tipo text COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT "PK_id_rol_informacion" PRIMARY KEY (id_rol)*/
+   
 
-    private int id_rol;
-    private string tipo;
+    private int id;
+    private string nombre;
+
+  
     [Key]
-    [Column("id_rol")]
-    public int Id_rol { get => id_rol; set => id_rol = value; }
-    [Column("tipo")]
-    public string Tipo { get => tipo; set => tipo = value; }
+    [Column("id")]
+    public int Id { get => id; set => id = value; }
+    [Column("nombre")]
+    public string Nombre { get => nombre; set => nombre = value; }
+
 }

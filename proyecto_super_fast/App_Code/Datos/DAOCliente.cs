@@ -31,12 +31,12 @@ public class DAOCliente
         using (var db = new Mapeo())
         {
             return (from u in db.client
-                    join r in db.rol on u.Rol_id equals r.Id_rol
+                    join r in db.rol on u.Rol_id equals r.Id
                     join u2 in db.client on u.Rol_id equals u2.Rol_id
                     select new
                     {
                         u,
-                        r.Tipo
+                        r.Nombre
                     }).ToList().Select(m => new Cliente
                     {
                         Apellido = m.u.Apellido,
@@ -44,7 +44,7 @@ public class DAOCliente
                         Correo = m.u.Correo,
                         Id_cliente = m.u.Id_cliente,
                         Nombre = m.u.Nombre,
-                        Nombre_rol = m.Tipo,
+                        Nombre_rol = m.Nombre,
                         Direccion = m.u.Direccion,
                         Rol_id = m.u.Rol_id,
                         Telefono = m.u.Telefono

@@ -14,11 +14,12 @@ public class Correo
 
         try
         {
-            var Emailtemplate = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, ""));
+           /*var Emailtemplate = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory.Insert(AppDomain.CurrentDomain.BaseDirectory.Length, "Plantilla\\mailer.html"));
             var strBody = string.Format(Emailtemplate.ReadToEnd(), userToken);
-            Emailtemplate.Close(); Emailtemplate.Dispose(); Emailtemplate = null;
-
+           Emailtemplate.Close(); Emailtemplate.Dispose(); Emailtemplate = null;
+           
             strBody = strBody.Replace("#TOKEN#", mensaje);
+            */
             //Configuración del Mensaje
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
@@ -28,7 +29,7 @@ public class Correo
             //Aquí ponemos el asunto del correo
             mail.Subject = "Recuperación Contraseña";
             //Aquí ponemos el mensaje que incluirá el correo
-            mail.Body = strBody;
+           mail.Body = mensaje;
             //Especificamos a quien enviaremos el Email, no es necesario que sea Gmail, puede ser cualquier otro proveedor
             mail.To.Add(correoDestino);
             //Si queremos enviar archivos adjuntos tenemos que especificar la ruta en donde se encuentran
