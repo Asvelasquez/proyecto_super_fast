@@ -20,6 +20,10 @@ public class DAOUsuario
     {
         return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
     }
+    public Usuario getUserByUserName(string correo)
+    {
+        return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(correo.ToUpper())).FirstOrDefault();
+    }
 
     public List<Usuario> mostrarsolicitudaliado() {
         return new Mapeo().usuari.Where(x => x.Id_rol == 2 && x.Aprobacion == 0).ToList<Usuario>();

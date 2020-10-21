@@ -23,6 +23,7 @@ public class Mapeo: DbContext
    public DbSet<Domiciliario> domiciliari { get; set; }
     public DbSet<Aliado> aliad { get; set; }
     public DbSet<Usuario> usuari { get; set; }
+    public DbSet<Token> token { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder builder){
         builder.HasDefaultSchema("public");

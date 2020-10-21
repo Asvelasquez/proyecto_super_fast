@@ -44,4 +44,9 @@ public partial class View_Login : System.Web.UI.Page{
         }
 
     }
+
+    protected void LB_RecuperarContrasenia_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("GenerarToken.aspx");
+    }
 }
