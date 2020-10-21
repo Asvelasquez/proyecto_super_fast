@@ -15,18 +15,9 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
     protected void DDLA_actividadcomercial_SelectedIndexChanged(object sender, EventArgs e){
         
         seleccion = DDLA_actividadcomercial.SelectedItem.Value;
-        texto = TBA_actividadcomercial.Text;
+        TBA_actividadcomercial.Text = seleccion;
 
-         if (seleccion.Equals("Otra¿Cual?")){
-            TBA_actividadcomercial.Text = "";            
-        }
-         else{ 
-          if (string.IsNullOrEmpty(texto)){
-             TBA_actividadcomercial.Text =seleccion;
-                 }else { 
-               TBA_actividadcomercial.Text =texto+","+ seleccion;
-                         }
-         }
+       
 
     }
 
@@ -86,6 +77,9 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             aliado1.Actividadcomercial = TBA_actividadcomercial.Text;
             aliado1.Imagenperfil = "~\\Aliado\\logo" + "\\" + nombreArchivo; ;
             aliado1.Rut = "~\\Aliado\\rut" + "\\" + nombreArchivo1; ;
+            int rol2 = 2, aprob = 0;
+            aliado1.Id_rol = rol2;
+            aliado1.Aprobacion = aprob;
             new DAOUsuario().insertUsuario(aliado1);
 
             //  Response.Redirect("Inicio.aspx");
