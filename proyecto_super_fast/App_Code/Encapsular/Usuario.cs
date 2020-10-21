@@ -72,4 +72,6 @@ public class Usuario
     public int Id_rol { get => id_rol; set => id_rol = value; }
     [Column("aprobacion")]
     public int Aprobacion { get => aprobacion; set => aprobacion = value; }
+
+
 }

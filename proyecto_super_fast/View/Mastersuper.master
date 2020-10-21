@@ -15,30 +15,48 @@
             width: 100%;
             height: 462px;
         }
-        .auto-style2 {
-            width: 50%;
-            height: 33%;
-        }
         .auto-style3 {
-            height: 50%;
+            height: 42%;
             width: 33%;
             text-align: right;
         }
         .auto-style8 {
             width: 33%;
             text-align: left;
-            height: 481px;
+            height: 131px;
         }
         .auto-style9 {
             height: 7px;
         }
         .auto-style11 {
             width: 12%;
-            height: 481px;
+            height: 131px;
         }
-        .auto-style12 {
-            width: 11%;
-            height: 481px;
+        .auto-style15 {
+            height: 43%;
+            text-align: right;
+        }
+        .auto-style21 {
+            width: 14%;
+            height: 131px;
+        }
+        .auto-style22 {
+            width: 50%;
+            height: 43%;
+        }
+        .auto-style23 {
+            width: 50%;
+            height: 42%;
+        }
+        .auto-style31 {
+            height: 43%;
+            width: 6%;
+            text-align: right;
+        }
+        .auto-style32 {
+            height: 43%;
+            width: 18%;
+            text-align: right;
         }
         </style>
 </head>
@@ -49,33 +67,68 @@
     </div>
         <table class="auto-style1" >
             <tr>
-                <td class="auto-style2" colspan="2">
+                <td class="auto-style22" colspan="2" rowspan="3">
                     <asp:Image ID="Image1" runat="server" Height="88px" ImageUrl="~/Imagenes/superfast1.jpg" Width="88px"  />
 <asp:Label ID="Label1" runat="server" Font-Bold="False" Font-Italic="False" Font-Names="Arial Black" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" Height="50%" Text="Super Fast" Width="77%"></asp:Label>
                     </td>
-                <td class="auto-style3">
-                    <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" PostBackUrl="~/View/Inicio.aspx" />
+                <td class="auto-style32">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    &nbsp;
+                </td>
+                <td class="auto-style31">
 
-                    <asp:Button ID="BT_Registrarse" runat="server" BackColor="#3399FF" Height="30px" PostBackUrl="~/View/Registrarse.aspx" Text="Registrarse" Width="95px" />
+                </td>
+                <td class="auto-style31">
 
-                    &nbsp;
+                </td>
+                <td class="auto-style15">
 
-                    <asp:Button ID="BT_IniciarSesion" runat="server" BackColor="#3399FF" Height="30px" Text="Iniciar sesion" Width="95px" PostBackUrl="~/View/Login.aspx" />
-
-                    &nbsp;
-
-                    <asp:Button ID="BT_nosotros" runat="server" BackColor="#3399FF" Height="30px" Text="Nosotros" Width="95px" />
-
-                    &nbsp;
-
-                    <asp:ImageButton ID="ImageButton1" runat="server" Height="36px" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" Width="35px" />
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2" colspan="2">
-                    <asp:Menu ID="M_Admin" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="Large" ForeColor="#284E98" StaticSubMenuIndent="10px" OnMenuItemClick="M_Admin_MenuItemClick">
+                <td class="auto-style32">
+                    <asp:Button ID="BT_cerrarsesion" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Cerrar Sesion" Width="95px" PostBackUrl="~/View/Inicio.aspx" />
+
+                </td>
+                <td class="auto-style31">
+
+                    <asp:Button ID="BT_IniciarSesion" runat="server" BackColor="#3399FF" Height="30px" Text="Iniciar Sesion" Width="95px" PostBackUrl="~/View/Login.aspx" />
+
+                </td>
+                <td class="auto-style31">
+
+                    <asp:Button ID="BT_Registrarse" runat="server" BackColor="#3399FF" Height="30px" PostBackUrl="~/View/Registrarse.aspx" Text="Registrarse" Width="95px" />
+
+                </td>
+                <td class="auto-style15">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style32">
+                    <asp:Button ID="BT_Perfil" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Perfil" Width="95px" PostBackUrl="~/View/Inicio.aspx" />
+
+                </td>
+                <td class="auto-style31">
+                    <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" PostBackUrl="~/View/Inicio.aspx" />
+
+                </td>
+                <td class="auto-style31">
+
+                    <asp:Button ID="BT_nosotros" runat="server" BackColor="#3399FF" Height="30px" Text="Nosotros" Width="95px" />
+
+                </td>
+                <td class="auto-style15">
+
+                    <asp:ImageButton ID="IB_carrito" runat="server" Height="36px" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" Width="35px" />
+                &nbsp;&nbsp;
+
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style23" colspan="2">
+                    <asp:Menu ID="M_Admin" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="Large" ForeColor="#284E98" StaticSubMenuIndent="10px" >
                         <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
                         <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                         <DynamicMenuStyle BackColor="#B5C7DE" />
@@ -106,11 +159,11 @@
                         <StaticSelectedStyle BackColor="#507CD1" />
                     </asp:Menu>
                     </td>
-                <td class="auto-style3">
+                <td class="auto-style3" colspan="4">
                     &nbsp;</td>
             </tr>
             <tr>
-                <td colspan="3" class="auto-style9">
+                <td colspan="6" class="auto-style9">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
         
         </asp:ContentPlaceHolder>
@@ -121,7 +174,7 @@
                    
                     <asp:Image ID="Image2" runat="server" Height="92px" ImageUrl="~/Imagenes/superfast1.jpg" Width="88px" />
                 </td>
-                <td class="auto-style12" >
+                <td class="auto-style21" >
                     <asp:Button ID="BTN_trabajarnoso" runat="server" BackColor="#33A8FF" Text="¿Como trabajar con nosotros?" Width="235px" BorderColor="#33A8FF" BorderStyle="None" PostBackUrl="~/View/trabajarnosotros.aspx" />
                     <br />
                     <br />
@@ -134,7 +187,8 @@
                     <br />
                     <br />
                 </td>
-                <td class="auto-style8">
+                <td class="auto-style8" colspan="4">
+                    <br />
                     <asp:Label ID="Label9" runat="server" Text="Contacto"></asp:Label>
                     <br />
                     &nbsp;<asp:HyperLink ID="HyperLink_whatsapp" runat="server" ImageUrl="~/Imagenes/Iconos/whatsapp.png" NavigateUrl="https://wa.me/573144726862" Target="_blank">HyperLink</asp:HyperLink>
@@ -153,10 +207,6 @@
 &nbsp;
                     &nbsp;<asp:HyperLink ID="HyperLink2" runat="server" ImageUrl="~/Imagenes/Iconos/gmail.png">HyperLink_correo</asp:HyperLink>
                     <asp:Label ID="Label8" runat="server" Height="30px" Text="sop.superfast@gmail.com"></asp:Label>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                     <br />
                     <br />
                     <br />

@@ -15,18 +15,9 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
     protected void DDLA_actividadcomercial_SelectedIndexChanged(object sender, EventArgs e){
         
         seleccion = DDLA_actividadcomercial.SelectedItem.Value;
-        texto = TBA_actividadcomercial.Text;
+        TBA_actividadcomercial.Text = seleccion;
 
-         if (seleccion.Equals("Otra¿Cual?")){
-            TBA_actividadcomercial.Text = "";            
-        }
-         else{ 
-          if (string.IsNullOrEmpty(texto)){
-             TBA_actividadcomercial.Text =seleccion;
-                 }else { 
-               TBA_actividadcomercial.Text =texto+","+ seleccion;
-                         }
-         }
+       
 
     }
 
