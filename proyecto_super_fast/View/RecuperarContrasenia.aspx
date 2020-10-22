@@ -19,21 +19,32 @@
                 <tr>
                     <td>
                         <asp:Label ID="L_Contrasenia" runat="server" Text="Digite su nueva contaseña: "></asp:Label>
-                        <asp:TextBox ID="TB_Contrasenia" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TB_Contrasenia" runat="server" TextMode="Password"></asp:TextBox>
+                        <strong>
+            <asp:RequiredFieldValidator ID="RFV_NuevaContrasenia" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="TB_Contrasenia" ValidationGroup="VG_Contrasenia"></asp:RequiredFieldValidator>
+                                                                                                                                                                                                                       <%-- grupo de validacion
+                                                                                                                                                                                                                           (?=.{6,15}) - minimo 8 caracreres max 15
+                                                                                                                                                                                                                            (?=.*[\d]) - minimo un dígito
+                                                                                                                                                                                                                            (?=.*[\W]) - minimo un carácter especial--%>
+                            <asp:RegularExpressionValidator ID="REV_Contrasenia" runat="server" ControlToValidate="TB_Contrasenia" ErrorMessage="debe ingresar letra minuscula,mayuscula,numero y un caracter especial " ValidationExpression="^.*(?=.{6,15})(?=.*[\d])(?=.*[\  W]).*$" ValidationGroup="VG_Contrasenia"></asp:RegularExpressionValidator>
+            </strong>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="L_ConfirmarContrasenia" runat="server" Text="Repita su nueva contraseña: "></asp:Label>
-                        <asp:TextBox ID="TB_ConfirmarContrasenia" runat="server"></asp:TextBox>
-                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Tb_Contraseña" ControlToValidate="TB_Repetir" ErrorMessage="CompareValidator"></asp:CompareValidator>
+                        <asp:TextBox ID="TB_ConfirmarContrasenia" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:CompareValidator ID="CV_Contrasenia" runat="server" ControlToCompare="TB_Contrasenia" ControlToValidate="TB_ConfirmarContrasenia" ForeColor="White"></asp:CompareValidator>
+                        <strong>
+            <asp:RequiredFieldValidator ID="RFV_ConfirmarNuevaContrasenia" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="TB_ConfirmarContrasenia" ValidationGroup="VG_Contrasenia"></asp:RequiredFieldValidator>
+            </strong>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="BTN_Cambiar" runat="server" OnClick="B_Cambiar_Click" Text="Cambiar" />
+                        <asp:Button ID="BTN_Cambiar" runat="server" OnClick="B_Cambiar_Click" Text="Cambiar" ValidationGroup="VG_Contrasenia" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

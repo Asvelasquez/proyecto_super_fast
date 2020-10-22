@@ -18,6 +18,30 @@ public class DAOSeguridad
         }
     }
 
+    public void insertarAcceso(Acceso acceso)
+    {
+        using (var db = new Mapeo())
+        {
+            db.acceso.Add(acceso);
+            db.SaveChanges();
+        }
+    }
+
+    public void cerrarAcceso(int userId)
+    {
+        using (var db = new Mapeo())
+        {
+            Acceso acceso = db.acceso.Where(x => x.UserId == userId && x.FechaFin == null).FirstOrDefault();
+            acceso.FechaFin = DateTime.Now;
+
+            db.acceso.Attach(acceso);
+
+            var entry = db.Entry(acceso);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }
+
     public Token getTokenByUser(int userId)
     {
         return new Mapeo().token.Where(x => x.User_id == userId && x.Vigencia > DateTime.Now).FirstOrDefault();
@@ -32,10 +56,10 @@ public class DAOSeguridad
     {
         using (var db = new Mapeo())
         {
-            Usuario usuarioAnterior = db.user.Where(x => x.Id == usuario.Id).First();
+            Usuario usuarioAnterior = db.usuari.Where(x => x.Id == usuario.Id).First();
             usuarioAnterior.Contrasenia = usuario.Contrasenia;
 
-            db.user.Attach(usuarioAnterior);
+            db.usuari.Attach(usuarioAnterior);
 
             var entry = db.Entry(usuarioAnterior);
             entry.State = EntityState.Modified;

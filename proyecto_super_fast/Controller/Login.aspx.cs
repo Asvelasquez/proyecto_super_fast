@@ -23,6 +23,17 @@ public partial class View_Login : System.Web.UI.Page{
         }
         else{
             Session["user"] = usuario;
+
+            MAC conexion = new MAC();
+            Acceso acceso = new Acceso();
+
+            acceso.FechaInicio = DateTime.Now;
+            acceso.Ip = conexion.ip();
+            acceso.Mac = conexion.mac();
+            acceso.Session = Session.SessionID;
+            acceso.UserId = usuario.Id;
+
+            new DAOSeguridad().insertarAcceso(acceso);
             if (usuario.Id_rol == 1) { 
                 Response.Redirect("Registrarse.aspx");
             }else {

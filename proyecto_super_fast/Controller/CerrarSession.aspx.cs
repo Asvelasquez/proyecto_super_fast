@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 public partial class View_CerrarSession : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e){
+        new DAOSeguridad().cerrarAcceso(((Usuario)Session["user"]).Id);
         Session["user"] = null;
         Response.Redirect("Login.aspx");
     }

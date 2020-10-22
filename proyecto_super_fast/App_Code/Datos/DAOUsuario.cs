@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -13,18 +14,32 @@ public class DAOUsuario
 {
     public void insertUsuario(Usuario usuario2){
         using (var db = new Mapeo()){
-            db.user.Add(usuario2);
+            db.usuari.Add(usuario2);
             db.SaveChanges();
         }
     }
 
+   //validar correo registrarse 
+    public Usuario getCorreoByregistrarse(string correo)
+    {
+      
+        return new Mapeo().usuari.Where(x => (x.Correo.Equals(correo))).FirstOrDefault();
+    }
+    //envio dinamico clase generarToken dinamico correo
+    public Usuario getCorreoByCorreos(string correo)
+    {
+        return new Mapeo().usuari.Where(x => (x.Correo.Contains(correo))).FirstOrDefault();
+    }
+
+
+
     public Usuario loginusuario(Usuario usuario)
     {
-        return new Mapeo().user.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
+        return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
     }
     public Usuario getUserByUserName(string correo)
     {
-        return new Mapeo().user.Where(x => x.Correo.ToUpper().Equals(correo.ToUpper())).FirstOrDefault();
+        return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(correo.ToUpper())).FirstOrDefault();
     }
 
     public List<Usuario> mostrarsolicitudaliado() {

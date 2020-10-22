@@ -35,8 +35,10 @@ public partial class View_GenerarToken : System.Web.UI.Page
 
             Correo correo = new Correo();
 
-            String mensaje = "su link de acceso es: " + "http://localhost:61374/View/Recuperar.aspx?" + token.Tokeng;
-            correo.enviarCorreo("velasquezalan07@gmail.com", token.Tokeng, mensaje);
+            new DAOUsuario().getCorreoByCorreos(usuario.Correo);
+            String mensaje = "su link de acceso es: " + "http://localhost:56248/View/RecuperarContrasenia.aspx?" + token.Tokeng;
+                                                                                
+            correo.enviarCorreo(usuario.Correo, token.Tokeng, mensaje);
 
             LB_Mensaje.Text = "Su nueva contraseña ha sido enviada a su correo";
             //}

@@ -24,8 +24,8 @@ public class Token{
     private DateTime creado;
     private DateTime vigencia;
 
-   /* [Key]
-    [Column("id_recuperacion")]
+    [Key]
+    [Column("id")]
     public int Id { get => id; set => id = value; }
     [Column("user_id")]
     public int User_id { get => user_id; set => user_id = value; }
@@ -34,5 +34,5 @@ public class Token{
     [Column("creado")]
     public DateTime Creado { get => creado; set => creado = value; }
     [Column("vigencia")]
-    public DateTime Vigencia { get => vigencia; set => vigencia = value; }*/
+    public DateTime Vigencia { get => vigencia; set => vigencia = value; }
 }
