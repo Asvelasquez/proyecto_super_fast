@@ -22,6 +22,7 @@ public partial class View_Login : System.Web.UI.Page{
             Session["user"] = null;
         }
         else{
+
             Session["user"] = usuario;
 
             MAC conexion = new MAC();

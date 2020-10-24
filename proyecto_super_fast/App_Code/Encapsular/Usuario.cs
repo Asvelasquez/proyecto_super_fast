@@ -40,6 +40,7 @@ public class Usuario
     private string tipovehiculo;
     private int id_rol;
     private int aprobacion;
+    private string auditoria;
 
     [Key]
     [Column("id")]
@@ -72,6 +73,6 @@ public class Usuario
     public int Id_rol { get => id_rol; set => id_rol = value; }
     [Column("aprobacion")]
     public int Aprobacion { get => aprobacion; set => aprobacion = value; }
-
-
+    [Column("modificada")]
+    public string Auditoria { get => auditoria; set => auditoria = value; }
 }

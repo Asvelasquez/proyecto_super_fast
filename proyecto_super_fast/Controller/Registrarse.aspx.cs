@@ -12,11 +12,11 @@ public partial class View_Registrarse : System.Web.UI.Page
     protected void BT_Registrar_Click(object sender, EventArgs e)
     {
 
-        
 
-       
+
         try
         {
+
             ClientScriptManager cm = this.ClientScript;
             Usuario cliente1 = new Usuario();
             DAOUsuario dAOUsuario = new DAOUsuario();
@@ -26,6 +26,7 @@ public partial class View_Registrarse : System.Web.UI.Page
             cliente1.Contrasenia = TB_Contrasenia.Text;
             cliente1.Telefono = TB_Telefono.Text;
             cliente1.Direccion = TB_Direccion.Text;
+            //cliente1.Auditoria = ((Usuario)Session["user"]).Correo; VA EN ADMINISTRADOR
             int rol1 = 1, aprob = 1;
             cliente1.Id_rol = rol1;
             cliente1.Aprobacion = aprob;

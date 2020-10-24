@@ -28,7 +28,11 @@ public class DAOUsuario{
         return new Mapeo().usuari.Where(x => (x.Correo.Contains(correo))).FirstOrDefault();
     }
 
+    //public Usuario getcerrarsession(string cerrar)
+    //{
 
+    //    return ();
+    //}
 
     public Usuario loginusuario(Usuario usuario){
         return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();

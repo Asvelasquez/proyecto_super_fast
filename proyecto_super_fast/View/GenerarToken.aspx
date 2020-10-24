@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
@@ -13,6 +14,29 @@
     </style>
 </head>
 <body>
+    <%--inicio insert javascript session null al cerrar ventana--%>
+    <script type="text/javascript">
+        var areYouReallySure = false;
+        var allowPrompt = true;
+        window.onbeforeunload = areYouSure;
+
+    function areYouSure() {
+        if(allowPrompt){
+            while (areYouReallySure == false) {
+                areYouReallySure = true;
+            var confMessage = "prueba";
+            return confMessage;
+            }
+             if (!areYouReallySure) {
+            
+        }
+        }else{
+        allowPrompt = true;
+    }
+    }
+
+</script>
+     <%-- fin funcion --%>
     <form id="form1" runat="server">
         <div>
             <table class="auto-style1">

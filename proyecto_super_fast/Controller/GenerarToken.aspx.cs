@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web.UI;
 using Newtonsoft.Json;
 
 public partial class View_GenerarToken : System.Web.UI.Page
@@ -23,7 +24,44 @@ public partial class View_GenerarToken : System.Web.UI.Page
             token.Creado = DateTime.Now;
             token.User_id = usuario.Id;
             token.Vigencia = DateTime.Now.AddHours(2);
+<<<<<<< Updated upstream
             
+=======
+            ClientScriptManager cm = this.ClientScript;
+            //inicio prueba
+//            var areYouReallySure = false;
+//            function areYouSure()
+//            {
+//                if (allowPrompt)
+//                {
+//                    if (!areYouReallySure && true)
+//                    {
+//                        areYouReallySure = true;
+//                        var confMessage = "***************************************nn E S P E R A !!! nnAntes de abandonar nuestra web, síguenos en nuestras redes sociales como Facebook, Twitter o Instagram.nnnYA PUEDES HACER CLIC EN EL BOTÓN CANCELAR SI QUIERES...nn***************************************";
+//                        return confMessage;
+//                    }
+//                }
+//                else
+//                {
+//                    allowPrompt = true;
+//                }
+//            }
+
+//            var allowPrompt = true;
+//            window.onbeforeunload = areYouSure;
+//            cm.RegisterClientScriptBlock(this.GetType(), "", " < script type = "text / javascript" >
+            
+           
+//</ script > ");
+//                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En ');window.location=\"Login.aspx\"</script>");
+
+
+           
+            //fin prueba
+
+ 
+
+>>>>>>> Stashed changes
             token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
             new DAOSeguridad().insertarToken(token);
 

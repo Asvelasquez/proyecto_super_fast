@@ -33,7 +33,7 @@ public class DAOSeguridad
         {
             Acceso acceso = db.acceso.Where(x => x.UserId == userId && x.FechaFin == null).FirstOrDefault();
             acceso.FechaFin = DateTime.Now;
-
+            
             db.acceso.Attach(acceso);
 
             var entry = db.Entry(acceso);
