@@ -44,9 +44,25 @@ public class Correo
             SmtpServer.EnableSsl = true;
             SmtpServer.Send(mail);
         }
-        catch (Exception ex)
-        {
-
+        catch (Exception ex){}
+        //////////////////////
+       
+            /////////////////////
         }
-    }
+    public void correoaprobacion(String correoDestino, String mensaje){
+
+        try{
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            mail.From = new MailAddress("sop.superfast@gmail.com", "Correo de Aprobacion");
+            mail.Subject = "Solicitud de aprobacion SuperFast";
+            mail.Body = mensaje;
+            mail.To.Add(correoDestino);
+            SmtpServer.Port = 587; 
+            SmtpServer.Credentials = new System.Net.NetworkCredential("sop.superfast@gmail.com", "sUp3rFa5t");
+            SmtpServer.EnableSsl = true;
+            SmtpServer.Send(mail);
+        }
+        catch (Exception ex) { }
+    }//finalcorreoaprobacion
 }

@@ -11,7 +11,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
         if (!Page.AppRelativeVirtualPath.Contains("inicio.aspx")) {
             Response.Cache.SetNoStore();
             if (Session["user"] == null) {
-                //               Response.Redirect("inicio.aspx");
+                //   Response.Redirect("inicio.aspx");
             }
             menu();
         } else {
@@ -37,8 +37,10 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                         default:
                             sinRol();
                             break;
-                    }
 
+                     }
+                    
+                    
                 } else
                     sinRol();
             }
@@ -94,6 +96,30 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                 M_Cliente.Visible = true;
 
             }
-         
+
+
+    protected void BT_Perfil_Click(object sender, EventArgs e){
+        if (((Usuario)(Session["user"])).Id_rol == 1){
+            Response.Redirect("Perfil_Admin_.aspx");
+        }else if (((Usuario)(Session["user"])).Id_rol == 2){
+            Response.Redirect("Perfil.aspx");//Perfil Empleado
+        }else if (((Usuario)(Session["user"])).Id_rol == 4){
+            Response.Redirect("Perfil.aspx");
         }
+    }
+
+    protected void BT_cerrarsesion_Click(object sender, EventArgs e){
+        Response.Redirect("CerrarSession.aspx");
+    }
+
+    protected void BT_Inicio_Click(object sender, EventArgs e){
+        if (((Usuario)(Session["user"])).Id_rol == 1){
+            Response.Redirect(".aspx");
+        }else if (((Usuario)(Session["user"])).Id_rol == 2){
+            Response.Redirect("Perfil.aspx");//Perfil Empleado
+        }else if (((Usuario)(Session["user"])).Id_rol == 4){
+            Response.Redirect("administrador.aspx");
+        }
+    }
+}
     

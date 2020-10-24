@@ -7,10 +7,8 @@ using System.Web.UI.WebControls;
 
 public partial class View_RecuperarContrasenia : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (Request.QueryString.Count > 0)
-        {
+    protected void Page_Load(object sender, EventArgs e){
+        if (Request.QueryString.Count > 0){
             Token token = new DAOSeguridad().getTokenByToken(Request.QueryString[0]);
 
             if (token == null)
@@ -25,8 +23,7 @@ public partial class View_RecuperarContrasenia : System.Web.UI.Page
             Response.Redirect("Login.aspx");
     }
 
-    protected void B_Cambiar_Click(object sender, EventArgs e)
-    {
+    protected void B_Cambiar_Click(object sender, EventArgs e){
         Usuario usuario = new Usuario();
         usuario.Id = int.Parse(Session["user_id"].ToString());
         usuario.Contrasenia = TB_ConfirmarContrasenia.Text;

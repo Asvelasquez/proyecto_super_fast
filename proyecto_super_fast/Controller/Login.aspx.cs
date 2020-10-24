@@ -35,20 +35,33 @@ public partial class View_Login : System.Web.UI.Page{
 
             new DAOSeguridad().insertarAcceso(acceso);
             if (usuario.Id_rol == 1) { 
-                Response.Redirect("Registrarse.aspx");
+                Response.Redirect("inicio.aspx");
             }else {
                 if (usuario.Id_rol == 2 && usuario.Aprobacion==1){
                     Response.Redirect("ser_aliado.aspx");
                 }else{
                     cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como aliado, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');window.location=\"Login.aspx\"</script>");
-                    //Response.Redirect("Login.aspx");
+                   
                     }
                 if (usuario.Id_rol == 3 && usuario.Aprobacion == 1){
                     Response.Redirect("ser_aliado.aspx");
-                }
-                else{
+                }else{
                     cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como domiciliario, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');</script>");
-                    //Response.Redirect("Login.aspx");
+                    
+                }
+                if (usuario.Id_rol == 4 && usuario.Aprobacion == 1){
+                    Response.Redirect("administrador.aspx");
+                } else{
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como domiciliario, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');</script>");
+                    
+                }
+                if (usuario.Id_rol == 2 && usuario.Aprobacion == 2){
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud como Aliado ha sido rachazada');</script>");
+
+                }
+                if (usuario.Id_rol == 3 && usuario.Aprobacion == 2){
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud como Domiciliario ha sido rachazada');</script>");
+
                 }
             }
 

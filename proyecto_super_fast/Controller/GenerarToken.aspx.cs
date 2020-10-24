@@ -5,31 +5,25 @@ using Newtonsoft.Json;
 
 public partial class View_GenerarToken : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
+    protected void Page_Load(object sender, EventArgs e){
 
     }
-    protected void B_Recuperar_Click(object sender, EventArgs e)
-    {
-        Usuario usuario = new DAOUsuario().getUserByUserName(TB_Correo.Text);
+    protected void B_Recuperar_Click(object sender, EventArgs e){
+       Usuario usuario = new DAOUsuario().getUserByUserName(TB_Correo.Text);
 
-        if (usuario != null)
-        {
+        if (usuario != null){
             Token validarToken = new DAOSeguridad().getTokenByUser(usuario.Id);
-
             //if (validarToken != null)
             //{
             //    L_Mensaje.Text = "Ya extsite un token, por favor verifique su correo.";
             //}
             //else
             //{
-
             Token token = new Token();
             token.Creado = DateTime.Now;
             token.User_id = usuario.Id;
             token.Vigencia = DateTime.Now.AddHours(2);
-
-
+            
             token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
             new DAOSeguridad().insertarToken(token);
 
@@ -44,8 +38,7 @@ public partial class View_GenerarToken : System.Web.UI.Page
             //}
         }
 
-        else
-        {
+        else{
             LB_Mensaje.Text = "El usurio digitado no existe";
         }
 

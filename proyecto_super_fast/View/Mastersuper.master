@@ -89,7 +89,7 @@
             </tr>
             <tr>
                 <td class="auto-style32">
-                    <asp:Button ID="BT_cerrarsesion" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Cerrar Sesion" Width="95px" PostBackUrl="~/View/Inicio.aspx" />
+                    <asp:Button ID="BT_cerrarsesion" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Cerrar Sesion" Width="95px" OnClick="BT_cerrarsesion_Click" />
 
                 </td>
                 <td class="auto-style31">
@@ -107,11 +107,11 @@
             </tr>
             <tr>
                 <td class="auto-style32">
-                    <asp:Button ID="BT_Perfil" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Perfil" Width="95px" PostBackUrl="~/View/Inicio.aspx" />
+                    <asp:Button ID="BT_Perfil" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Perfil" Width="95px" OnClick="BT_Perfil_Click" />
 
                 </td>
                 <td class="auto-style31">
-                    <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" PostBackUrl="~/View/Inicio.aspx" />
+                    <asp:Button ID="BT_Inicio" runat="server" BackColor="#3399FF" ForeColor="Black" Height="30px" Text="Inicio" Width="95px" OnClick="BT_Inicio_Click" />
 
                 </td>
                 <td class="auto-style31">
