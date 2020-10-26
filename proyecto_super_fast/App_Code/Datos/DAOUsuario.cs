@@ -33,7 +33,7 @@ public class DAOUsuario{
 
     //    return ();
     //}
-
+   // public ();
     public Usuario loginusuario(Usuario usuario){
         return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
     }
