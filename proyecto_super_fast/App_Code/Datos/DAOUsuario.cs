@@ -64,14 +64,12 @@ public class DAOUsuario{
     {
         return new Mapeo().usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 1).ToList<Usuario>();
     }
-    public void aceptarusuario(Usuario usuario, String auditoria){
+    public void aceptarusuario(Usuario usuario){
 
         using (var db = new Mapeo()){
-            Usuario aprobacionanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
-            aprobacionanterior.Auditoria = auditoria;
+            Usuario aprobacionanterior = db.usuari.Where(x => x.Id == usuario.Id).First();           
             aprobacionanterior.Aprobacion = 1;
 
-            
             db.usuari.Attach(aprobacionanterior);      
             var entry = db.Entry(aprobacionanterior);
             entry.State = EntityState.Modified;
@@ -88,11 +86,10 @@ public class DAOUsuario{
             
         }
     }
-    public void rechazarusuario(Usuario usuario, String auditoria) { 
-        using (var db = new Mapeo()) {
+    public void rechazarusuario(Usuario usuario){using (var db = new Mapeo()){
             Usuario aprobacionanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
-            aprobacionanterior.Auditoria = auditoria;
             aprobacionanterior.Aprobacion = 2;
+
             db.usuari.Attach(aprobacionanterior);
             var entry = db.Entry(aprobacionanterior);
             entry.State = EntityState.Modified;
@@ -107,13 +104,10 @@ public class DAOUsuario{
                 email.correoaprobacion(aprobacionanterior.Correo, emailmensaje);
             }
         }
-
-
     }//
-    public void revisionusuario(Usuario usuario, String auditoria){
+    public void revisionusuario(Usuario usuario){
         using (var db = new Mapeo()){
             Usuario aprobacionanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
-            aprobacionanterior.Auditoria = auditoria;
             aprobacionanterior.Aprobacion = 0;
 
             db.usuari.Attach(aprobacionanterior);
