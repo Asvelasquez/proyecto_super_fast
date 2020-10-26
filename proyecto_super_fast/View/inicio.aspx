@@ -24,6 +24,26 @@
             vertical-align: top;
             width: 50%;
         }
+        .auto-style33 {
+            width: 100%;
+        }
+        .auto-style34 {
+            text-align: center;
+        }
+        .auto-style35 {
+            font-size: large;
+        }
+        .auto-style36 {
+            width: 50%;
+        }
+        .auto-style37 {
+            text-align: center;
+            height: 83px;
+        }
+        .auto-style38 {
+            height: 1%;
+            vertical-align: top;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -59,6 +79,45 @@
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         </td>
         <td class="auto-style10">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="auto-style38" colspan="2">
+            <asp:DataList ID="DL_Productos" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" Width="100%">
+                <ItemTemplate>
+                    <table class="auto-style33">
+                        <tr>
+                            <td class="auto-style37" colspan="2">
+                                <asp:Image ID="I_Productos" runat="server" Width="30%" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style34" colspan="2">
+                                <asp:Label ID="LB_Producto" runat="server" CssClass="auto-style35"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style36">precio</td>
+                            <td>
+                                <asp:Label ID="LB_Precio" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style36">Descripcion</td>
+                            <td>
+                                <asp:Label ID="LB_Descripcion" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td class="auto-style34" colspan="2">
+                                                                <%--CommandArgument='<%# Eval("Id") %>'--%>
+                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument="id"  ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" />
+                            </td>
+                        </tr>
+                    </table>
+                </ItemTemplate>
+            </asp:DataList>
+        </td>
     </tr>
 </table>
 </asp:Content>
