@@ -14,6 +14,10 @@
     .auto-style16 {
         height: 65px;
     }
+        .auto-style33 {
+            font-size: large;
+            text-align: right;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -28,7 +32,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Login ID="LG_Principal" align="center"  runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="100%" Width="40%" CssClass="auto-style15" UserNameLabelText="Correo" OnAuthenticate="LG_Principal_Authenticate" FailureText="contraseña o correo incorrecto.Intentelo de nuevo" UserNameRequiredErrorMessage="El correo es obligatorio.">
+                <asp:Login ID="LG_Principal" align="center"  runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="60%" Width="18%" CssClass="auto-style33" UserNameLabelText="Correo" OnAuthenticate="LG_Principal_Authenticate" FailureText="contraseña o correo incorrecto.Intentelo de nuevo" UserNameRequiredErrorMessage="El correo es obligatorio.">
                     <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                     <LayoutTemplate>
                         <table cellpadding="4" cellspacing="0" style="border-collapse:collapse;">
