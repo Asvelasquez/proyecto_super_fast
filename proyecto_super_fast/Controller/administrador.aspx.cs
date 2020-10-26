@@ -29,10 +29,10 @@ public partial class View_administrador : System.Web.UI.Page
         Usuario usuario1 = new Usuario();               
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
         if (e.CommandName == "Aceptar"){
-         us.aceptarusuario(usuario1);
+         us.aceptarusuario(usuario1,((Usuario)Session["user"]).Correo);
          GridView2.DataBind();
         }else if (e.CommandName == "Rechazar"){
-            us.rechazarusuario(usuario1);
+            us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
            GridView2.DataBind();
         }
 
@@ -44,12 +44,14 @@ public partial class View_administrador : System.Web.UI.Page
         Usuario usuario1 = new Usuario();
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
         if (e.CommandName == "Aceptar"){
-            us.aceptarusuario(usuario1);
+            us.aceptarusuario(usuario1, ((Usuario)Session["user"]).Correo);
             GridView1.DataBind();
+  
         }
         else if (e.CommandName== "Rechazar"){
-            us.rechazarusuario(usuario1);
+            us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
             GridView1.DataBind();
+          
         }
     }
 
@@ -60,10 +62,10 @@ public partial class View_administrador : System.Web.UI.Page
         Usuario usuario1 = new Usuario();
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
         if (e.CommandName == "Aceptar"){
-            us.aceptarusuario(usuario1);
+            us.aceptarusuario(usuario1, ((Usuario)Session["user"]).Correo);
             GV_aliadorechazado.DataBind();
         }else if (e.CommandName == "Revision"){
-            us.revisionusuario(usuario1);
+            us.revisionusuario(usuario1, ((Usuario)Session["user"]).Correo);
             GV_aliadorechazado.DataBind();
         }
     }
@@ -73,11 +75,11 @@ public partial class View_administrador : System.Web.UI.Page
         Usuario usuario1 = new Usuario();
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
         if (e.CommandName == "Aceptar"){
-            us.aceptarusuario(usuario1);
+            us.aceptarusuario(usuario1, ((Usuario)Session["user"]).Correo);
             GV_domiciliariorechazado.DataBind();
         }
         else if (e.CommandName == "Revision"){
-            us.revisionusuario(usuario1);
+            us.revisionusuario(usuario1, ((Usuario)Session["user"]).Correo);
             GV_domiciliariorechazado.DataBind();
         }
     }

@@ -80,6 +80,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             int rol2 = 2, aprob = 0;
             aliado1.Id_rol = rol2;
             aliado1.Aprobacion = aprob;
+            aliado1.Auditoria = TBA_nombrecomercial.Text;
             new DAOUsuario().insertUsuario(aliado1);
 
             //  Response.Redirect("Inicio.aspx");

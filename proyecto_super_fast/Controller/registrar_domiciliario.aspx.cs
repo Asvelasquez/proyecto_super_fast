@@ -44,9 +44,11 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             domiciliario.Telefono = TBD_telefono.Text;
             domiciliario.Hojavida = "~\\Hojas_de_vida" + "\\" + nombreArchivo; ;
             domiciliario.Tipovehiculo = DDLD_tipovehiculo.Text;
+
             int rol3 = 3,aprob=0;
             domiciliario.Id_rol = rol3;
             domiciliario.Aprobacion = aprob;
+            domiciliario.Auditoria = TBD_nombre.Text;
             new DAOUsuario().insertUsuario(domiciliario);
             
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud sera revisada y respondida al correo que ingreso');</script>");
