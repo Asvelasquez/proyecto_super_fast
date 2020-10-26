@@ -22,7 +22,7 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
 
         string saveLocation = Server.MapPath("~\\Hojas_de_vida") + "\\" + nombreArchivo;
 
-        if (!(extension.Equals(".jpg") || extension.Equals(".gif") || extension.Equals(".JPEG") || extension.Equals(".png")))
+        if (!(extension.Equals(".PDF") || extension.Equals(".pdf") ))
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido');</script>");
             return;}

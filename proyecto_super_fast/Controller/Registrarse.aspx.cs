@@ -11,11 +11,7 @@ public partial class View_Registrarse : System.Web.UI.Page
 
     protected void BT_Registrar_Click(object sender, EventArgs e)
     {
-
-
-
-        try
-        {
+        try{
 
             ClientScriptManager cm = this.ClientScript;
             Usuario cliente1 = new Usuario();

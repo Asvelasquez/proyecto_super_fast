@@ -5,31 +5,45 @@
         .auto-style33 {
             width: 100%;
         }
-        .auto-style34 {
-            width: 447px;
-            text-align: right;
+        .auto-style36 {
+            width: 500px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style33">
         <tr>
-            <td colspan="2">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style34">
-                <asp:FileUpload ID="FU_cargarArchivosAliado" runat="server" />
+            <td class="auto-style36">
+                <br />
+&nbsp;<asp:Label ID="LB_nombreproducto" runat="server" Text="Nombre del producto"></asp:Label>
+                <br />
+&nbsp;<asp:TextBox ID="TB_nombreproducto" runat="server"></asp:TextBox>
+                <br />
+&nbsp;<asp:Label ID="LB_descripcionproducto" runat="server" Text="Descripcion del producto"></asp:Label>
+                <br />
+&nbsp;<asp:TextBox ID="TB_descripcionproducto" runat="server"></asp:TextBox>
+                <br />
+&nbsp;<asp:Label ID="LB_precioproducto" runat="server" Text="Precio del producto"></asp:Label>
+                <br />
+&nbsp;<asp:TextBox ID="TB_precioproducto" runat="server" TextMode="Number"></asp:TextBox>
+                <br />
+&nbsp;<asp:Label ID="LB_imagenproducto1" runat="server" Text="Cargar imagen del producto #1"></asp:Label>
+                <br />
+&nbsp;<asp:FileUpload ID="FP_imagen1" runat="server" />
+                <br />
+&nbsp;<asp:Label ID="Label11" runat="server" Text=" Cargar imagen del producto #2"></asp:Label>
+                <br />
+&nbsp;<asp:FileUpload ID="FP_imagen2" runat="server" />
+                <br />
+&nbsp;&nbsp;
+                <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="BTN_guardarproducto" runat="server" OnClick="BTN_guardarproducto_Click" Text="Guardar" />
+                <br />
             </td>
             <td>
-                <asp:Button ID="BTN_cargarArchivosAliado" runat="server" Text="Cargar" />
-            </td>
+                &nbsp;</td>
         </tr>
-        <tr>
-            <td colspan="2">&nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="2">&nbsp;</td>
-        </tr>
-    </table>
+        </table>
 </asp:Content>
 
