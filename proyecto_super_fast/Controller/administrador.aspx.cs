@@ -84,8 +84,26 @@ public partial class View_administrador : System.Web.UI.Page
         }
     }
 
+    protected void GV_solicitudaliadosaceptados_RowCommand(object sender, GridViewCommandEventArgs e){
+        DAOUsuario us = new DAOUsuario();
+        Usuario usuario1 = new Usuario();
+        usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        if (e.CommandName == "Rechazar"){
+            us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
+            GV_solicitudaliadosaceptados.DataBind();
 
+        }
+    }
+    protected void GV_domiciliariosaceptados_RowCommand(object sender, GridViewCommandEventArgs e){
+        DAOUsuario us = new DAOUsuario();
+        Usuario usuario1 = new Usuario();
+        usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        if (e.CommandName == "Rechazar"){
+            us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
+            GV_domiciliariosaceptados.DataBind();
 
+        }
+    }
     protected void BTN_solicitudesrechazas_Click(object sender, EventArgs e){
         LB_solicitudesaliados.Visible = false;
         GridView1.Visible = false;
@@ -110,10 +128,10 @@ public partial class View_administrador : System.Web.UI.Page
     }
 
     protected void BTN_solicitudesaceptadas_Click(object sender, EventArgs e){
-        LB_solicitudesaliados.Visible = true;
-        GridView1.Visible = true;
-        LB_solicituddomicilios.Visible = true;
-        GridView2.Visible = true;
+        LB_solicitudesaliados.Visible = false;
+        GridView1.Visible = false;
+        LB_solicituddomicilios.Visible = false;
+        GridView2.Visible = false;
 
         //
         LB_solicitudalaadosrechazados.Visible = false;
@@ -130,4 +148,8 @@ public partial class View_administrador : System.Web.UI.Page
         GV_domiciliariosaceptados.Visible = true;
         //
     }
+
+
+
+    
 }

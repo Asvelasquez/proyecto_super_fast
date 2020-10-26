@@ -75,15 +75,11 @@ public class DAOUsuario
     {
         return new Mapeo().usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 1).ToList<Usuario>();
     }
-    public void aceptarusuario(Usuario usuario, String auditoria)
-    {
-
-        using (var db = new Mapeo())
-        {
+    public void aceptarusuario(Usuario usuario, String auditoria){
+        using (var db = new Mapeo()){
             Usuario aprobacionanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
             aprobacionanterior.Auditoria = auditoria;
             aprobacionanterior.Aprobacion = 1;
-
 
             db.usuari.Attach(aprobacionanterior);
             var entry = db.Entry(aprobacionanterior);
@@ -91,13 +87,10 @@ public class DAOUsuario
             db.SaveChanges();
             Correo email = new Correo();
             String emailmensaje;
-            if (aprobacionanterior.Id_rol == 2)
-            {
+            if (aprobacionanterior.Id_rol == 2){
                 emailmensaje = "Su solicitud de aprobacion de Aliado a sido ACEPTADA, Ahora puedes iniciar sesion con el correo y la contraseña que ingreso al registrarse" + ", El correo es: " + aprobacionanterior.Correo + "Y la contraseña es: " + aprobacionanterior.Contrasenia;
                 email.correoaprobacion(aprobacionanterior.Correo, emailmensaje);
-            }
-            else if (aprobacionanterior.Id_rol == 3)
-            {
+            }else if (aprobacionanterior.Id_rol == 3){
                 emailmensaje = "Su solicitud de aprobacion de Domiciliario a sido ACEPTADA, Ahora puedes iniciar sesion con el correo y la contraseña que ingreso al registrarse" + ", El correo es: " + aprobacionanterior.Correo + "Y la contraseña es: " + aprobacionanterior.Contrasenia;
                 email.correoaprobacion(aprobacionanterior.Correo, emailmensaje);
             }
@@ -157,6 +150,29 @@ public class DAOUsuario
             }
         }
     }//
+
+    public void actualizarperfil(Usuario usuario){
+        using (var db = new Mapeo()){
+            Usuario usuarioanterior = db.usuari.Where(x => x.Id == usuario.Id).First();
+            usuarioanterior.Nombre = usuario.Nombre;
+            usuarioanterior.Apellido = usuario.Apellido;
+            usuarioanterior.Correo = usuario.Correo;
+            usuarioanterior.Contrasenia = usuario.Contrasenia;
+            usuarioanterior.Direccion = usuario.Direccion;
+            usuarioanterior.Telefono = usuario.Telefono;
+            usuarioanterior.Documento = usuario.Documento;
+            usuarioanterior.Tipovehiculo = usuario.Tipovehiculo;
+            usuarioanterior.Imagenperfil = usuario.Imagenperfil;
+            db.usuari.Attach(usuarioanterior);
+            var entry = db.Entry(usuarioanterior);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }//
+    public Usuario mostrar(int userId)
+    {
+        return new Mapeo().usuari.Where(x => x.Id == userId ).First();
+    }
 
 
 }

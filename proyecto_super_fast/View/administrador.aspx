@@ -59,12 +59,6 @@
         </asp:GridView>
         <asp:ObjectDataSource ID="ODSDom" runat="server" SelectMethod="mostrarsolicituddomiciliario" TypeName="DAOUsuario"></asp:ObjectDataSource>
    
-         <asp:Button ID="BTN_solicitudesrechazas" runat="server"  Text="Solicitudes Rechazadas" OnClick="BTN_solicitudesrechazas_Click" Width="179px" />
-    &nbsp;&nbsp;
-        <asp:Button ID="BTN_solicitudesaceptadas" runat="server" Text="Solicitudes Aceptadas" Width="161px" OnClick="BTN_solicitudesaceptadas_Click" />
-    </p>
-    <p>
-   
          <asp:Label ID="LB_solicitudalaadosrechazados" runat="server" Text="Solicitud de aliados rechazados"></asp:Label>
         <asp:GridView ID="GV_aliadorechazado" runat="server" AutoGenerateColumns="False" DataSourceID="ODSaliadorechazado" OnRowCommand="GV_aliadorechazado_RowCommand">
             <Columns>
@@ -116,11 +110,8 @@
             </Columns>
         </asp:GridView>
          <asp:ObjectDataSource ID="ODSdomiciliariorechazados" runat="server" SelectMethod="mostrarsolicituddomiciliariorechazado" TypeName="DAOUsuario"></asp:ObjectDataSource>
-        </p>
-    <p>
-   
-        &nbsp;<asp:Label ID="LB_solicitudalidosaceptados" runat="server" Text="Solicitud de aliados aceptados"></asp:Label>
-         &nbsp;&nbsp;<asp:GridView ID="GV_solicitudaliadosaceptados" runat="server" AutoGenerateColumns="False" DataSourceID="ODSalidadoaceptado">
+       &nbsp;<asp:Label ID="LB_solicitudalidosaceptados" runat="server" Text="Solicitud de aliados aceptados"></asp:Label>
+         &nbsp;&nbsp;<asp:GridView ID="GV_solicitudaliadosaceptados" runat="server" AutoGenerateColumns="False" DataSourceID="ODSalidadoaceptado" OnRowCommand="GV_solicitudaliadosaceptados_RowCommand">
              <Columns>
                  <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                  <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
@@ -140,7 +131,7 @@
          </asp:GridView>
          <asp:ObjectDataSource ID="ODSalidadoaceptado" runat="server" SelectMethod="mostrarsolicitudaliadoaceptado" TypeName="DAOUsuario"></asp:ObjectDataSource>
          <asp:Label ID="LB_solicituddedomiciliariosaceptados" runat="server" Text="Solicitud de domiciliarios aceptados"></asp:Label>
-         &nbsp;<asp:GridView ID="GV_domiciliariosaceptados" runat="server" AutoGenerateColumns="False" DataSourceID="ODSdomiciliarioaceptado">
+         &nbsp;<asp:GridView ID="GV_domiciliariosaceptados" runat="server" AutoGenerateColumns="False" DataSourceID="ODSdomiciliarioaceptado" OnRowCommand="GV_domiciliariosaceptados_RowCommand">
              <Columns>
                  <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                  <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
@@ -160,8 +151,16 @@
              </Columns>
          </asp:GridView>
          <asp:ObjectDataSource ID="ODSdomiciliarioaceptado" runat="server" SelectMethod="mostrarsolicituddomiciliarioaceptado" TypeName="DAOUsuario"></asp:ObjectDataSource>
-         <asp:Button ID="BTN_solicitudesaprobar" runat="server" Text="Solicitudes por aprobar" />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   
+         <asp:Button ID="BTN_solicitudesrechazas" runat="server"  Text="Solicitudes Rechazadas" OnClick="BTN_solicitudesrechazas_Click" Width="179px" />
+    &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="BTN_solicitudesaceptadas" runat="server" Text="Solicitudes Aceptadas" Width="161px" OnClick="BTN_solicitudesaceptadas_Click" />
+         <br />
+        <asp:Button ID="BTN_solicitudesaprobar" runat="server" Text="Solicitudes por aprobar" />
     </p>
+   
+  
     
 </asp:Content>
 

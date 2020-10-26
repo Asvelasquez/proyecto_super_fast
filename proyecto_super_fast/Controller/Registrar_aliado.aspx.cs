@@ -11,18 +11,11 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
     {
 
     }
-    String seleccion,texto;
+    String seleccion;
     protected void DDLA_actividadcomercial_SelectedIndexChanged(object sender, EventArgs e){
-        
         seleccion = DDLA_actividadcomercial.SelectedItem.Value;
         TBA_actividadcomercial.Text = seleccion;
-
-       
-
     }
-
-
-
     protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
     {
         TBA_actividadcomercial.Text = "";
