@@ -12,9 +12,11 @@ using System.Web;
   id integer NOT NULL DEFAULT nextval('informacion.productos_id_seq'::regclass),
     nombre_producto text COLLATE pg_catalog."default" NOT NULL,
     descripcion_producto text COLLATE pg_catalog."default" NOT NULL,
-    precio_producto money NOT NULL,
     imagen_producto1 text COLLATE pg_catalog."default" NOT NULL,
     imagen_producto2 text COLLATE pg_catalog."default",
+   ----- precio_producto double precision NOT NULL,
+    estado_producto integer NOT NULL,
+    correo_aliado text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT pk_informacion_producto PRIMARY KEY (id)
      * */
 [Serializable]
@@ -24,8 +26,9 @@ public class Producto{
     private string nombre_producto;
     private string descripcion_producto;    
     private double precio_producto;
-    private string imagen_producto1;
-    private string imagen_producto2;
+    private string imagen_producto1;    
+    private int estado_producto;
+    private string correo_aliado;
     [Key]
     [Column("id")]
     public int Id { get => id; set => id = value; }
@@ -36,7 +39,9 @@ public class Producto{
     [Column("precio_producto")]
     public double Precio_producto { get => precio_producto; set => precio_producto = value; }
     [Column("imagen_producto1")]
-    public string Imagen_producto1 { get => imagen_producto1; set => imagen_producto1 = value; }
-    [Column("imagen_producto2")]
-    public string Imagen_producto2 { get => imagen_producto2; set => imagen_producto2 = value; }
+    public string Imagen_producto1 { get => imagen_producto1; set => imagen_producto1 = value; }    
+    [Column("estado_producto")]
+    public int Estado_producto { get => estado_producto; set => estado_producto = value; }
+    [Column("correo_aliado")]
+    public string Correo_aliado { get => correo_aliado; set => correo_aliado = value; }
 }

@@ -18,6 +18,10 @@
             font-size: large;
             text-align: right;
         }
+        .auto-style34 {
+            height: 100%;
+            width: 40%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -32,13 +36,13 @@
         </tr>
         <tr>
             <td>
-                <asp:Login ID="LG_Principal" align="center"  runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="60%" Width="18%" CssClass="auto-style33" UserNameLabelText="Correo" OnAuthenticate="LG_Principal_Authenticate" FailureText="contraseña o correo incorrecto.Intentelo de nuevo" UserNameRequiredErrorMessage="El correo es obligatorio.">
+                <asp:Login ID="LG_Principal" align="center"  runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="60%" Width="20%" CssClass="auto-style33" UserNameLabelText="Correo" OnAuthenticate="LG_Principal_Authenticate" FailureText="contraseña o correo incorrecto.Intentelo de nuevo" UserNameRequiredErrorMessage="El correo es obligatorio.">
                     <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                     <LayoutTemplate>
                         <table cellpadding="4" cellspacing="0" style="border-collapse:collapse;">
                             <tr>
                                 <td>
-                                    <table cellpadding="0" style="height:100%;width:40%;">
+                                    <table cellpadding="0" class="auto-style34">
                                         <tr>
                                             <td align="center" colspan="2" style="color:White;background-color:#507CD1;font-size:0.9em;font-weight:bold;">Iniciar sesión</td>
                                         </tr>
@@ -62,7 +66,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                <asp:CheckBox ID="RememberMe" runat="server" Text="Recordármelo la próxima vez." />
+                                                <asp:CheckBox ID="RememberMe" runat="server" Text="Recordármelo la próxima vez." Width="230px" />
                                             </td>
                                         </tr>
                                         <tr>

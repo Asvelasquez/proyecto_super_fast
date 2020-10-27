@@ -16,8 +16,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
         seleccion = DDLA_actividadcomercial.SelectedItem.Value;
         TBA_actividadcomercial.Text = seleccion;
     }
-    protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
-    {
+    protected void IB_limpiar_Click(object sender, ImageClickEventArgs e){
         TBA_actividadcomercial.Text = "";
     }
 
