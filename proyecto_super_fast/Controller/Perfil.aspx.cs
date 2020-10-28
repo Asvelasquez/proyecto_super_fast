@@ -19,6 +19,10 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_documentoperfila.Visible = false;
         TB_actividadcomercialperfila.Visible = false;
         TB_tipodevehiculoperfila.Visible = false;
+        TB_urlfoto.Visible = false;
+        TB_urlfotoa.Visible = false;
+        LB_actualizarfoto.Visible = false;
+        FUD_imagenperfil.Visible = false;
 
     }//1
     protected void menu() {//2
@@ -104,6 +108,8 @@ public partial class View_Perfil : System.Web.UI.Page{
 
     }
     protected void BTN_editar_Click(object sender, EventArgs e){
+
+        
         //
         TB_nombreperfila.Visible = true;
         TB_apellidoperfila.Visible = true;
@@ -112,6 +118,8 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_direccionperfila.Visible = true;
         TB_telefonoperfila.Visible = true;
         TB_documentoperfila.Visible = true;
+        LB_actualizarfoto.Visible = true;
+        FUD_imagenperfil.Visible = true;
         //
         BTN_guardar.Visible = true;
         BTN_cancelar.Visible = true;
@@ -126,7 +134,10 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_documentoperfila.Text = TB_documentoperfil.Text;
         TB_actividadcomercialperfila.Text = TB_actividadcomercialperfil.Text;
         TB_tipodevehiculoperfila.Text = TB_tipodevehiculoperfil.Text;
+        TB_urlfotoa.Text = TB_urlfoto.Text;
         //
+
+       
 
     }//
     protected void mostrar(){
@@ -142,8 +153,9 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_direccionperfil.Text = usuario1.Direccion;
         TB_telefonoperfil.Text = usuario1.Telefono;
         TB_documentoperfil.Text = usuario1.Documento;
-        TB_tipodevehiculoperfil.Text = usuario1.Tipovehiculo;
-        imagen_perfil.AlternateText = usuario1.Imagenperfil;
+        TB_tipodevehiculoperfil.Text = usuario1.Tipovehiculo;        
+        imagen_perfil.ImageUrl = usuario1.Imagenperfil;
+        TB_urlfoto.Text = usuario1.Imagenperfil;
 
     }
 
@@ -159,6 +171,35 @@ public partial class View_Perfil : System.Web.UI.Page{
     }//
 
     protected void BTN_guardar_Click(object sender, EventArgs e){
+        ClientScriptManager cm = this.ClientScript;
+        string nombreArchivo = System.IO.Path.GetFileName(FUD_imagenperfil.PostedFile.FileName);
+        string extension = System.IO.Path.GetExtension(FUD_imagenperfil.PostedFile.FileName);
+        string saveLocation = Server.MapPath("~\\imagenes_de_perfil") + "\\" + nombreArchivo;
+        
+
+        if (FUD_imagenperfil.HasFile){
+            if (!(extension.Equals(".jpg") || extension.Equals(".JPEG") || extension.Equals(".png"))){
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido');</script>");
+                return;
+            }
+            if (System.IO.File.Exists(saveLocation))
+            {
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Ya existe un archivo en el servidor con ese nombre');</script>");
+                return;
+            }
+            TB_urlfoto.Text = "~\\imagenes_de_perfil" + "\\" + nombreArchivo; ;
+        }
+        else{
+
+           TB_urlfoto.Text = "~/imagenes_de_perfil/perfilusuario.png";
+        }
+
+        TB_urlfotoa.Text = TB_urlfoto.Text;
+
+        try{
+
+       
+
         DAOUsuario us = new DAOUsuario();
         Usuario usuario1 = new Usuario();
         usuario1.Id = ((Usuario)Session["user"]).Id;
@@ -170,12 +211,23 @@ public partial class View_Perfil : System.Web.UI.Page{
         usuario1.Telefono = TB_telefonoperfila.Text;
         usuario1.Documento = TB_documentoperfila.Text;
         usuario1.Tipovehiculo = TB_tipodevehiculoperfila.Text;
-        usuario1.Actividadcomercial = TB_actividadcomercialperfila.Text;
+        usuario1.Actividadcomercial = TB_actividadcomercialperfila.Text;            
+        usuario1.Imagenperfil= TB_urlfotoa.Text;
         us.actualizarperfil(usuario1);
-        Response.Redirect("Perfil.aspx");
+            if (!(TB_urlfoto.Text== "~/imagenes_de_perfil/perfilusuario.png")){
+                FUD_imagenperfil.PostedFile.SaveAs(saveLocation);
+            }            
 
+        Response.Redirect("Perfil.aspx");
+        
+
+        }
+        catch (Exception ex)
+        { return; }
     }//
 
+
+   
 }//finalclase
 
 

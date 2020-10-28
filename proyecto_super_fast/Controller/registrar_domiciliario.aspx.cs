@@ -15,22 +15,16 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
     protected void BTND_registrar_Click(object sender, EventArgs e)
     {
         ClientScriptManager cm = this.ClientScript;
-
         string nombreArchivo = System.IO.Path.GetFileName(FUD_hojavida.PostedFile.FileName);
-
         string extension = System.IO.Path.GetExtension(FUD_hojavida.PostedFile.FileName);
-
         string saveLocation = Server.MapPath("~\\Hojas_de_vida") + "\\" + nombreArchivo;
-
-        if (!(extension.Equals(".PDF") || extension.Equals(".pdf")))
-        {
+        if (!(extension.Equals(".PDF") || extension.Equals(".pdf"))){
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido');</script>");
             return;
         }
         if (System.IO.File.Exists(saveLocation)){
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Ya existe un archivo en el servidor con ese nombre');</script>");
             return;}
-        
 
         try{
            
@@ -45,9 +39,7 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             domiciliario.Telefono = TBD_telefono.Text;
             domiciliario.Hojavida = "~\\Hojas_de_vida" + "\\" + nombreArchivo; ;
             domiciliario.Tipovehiculo = DDLD_tipovehiculo.Text;
-
             int rol3 = 3,aprob=0;
-           
             domiciliario.Id_rol = rol3;
             domiciliario.Aprobacion = aprob;
             domiciliario.Auditoria = TBD_nombre.Text;
@@ -55,27 +47,20 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             new DAOUsuario().getCorreoByregistrarse(TBD_correo.Text);
 
 
-            if (!CB_Terminos.Checked)
-            {
+            if (!CB_Terminos.Checked){
               //  LB_Mensaje.Text = "acepte terminos y condiciones";
                  cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acepte terminos y condiciones');</script>");
             }
-            else { 
-            
-
-
-                if (validarUsuario != null)
-            {
+            else {    
+                if (validarUsuario != null){
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('correo registrado,ingrese uno diferente');</script>");
-            }
-            else
-            {
+            }else {
               
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud sera revisada y respondida al correo que ingreso');</script>");
                 new DAOUsuario().insertUsuario(domiciliario);
                     FUD_hojavida.PostedFile.SaveAs(saveLocation);
-                    Response.Redirect("registrar_domiciliario.aspx");
-            }
+                   // Response.Redirect("registrar_domiciliario.aspx");
+               }
 
             }
 

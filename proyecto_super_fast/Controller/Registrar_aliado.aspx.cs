@@ -54,8 +54,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             return;
         }
         
-        try
-        {
+        try{
             FUA_logo.PostedFile.SaveAs(saveLocation);
             FUA_rut.PostedFile.SaveAs(saveLocation1);
 
@@ -75,7 +74,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             aliado1.Auditoria = TBA_nombrecomercial.Text;
             new DAOUsuario().insertUsuario(aliado1);
 
-            //  Response.Redirect("Inicio.aspx");
+           
         }
         catch (Exception ex)
         { return; }

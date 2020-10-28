@@ -1,10 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Mastersuper.master" AutoEventWireup="true" CodeFile="~/Controller/Perfil.aspx.cs" Inherits="View_Perfil" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style33 {
+            width: 100%;
+        }
+    </style>
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <p>
-                    <asp:Image ID="imagen_perfil" runat="server" Height="73px" Width="98px" />
+                    &nbsp;
+                    <table class="auto-style33">
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;
+                                <br />
+&nbsp;<asp:Label ID="LB_fotoperfil" runat="server" Text="Foto de perfil"></asp:Label>
+                                <br />
+&nbsp;<asp:Image ID="imagen_perfil" runat="server" Height="80px" Width="98px" />
+                                <br />
+&nbsp;<asp:Label ID="LB_actualizarfoto" runat="server" Text="Actualizar foto de perfil"></asp:Label>
+                                <br />
+&nbsp;<asp:FileUpload ID="FUD_imagenperfil" runat="server" />
+                                <br />
+&nbsp;<asp:TextBox ID="TB_urlfoto" runat="server" Width="323px"></asp:TextBox>
+                                <br />
+&nbsp;<asp:TextBox ID="TB_urlfotoa" runat="server" Width="324px"></asp:TextBox>
                     <br />
                     &nbsp;<asp:Label ID="LB_nombre" runat="server" Text="Nombre"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
@@ -80,12 +100,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="TB_actividadcomercialperfila" runat="server"></asp:TextBox>
         <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="BTN_guardar" runat="server"  Text="Guardar" Width="61px" OnClick="BTN_guardar_Click" />
 &nbsp;<asp:Button ID="BTN_cancelar" runat="server" OnClick="BTN_cancelar_Click" Text="Cancelar" Width="66px" EnableTheming="True" />
                     &nbsp;<asp:Button ID="BTN_editar" runat="server"  CommandName="Editar"   Text="Editar" OnClick="BTN_editar_Click" />
 &nbsp;&nbsp;
-                    <br />
+                    </td>
+                        </tr>
+                    </table>
 
      
     </p>

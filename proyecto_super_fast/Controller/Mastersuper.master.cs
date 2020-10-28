@@ -101,15 +101,23 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
     }
 
     protected void BT_Inicio_Click(object sender, EventArgs e){
-        if (((Usuario)(Session["user"])).Id_rol == 1){
+        if (((Usuario)(Session["user"])).Id_rol == 1)
+        {
             Response.Redirect("inicio.aspx");
-        }else if (((Usuario)(Session["user"])).Id_rol == 2){
+        }
+        else if (((Usuario)(Session["user"])).Id_rol == 2)
+        {
             Response.Redirect("Aliado.aspx");
-        }else if (((Usuario)(Session["user"])).Id_rol == 3){
+        }
+        else if (((Usuario)(Session["user"])).Id_rol == 3)
+        {
             Response.Redirect("administrador.aspx");
         }
         else if (((Usuario)(Session["user"])).Id_rol == 4)
         {
+            Response.Redirect("administrador.aspx");
+        }
+        else if (Session["user"] != null) {
             Response.Redirect("administrador.aspx");
         }
     }

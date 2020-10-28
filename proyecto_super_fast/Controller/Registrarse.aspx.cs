@@ -9,12 +9,8 @@ public partial class View_Registrarse : System.Web.UI.Page
 {
    
 
-    protected void BT_Registrar_Click(object sender, EventArgs e)
-    {
-       
-        try
-        {
-
+    protected void BT_Registrar_Click(object sender, EventArgs e){
+        try {
             ClientScriptManager cm = this.ClientScript;
             Usuario cliente1 = new Usuario();
             DAOUsuario dAOUsuario = new DAOUsuario();
@@ -34,28 +30,21 @@ public partial class View_Registrarse : System.Web.UI.Page
             Usuario validarUsuario = dAOUsuario.getCorreoByregistrarse(TB_Correo.Text);
             new DAOUsuario().getCorreoByregistrarse(TB_Correo.Text);
 
-
-            if (!CB_Terminos.Checked)
-            {
+            if (!CB_Terminos.Checked){
                 LB_Mensaje.Text="acepte terminos y condiciones";
-               // cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acepte terminos y condiciones');</script>");
+                // cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acepte terminos y condiciones');</script>");
             }
-            else
-
-
-          if (validarUsuario != null)
-            {
-                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('correo registrado,ingrese uno diferente');</script>");
-            }
-            else
-            {
-              
-                    new DAOUsuario().insertUsuario(cliente1);
-                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('registro exitoso');</script>");
-                Response.Redirect("Inicio.aspx");
+            else{         
+                 if (validarUsuario != null){
+                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('correo registrado,ingrese uno diferente');</script>");
+                   } else{
+                      new DAOUsuario().insertUsuario(cliente1);
+                      cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('registro exitoso');</script>");
+                     Response.Redirect("Login.aspx");
+                         }
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         { return; }
         
     }
