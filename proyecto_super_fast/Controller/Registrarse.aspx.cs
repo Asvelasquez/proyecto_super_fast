@@ -30,8 +30,8 @@ public partial class View_Registrarse : System.Web.UI.Page
             new DAOUsuario().getCorreoByregistrarse(TB_Correo.Text);
 
             if (!CB_Terminos.Checked){
-                LB_Mensaje.Text="acepte terminos y condiciones";
-                // cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acepte terminos y condiciones');</script>");
+               // LB_Mensaje.Text="acepte terminos y condiciones";
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acepte terminos y condiciones');</script>");
             }
             else{         
                  if (validarUsuario != null){
