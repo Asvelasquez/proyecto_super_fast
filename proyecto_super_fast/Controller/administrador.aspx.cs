@@ -39,7 +39,7 @@ public partial class View_administrador : System.Web.UI.Page
         }
         
     }
-    
+    //prueba
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e) {
       //  ClientScriptManager cm = this.ClientScript;
         DAOUsuario us = new DAOUsuario();
