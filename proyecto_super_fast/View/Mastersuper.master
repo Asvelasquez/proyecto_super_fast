@@ -124,7 +124,7 @@
                 </td>
                 <td class="auto-style15">
 
-                    <asp:ImageButton ID="IB_carrito" runat="server" Height="36px" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" Width="35px" />
+                    <asp:ImageButton ID="IB_carrito" runat="server" Height="36px" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" Width="35px" OnClick="IB_carrito_Click" />
                 &nbsp;&nbsp;
 
                 </td>

@@ -169,8 +169,7 @@ public class DAOUsuario
             db.SaveChanges();
         }
     }//
-    public Usuario mostrar(int userId)
-    {
+    public Usuario mostrar(int userId){
         return new Mapeo().usuari.Where(x => x.Id == userId ).First();
     }
 

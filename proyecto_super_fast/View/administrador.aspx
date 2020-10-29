@@ -22,8 +22,11 @@
                 <asp:BoundField DataField="Documento" HeaderText="NIT" SortExpression="Documento" />
                 <asp:BoundField DataField="Rut" HeaderText="Rut" SortExpression="Rut" />
                 <asp:BoundField DataField="Actividadcomercial" HeaderText="Actividad comercial" SortExpression="Actividadcomercial" />
-                <asp:BoundField DataField="Imagenperfil" HeaderText="Logo" SortExpression="Imagenperfil" />
-                <asp:BoundField DataField="Aprobacion" HeaderText="Aprobacion" SortExpression="Aprobacion" />
+                <asp:TemplateField HeaderText="Logo" >
+                    <ItemTemplate>
+                        <asp:Image ID="IM_perfil" runat="server" Height="38px" Width="75px" ImageUrl='<%# Eval("Imagenperfil") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Aceptar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_aceptaraliado" runat="server" CommandName="Aceptar" CommandArgument='<%# Eval("Id") %>' Text="Aceptar" />
@@ -34,11 +37,7 @@
                         <asp:Button ID="BTN_rechazaraliado" runat="server" CommandName="Rechazar" CommandArgument='<%# Eval("Id") %>' Text="Rechazar" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="logo1">
-                    <ItemTemplate>
-                        <asp:Image ID="Image3" runat="server" Height="38px" Width="75px" />
-                    </ItemTemplate>
-                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Rut2"></asp:TemplateField>
             </Columns>
         </asp:GridView>
         <asp:ObjectDataSource ID="ODSaliado" runat="server" SelectMethod="mostrarsolicitudaliado" TypeName="DAOUsuario"></asp:ObjectDataSource>
@@ -55,10 +54,12 @@
                 <asp:BoundField DataField="Direccion" HeaderText="Direccion" SortExpression="Direccion" />
                 <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
                 <asp:BoundField DataField="Documento" HeaderText="Documento" SortExpression="Documento" />
-                <asp:BoundField DataField="Imagenperfil" HeaderText="Imagenperfil" SortExpression="Imagenperfil" />
-                <asp:BoundField DataField="Hojavida" HeaderText="Hojavida" SortExpression="Hojavida" />
+                <asp:TemplateField HeaderText="Imagen Perfil">
+                    <ItemTemplate>
+                        <asp:Image ID="IM_perfil2" runat="server" Height="33px" Width="42px" ImageUrl='<%# Eval("Imagenperfil") %>'/>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="Tipovehiculo" HeaderText="Tipovehiculo" SortExpression="Tipovehiculo" />
-                <asp:BoundField DataField="Aprobacion" HeaderText="Aprobacion" SortExpression="Aprobacion" />
                 <asp:TemplateField HeaderText="aceptar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_aceptardomiciliario" runat="server"  CommandName="Aceptar" CommandArgument='<%# Eval("Id") %>' Text="Aceptar"    />
@@ -67,6 +68,11 @@
                 <asp:TemplateField HeaderText="Rechazar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_rechazardomiciliario" runat="server" CommandName="Rechazar"  CommandArgument='<%# Eval("Id") %>' Text="Rechazar" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Hoja de Vida">
+                    <ItemTemplate>
+                        <asp:HyperLink ID="HYL_hojavida"  NavigateUrl='<%# Eval("hojavida") %>' Target="_blank" runat="server">Hoja de vida</asp:HyperLink>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -86,8 +92,11 @@
                 <asp:BoundField DataField="Documento" HeaderText="NIT" SortExpression="Documento" />
                 <asp:BoundField DataField="Rut" HeaderText="Rut" SortExpression="Rut" />
                 <asp:BoundField DataField="Actividadcomercial" HeaderText="Actividadcomercial" SortExpression="Actividadcomercial" />
-                <asp:BoundField DataField="Imagenperfil" HeaderText="Logo" SortExpression="Imagenperfil" />
-                <asp:BoundField DataField="Aprobacion" HeaderText="Aprobacion" SortExpression="Aprobacion" />
+                <asp:TemplateField HeaderText="Logo">
+                    <ItemTemplate>
+                        <asp:Image ID="IM_perfil3" runat="server" Height="32px" Width="48px" ImageUrl='<%# Eval("Imagenperfil") %>'/>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Aceptar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_aceptar" runat="server" CommandName="Aceptar"  CommandArgument='<%# Eval("Id") %>' Text="Aceptar" />

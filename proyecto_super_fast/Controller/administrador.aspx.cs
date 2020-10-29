@@ -26,14 +26,22 @@ public partial class View_administrador : System.Web.UI.Page
     protected void GridView2_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e){
         ClientScriptManager cm = this.ClientScript;
         DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();               
+        Usuario usuario1 = new Usuario();
+        Usuario usuario2 = new Usuario();
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        usuario2.Hojavida =(e.CommandArgument.ToString());
         if (e.CommandName == "Aceptar"){
-         us.aceptarusuario(usuario1,((Usuario)Session["user"]).Correo);
+            
+            us.aceptarusuario(usuario1,((Usuario)Session["user"]).Correo);
          GridView2.DataBind();
         }else if (e.CommandName == "Rechazar"){
             us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
            GridView2.DataBind();
+        }
+        else if (e.CommandName == "hojavida")
+        {
+        Response.Write("window.open(usuario2, '_newtab');");
+
         }
 
     }
@@ -91,7 +99,6 @@ public partial class View_administrador : System.Web.UI.Page
         if (e.CommandName == "Rechazar"){
             us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
             GV_solicitudaliadosaceptados.DataBind();
-
         }
     }
     protected void GV_domiciliariosaceptados_RowCommand(object sender, GridViewCommandEventArgs e){
@@ -101,7 +108,6 @@ public partial class View_administrador : System.Web.UI.Page
         if (e.CommandName == "Rechazar"){
             us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
             GV_domiciliariosaceptados.DataBind();
-
         }
     }
     protected void BTN_solicitudesrechazas_Click(object sender, EventArgs e){
@@ -132,7 +138,6 @@ public partial class View_administrador : System.Web.UI.Page
         GridView1.Visible = false;
         LB_solicituddomicilios.Visible = false;
         GridView2.Visible = false;
-
         //
         LB_solicitudalaadosrechazados.Visible = false;
         GV_aliadorechazado.Visible = false;
@@ -140,7 +145,6 @@ public partial class View_administrador : System.Web.UI.Page
         GV_domiciliariorechazado.Visible = false;
         BTN_solicitudesaprobar.Visible = true;
         //
-
         //
         LB_solicitudalidosaceptados.Visible = true;
         GV_solicitudaliadosaceptados.Visible = true;
@@ -151,5 +155,9 @@ public partial class View_administrador : System.Web.UI.Page
 
 
 
-    
+
+
+    protected void BTN_hojavida_Click(object sender, EventArgs e){
+
+    }
 }

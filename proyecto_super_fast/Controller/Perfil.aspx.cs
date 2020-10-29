@@ -17,7 +17,6 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_direccionperfila.Visible = false;
         TB_telefonoperfila.Visible = false;
         TB_documentoperfila.Visible = false;
-        TB_actividadcomercialperfila.Visible = false;
         TB_tipodevehiculoperfila.Visible = false;
         TB_urlfoto.Visible = false;
         TB_urlfotoa.Visible = false;
@@ -44,13 +43,11 @@ public partial class View_Perfil : System.Web.UI.Page{
         }//3
     }//2
      protected void rolAdmin(){
-        //   M_Admin.Visible = false;        
         TB_tipodevehiculoperfil.Visible = false;
         DDLD_tipovehiculo.Visible = false;
         LB_tipodevehiculoperfil.Visible = false;
         LB_actividadcomercial.Visible = false;
         TB_actividadcomercialperfil.Visible = false;
-        DDLA_actividadcomercial.Visible = false;
         BTN_guardar.Visible = false;
         BTN_cancelar.Visible = false;
 
@@ -62,7 +59,6 @@ public partial class View_Perfil : System.Web.UI.Page{
         LB_tipodevehiculoperfil.Visible = false;
         LB_actividadcomercial.Visible = false;
         TB_actividadcomercialperfil.Visible = false;
-        DDLA_actividadcomercial.Visible = false;
         BTN_guardar.Visible = false;
         BTN_cancelar.Visible = false;
 
@@ -74,7 +70,6 @@ public partial class View_Perfil : System.Web.UI.Page{
         LB_tipodevehiculoperfil.Visible = true;
         LB_actividadcomercial.Visible = false;
         TB_actividadcomercialperfil.Visible = false;
-        DDLA_actividadcomercial.Visible = false;
         BTN_guardar.Visible = false;
         BTN_cancelar.Visible = false;
         BTN_guardar.Visible = false;
@@ -87,8 +82,8 @@ public partial class View_Perfil : System.Web.UI.Page{
         LB_tipodevehiculoperfil.Visible = false;
         LB_actividadcomercial.Visible = true;
         TB_actividadcomercialperfil.Visible = true;
-        TB_actividadcomercialperfila.Visible = true;
-        DDLA_actividadcomercial.Visible = true;
+        LB_apellido.Visible = false;
+        TB_apellidoperfil.Visible = false;        
         BTN_guardar.Visible = false;
         BTN_cancelar.Visible = false;
 
@@ -109,7 +104,6 @@ public partial class View_Perfil : System.Web.UI.Page{
     }
     protected void BTN_editar_Click(object sender, EventArgs e){
 
-        
         //
         TB_nombreperfila.Visible = true;
         TB_apellidoperfila.Visible = true;
@@ -120,6 +114,10 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_documentoperfila.Visible = true;
         LB_actualizarfoto.Visible = true;
         FUD_imagenperfil.Visible = true;
+        if (((Usuario)Session["user"]).Id_rol == 2)
+        {
+            TB_apellidoperfila.Visible = false;
+        }
         //
         BTN_guardar.Visible = true;
         BTN_cancelar.Visible = true;
@@ -132,7 +130,6 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_direccionperfila.Text = TB_direccionperfil.Text;
         TB_telefonoperfila.Text = TB_telefonoperfil.Text;
         TB_documentoperfila.Text = TB_documentoperfil.Text;
-        TB_actividadcomercialperfila.Text = TB_actividadcomercialperfil.Text;
         TB_tipodevehiculoperfila.Text = TB_tipodevehiculoperfil.Text;
         TB_urlfotoa.Text = TB_urlfoto.Text;
         //
@@ -153,7 +150,8 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_direccionperfil.Text = usuario1.Direccion;
         TB_telefonoperfil.Text = usuario1.Telefono;
         TB_documentoperfil.Text = usuario1.Documento;
-        TB_tipodevehiculoperfil.Text = usuario1.Tipovehiculo;        
+        TB_tipodevehiculoperfil.Text = usuario1.Tipovehiculo;
+        TB_actividadcomercialperfil.Text = usuario1.Actividadcomercial;
         imagen_perfil.ImageUrl = usuario1.Imagenperfil;
         TB_urlfoto.Text = usuario1.Imagenperfil;
 
@@ -163,34 +161,27 @@ public partial class View_Perfil : System.Web.UI.Page{
     protected void DDLD_tipovehiculo_SelectedIndexChanged(object sender, EventArgs e){
         seleccion = DDLD_tipovehiculo.SelectedItem.Value;
         TB_tipodevehiculoperfila.Text = seleccion;
-    }//
-    String seleccion1;
-    protected void DDLA_actividadcomercial_SelectedIndexChanged(object sender, EventArgs e){
-        seleccion1 = DDLD_tipovehiculo.SelectedItem.Value;
-        TB_actividadcomercialperfila.Text = seleccion1;
-    }//
+    }//   
+   
 
     protected void BTN_guardar_Click(object sender, EventArgs e){
         ClientScriptManager cm = this.ClientScript;
         string nombreArchivo = System.IO.Path.GetFileName(FUD_imagenperfil.PostedFile.FileName);
         string extension = System.IO.Path.GetExtension(FUD_imagenperfil.PostedFile.FileName);
         string saveLocation = Server.MapPath("~\\imagenes_de_perfil") + "\\" + nombreArchivo;
-        
-
+        string saveLocation1 = Server.MapPath("~\\Aliado\\logo") + "\\" + nombreArchivo;
+         
         if (FUD_imagenperfil.HasFile){
             if (!(extension.Equals(".jpg") || extension.Equals(".JPEG") || extension.Equals(".png"))){
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Tipo de archivo no valido');</script>");
                 return;
             }
-            if (System.IO.File.Exists(saveLocation))
-            {
+            if (System.IO.File.Exists(saveLocation)){
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Ya existe un archivo en el servidor con ese nombre');</script>");
                 return;
             }
             TB_urlfoto.Text = "~\\imagenes_de_perfil" + "\\" + nombreArchivo; ;
-        }
-        else{
-
+        }else{
            TB_urlfoto.Text = "~/imagenes_de_perfil/perfilusuario.png";
         }
 
@@ -211,14 +202,22 @@ public partial class View_Perfil : System.Web.UI.Page{
         usuario1.Telefono = TB_telefonoperfila.Text;
         usuario1.Documento = TB_documentoperfila.Text;
         usuario1.Tipovehiculo = TB_tipodevehiculoperfila.Text;
-        usuario1.Actividadcomercial = TB_actividadcomercialperfila.Text;            
+        usuario1.Actividadcomercial = TB_actividadcomercialperfil.Text;            
         usuario1.Imagenperfil= TB_urlfotoa.Text;
         us.actualizarperfil(usuario1);
-            if (!(TB_urlfoto.Text== "~/imagenes_de_perfil/perfilusuario.png")){
-                FUD_imagenperfil.PostedFile.SaveAs(saveLocation);
-            }            
-
-        Response.Redirect("Perfil.aspx");
+            if (((Usuario)Session["user"]).Id_rol == 2){//
+                if (!(TB_urlfoto.Text == ((Usuario)Session["user"]).Imagenperfil)){//
+                    FUD_imagenperfil.PostedFile.SaveAs(saveLocation1);
+                }//
+               
+            }else {//
+                if (!(TB_urlfoto.Text == "~/imagenes_de_perfil/perfilusuario.png")){//
+                    FUD_imagenperfil.PostedFile.SaveAs(saveLocation);
+                }//
+            }//
+            
+           
+            Response.Redirect("Perfil.aspx");
         
 
         }

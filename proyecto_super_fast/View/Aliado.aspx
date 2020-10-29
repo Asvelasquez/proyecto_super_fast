@@ -44,7 +44,6 @@
                 <br />
             </td>
             <td>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
                 <br />
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_producto1">
                     <Columns>
@@ -62,6 +61,27 @@
                         <asp:SessionParameter Name="consulta" SessionField="user" Type="Object" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
+                <br />
+                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_pruebahojadevida" OnRowCommand="GridView2_RowCommand">
+                    <Columns>
+                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                        <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
+                        <asp:BoundField DataField="Correo" HeaderText="Correo" SortExpression="Correo" />
+                        <asp:BoundField DataField="Imagenperfil" HeaderText="Imagenperfil" SortExpression="Imagenperfil" />
+                        <asp:BoundField DataField="Hojavida" HeaderText="Hojavida" SortExpression="Hojavida" />
+                        <asp:BoundField DataField="Aprobacion" HeaderText="Aprobacion" SortExpression="Aprobacion" />
+                        <asp:BoundField DataField="Auditoria" HeaderText="Auditoria" SortExpression="Auditoria" />
+                        <asp:TemplateField HeaderText="hojavida">
+                            <ItemTemplate>
+                                <asp:HyperLink ID="HyperLink4" NavigateUrl='<%# Eval("hojavida") %>' Target="_blank" runat="server">Hoja de vida</asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                <asp:ObjectDataSource ID="ODS_pruebahojadevida" runat="server" SelectMethod="mostrarsolicituddomiciliario" TypeName="DAOUsuario"></asp:ObjectDataSource>
+                <br />
+                <asp:HyperLink ID="HyperLink3" NavigateUrl="~/Hojas_de_vida/carnet.pdf" runat="server">HyperLink</asp:HyperLink>
+                <br />
             </td>
         </tr>
         </table>
