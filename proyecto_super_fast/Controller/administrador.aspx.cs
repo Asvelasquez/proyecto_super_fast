@@ -35,6 +35,13 @@ public partial class View_administrador : System.Web.UI.Page
             us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
            GridView2.DataBind();
         }
+        else if (e.CommandName == "Hoja de vida")
+        {
+
+
+            Response.Write("<script> window.open('" + ((Usuario)Session["user"]).Hojavida + "','_blank'); </script>");
+            GridView2.DataBind();
+        }
 
     }
     
@@ -151,5 +158,10 @@ public partial class View_administrador : System.Web.UI.Page
 
 
 
-    
+
+
+    protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }

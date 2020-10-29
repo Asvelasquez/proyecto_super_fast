@@ -5,6 +5,9 @@
         .auto-style33 {
             width: 100%;
         }
+        .auto-style34 {
+            margin-right: 39px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -47,7 +50,7 @@
        
                 <br />
        
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="ODSDom" OnRowCommand="GridView2_RowCommand">
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="ODSDom" OnRowCommand="GridView2_RowCommand" CssClass="auto-style34" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="1013px">
             <Columns>
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                 <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
@@ -62,11 +65,17 @@
                 <asp:TemplateField HeaderText="aceptar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_aceptardomiciliario" runat="server"  CommandName="Aceptar" CommandArgument='<%# Eval("Id") %>' Text="Aceptar"    />
+                        <br />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Rechazar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_rechazardomiciliario" runat="server" CommandName="Rechazar"  CommandArgument='<%# Eval("Id") %>' Text="Rechazar" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="prueba">
+                    <ItemTemplate>
+                        <asp:Button ID="Btn_hojavida" runat="server" CommandName="Hoja de vida"  CommandArgument='<%# Eval("Id") %>' Text="Hoja de vida" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

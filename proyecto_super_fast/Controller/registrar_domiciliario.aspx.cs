@@ -59,6 +59,7 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud sera revisada y respondida al correo que ingreso');</script>");
                 new DAOUsuario().insertUsuario(domiciliario);
                     FUD_hojavida.PostedFile.SaveAs(saveLocation);
+                   // vaciar();
                    // Response.Redirect("registrar_domiciliario.aspx");
                }
 
@@ -69,5 +70,18 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
         { return; }
 
 
+    }
+    public void vaciar()
+    {
+         TBD_nombre.Text="";
+        TBD_apellido.Text = "";
+       TBD_correo.Text = "";
+         TBD_contrasena.Text = "";
+         TBD_ndocumento.Text = "";
+         TBD_telefono.Text = "";
+        FUD_hojavida = null;
+       DDLD_tipovehiculo.Text = "";
+       
+        
     }
 }

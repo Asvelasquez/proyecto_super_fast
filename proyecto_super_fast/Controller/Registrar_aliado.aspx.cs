@@ -57,7 +57,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
         try{
             FUA_logo.PostedFile.SaveAs(saveLocation);
             FUA_rut.PostedFile.SaveAs(saveLocation1);
-
+            DAOUsuario dAOUsuario = new DAOUsuario();
             Usuario aliado1 = new Usuario();
             aliado1.Nombre = TBA_nombrecomercial.Text;
             aliado1.Documento = TBA_nit.Text;
@@ -72,7 +72,24 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             aliado1.Id_rol = rol2;
             aliado1.Aprobacion = aprob;
             aliado1.Auditoria = TBA_nombrecomercial.Text;
-            new DAOUsuario().insertUsuario(aliado1);
+            Usuario validarUsuario = dAOUsuario.getCorreoByregistrarse(TBA_correo.Text);
+            new DAOUsuario().getCorreoByregistrarse(TBA_correo.Text);
+            if (!CB_terminos.Checked){
+                cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acepte terminos y condiciones');</script>");
+            }
+            else
+            {
+                if (validarUsuario != null)
+                {
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('correo registrado,ingrese uno diferente');</script>");
+                }
+                else
+                {
+                    new DAOUsuario().insertUsuario(aliado1);
+                    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud sera revisada y respondida al correo que ingreso');</script>");
+                }
+            }
+           
 
            
         }
