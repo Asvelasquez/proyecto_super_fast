@@ -26,8 +26,10 @@ public partial class View_administrador : System.Web.UI.Page
     protected void GridView2_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e){
         ClientScriptManager cm = this.ClientScript;
         DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();               
+        Usuario usuario1 = new Usuario();
+        Usuario usuario2 = new Usuario();
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        usuario2.Hojavida = e.CommandArgument.ToString();
         if (e.CommandName == "Aceptar"){
          us.aceptarusuario(usuario1,((Usuario)Session["user"]).Correo);
          GridView2.DataBind();
@@ -35,14 +37,7 @@ public partial class View_administrador : System.Web.UI.Page
             us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
            GridView2.DataBind();
         }
-        else if (e.CommandName == "Hoja de vida")
-        {
-
-
-            Response.Write("<script> window.open('" + ((Usuario)Session["user"]).Hojavida + "','_blank'); </script>");
-            GridView2.DataBind();
-        }
-
+        
     }
     
     protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e) {
