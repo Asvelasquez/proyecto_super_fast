@@ -37,7 +37,11 @@
                         <asp:Button ID="BTN_rechazaraliado" runat="server" CommandName="Rechazar" CommandArgument='<%# Eval("Id") %>' Text="Rechazar" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Rut2"></asp:TemplateField>
+                <asp:TemplateField HeaderText="Rut2">
+                    <ItemTemplate>
+                        <asp:HyperLink ID="HYL_rut" runat="server">Rut</asp:HyperLink>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <asp:ObjectDataSource ID="ODSaliado" runat="server" SelectMethod="mostrarsolicitudaliado" TypeName="DAOUsuario"></asp:ObjectDataSource>
