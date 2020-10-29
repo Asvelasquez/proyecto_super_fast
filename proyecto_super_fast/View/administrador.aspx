@@ -5,9 +5,6 @@
         .auto-style33 {
             width: 100%;
         }
-        .auto-style34 {
-            margin-right: 39px;
-        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -25,8 +22,11 @@
                 <asp:BoundField DataField="Documento" HeaderText="NIT" SortExpression="Documento" />
                 <asp:BoundField DataField="Rut" HeaderText="Rut" SortExpression="Rut" />
                 <asp:BoundField DataField="Actividadcomercial" HeaderText="Actividad comercial" SortExpression="Actividadcomercial" />
-                <asp:BoundField DataField="Imagenperfil" HeaderText="Logo" SortExpression="Imagenperfil" />
-                <asp:BoundField DataField="Aprobacion" HeaderText="Aprobacion" SortExpression="Aprobacion" />
+                <asp:TemplateField HeaderText="Logo" >
+                    <ItemTemplate>
+                        <asp:Image ID="IM_perfil" runat="server" Height="38px" Width="75px" ImageUrl='<%# Eval("Imagenperfil") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Aceptar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_aceptaraliado" runat="server" CommandName="Aceptar" CommandArgument='<%# Eval("Id") %>' Text="Aceptar" />
@@ -37,9 +37,9 @@
                         <asp:Button ID="BTN_rechazaraliado" runat="server" CommandName="Rechazar" CommandArgument='<%# Eval("Id") %>' Text="Rechazar" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="logo1">
+                <asp:TemplateField HeaderText="Rut2">
                     <ItemTemplate>
-                        <asp:Image ID="Image3" runat="server" Height="38px" Width="75px" />
+                        <asp:HyperLink ID="HYL_rut" runat="server">Rut</asp:HyperLink>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -50,7 +50,7 @@
        
                 <br />
        
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="ODSDom" OnRowCommand="GridView2_RowCommand" CssClass="auto-style34" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" Width="1013px">
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="ODSDom" OnRowCommand="GridView2_RowCommand">
             <Columns>
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                 <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
@@ -58,14 +58,15 @@
                 <asp:BoundField DataField="Direccion" HeaderText="Direccion" SortExpression="Direccion" />
                 <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
                 <asp:BoundField DataField="Documento" HeaderText="Documento" SortExpression="Documento" />
-                <asp:BoundField DataField="Imagenperfil" HeaderText="Imagenperfil" SortExpression="Imagenperfil" />
-                <asp:BoundField DataField="Hojavida" HeaderText="Hojavida" SortExpression="Hojavida" />
+                <asp:TemplateField HeaderText="Imagen Perfil">
+                    <ItemTemplate>
+                        <asp:Image ID="IM_perfil2" runat="server" Height="33px" Width="42px" ImageUrl='<%# Eval("Imagenperfil") %>'/>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="Tipovehiculo" HeaderText="Tipovehiculo" SortExpression="Tipovehiculo" />
-                <asp:BoundField DataField="Aprobacion" HeaderText="Aprobacion" SortExpression="Aprobacion" />
                 <asp:TemplateField HeaderText="aceptar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_aceptardomiciliario" runat="server"  CommandName="Aceptar" CommandArgument='<%# Eval("Id") %>' Text="Aceptar"    />
-                        <br />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Rechazar">
@@ -73,9 +74,9 @@
                         <asp:Button ID="BTN_rechazardomiciliario" runat="server" CommandName="Rechazar"  CommandArgument='<%# Eval("Id") %>' Text="Rechazar" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="prueba">
+                <asp:TemplateField HeaderText="Hoja de Vida">
                     <ItemTemplate>
-                        <asp:Button ID="Btn_hojavida" runat="server" CommandName="Hoja de vida"  CommandArgument='<%# Eval("Id") %>' Text="Hoja de vida" />
+                        <asp:HyperLink ID="HYL_hojavida"  NavigateUrl='<%# Eval("hojavida") %>' Target="_blank" runat="server">Hoja de vida</asp:HyperLink>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -95,8 +96,11 @@
                 <asp:BoundField DataField="Documento" HeaderText="NIT" SortExpression="Documento" />
                 <asp:BoundField DataField="Rut" HeaderText="Rut" SortExpression="Rut" />
                 <asp:BoundField DataField="Actividadcomercial" HeaderText="Actividadcomercial" SortExpression="Actividadcomercial" />
-                <asp:BoundField DataField="Imagenperfil" HeaderText="Logo" SortExpression="Imagenperfil" />
-                <asp:BoundField DataField="Aprobacion" HeaderText="Aprobacion" SortExpression="Aprobacion" />
+                <asp:TemplateField HeaderText="Logo">
+                    <ItemTemplate>
+                        <asp:Image ID="IM_perfil3" runat="server" Height="32px" Width="48px" ImageUrl='<%# Eval("Imagenperfil") %>'/>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Aceptar">
                     <ItemTemplate>
                         <asp:Button ID="BTN_aceptar" runat="server" CommandName="Aceptar"  CommandArgument='<%# Eval("Id") %>' Text="Aceptar" />

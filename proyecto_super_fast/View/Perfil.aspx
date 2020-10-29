@@ -70,36 +70,31 @@
                     &nbsp;<asp:Label ID="LB_documento" runat="server" Text="Documento"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                     &nbsp;&nbsp;
+                    <asp:Label ID="LB_actividadcomercial" runat="server" Text="Actividad Comercial"></asp:Label>
                     <br />
                     &nbsp;<asp:TextBox ID="TB_documentoperfil" runat="server" TextMode="Number" Enabled="False"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="TB_actividadcomercialperfil" runat="server" Enabled="False"></asp:TextBox>
                     <br />
                     &nbsp;<asp:TextBox ID="TB_documentoperfila" runat="server"></asp:TextBox>
                     <br />
                     &nbsp;<asp:Label ID="LB_tipodevehiculoperfil" runat="server" Text="Tipo de Vehiculo"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                    <asp:Label ID="LB_actividadcomercial" runat="server" Text="Actividad Comercial"></asp:Label>
-        <br />
+                    <br />
 
                        &nbsp;&nbsp;<asp:DropDownList ID="DDLD_tipovehiculo" runat="server" Width="150px" Height="20px" OnSelectedIndexChanged="DDLD_tipovehiculo_SelectedIndexChanged">
         <asp:ListItem>Bicicleta</asp:ListItem>
         <asp:ListItem>Motocicleta</asp:ListItem>
     </asp:DropDownList>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:DropDownList ID="DDLA_actividadcomercial" runat="server" OnSelectedIndexChanged="DDLA_actividadcomercial_SelectedIndexChanged" AutoPostBack="True">
-    <asp:ListItem>Retaurante</asp:ListItem>
-    <asp:ListItem>Super mercado</asp:ListItem>
-</asp:DropDownList>
          <br />
                 &nbsp; <asp:TextBox ID="TB_tipodevehiculoperfil" runat="server" Enabled="False"></asp:TextBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="TB_actividadcomercialperfil" runat="server" Enabled="False"></asp:TextBox>
-        <br />
+                    <br />
         &nbsp;
                     <asp:TextBox ID="TB_tipodevehiculoperfila" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="TB_actividadcomercialperfila" runat="server"></asp:TextBox>
-        <br />
+                    <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="BTN_guardar" runat="server"  Text="Guardar" Width="61px" OnClick="BTN_guardar_Click" />
 &nbsp;<asp:Button ID="BTN_cancelar" runat="server" OnClick="BTN_cancelar_Click" Text="Cancelar" Width="66px" EnableTheming="True" />

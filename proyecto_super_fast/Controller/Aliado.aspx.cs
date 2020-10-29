@@ -44,10 +44,29 @@ public partial class View_Aliado : System.Web.UI.Page
         
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+   
+
+    protected void GridView2_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-        /*Filtro busqueda = new Filtro();
-        busqueda.filtroproducto = ((Usuario)Session["user"]).Correo;
-        Session["GV_sesionproducto"] = busqueda;*/
+        DAOUsuario us = new DAOUsuario();
+        Usuario usuario1 = new Usuario();
+        Usuario usuario2 = new Usuario();       
+        //usuario2.Hojavida = (e.CommandArgument.ToString());
+        //if (e.CommandName == "Aceptar")
+        //{
+        //    Response.Write("<script> window.open('" + usuario2 + "','_blank'); </script>");
+
+        //    GridView2.DataBind();
+        //}
+       
+        //else if (e.CommandName == "hojavida")
+        //{
+        //    ClientScriptManager cm = this.ClientScript;
+        //    cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('prueba');</script>");
+        //   // Response.Redirect('" + usuario2 + "');
+        //    //Response.Write(window.open('inicio.aspx', '_newtab');
+        //    // Response.Write("<script> window.open('" + usuario2 + "','_blank'); </script>");
+
+        //}
     }
 }

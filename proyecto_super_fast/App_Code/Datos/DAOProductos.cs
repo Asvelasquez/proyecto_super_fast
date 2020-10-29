@@ -17,7 +17,12 @@ public class DAOProductos{
         return new Mapeo().producto.Where(x =>  x.Correo_aliado == consulta.Correo).ToList<Producto>();
         
     }
-   
+    public List<Producto> mostrarimagenproducto(Usuario consulta)
+    {
+        return new Mapeo().producto.Where(x => x.Correo_aliado == consulta.Correo).ToList<Producto>();
+
+    }
+
     public List<Producto> mostrar()
     {
         return new Mapeo().producto.OrderBy(x => x.Id).ToList<Producto>();
