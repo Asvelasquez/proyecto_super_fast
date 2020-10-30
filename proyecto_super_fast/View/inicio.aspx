@@ -30,12 +30,6 @@
         .auto-style34 {
             text-align: center;
         }
-        .auto-style35 {
-            font-size: large;
-        }
-        .auto-style36 {
-            width: 50%;
-        }
         .auto-style37 {
             text-align: center;
             height: 83px;
@@ -43,6 +37,16 @@
         .auto-style38 {
             height: 1%;
             vertical-align: top;
+        }
+        .auto-style39 {
+            width: 50%;
+            text-align: right;
+        }
+        .auto-style40 {
+            font-size: large;
+        }
+        .auto-style41 {
+            text-align: left;
         }
     </style>
 </asp:Content>
@@ -82,41 +86,61 @@
     </tr>
     <tr>
         <td class="auto-style38" colspan="2">
-            <asp:DataList ID="DL_Productos" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" Width="100%">
+            <asp:DataList ID="DL_Productos" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" Width="100%" DataSourceID="ODS_inicioproductos">
                 <ItemTemplate>
                     <table class="auto-style33">
                         <tr>
                             <td class="auto-style37" colspan="2">
-                                <asp:Image ID="I_Productos" runat="server" Width="30%" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong>
+                                <asp:TextBox ID="TBX_nombrealiado" runat="server" CssClass="auto-style40" Enabled="False" Text='<%# Eval("nombre_aliado") %>'></asp:TextBox>
+                                </strong>&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Image ID="I_Productos" runat="server" Height="200px" Width="200px" ImageUrl='<%# Eval("imagen_producto1") %>' />
+                                <br />
+                                <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:TextBox ID="TBX_nombreproducto" runat="server" CssClass="auto-style40" Enabled="False" Text='<%# Eval("Nombre_producto") %>' Width="160px"></asp:TextBox>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
+                                <asp:Label ID="LB_Precio" runat="server">Precio</asp:Label>
+                                &nbsp;<asp:TextBox ID="TBX_precio" runat="server" Text='<%# Eval("precio_producto") %>' Enabled="False" Height="20px" Width="160px"></asp:TextBox>
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="LB_Descripcion" runat="server" Height="35px">Descripcion</asp:Label>
+                                <asp:TextBox ID="TB_descripcion" runat="server" Enabled="False" Height="41px" Text='<%# Eval("descripcion_producto") %>' Width="160px"></asp:TextBox>
+                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument="id" ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" />
+                                <br />
+                                <br />
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style34" colspan="2">
-                                <asp:Label ID="LB_Producto" runat="server" CssClass="auto-style35"></asp:Label>
+                            <td class="auto-style34">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <h1><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong></h1>
                             </td>
+                            <td class="auto-style41">&nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="auto-style36">precio</td>
+                            <td class="auto-style39">&nbsp;&nbsp;
+                                </td>
                             <td>
-                                <asp:Label ID="LB_Precio" runat="server"></asp:Label>
-                            </td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="auto-style36">Descripcion</td>
+                            <td class="auto-style39">&nbsp;&nbsp; &nbsp;&nbsp;
+                            </td>
                             <td>
-                                <asp:Label ID="LB_Descripcion" runat="server"></asp:Label>
-                            </td>
+                                &nbsp;</td>
                         </tr>
                         <tr>
-                        <tr>
-                            <td class="auto-style34" colspan="2">
-                                                                <%--CommandArgument='<%# Eval("Id") %>'--%>
-                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument="id"  ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" />
+                            <td class="auto-style34"><%--CommandArgument='<%# Eval("Id") %>'--%>
                             </td>
-                        </tr>
+                            <td class="auto-style41">&nbsp;</td>
                     </table>
                 </ItemTemplate>
             </asp:DataList>
+            <asp:ObjectDataSource ID="ODS_inicioproductos" runat="server" SelectMethod="mostrarproductoinicio" TypeName="DAOProductos"></asp:ObjectDataSource>
+            <br />
         </td>
     </tr>
 </table>

@@ -40,7 +40,7 @@ public partial class View_Aliado : System.Web.UI.Page
 
         try
         {
-            FP_imagen1.PostedFile.SaveAs(saveLocation);
+            
 
             Producto producto1 = new Producto();
             producto1.Nombre_producto = TB_nombreproducto.Text;
@@ -49,8 +49,12 @@ public partial class View_Aliado : System.Web.UI.Page
             producto1.Imagen_producto1 = "~\\Aliado\\imagenesproducto" + "\\" + nombreArchivo; ;
             producto1.Estado_producto = 2;
             producto1.Correo_aliado = (((Usuario)Session["user"]).Correo);
-            //  producto1.nombreusuario = (((Usuario)Session["user"]).Nombre);
+            producto1.Nombre_aliado = (((Usuario)Session["user"]).Nombre);
+            producto1.Actividad_comercial = (((Usuario)Session["user"]).Actividadcomercial);
+
             new DAOProductos().insertProducto(producto1);
+            FP_imagen1.PostedFile.SaveAs(saveLocation);
+            Response.Redirect("Aliado.aspx");
         }
         catch (Exception ex)
         { return; }//

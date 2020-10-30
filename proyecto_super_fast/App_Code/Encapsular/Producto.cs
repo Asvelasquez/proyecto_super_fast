@@ -17,6 +17,8 @@ using System.Web;
    ----- precio_producto double precision NOT NULL,
     estado_producto integer NOT NULL,
     correo_aliado text COLLATE pg_catalog."default" NOT NULL,
+    nombre_aliado text COLLATE pg_catalog."default" NOT NULL,
+     actividad_comercial text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT pk_informacion_producto PRIMARY KEY (id)
      * */
 [Serializable]
@@ -29,6 +31,8 @@ public class Producto{
     private string imagen_producto1;    
     private int estado_producto;
     private string correo_aliado;
+    private string nombre_aliado;
+    private string actividad_comercial;
     [Key]
     [Column("id")]
     public int Id { get => id; set => id = value; }
@@ -44,4 +48,8 @@ public class Producto{
     public int Estado_producto { get => estado_producto; set => estado_producto = value; }
     [Column("correo_aliado")]
     public string Correo_aliado { get => correo_aliado; set => correo_aliado = value; }
+    [Column("nombre_aliado")]
+    public string Nombre_aliado { get => nombre_aliado; set => nombre_aliado = value; }
+    [Column("actividad_comercial")]
+    public string Actividad_comercial { get => actividad_comercial; set => actividad_comercial = value; }
 }

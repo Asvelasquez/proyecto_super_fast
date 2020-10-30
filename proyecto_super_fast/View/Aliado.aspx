@@ -51,7 +51,6 @@
                         <asp:BoundField DataField="Nombre_producto" HeaderText="Nombre_producto" SortExpression="Nombre_producto" />
                         <asp:BoundField DataField="Descripcion_producto" HeaderText="Descripcion_producto" SortExpression="Descripcion_producto" />
                         <asp:BoundField DataField="Precio_producto" HeaderText="Precio_producto" SortExpression="Precio_producto" />
-                        <asp:BoundField DataField="Estado_producto" HeaderText="Estado_producto" SortExpression="Estado_producto" />
                         <asp:TemplateField HeaderText="Imagen producto">
                             <ItemTemplate>
                                 <asp:Image ID="Image_producto" runat="server" Height="50px" Width="50px" ImageUrl='<%# Eval("Imagen_producto1") %>' />
