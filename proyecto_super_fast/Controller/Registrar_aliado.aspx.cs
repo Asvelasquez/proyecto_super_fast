@@ -9,7 +9,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //prueba
+   
     }
     String seleccion;
     protected void DDLA_actividadcomercial_SelectedIndexChanged(object sender, EventArgs e){

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class View_Login : System.Web.UI.Page{
     protected void Page_Load(object sender, EventArgs e)
-    {
+   {
 
     }
 
@@ -20,6 +20,7 @@ public partial class View_Login : System.Web.UI.Page{
         usuario = new DAOUsuario().loginusuario(usuario);
         if (usuario == null){          
             Session["user"] = null;
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('revise sus credenciales de acceso');window.location=\"Login.aspx\"</script>");
         }
         else{
 
@@ -37,7 +38,9 @@ public partial class View_Login : System.Web.UI.Page{
             new DAOSeguridad().insertarAcceso(acceso);
             if (usuario.Id_rol == 1) { 
                 Response.Redirect("inicio.aspx");
-            }else {
+                
+            }
+            else {
                 if (usuario.Id_rol == 2 && usuario.Aprobacion==1){
                     Response.Redirect("Aliado.aspx");
                 }else{

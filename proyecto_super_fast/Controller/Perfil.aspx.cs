@@ -141,8 +141,16 @@ public partial class View_Perfil : System.Web.UI.Page{
 
         DAOUsuario us = new DAOUsuario();
         Usuario usuario1 = new Usuario();
+        if (Session["user"] == null)
+        {
+            Response.Redirect("AccesoDenegado.aspx");
+        }
+        else
+        {
 
-       usuario1= us.mostrar(((Usuario)Session["user"]).Id);
+       
+
+        usuario1 = us.mostrar(((Usuario)Session["user"]).Id);
         TB_nombreperfil.Text = usuario1.Nombre;
         TB_apellidoperfil.Text = usuario1.Apellido;
         TB_correoperfil.Text = usuario1.Correo;
@@ -154,7 +162,7 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_actividadcomercialperfil.Text = usuario1.Actividadcomercial;
         imagen_perfil.ImageUrl = usuario1.Imagenperfil;
         TB_urlfoto.Text = usuario1.Imagenperfil;
-
+        }
     }
 
     String seleccion;

@@ -9,6 +9,42 @@ public partial class View_Aliado : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        ClientScriptManager cm = this.ClientScript;
+        
+        if (Session["user"] != null)
+        {
+            if (((Usuario)Session["user"]).Id_rol != 2)
+            {
+                //cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acceso no permitido');</script>");
+                 Response.Redirect("AccesoDenegado.aspx");
+            }
+            
+
+        }
+        else {
+            Response.Redirect("AccesoDenegado.aspx");
+        }
+
+            
+
+        //if (Session["user"] != null)
+        //{
+        //    switch (((Usuario)(Session["user"])).Id_rol)
+        //    {
+        //        case 2:
+        //            Response.Redirect("Aliado.aspx");
+        //            break;
+        //        default:
+        //            Response.Redirect("Login.aspx");
+        //            break;
+
+        //    }
+
+        //}
+        //else
+        //{
+        //    Response.Redirect("Login.aspx");
+        //}
     }
 
     protected void BTN_guardarproducto_Click(object sender, EventArgs e){

@@ -8,12 +8,14 @@ using System.Web.UI.WebControls;
 public partial class View_Mastersuper : System.Web.UI.MasterPage{
 
     protected void Page_Load(object sender, EventArgs e) {
-        if (!Page.AppRelativeVirtualPath.Contains("inicio.aspx")) {
+        
+        if (!Page.AppRelativeVirtualPath.Contains("administrador.aspx")) {
             Response.Cache.SetNoStore();
             if (Session["user"] == null) {
                 //   Response.Redirect("inicio.aspx");
             }
             menu();
+
         } else {
                     sinRol();
 
@@ -34,7 +36,8 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                         case 4:
                             rolAdmin();
                             break;
-                        default:
+                     
+                         default:
                             sinRol();
                             break;
 
@@ -115,7 +118,9 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
         else if (((Usuario)(Session["user"])).Id_rol == 4){
             Response.Redirect("administrador.aspx");
         }
-        
+       
+
+
     }
 
     protected void IB_carrito_Click(object sender, ImageClickEventArgs e)

@@ -7,6 +7,21 @@ using System.Web.UI.WebControls;
 
 public partial class View_administrador : System.Web.UI.Page{
     protected void Page_Load(object sender, EventArgs e){
+        if (Session["user"] != null)
+        {
+            if (((Usuario)Session["user"]).Id_rol != 4)
+            {
+                //cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acceso no permitido');</script>");
+                Response.Redirect("AccesoDenegado.aspx");
+            }
+
+
+        }
+        else
+        {
+            Response.Redirect("AccesoDenegado.aspx");
+        }
+
         LB_solicitudalaadosrechazados.Visible = false;
         GV_aliadorechazado.Visible = false;
         LB_solicituddomiciliariosrechazados.Visible = false;
@@ -19,7 +34,7 @@ public partial class View_administrador : System.Web.UI.Page{
         GV_domiciliariosaceptados.Visible = false;
         BTN_solicitudesaprobar.Visible = false;
         //
-
+      
     }
 
     protected void GV_domiciliariiosaprobar_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e){

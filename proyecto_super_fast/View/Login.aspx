@@ -22,6 +22,9 @@
             height: 100%;
             width: 40%;
         }
+        .auto-style35 {
+            height: 23px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -47,10 +50,10 @@
                                             <td align="center" colspan="2" style="color:White;background-color:#507CD1;font-size:0.9em;font-weight:bold;">Iniciar sesión</td>
                                         </tr>
                                         <tr>
-                                            <td align="right">
+                                            <td align="right" class="auto-style35">
                                                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Correo</asp:Label>
                                             </td>
-                                            <td>
+                                            <td class="auto-style35">
                                                 <asp:TextBox ID="UserName" runat="server" Font-Size="0.8em"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="El correo es obligatorio." ToolTip="El correo es obligatorio." ValidationGroup="LG_Principal">*</asp:RequiredFieldValidator>
                                             </td>

@@ -119,7 +119,7 @@
                 </td>
                 <td class="auto-style31">
 
-                    <asp:Button ID="BT_nosotros" runat="server" BackColor="#3399FF" Height="30px" Text="Nosotros" Width="95px" />
+                    <asp:Button ID="BT_nosotros" runat="server" BackColor="#3399FF" Height="30px" Text="Nosotros" Width="95px" PostBackUrl="~/View/Nosotros.aspx" />
 
                 </td>
                 <td class="auto-style15">
