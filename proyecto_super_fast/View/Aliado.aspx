@@ -51,9 +51,12 @@
                         <asp:BoundField DataField="Nombre_producto" HeaderText="Nombre_producto" SortExpression="Nombre_producto" />
                         <asp:BoundField DataField="Descripcion_producto" HeaderText="Descripcion_producto" SortExpression="Descripcion_producto" />
                         <asp:BoundField DataField="Precio_producto" HeaderText="Precio_producto" SortExpression="Precio_producto" />
-                        <asp:BoundField DataField="Imagen_producto1" HeaderText="Imagen_producto1" SortExpression="Imagen_producto1" />
                         <asp:BoundField DataField="Estado_producto" HeaderText="Estado_producto" SortExpression="Estado_producto" />
-                        <asp:BoundField DataField="Correo_aliado" HeaderText="Correo_aliado" SortExpression="Correo_aliado" />
+                        <asp:TemplateField HeaderText="Imagen producto">
+                            <ItemTemplate>
+                                <asp:Image ID="Image_producto" runat="server" Height="50px" Width="50px" ImageUrl='<%# Eval("Imagenperfil") %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
                 <asp:ObjectDataSource ID="ODS_producto1" runat="server" SelectMethod="mostrarproducto" TypeName="DAOProductos">

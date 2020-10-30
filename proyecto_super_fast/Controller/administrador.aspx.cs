@@ -5,8 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class View_administrador : System.Web.UI.Page
-{
+public partial class View_administrador : System.Web.UI.Page{
     protected void Page_Load(object sender, EventArgs e){
         LB_solicitudalaadosrechazados.Visible = false;
         GV_aliadorechazado.Visible = false;
@@ -23,7 +22,7 @@ public partial class View_administrador : System.Web.UI.Page
 
     }
 
-    protected void GridView2_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e){
+    protected void GV_domiciliariiosaprobar_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e){
         ClientScriptManager cm = this.ClientScript;
         DAOUsuario us = new DAOUsuario();
         Usuario usuario1 = new Usuario();
@@ -31,12 +30,11 @@ public partial class View_administrador : System.Web.UI.Page
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
         usuario2.Hojavida =(e.CommandArgument.ToString());
         if (e.CommandName == "Aceptar"){
-            
             us.aceptarusuario(usuario1,((Usuario)Session["user"]).Correo);
-         GridView2.DataBind();
+            GV_domiciliariiosaprobar.DataBind();
         }else if (e.CommandName == "Rechazar"){
             us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-           GridView2.DataBind();
+           GV_domiciliariiosaprobar.DataBind();
         }
         else if (e.CommandName == "hojavida")
         {
@@ -46,19 +44,19 @@ public partial class View_administrador : System.Web.UI.Page
 
     }
     //prueba
-    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e) {
+    protected void GV_aliadoaprobar_RowCommand(object sender, GridViewCommandEventArgs e) {
       //  ClientScriptManager cm = this.ClientScript;
         DAOUsuario us = new DAOUsuario();
         Usuario usuario1 = new Usuario();
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
         if (e.CommandName == "Aceptar"){
             us.aceptarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GridView1.DataBind();
+            GV_aliadoaprobar.DataBind();
   
         }
         else if (e.CommandName== "Rechazar"){
             us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GridView1.DataBind();
+            GV_aliadoaprobar.DataBind();
           
         }
     }
@@ -112,16 +110,18 @@ public partial class View_administrador : System.Web.UI.Page
     }
     protected void BTN_solicitudesrechazas_Click(object sender, EventArgs e){
         LB_solicitudesaliados.Visible = false;
-        GridView1.Visible = false;
+        GV_aliadoaprobar.Visible = false;
         LB_solicituddomicilios.Visible = false;
-        GridView2.Visible = false;
+        GV_domiciliariiosaprobar.Visible = false;
        
         //
         LB_solicitudalaadosrechazados.Visible = true;
         GV_aliadorechazado.Visible = true;
         LB_solicituddomiciliariosrechazados.Visible = true;
-        GV_domiciliariorechazado.Visible = true;        
+        GV_domiciliariorechazado.Visible = true;
         BTN_solicitudesaprobar.Visible = true;
+        BTN_solicitudesrechazas.Visible = false;
+        BTN_solicitudesaceptadas.Visible = true;
         //
 
         //
@@ -135,29 +135,49 @@ public partial class View_administrador : System.Web.UI.Page
 
     protected void BTN_solicitudesaceptadas_Click(object sender, EventArgs e){
         LB_solicitudesaliados.Visible = false;
-        GridView1.Visible = false;
+        GV_aliadoaprobar.Visible = false;
         LB_solicituddomicilios.Visible = false;
-        GridView2.Visible = false;
+        GV_domiciliariiosaprobar.Visible = false;
         //
         LB_solicitudalaadosrechazados.Visible = false;
         GV_aliadorechazado.Visible = false;
         LB_solicituddomiciliariosrechazados.Visible = false;
         GV_domiciliariorechazado.Visible = false;
         BTN_solicitudesaprobar.Visible = true;
+        BTN_solicitudesrechazas.Visible = true;
+        BTN_solicitudesaceptadas.Visible = false;
         //
         //
         LB_solicitudalidosaceptados.Visible = true;
         GV_solicitudaliadosaceptados.Visible = true;
         LB_solicituddedomiciliariosaceptados.Visible = true;
         GV_domiciliariosaceptados.Visible = true;
+        
         //
     }
 
-
-
-
-
-    protected void BTN_hojavida_Click(object sender, EventArgs e){
-
+    protected void BTN_solicitudesaprobar_Click(object sender, EventArgs e){
+        LB_solicitudesaliados.Visible = true;
+        GV_aliadoaprobar.Visible = true;
+        LB_solicituddomicilios.Visible = true;
+        GV_domiciliariiosaprobar.Visible = true;
+        //
+        LB_solicitudalaadosrechazados.Visible = false;
+        GV_aliadorechazado.Visible = false;
+        LB_solicituddomiciliariosrechazados.Visible = false;
+        GV_domiciliariorechazado.Visible = false;
+        BTN_solicitudesaprobar.Visible = false;
+        BTN_solicitudesrechazas.Visible = true;
+        BTN_solicitudesaceptadas.Visible = true;
+        //
+        //
+        LB_solicitudalidosaceptados.Visible = false;
+        GV_solicitudaliadosaceptados.Visible = false;
+        LB_solicituddedomiciliariosaceptados.Visible = false;
+        GV_domiciliariosaceptados.Visible = false;
+        
+        //
     }
+
+    
 }
