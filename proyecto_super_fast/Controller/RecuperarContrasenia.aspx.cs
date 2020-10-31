@@ -25,9 +25,16 @@ public partial class View_RecuperarContrasenia : System.Web.UI.Page
 
     protected void B_Cambiar_Click(object sender, EventArgs e){
         Usuario usuario = new Usuario();
+    
+        //usuario = new DAOUsuario().nuevacontrasenia(usuario);
+
         usuario.Id = int.Parse(Session["user_id"].ToString());
         usuario.Contrasenia = TB_ConfirmarContrasenia.Text;
 
+        //if (usuario.Contrasenia != null)
+        //{
+
+        //}
         new DAOSeguridad().updateClave(usuario);
 
         this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('Su contraseña fue actualizada');window.location=\"Login.aspx\"</script>");

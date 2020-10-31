@@ -26,7 +26,7 @@
                                                                                                                                                                                                                            (?=.{6,15}) - minimo 6 caracreres max 15
                                                                                                                                                                                                                             (?=.*[\d]) - minimo un dígito
                                                                                                                                                                                                                             (?=.*[\W]) - minimo un carácter especial--%>
-                            <asp:RegularExpressionValidator ID="REV_Contrasenia" runat="server" ControlToValidate="TB_Contrasenia" ErrorMessage="debe ingresar letra minuscula,mayuscula,numero y un caracter especial " ValidationExpression="^.*(?=.{6,15})(?=.*[\d])(?=.*[\  W]).*$" ValidationGroup="VG_Contrasenia"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="REV_Contrasenia" runat="server" ControlToValidate="TB_Contrasenia" ErrorMessage="minimo 5 digitos" ValidationExpression="^[a-zA-Z0-9\s]{5,20}$" ValidationGroup="VG_Contrasenia"></asp:RegularExpressionValidator>
             </strong>
                     </td>
                     <td>&nbsp;</td>

@@ -15,7 +15,7 @@
 </head>
 <body>
     <%--inicio insert javascript session null al cerrar ventana--%>
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         var areYouReallySure = false;
         var allowPrompt = true;
         window.onbeforeunload = areYouSure;
@@ -35,7 +35,7 @@
     }
     }
 
-</script>
+</script>--%>
      <%-- fin funcion --%>
     <form id="form1" runat="server">
         <div>

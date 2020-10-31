@@ -17,23 +17,35 @@
                 <br />
 &nbsp;<asp:Label ID="LB_nombreproducto" runat="server" Text="Nombre del producto"></asp:Label>
                 <br />
-&nbsp;<asp:TextBox ID="TB_nombreproducto" runat="server" BorderColor="Black" Height="20px" Width="180px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TB_nombreproducto" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_cargarproducto"></asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox ID="TB_nombreproducto" runat="server" BorderColor="Black" Height="20px" Width="180px" ValidationGroup="VG_cargarproducto"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RFV_Nombre" runat="server" ControlToValidate="TB_nombreproducto" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_cargarproducto"></asp:RequiredFieldValidator>
+                <br />
+    <strong>
+            <asp:RegularExpressionValidator ID="REV_Nombre" runat="server" ControlToValidate="TB_nombreproducto" ErrorMessage="por favor revise el nombre" ValidationExpression="^[a-zA-Z0-9\s]+$" ValidationGroup="VG_cargarproducto" ForeColor="White"></asp:RegularExpressionValidator>
+            </strong>
                 <br />
 &nbsp;<asp:Label ID="LB_descripcionproducto" runat="server" Text="Descripcion del producto"></asp:Label>
                 <br />
-&nbsp;<asp:TextBox ID="TB_descripcionproducto" runat="server" BorderColor="Black" Height="20px" Width="180px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TB_descripcionproducto" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_cargarproducto"></asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox ID="TB_descripcionproducto" runat="server" BorderColor="Black" Height="20px" Width="180px" ValidationGroup="VG_cargarproducto"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RFV_Descripcion" runat="server" ControlToValidate="TB_descripcionproducto" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_cargarproducto"></asp:RequiredFieldValidator>
+                <br />
+    <strong>
+            <asp:RegularExpressionValidator ID="REV_Descripcion" runat="server" ControlToValidate="TB_descripcionproducto" ErrorMessage="por favor revise la descripcion" ValidationExpression="^[a-zA-Z0-9\s]+$" ValidationGroup="VG_cargarproducto" ForeColor="White"></asp:RegularExpressionValidator>
+            </strong>
                 <br />
 &nbsp;<asp:Label ID="LB_precioproducto" runat="server" Text="Precio del producto"></asp:Label>
                 <br />
-&nbsp;<asp:TextBox ID="TB_precioproducto" runat="server" TextMode="Number" BorderColor="Black" Height="20px" Width="180px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TB_precioproducto" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_cargarproducto"></asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox ID="TB_precioproducto" runat="server" TextMode="Number" BorderColor="Black" Height="20px" Width="180px" ValidationGroup="VG_cargarproducto"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RFV_Precio" runat="server" ControlToValidate="TB_precioproducto" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_cargarproducto"></asp:RequiredFieldValidator>
+                <br />
+    <strong>
+            <asp:RegularExpressionValidator ID="REV_Precio" runat="server" ControlToValidate="TB_precioproducto" ErrorMessage="por favor revise el precio" ValidationExpression="^\d*[1-9]\d*$" ValidationGroup="VG_cargarproducto" ForeColor="White"></asp:RegularExpressionValidator>
+            </strong>
                 <br />
 &nbsp;<asp:Label ID="LB_imagenproducto1" runat="server" Text="Cargar imagen del producto #1"></asp:Label>
                 <br />
 &nbsp;<asp:FileUpload ID="FP_imagen1" runat="server" Width="276px" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="FP_imagen1" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_cargarproducto"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RFV_CargarProducto" runat="server" ControlToValidate="FP_imagen1" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_cargarproducto"></asp:RequiredFieldValidator>
                 <br />
 &nbsp;<br />
 &nbsp;<br />

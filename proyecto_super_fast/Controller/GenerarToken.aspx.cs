@@ -23,7 +23,7 @@ public partial class View_GenerarToken : System.Web.UI.Page
             Token token = new Token();
             token.Creado = DateTime.Now;
             token.User_id = usuario.Id;
-            token.Vigencia = DateTime.Now.AddHours(2);
+            token.Vigencia = DateTime.Now.AddHours(1);
 
             token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
             new DAOSeguridad().insertarToken(token);

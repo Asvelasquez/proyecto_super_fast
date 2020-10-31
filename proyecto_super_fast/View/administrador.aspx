@@ -223,8 +223,18 @@
         <asp:Button ID="BTN_solicitudesaceptadas" runat="server" Text="Solicitudes Aceptadas" Width="179px" OnClick="BTN_solicitudesaceptadas_Click" BorderColor="Black" Height="30px" />
          &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="BTN_solicitudesaprobar" runat="server" Text="Solicitudes por aprobar" BorderColor="Black" Height="30px" Width="179px" OnClick="BTN_solicitudesaprobar_Click" />
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="LB_Tarifa" runat="server" Text="Costo Domicilio"></asp:Label>
+                <asp:TextBox ID="TB_CostoDomicilio" runat="server" TextMode="Number" ValidationGroup="VG_CostoDomicilio"></asp:TextBox>
+                <asp:Button ID="BTN_Domicilio" runat="server" Text="Guardar" ValidationGroup="VG_CostoDomicilio" />
          <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <strong>
+            <asp:RegularExpressionValidator ID="REV_Precio" runat="server" ControlToValidate="TB_CostoDomicilio" ErrorMessage="por favor revise el precio" ValidationExpression="^\d*[1-9]\d*$" ValidationGroup="VG_CostoDomicilio" ForeColor="White"></asp:RegularExpressionValidator>
+            </strong>
+            </td>
         </tr>
     </table>
    
