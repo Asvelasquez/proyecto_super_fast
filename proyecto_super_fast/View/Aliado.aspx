@@ -68,9 +68,10 @@
                                 <asp:Image ID="Image_producto" runat="server" Height="50px" Width="50px" ImageUrl='<%# Eval("Imagen_producto1") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:CommandField ShowEditButton="True" />
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_producto1" runat="server" SelectMethod="mostrarproducto" TypeName="DAOProductos">
+                <asp:ObjectDataSource ID="ODS_producto1" runat="server" SelectMethod="mostrarproducto" TypeName="DAOProductos" DataObjectTypeName="Producto" UpdateMethod="updateproducto">
                     <SelectParameters>
                         <asp:SessionParameter Name="consulta" SessionField="user" Type="Object" />
                     </SelectParameters>

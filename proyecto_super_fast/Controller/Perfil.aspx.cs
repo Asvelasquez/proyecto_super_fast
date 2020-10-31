@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 public partial class View_Perfil : System.Web.UI.Page{
     protected void Page_Load(object sender, EventArgs e) {//1
         
-            menu();
+        menu();
         mostrar();
         TB_nombreperfila.Visible = false;
         TB_apellidoperfila.Visible = false;
