@@ -113,7 +113,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
             Response.Redirect("Aliado.aspx");
         }
         else if (((Usuario)(Session["user"])).Id_rol == 3){
-            Response.Redirect("administrador.aspx");
+            Response.Redirect("Domiciliario.aspx");
         }
         else if (((Usuario)(Session["user"])).Id_rol == 4){
             Response.Redirect("administrador.aspx");
