@@ -48,7 +48,7 @@ public partial class View_Login : System.Web.UI.Page{
                    
                     }
                 if (usuario.Id_rol == 3 && usuario.Aprobacion == 1){
-                    Response.Redirect("ser_aliado.aspx");
+                    Response.Redirect("Domiciliario.aspx");
                 }else{
                     cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como domiciliario, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');</script>");
                     
