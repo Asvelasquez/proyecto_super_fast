@@ -113,11 +113,14 @@
             font-size: large;
             font-weight: bold;
         }
-        .auto-style62 {
-            margin-left: 41px;
-        }
         .auto-style63 {
             font-weight: bold;
+        }
+        .auto-style64 {
+            height: 131px;
+            vertical-align: top;
+            width: 12%;
+            text-align: right;
         }
     </style>
 </asp:Content>
@@ -139,23 +142,27 @@
                 <asp:Button ID="BTN_Supermecados" runat="server" CssClass="auto-style40" Text="Supermercados" />
             </h1>
         </td>
+        <td class="auto-style64">
+            <asp:ImageButton ID="IB_Carrito" runat="server" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" />
+            <asp:Label ID="LB_Carrito" runat="server" ForeColor="#FF3300" Text="0"></asp:Label>
+        </td>
     </tr>
     <tr>
 
         <td class="auto-style14" colspan="2">
             <h1 class="auto-style13">Filtros</h1>
         </td>
-        <td class="auto-style11" colspan="2"></td>
+        <td class="auto-style11" colspan="3"></td>
     </tr>
     <tr>
         <td class="auto-style12" colspan="2">
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         </td>
-        <td class="auto-style10" colspan="2">&nbsp;</td>
+        <td class="auto-style10" colspan="3">&nbsp;</td>
     </tr>
     <tr>
-        <td class="auto-style38" colspan="4">
-            <asp:DataList ID="DL_Productos" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" Width="100%" DataSourceID="ODS_inicioproductos">
+        <td class="auto-style38" colspan="5">
+            <asp:DataList ID="DL_Productos" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" Width="100%" DataSourceID="ODS_inicioproductos" OnItemCommand="DL_Productos_ItemCommand">
                 <ItemTemplate>
                     <table class="auto-style33">
                         <tr>

@@ -15,11 +15,6 @@
             width: 100%;
             height: 462px;
         }
-        .auto-style3 {
-            height: 42%;
-            width: 33%;
-            text-align: right;
-        }
         .auto-style8 {
             width: 33%;
             text-align: left;
@@ -43,10 +38,6 @@
         .auto-style22 {
             width: 50%;
             height: 43%;
-        }
-        .auto-style23 {
-            width: 50%;
-            height: 42%;
         }
         .auto-style31 {
             height: 43%;
@@ -124,7 +115,6 @@
                 </td>
                 <td class="auto-style15">
 
-                    <asp:ImageButton ID="IB_carrito" runat="server" Height="36px" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" Width="35px" OnClick="IB_carrito_Click" />
                 &nbsp;&nbsp;
 
                 </td>
