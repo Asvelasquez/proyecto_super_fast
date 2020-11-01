@@ -36,22 +36,28 @@ public partial class View_inicio : System.Web.UI.Page
 
 
 
-    protected void DL_Productos_ItemCommand(object source, DataListCommandEventArgs e)
-    {
-        Producto prod = new Producto();
+    protected void DL_Productos_ItemCommand(object source, DataListCommandEventArgs e){
+
+        Pedido prod = new Pedido();
         DL_Productos.SelectedIndex = e.Item.ItemIndex;
-        prod.Precio_producto = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+        //  prod.Id_producto = int.Parse(e.CommandArgument.ToString());
+       // prod.Id_producto = 2;
         prod.Nombre_producto = ((TextBox)DL_Productos.SelectedItem.FindControl("TBX_nombreproducto")).Text;
-        prod.Cantidad_Producto = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
-        prod.Id = int.Parse(e.CommandArgument.ToString());
-        prod.Imagen_producto1 = ((Image)DL_Productos.SelectedItem.FindControl("I_Productos")).ImageUrl;
+        prod.Descripcion_producto = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_descripcion")).Text;
+        prod.Descripcion_pedido = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
+        prod.Precio_pedido = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+        prod.Cantidad_pedido = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+       
+      // prod.Imagen_producto1 = ((Image)DL_Productos.SelectedItem.FindControl("I_Productos")).ImageUrl;
 
-        List<Producto> lista = new List<Producto>();
+        List<Pedido> lista = new List<Pedido>();
         if (Session["Carrito"] != null)
-            lista = (List<Producto>)Session["Carrito"];
-
+            lista = (List<Pedido>)Session["Carrito"];
+       
         lista.Add(prod);
         LB_Carrito.Text = lista.Count().ToString();
         Session["Carrito"] = lista.OrderBy(x => x.Nombre_producto).ToList();
     }
+
+  
 }

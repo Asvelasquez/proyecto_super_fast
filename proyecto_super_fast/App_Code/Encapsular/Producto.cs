@@ -33,7 +33,7 @@ public class Producto{
     private string correo_aliado;
     private string nombre_aliado;
     private string actividad_comercial;
-    private int cantidad_producto;
+    
     [Key]
     [Column("id")]
     public int Id { get => id; set => id = value; }
@@ -53,8 +53,7 @@ public class Producto{
     public string Nombre_aliado { get => nombre_aliado; set => nombre_aliado = value; }
     [Column("actividad_comercial")]
     public string Actividad_comercial { get => actividad_comercial; set => actividad_comercial = value; }
-    [Column("cantidad_producto")]
-    public int Cantidad_Producto { get => cantidad_producto; set => cantidad_producto = value; }
+  
 
 
    

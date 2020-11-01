@@ -122,6 +122,14 @@
             width: 12%;
             text-align: right;
         }
+        .auto-style65 {
+            text-align: right;
+            height: 19px;
+        }
+        .auto-style66 {
+            text-align: left;
+            height: 19px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -143,7 +151,7 @@
             </h1>
         </td>
         <td class="auto-style64">
-            <asp:ImageButton ID="IB_Carrito" runat="server" ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" />
+            <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument='<%# Eval("Id") %>'   ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" PostBackUrl="~/View/Carrito.aspx" />
             <asp:Label ID="LB_Carrito" runat="server" ForeColor="#FF3300" Text="0"></asp:Label>
         </td>
     </tr>
@@ -214,53 +222,59 @@
                             <td class="auto-style55">
                             </td>
                             <td class="auto-style56"><strong>
-                                <asp:Label ID="LB_Descripcion" runat="server" CssClass="auto-style40" Height="20px" Width="170px">Descripcion</asp:Label>
+                                <asp:Label ID="LB_Descripcion" runat="server" CssClass="auto-style40" Height="20px" Width="200px">Descripcion del producto</asp:Label>
                                 </strong></td>
                         </tr>
                         <tr>
-                            <td class="auto-style59">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <td class="auto-style65">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <h1><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong></h1>
                             </td>
-                            <td class="auto-style60"><strong>
+                            <td class="auto-style66"><strong>
                                 <asp:TextBox ID="TB_descripcion" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="58px" Text='<%# Eval("descripcion_producto") %>' Width="170px"></asp:TextBox>
                                 </strong></td>
                         </tr>
                         <tr>
                             <td class="auto-style59">&nbsp;</td>
-                            <td class="auto-style60"><strong>
-                                <asp:Label ID="LB_Cantidad" runat="server" CssClass="auto-style40" Height="20px" Width="170px">Cantidad</asp:Label>
-                                </strong></td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style59">&nbsp;</td>
-                            <td class="auto-style60"><strong>
-                                <asp:TextBox ID="TBX_Cantidad" runat="server" CssClass="auto-style63" Font-Names="Times New Roman" Height="20px"  ValidationGroup="VG_Cantidad" Width="170px" TextMode="Number"></asp:TextBox>
-                                </strong></td>
+                            <td class="auto-style60">
+                                <asp:Label ID="LB_especificacion" runat="server" CssClass="auto-style40" Text="Especificacion del pedido"></asp:Label>
+                            </td>
                         </tr>
                         <tr>
                             <td class="auto-style59">&nbsp;</td>
                             <td class="auto-style60">
-                                <asp:RegularExpressionValidator ID="REV_Cantidad" runat="server" ControlToValidate="TBX_Cantidad" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="TB_especificacion" runat="server" Height="58px" Width="170px"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style59">&nbsp;</td>
+                            <td class="auto-style60">
+                                <strong>
+                                <asp:Label ID="LB_Cantidad" runat="server" CssClass="auto-style40" Height="20px" Width="170px">Cantidad</asp:Label>
+                                </strong>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style46">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </td>
                             <td class="auto-style47">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument="id" ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" ValidationGroup="VG_Cantidad" />
+                                <strong>
+                                <asp:TextBox ID="TBX_Cantidad" runat="server" CssClass="auto-style63" Font-Names="Times New Roman" Height="20px" TextMode="Number" ValidationGroup="VG_Cantidad" Width="170px"></asp:TextBox>
+                                </strong>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style39">&nbsp;&nbsp; &nbsp;&nbsp;
                             </td>
                             <td>
-                                &nbsp;</td>
+                                <asp:RegularExpressionValidator ID="REV_Cantidad" runat="server" ControlToValidate="TBX_Cantidad" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
+                            </td>
                         </tr>
                         <tr>
                             <td class="auto-style34"><%--CommandArgument='<%# Eval("Id") %>'--%>
                             </td>
-                            <td class="auto-style41">&nbsp;</td>
+                            <td class="auto-style41">
+                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" ValidationGroup="VG_Cantidad" />
+                            </td>
                     </table>
                 </ItemTemplate>
             </asp:DataList>
