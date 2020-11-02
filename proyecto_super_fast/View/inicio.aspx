@@ -164,7 +164,8 @@
     </tr>
     <tr>
         <td class="auto-style12" colspan="2">
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TBX_buscar" runat="server"></asp:TextBox>
+            <asp:Button ID="BTN_buscar" runat="server" OnClick="BTN_buscar_Click" Text="buscar" />
         </td>
         <td class="auto-style10" colspan="3">&nbsp;</td>
     </tr>
