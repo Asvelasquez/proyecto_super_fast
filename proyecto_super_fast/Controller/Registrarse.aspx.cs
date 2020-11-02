@@ -23,7 +23,7 @@ public partial class View_Registrarse : System.Web.UI.Page
             cliente1.Direccion = TB_Direccion.Text;
             cliente1.Imagenperfil = "~/imagenes_de_perfil/perfilusuario.png";
             cliente1.Auditoria = TB_Nombre.Text;
-                        int rol1 = 1, aprob = 1;
+            int rol1 = 1, aprob = 1;
             cliente1.Id_rol = rol1;
             cliente1.Aprobacion = aprob;
             Usuario validarUsuario = dAOUsuario.getCorreoByregistrarse(TB_Correo.Text);

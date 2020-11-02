@@ -53,7 +53,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                 BT_IniciarSesion.Visible = false;
                 BT_Registrarse.Visible = false;
                 BT_cerrarsesion.Visible = true;
-               // IB_carrito.Visible = false;
+              //  IB_carrito.Visible = false;
                 BT_Perfil.Visible = true;
 
             }
@@ -71,7 +71,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                 BT_IniciarSesion.Visible = false;
                 BT_Registrarse.Visible = false;
                 BT_cerrarsesion.Visible = true;
-               // IB_carrito.Visible = false;
+              //  IB_carrito.Visible = false;
                 BT_nosotros.Visible = false;
                 BT_Perfil.Visible = true;
 
@@ -81,7 +81,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                 BT_IniciarSesion.Visible = false;
                 BT_Registrarse.Visible = false;
                 BT_cerrarsesion.Visible = true;
-              //  IB_carrito.Visible = false;
+               // IB_carrito.Visible = false;
                 BT_nosotros.Visible = false;
                 BT_Perfil.Visible = true;
             }

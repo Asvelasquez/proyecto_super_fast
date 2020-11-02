@@ -148,8 +148,6 @@ public partial class View_Perfil : System.Web.UI.Page{
         else
         {
 
-       
-
         usuario1 = us.mostrar(((Usuario)Session["user"]).Id);
         TB_nombreperfil.Text = usuario1.Nombre;
         TB_apellidoperfil.Text = usuario1.Apellido;

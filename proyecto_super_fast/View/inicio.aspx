@@ -273,7 +273,7 @@
                             <td class="auto-style34"><%--CommandArgument='<%# Eval("Id") %>'--%>
                             </td>
                             <td class="auto-style41">
-                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" ValidationGroup="VG_Cantidad" />
+                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" ValidationGroup="VG_Cantidad"  />
                             </td>
                     </table>
                 </ItemTemplate>
