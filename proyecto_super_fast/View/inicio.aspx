@@ -279,6 +279,8 @@
                 </ItemTemplate>
             </asp:DataList>
             <asp:ObjectDataSource ID="ODS_inicioproductos" runat="server" SelectMethod="mostrarproductoinicio" TypeName="DAOProductos"></asp:ObjectDataSource>
+            <asp:GridView ID="GV_Filtros" runat="server">
+            </asp:GridView>
             <br />
         </td>
     </tr>
