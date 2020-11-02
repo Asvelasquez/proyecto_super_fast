@@ -34,10 +34,12 @@
                 </asp:ObjectDataSource>
                 <br />
                 <br />
-                <asp:DataList ID="DataList1" runat="server" DataSourceID="ODS_carrito7">
+                <asp:DataList ID="DL_pedido" runat="server" DataSourceID="ODS_carrito7" OnItemCommand="DL_pedido_ItemCommand">
                     <ItemTemplate>
+                        <asp:Label ID="LB_nombrealiado" runat="server"></asp:Label>
+                        <br />
                         <asp:Label ID="LB_producto" runat="server" Text="Producto :" Height="25px"></asp:Label>
-                        <asp:TextBox ID="TBX_nombreproducto" runat="server" Text='<%# Eval("nombre_producto") %>'></asp:TextBox>
+                        <asp:TextBox ID="TBX_nombreproducto" runat="server" Text='<%# Eval("nombre_producto") %>' Enabled="False"></asp:TextBox>
                         <br />
                         <asp:Label ID="LB_Descripcionproducto" runat="server" Text="Descripcion del Producto"></asp:Label>
                         <br />
@@ -51,7 +53,7 @@
                         <asp:TextBox ID="TBX_subtodal" runat="server" Enabled="False" Width="100px" Text='<%# Eval("precio_pedido") %>'></asp:TextBox>
                         <br />
                         <asp:Label ID="LB_cantidad" runat="server" Height="25px" Text="Cantidad :"></asp:Label>
-                        <asp:TextBox ID="TBX_cantidad" runat="server" Enabled="False" Text='<%# Eval("cantidad_pedido") %>'></asp:TextBox>
+                        <asp:TextBox ID="TBX_cantidad" runat="server" Text='<%# Eval("cantidad_pedido") %>'></asp:TextBox>
                         <br />
                         <asp:Label ID="LB_preciodomicilio" runat="server" Text="Domicilio :" Height="25px"></asp:Label>
                         &nbsp;<asp:TextBox ID="TBX_domicilio" runat="server" Enabled="False" Height="22px" Width="128px"></asp:TextBox>
@@ -59,23 +61,27 @@
                         <asp:Label ID="LB_total" runat="server" Text="Total :" Height="25px"></asp:Label>
                         <asp:TextBox ID="TBX_total" runat="server" Enabled="False"></asp:TextBox>
                         <br />
+                        <asp:Label ID="LB_datosclientes" runat="server" Text="Datos del cliente"></asp:Label>
                         <br />
+                        <asp:Label ID="LB_nombrecliente" runat="server" Height="25px" Text="Nombre : "></asp:Label>
+                        <asp:TextBox ID="TBX_nombrecliente" runat="server" Text='<%# Eval("nombre_clientec") %>' Enabled="False"></asp:TextBox>
+                        <br />
+                    
+                        <asp:Label ID="LB_direccion" runat="server" Height="25px" Text="Direccion :"></asp:Label>
+                        <asp:TextBox ID="TBX_direccion" runat="server" Text='<%# Eval("direccion_cliente") %>'></asp:TextBox>
+                        <br />
+                        <asp:Label ID="LB_telefono" runat="server" Text="Telefono :"></asp:Label>
+                        <asp:TextBox ID="TBX_telefono" runat="server" Text='<%# Eval("telefono_cliente") %>' TextMode="Number"></asp:TextBox>
+                        <br />
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="BTN_comprar" runat="server" Text="Comprar"  CommandName="Comprar" CommandArgument='<%# Eval("Id_pedido") %>' />
+                        &nbsp;
+                        <asp:Button ID="BTN_cancelar" runat="server" Text="Cancelar" CommandName="Eliminar" CommandArgument='<%# Eval("Id_pedido") %>' />
                     </ItemTemplate>
                 </asp:DataList>
-                        <asp:Label ID="Label10" runat="server" Text="Total"></asp:Label>
                 <br />
-                <asp:TextBox ID="TBX_total2" runat="server"></asp:TextBox>
                 <br />
-                        <asp:Label ID="LB_datoscliente" runat="server" Text="Datos del cliente"></asp:Label>
-                        <br  />
-                        <asp:Label ID="LB_nombrecliente" runat="server" Height="25px" Text="Nombre :"></asp:Label>
-                        &nbsp;<asp:TextBox ID="TBX_nombrecliente" runat="server" ></asp:TextBox>
-                        <br />
-                        <asp:Label ID="LB_direccion" runat="server" Height="25px" Text="Direccion :"></asp:Label>
-                        &nbsp;<asp:TextBox ID="TBX_direccioncliente" runat="server" ></asp:TextBox>
-                        <br />
-                        <asp:Label ID="LB_telefono" runat="server" Height="25px" Text="Telefono :"></asp:Label>
-                        &nbsp;<asp:TextBox ID="TBX_telefonocliente" runat="server" ></asp:TextBox>
                 <br />
             </td>
             <td>&nbsp;</td>

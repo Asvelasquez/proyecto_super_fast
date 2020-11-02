@@ -75,5 +75,13 @@ public partial class View_inicio : System.Web.UI.Page
 
 
 
- 
+
+
+    protected void BTN_buscar_Click(object sender, EventArgs e)
+    {
+        String filtro;
+        filtro = TBX_buscar.Text;
+        DAOProductos dpedido = new DAOProductos();
+        dpedido.mostrarproductoiniciobusqueda(filtro);
+    }
 }
