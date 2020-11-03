@@ -41,7 +41,6 @@ public partial class View_Aliado : System.Web.UI.Page
         try
         {
             
-
             Producto producto1 = new Producto();
             producto1.Nombre_producto = TB_nombreproducto.Text;
             producto1.Descripcion_producto = TB_descripcionproducto.Text;
@@ -62,5 +61,10 @@ public partial class View_Aliado : System.Web.UI.Page
 
     }//
 
-    
+
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        GV_pedidosaliado.DataBind();
+    }
 }

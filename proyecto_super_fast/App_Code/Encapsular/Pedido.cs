@@ -20,6 +20,7 @@ using System.Web;
     nombre_cliente text COLLATE pg_catalog."default" NOT NULL,
     direccion_cliente text COLLATE pg_catalog."default" NOT NULL,
     telefono_cliente text COLLATE pg_catalog."default" NOT NULL,
+    correo_aliadop text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT pk_informacion_pedido PRIMARY KEY (id_pedido)
  */
 [Serializable]
@@ -38,7 +39,7 @@ public class Pedido
     private string nombre_cliente;
     private string direccion_cliente;
     private string telefono_cliente;
-
+    private string correo_aliadop;
 
     [Key]
     [Column("id_pedido")]
@@ -65,4 +66,6 @@ public class Pedido
     public string Direccion_cliente { get => direccion_cliente; set => direccion_cliente = value; }
     [Column("telefono_cliente")]
     public string Telefono_cliente { get => telefono_cliente; set => telefono_cliente = value; }
+    [Column("correo_aliadop")]
+    public string Correo_aliadop { get => correo_aliadop; set => correo_aliadop = value; }
 }

@@ -46,6 +46,11 @@ public class DAOPedido
             db.pedido1.Remove(pedido8);
             db.SaveChanges();
         }
+    }//
+    public List<Pedido> mostrarproducto(Usuario consulta)
+    {
+        return new Mapeo().pedido1.Where(x => x.Correo_aliadop == consulta.Correo && x.Estado_pedido==1).ToList<Pedido>();
+
     }
 
 }

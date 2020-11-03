@@ -151,7 +151,7 @@
             </h1>
         </td>
         <td class="auto-style64">
-            <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument='<%# Eval("Id") %>'   ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" PostBackUrl="~/View/Carrito.aspx" />
+            <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument='<%# Eval("Id") %>'   ImageUrl="~/Imagenes/Iconos/carrito-de-compras.png" OnClick="IB_Carrito_Click" />
             <asp:Label ID="LB_Carrito" runat="server" ForeColor="#FF3300" Text="0"></asp:Label>
         </td>
     </tr>
@@ -268,6 +268,8 @@
                             </td>
                             <td>
                                 <asp:RegularExpressionValidator ID="REV_Cantidad" runat="server" ControlToValidate="TBX_Cantidad" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
+                                <br />
+                                <asp:TextBox ID="TBX_correoaliado" runat="server" Text='<%# Eval("correo_aliado") %>' Enabled="False" EnableTheming="True" Visible="False"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>

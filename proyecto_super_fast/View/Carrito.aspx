@@ -55,6 +55,8 @@
                         <asp:Label ID="LB_cantidad" runat="server" Height="25px" Text="Cantidad :"></asp:Label>
                         <asp:TextBox ID="TBX_cantidad" runat="server" Text='<%# Eval("cantidad_pedido") %>'></asp:TextBox>
                         <br />
+                        <asp:RegularExpressionValidator ID="REV_Cantidad" runat="server" ControlToValidate="TBX_Cantidad" ErrorMessage="cantidad entre 1 y 9" ForeColor="White" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Comprar"></asp:RegularExpressionValidator>
+                        <br />
                         <asp:Label ID="LB_preciodomicilio" runat="server" Text="Domicilio :" Height="25px"></asp:Label>
                         &nbsp;<asp:TextBox ID="TBX_domicilio" runat="server" Enabled="False" Height="22px" Width="128px"></asp:TextBox>
                         <br />
@@ -69,13 +71,17 @@
                     
                         <asp:Label ID="LB_direccion" runat="server" Height="25px" Text="Direccion :"></asp:Label>
                         <asp:TextBox ID="TBX_direccion" runat="server" Text='<%# Eval("direccion_cliente") %>'></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="REV_direccion" runat="server" ControlToValidate="TBX_direccion" ErrorMessage="*" ForeColor="Red" ValidationGroup="VG_Comprar"></asp:RegularExpressionValidator>
                         <br />
                         <asp:Label ID="LB_telefono" runat="server" Text="Telefono :"></asp:Label>
                         <asp:TextBox ID="TBX_telefono" runat="server" Text='<%# Eval("telefono_cliente") %>' TextMode="Number"></asp:TextBox>
                         <br />
+                        <strong>
+                        <asp:RegularExpressionValidator ID="REV_Telefono" runat="server" ControlToValidate="TB_Telefono" ErrorMessage="debe tener 6 o 10 digitos" ForeColor="White" ValidationExpression="[0-9]{6,10}" ValidationGroup="VG_Comprar"></asp:RegularExpressionValidator>
+                        </strong>
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="BTN_comprar" runat="server" Text="Comprar"  CommandName="Comprar" CommandArgument='<%# Eval("Id_pedido") %>' />
+                        <asp:Button ID="BTN_comprar" runat="server" Text="Comprar"  CommandName="Comprar" CommandArgument='<%# Eval("Id_pedido") %>' ValidationGroup="VG_Comprar" />
                         &nbsp;
                         <asp:Button ID="BTN_cancelar" runat="server" Text="Cancelar" CommandName="Eliminar" CommandArgument='<%# Eval("Id_pedido") %>' />
                     </ItemTemplate>
