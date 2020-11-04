@@ -11,18 +11,13 @@
             vertical-align: top;
         }
         .auto-style12 {
-            height: 1%;
+            height: 50%;
             vertical-align: top;
-            width: 50%;
+            width: 36%;
         }
         .auto-style13 {
             height: 1%;
             font-size: medium;
-        }
-        .auto-style14 {
-            height: 1%;
-            vertical-align: top;
-            width: 50%;
         }
         .auto-style33 {
             width: 100%;
@@ -130,6 +125,19 @@
             text-align: left;
             height: 19px;
         }
+        .auto-style67 {
+            margin-right: 0px;
+        }
+        .auto-style68 {
+            height: 41px;
+            vertical-align: top;
+            width: 36%;
+        }
+        .auto-style69 {
+            height: 41px;
+            vertical-align: top;
+            width: 12%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -157,28 +165,40 @@
     </tr>
     <tr>
 
-        <td class="auto-style14" colspan="2">
+        <td class="auto-style68" colspan="2">
             <h1 class="auto-style13">Filtros</h1>
         </td>
-        <td class="auto-style11" colspan="3"></td>
+        <td class="auto-style69" colspan="3">&nbsp;</td>
     </tr>
     <tr>
         <td class="auto-style12" colspan="2">
-            <asp:TextBox ID="TBX_buscar" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TBX_filtro1" runat="server"></asp:TextBox>
             <asp:Button ID="BTN_buscar" runat="server" OnClick="BTN_buscar_Click" Text="buscar" />
+            &nbsp;&nbsp;&nbsp;
+            
+            <asp:Button ID="BTN_hamburguesa" runat="server" OnClick="BTN_hamburguesa_Click" Text="Hamburguesa" />
+            
+            &nbsp;
+            <asp:Button ID="BTN_perrocaliente" runat="server" OnClick="BTN_perrocaliente_Click" Text="Perro caliente" />
+            
+            <br />
+            <asp:TextBox ID="TBX_buscar" runat="server" Visible="False"></asp:TextBox>
         </td>
-        <td class="auto-style10" colspan="3">&nbsp;</td>
+        <td class="auto-style10" colspan="3"></td>
     </tr>
     <tr>
         <td class="auto-style38" colspan="5">
-            <asp:DataList ID="DL_Productos" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" Width="100%" DataSourceID="ODS_inicioproductos" OnItemCommand="DL_Productos_ItemCommand">
+            <br />
+            <br />
+            <br />
+            <asp:DataList ID="DL_Productos" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" Width="100%" DataSourceID="ODS_inicioproductos" OnItemCommand="DL_Productos_ItemCommand" CssClass="auto-style67">
                 <ItemTemplate>
                     <table class="auto-style33">
                         <tr>
                             <td class="auto-style49">
                                 &nbsp;</td>
                             <td class="auto-style50"><strong>
-                                <asp:Label ID="LB_NombreAliado" runat="server" CssClass="auto-style40" Width="170px"> Aliado</asp:Label>
+                                <asp:Label ID="LB_NombreAliado" runat="server" CssClass="auto-style40" Width="170px" Text='<%# Eval("actividad_comercial") %>'></asp:Label>
                                 </strong></td>
                         </tr>
                         <tr>
@@ -270,20 +290,72 @@
                                 <asp:RegularExpressionValidator ID="REV_Cantidad" runat="server" ControlToValidate="TBX_Cantidad" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
                                 <br />
                                 <asp:TextBox ID="TBX_correoaliado" runat="server" Text='<%# Eval("correo_aliado") %>' Enabled="False" EnableTheming="True" Visible="False"></asp:TextBox>
+                                <asp:TextBox ID="TBX_actividadcomercialp" runat="server" Text='<%# Eval("actividad_comercial") %>' Visible="False"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style34"><%--CommandArgument='<%# Eval("Id") %>'--%>
                             </td>
                             <td class="auto-style41">
-                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" ValidationGroup="VG_Cantidad"  />
+                                <asp:ImageButton ID="IB_Carrito" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" ValidationGroup="VG_Cantidad" Width="32px"  />
                             </td>
                     </table>
                 </ItemTemplate>
             </asp:DataList>
             <asp:ObjectDataSource ID="ODS_inicioproductos" runat="server" SelectMethod="mostrarproductoinicio" TypeName="DAOProductos"></asp:ObjectDataSource>
-            <asp:GridView ID="GV_Filtros" runat="server">
+            <asp:GridView ID="GV_Filtros" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_filtro">
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                    <asp:BoundField DataField="Nombre_producto" HeaderText="Nombre_producto" SortExpression="Nombre_producto" />
+                    <asp:BoundField DataField="Descripcion_producto" HeaderText="Descripcion_producto" SortExpression="Descripcion_producto" />
+                    <asp:BoundField DataField="Precio_producto" HeaderText="Precio_producto" SortExpression="Precio_producto" />
+                    <asp:BoundField DataField="Imagen_producto1" HeaderText="Imagen_producto1" SortExpression="Imagen_producto1" />
+                    <asp:BoundField DataField="Estado_producto" HeaderText="Estado_producto" SortExpression="Estado_producto" />
+                    <asp:BoundField DataField="Correo_aliado" HeaderText="Correo_aliado" SortExpression="Correo_aliado" />
+                    <asp:BoundField DataField="Nombre_aliado" HeaderText="Nombre_aliado" SortExpression="Nombre_aliado" />
+                    <asp:BoundField DataField="Actividad_comercial" HeaderText="Actividad_comercial" SortExpression="Actividad_comercial" />
+                </Columns>
             </asp:GridView>
+
+            <asp:ObjectDataSource ID="ODS_filtro" runat="server" SelectMethod="mostrarproductoiniciobusqueda" TypeName="DAOProductos">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="TBX_buscar" Name="busqueda" PropertyName="Text" Type="String" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+            <asp:DataList ID="DL_productosfiltros" runat="server" RepeatColumns="4" OnItemCommand="DL_productosfiltros_ItemCommand" DataSourceID="ODS_filtro">
+                <ItemTemplate>
+                    <table class="auto-style33">
+                        <tr>
+                            <td><strong>
+                                <asp:Label ID="LB_NombreAliado1" runat="server" CssClass="auto-style40" Width="170px" Text='<%# Eval("actividad_comercial") %>'></asp:Label>
+                                <asp:TextBox ID="TBX_nombrealiado1" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("nombre_aliado") %>' Width="170px"></asp:TextBox>
+                                </strong>
+                                <asp:Image ID="I_Productos1" runat="server" Height="170px" ImageUrl='<%# Eval("imagen_producto1") %>' Width="170px" />
+                                <strong>
+                                <asp:Label ID="LB_Nombre1" runat="server" CssClass="auto-style40" Width="170px">Nombre</asp:Label>
+                                <asp:TextBox ID="TBX_nombreproducto1" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("Nombre_producto") %>' Width="170px"></asp:TextBox>
+                                <asp:Label ID="LB_Precio1" runat="server" CssClass="auto-style40" Width="170px">Precio</asp:Label>
+                                <asp:TextBox ID="TBX_precio1" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="20px" Text='<%# Eval("precio_producto") %>' Width="170px"></asp:TextBox>
+                                <asp:Label ID="LB_Descripcion1" runat="server" CssClass="auto-style40" Height="20px" Width="200px">Descripcion del producto</asp:Label>
+                                <asp:TextBox ID="TB_descripcion1" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="58px" Text='<%# Eval("descripcion_producto") %>' Width="170px"></asp:TextBox>
+                                </strong>
+                                <asp:Label ID="LB_especificacion1" runat="server" CssClass="auto-style40" Text="Especificacion del pedido"></asp:Label>
+                                <asp:TextBox ID="TB_especificacion1" runat="server" Height="58px" Width="170px"></asp:TextBox>
+                                <strong>
+                                <asp:Label ID="LB_Cantidad1" runat="server" CssClass="auto-style40" Height="20px" Width="170px">Cantidad</asp:Label>
+                                <asp:TextBox ID="TBX_Cantidad1" runat="server" CssClass="auto-style63" Font-Names="Times New Roman" Height="20px" TextMode="Number" ValidationGroup="VG_Cantidad" Width="170px"></asp:TextBox>
+                                </strong>
+                                <asp:RegularExpressionValidator ID="REV_Cantidad1" runat="server" ControlToValidate="TBX_Cantidad1" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="TBX_correoaliado1" runat="server" Text='<%# Eval("correo_aliado") %>' Enabled="False" EnableTheming="True" Visible="False"></asp:TextBox>
+                                <asp:TextBox ID="TBX_actividadcomercialp1" runat="server" Text='<%# Eval("actividad_comercial") %>' Visible="False"></asp:TextBox>
+                                <br />
+                                <asp:ImageButton ID="IB_Carrito1" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" ValidationGroup="VG_Cantidad" Width="32px" OnClick="IB_Carrito_Click"  />
+                            </td>
+                        </tr>
+                    </table>
+                </ItemTemplate>
+            </asp:DataList>
+            <br />
             <br />
         </td>
     </tr>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
  
    
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
          //window.onbeforeunload = function() { 
          //   return "Do you really want to close?"; 
          //};  
@@ -15,7 +15,7 @@
     function ejecutar() {
         console.log('saved');
     }
-    </script>
+    </script>--%>
 
 <html>
 <head runat="server">

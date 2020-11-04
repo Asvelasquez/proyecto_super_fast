@@ -10,17 +10,18 @@ using System.Web;
 /// </summary>
 /*
  id_pedido integer NOT NULL DEFAULT nextval('informacion.pedido_id_pedido_seq'::regclass),
-    id_producto integer NOT NULL,
     nombre_producto text COLLATE pg_catalog."default" NOT NULL,
-    descripcion_pedido text COLLATE pg_catalog."default" NOT NULL,
+    especificacion_pedido text COLLATE pg_catalog."default" NOT NULL,
     descripcion_producto text COLLATE pg_catalog."default" NOT NULL,
-    precio_pedido integer NOT NULL,
+    precio_pedido double precision NOT NULL,
     cantidad_pedido integer NOT NULL,
+    estado_pedido integer NOT NULL,
     correo_cliente text COLLATE pg_catalog."default" NOT NULL,
-    nombre_cliente text COLLATE pg_catalog."default" NOT NULL,
+    nombre_clientec text COLLATE pg_catalog."default" NOT NULL,
     direccion_cliente text COLLATE pg_catalog."default" NOT NULL,
     telefono_cliente text COLLATE pg_catalog."default" NOT NULL,
     correo_aliadop text COLLATE pg_catalog."default" NOT NULL,
+    actividad_comercialp text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT pk_informacion_pedido PRIMARY KEY (id_pedido)
  */
 [Serializable]
@@ -28,7 +29,6 @@ using System.Web;
 public class Pedido
 {
     private int id_pedido;
-    private int id_producto;
     private string nombre_producto;
     private string especificacion_pedido;
     private string descripcion_producto;
@@ -40,12 +40,11 @@ public class Pedido
     private string direccion_cliente;
     private string telefono_cliente;
     private string correo_aliadop;
+    private string actividad_comercialp;
 
     [Key]
     [Column("id_pedido")]
-    public int Id_pedido { get => id_pedido; set => id_pedido = value; }
-    [Column("id_producto")]
-    public int Id_producto { get => id_producto; set => id_producto = value; }
+    public int Id_pedido { get => id_pedido; set => id_pedido = value; }    
     [Column("nombre_producto")]
     public string Nombre_producto { get => nombre_producto; set => nombre_producto = value; }
     [Column("especificacion_pedido")]
@@ -68,4 +67,6 @@ public class Pedido
     public string Telefono_cliente { get => telefono_cliente; set => telefono_cliente = value; }
     [Column("correo_aliadop")]
     public string Correo_aliadop { get => correo_aliadop; set => correo_aliadop = value; }
+    [Column("actividad_comercialp")]
+    public string Actividad_comercialp { get => actividad_comercialp; set => actividad_comercialp = value; }
 }
