@@ -14,29 +14,7 @@
     </style>
 </head>
 <body>
-    <%--inicio insert javascript session null al cerrar ventana--%>
-    <%--<script type="text/javascript">
-        var areYouReallySure = false;
-        var allowPrompt = true;
-        window.onbeforeunload = areYouSure;
-
-    function areYouSure() {
-        if(allowPrompt){
-            while (areYouReallySure == false) {
-                areYouReallySure = true;
-            var confMessage = "prueba";
-            return confMessage;
-            }
-             if (!areYouReallySure) {
-            
-        }
-        }else{
-        allowPrompt = true;
-    }
-    }
-
-</script>--%>
-     <%-- fin funcion --%>
+   
     <form id="form1" runat="server">
         <div>
             <table class="auto-style1">

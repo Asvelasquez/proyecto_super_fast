@@ -1,9 +1,25 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="~/Controller/Mastersuper.master.cs" Inherits="View_Mastersuper" %>
 
 <!DOCTYPE html>
+ 
+   
+    <script type="text/javascript">
+         //window.onbeforeunload = function() { 
+         //   return "Do you really want to close?"; 
+         //};  
+         window.addEventListener("beforeunload", function (e) {
+      ejecutar();
+      (e || window.event).returnValue = null;
+      return null;
+    });
+    function ejecutar() {
+        console.log('saved');
+    }
+    </script>
 
 <html>
 <head runat="server">
+  
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     
@@ -50,9 +66,10 @@
             text-align: right;
         }
         </style>
+   
 </head>
 <body style="background-color:#33A8FF;" >
-    
+   
    
 
 
