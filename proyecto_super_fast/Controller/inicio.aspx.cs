@@ -148,7 +148,7 @@ public partial class View_inicio : System.Web.UI.Page
         ClientScriptManager cm = this.ClientScript;
         if (Session["user"] == null)
         {
-            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar session, para poder comprar');</script>");
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar sesion, para poder comprar');</script>");
 
         }
         else if (((Usuario)(Session["user"])).Id_rol == 1)
@@ -159,13 +159,18 @@ public partial class View_inicio : System.Web.UI.Page
 
     protected void BTN_buscar_Click(object sender, EventArgs e)
     {
-       
+        DL_Productos.Visible = false;
+        DL_productosfiltros.Visible = true;
+        DL_productosfiltrorest.Visible = false;
+        TBX_buscar.Text=TBX_filtro1.Text;
+        TBX_buscar.Text.Contains("");
     }
 
     protected void BTN_hamburguesa_Click(object sender, EventArgs e)
     {
         DL_Productos.Visible = false;
         DL_productosfiltros.Visible = true;
+        DL_productosfiltrorest.Visible = false;
         TBX_buscar.Text = "hamburguesa";
     }
 
@@ -173,6 +178,29 @@ public partial class View_inicio : System.Web.UI.Page
     {
         DL_Productos.Visible = false;
         DL_productosfiltros.Visible = true;
-        TBX_buscar.Text = "perro caliente";
+        TBX_buscar.Text = "perro";
+        DL_productosfiltrorest.Visible = false;
+    }
+
+    protected void BTN_Restaurantes_Click(object sender, EventArgs e)
+    {
+       
+    }
+
+    protected void BTN_Supermecados_Click(object sender, EventArgs e)
+    {
+        DL_Productos.Visible = false;
+        DL_productosfiltros.Visible = false;
+        TBX_actividadcomercial.Text = "Super mercados";
+        DL_productosfiltrorest.Visible = false;
+
+    }
+
+    protected void BTN_Restaurantes_Click1(object sender, EventArgs e)
+    {
+        DL_Productos.Visible = false;
+        DL_productosfiltros.Visible = false;
+        DL_productosfiltrorest.Visible = true;
+        TBX_actividadcomercial.Text = "Restaurantes";
     }
 }

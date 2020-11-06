@@ -27,6 +27,9 @@ public class DAOProductos{
         return new Mapeo().producto.Where(x => x.Nombre_producto == busqueda).ToList();
     }
     ///////////
+   
+        
+        /// <returns></returns>
     public List<Producto> mostrarproductoinicioactividad(String busqueda)
     {
         return new Mapeo().producto.Where(x => x.Actividad_comercial == busqueda).ToList();
@@ -61,4 +64,8 @@ public class DAOProductos{
         }
     }//
 
+    public Producto mostrar(int userId)
+    {
+        return new Mapeo().producto.Where(x => x.Id == userId).First();
+    }
 }
