@@ -9,64 +9,74 @@ using System.Web;
 /// Descripción breve de Pedido
 /// </summary>
 /*
- id_pedido integer NOT NULL DEFAULT nextval('informacion.pedido_id_pedido_seq'::regclass),
-    nombre_producto text COLLATE pg_catalog."default" NOT NULL,
-    especificacion_pedido text COLLATE pg_catalog."default" NOT NULL,
-    descripcion_producto text COLLATE pg_catalog."default" NOT NULL,
-    precio_pedido double precision NOT NULL,
-    cantidad_pedido integer NOT NULL,
-    estado_pedido integer NOT NULL,
-    correo_cliente text COLLATE pg_catalog."default" NOT NULL,
-    nombre_clientec text COLLATE pg_catalog."default" NOT NULL,
-    direccion_cliente text COLLATE pg_catalog."default" NOT NULL,
-    telefono_cliente text COLLATE pg_catalog."default" NOT NULL,
-    correo_aliadop text COLLATE pg_catalog."default" NOT NULL,
-    actividad_comercialp text COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT pk_informacion_pedido PRIMARY KEY (id_pedido)
+id_pedido integer NOT NULL DEFAULT nextval('informacion.pedido_id_pedido_seq'::regclass),
+    cliente_id integer NOT NULL,
+    fecha time without time zone NOT NULL,
+    estado_id integer NOT NULL,
+    valor_total double precision NOT NULL,
+    domiciliario_id integer NOT NULL,
+    comentario_cliente text COLLATE pg_catalog."default",
+    comentario_aliado text COLLATE pg_catalog."default",
+    aliado_id integer NOT NULL,
  */
 [Serializable]
 [Table("pedido", Schema = "informacion")]
 public class Pedido
 {
     private int id_pedido;
-    private string nombre_producto;
-    private string especificacion_pedido;
-    private string descripcion_producto;
-    private double precio_pedido;
-    private int cantidad_pedido;
+    private int cliente_id;
+    private DateTime fecha;
+    private int estado_id;
+    private double valor_total;
+    private int domiciliario_id;
+    private string comentario_cliente;
+    private string comentario_aliado;
+    private int aliado_id;
     private int estado_pedido;
-    private string correo_cliente;
-    private string nombre_cliente;
-    private string direccion_cliente;
-    private string telefono_cliente;
-    private string correo_aliadop;
-    private string actividad_comercialp;
+   
+    private  int detpedidoid;
+    private int detproductoid;
+    private int detcantidad;
+    private string detdescripcion;
+    private double detvalor_unitario;
+    private double detvalor_total;
+    private List<Detalle_pedido> compras;
+
+
 
     [Key]
     [Column("id_pedido")]
-    public int Id_pedido { get => id_pedido; set => id_pedido = value; }    
-    [Column("nombre_producto")]
-    public string Nombre_producto { get => nombre_producto; set => nombre_producto = value; }
-    [Column("especificacion_pedido")]
-    public string Especificacion_pedido { get => especificacion_pedido; set => especificacion_pedido = value; }
-    [Column("descripcion_producto")]
-    public string Descripcion_producto { get => descripcion_producto; set => descripcion_producto = value; }
-    [Column("precio_pedido")]
-    public double Precio_pedido { get => precio_pedido; set => precio_pedido = value; }
-    [Column("cantidad_pedido")]
-    public int Cantidad_pedido { get => cantidad_pedido; set => cantidad_pedido = value; }
+    public int Id_pedido { get => id_pedido; set => id_pedido = value; }
+    [Column("cliente_id")]
+    public int Cliente_id { get => cliente_id; set => cliente_id = value; }
+    [Column("fecha")]
+    public DateTime Fecha { get => fecha; set => fecha = value; }
+    [Column("estado_id")]
+    public int Estado_id { get => estado_id; set => estado_id = value; }
+    [Column("valor_total")]
+    public double Valor_total { get => valor_total; set => valor_total = value; }
+    [Column("domiciliario_id")]
+    public int Domiciliario_id { get => domiciliario_id; set => domiciliario_id = value; }
+    [Column("comentario_cliente")]
+    public string Comentario_cliente { get => comentario_cliente; set => comentario_cliente = value; }
+    [Column("comentario_aliado")]
+    public string Comentario_aliado { get => comentario_aliado; set => comentario_aliado = value; }
+    [Column("aliado_id")]
+    public int Aliado_id { get => aliado_id; set => aliado_id = value; }
     [Column("estado_pedido")]
     public int Estado_pedido { get => estado_pedido; set => estado_pedido = value; }
-    [Column("correo_cliente")]
-    public string Correo_cliente { get => correo_cliente; set => correo_cliente = value; }
-    [Column("nombre_clientec")]
-    public string Nombre_clientec { get => nombre_cliente; set => nombre_cliente = value; }
-    [Column("direccion_cliente")]
-    public string Direccion_cliente { get => direccion_cliente; set => direccion_cliente = value; }
-    [Column("telefono_cliente")]
-    public string Telefono_cliente { get => telefono_cliente; set => telefono_cliente = value; }
-    [Column("correo_aliadop")]
-    public string Correo_aliadop { get => correo_aliadop; set => correo_aliadop = value; }
-    [Column("actividad_comercialp")]
-    public string Actividad_comercialp { get => actividad_comercialp; set => actividad_comercialp = value; }
+    [NotMapped]
+    public int Detpedidoid { get => detpedidoid; set => detpedidoid = value; }
+    [NotMapped]
+    public int Detproductoid { get => detproductoid; set => detproductoid = value; }
+    [NotMapped]
+    public int Detcantidad { get => detcantidad; set => detcantidad = value; }
+    [NotMapped]
+    public string Detdescripcion { get => detdescripcion; set => detdescripcion = value; }
+    [NotMapped]
+    public double Detvalor_unitario { get => detvalor_unitario; set => detvalor_unitario = value; }
+    [NotMapped]
+    public double Detvalor_total { get => detvalor_total; set => detvalor_total = value; }
+    [NotMapped]
+    public List<Detalle_pedido> Compras { get => compras; set => compras = value; }
 }

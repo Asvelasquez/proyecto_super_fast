@@ -44,7 +44,8 @@
             height: 131px;
         }
         .auto-style15 {
-            height: 43%;
+           height: 43%;
+            width: 6%;
             text-align: right;
         }
         .auto-style21 {
@@ -114,6 +115,7 @@
 
                 </td>
                 <td class="auto-style15">
+
                     &nbsp;</td>
             </tr>
             <tr>

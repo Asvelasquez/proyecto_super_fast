@@ -27,27 +27,27 @@
     <table class="auto-style33">
         <tr>
             <td>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_carrito7" Visible="False">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_carrito9">
                     <Columns>
-                        <asp:BoundField DataField="Nombre_producto" HeaderText="Nombre_producto" SortExpression="Nombre_producto" />
-                        <asp:BoundField DataField="Especificacion_pedido" HeaderText="Especificacion_pedido" SortExpression="Especificacion_pedido" />
-                        <asp:BoundField DataField="Descripcion_producto" HeaderText="Descripcion_producto" SortExpression="Descripcion_producto" />
-                        <asp:BoundField DataField="Precio_pedido" HeaderText="Precio_pedido" SortExpression="Precio_pedido" />
-                        <asp:BoundField DataField="Cantidad_pedido" HeaderText="Cantidad_pedido" SortExpression="Cantidad_pedido" />
-                        <asp:BoundField DataField="Estado_pedido" HeaderText="Estado_pedido" SortExpression="Estado_pedido" />
-                        <asp:BoundField DataField="Nombre_clientec" HeaderText="Nombre_clientec" SortExpression="Nombre_clientec" />
+                        <asp:BoundField DataField="Id_dpedido" HeaderText="Id_dpedido" SortExpression="Id_dpedido" />
+                        <asp:BoundField DataField="Pedido_id" HeaderText="Pedido_id" SortExpression="Pedido_id" />
+                        <asp:BoundField DataField="Producto_id" HeaderText="Producto_id" SortExpression="Producto_id" />
+                        <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
+                        <asp:BoundField DataField="V_unitario" HeaderText="V_unitario" SortExpression="V_unitario" />
+                        <asp:BoundField DataField="V_total" HeaderText="V_total" SortExpression="V_total" />
                         <asp:BoundField DataField="Direccion_cliente" HeaderText="Direccion_cliente" SortExpression="Direccion_cliente" />
                         <asp:BoundField DataField="Telefono_cliente" HeaderText="Telefono_cliente" SortExpression="Telefono_cliente" />
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_carrito7" runat="server" SelectMethod="mostrarpedidocarrito" TypeName="DAOPedido">
+                <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="obtenercarrito" TypeName="DAOPedido">
                     <SelectParameters>
-                        <asp:SessionParameter Name="busqueda" SessionField="user" Type="Object" />
+                        <asp:Parameter Name="usuariop" Type="Int32" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
                 <br />
                 <br />
-                <asp:DataList ID="DL_pedido" runat="server" DataSourceID="ODS_carrito7" OnItemCommand="DL_pedido_ItemCommand">
+                <asp:DataList ID="DL_pedido" runat="server" DataSourceID="ODS_carrito9" OnItemCommand="DL_pedido_ItemCommand" RepeatColumns="4">
                     <ItemTemplate>
                         <table class="auto-style33">
                             <tr>

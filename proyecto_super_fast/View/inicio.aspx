@@ -167,7 +167,8 @@
     <tr>
 
         <td class="auto-style68" colspan="2">
-            <h1 class="auto-style13">Filtros</h1>
+            <h1 class="auto-style13">Filtros<asp:TextBox runat="server"></asp:TextBox>
+            </h1>
         </td>
         <td class="auto-style69" colspan="3"></td>
     </tr>
@@ -201,13 +202,13 @@
                             <td class="auto-style49">
                                 &nbsp;</td>
                             <td class="auto-style50"><strong>
-                                <asp:Label ID="LB_NombreAliado" runat="server" CssClass="auto-style40" Width="170px" Text='<%# Eval("actividad_comercial") %>'></asp:Label>
+                                <asp:Label ID="LB_NombreAliado" runat="server" CssClass="auto-style40" Text='<%# Eval("actividad_comercial") %>' Width="170px"></asp:Label>
                                 </strong></td>
                         </tr>
                         <tr>
                             <td class="auto-style49"></td>
                             <td class="auto-style50"><strong>
-                                <asp:TextBox ID="TBX_nombrealiado" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("nombre_aliado") %>' Width="170px"></asp:TextBox>
+                                <asp:TextBox ID="TBX_nombrealiado" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Width="170px" Text='<%# Eval("nombre_aliado") %>'></asp:TextBox>
                                 </strong></td>
                         </tr>
                         <tr>
@@ -227,19 +228,19 @@
                         <tr>
                             <td class="auto-style51"></td>
                             <td class="auto-style52"><strong>
-                                <asp:TextBox ID="TBX_nombreproducto" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("Nombre_producto") %>' Width="170px"></asp:TextBox>
+                                <asp:TextBox ID="TBX_nombreproducto" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("nombre_producto") %>' Width="170px"></asp:TextBox>
                                 </strong></td>
                         </tr>
                         <tr>
                             <td class="auto-style53"></td>
                             <td class="auto-style54"><strong>
-                                <asp:Label ID="LB_Precio" runat="server" CssClass="auto-style40" Width="170px">Precio</asp:Label>
+                                <asp:Label ID="LB_Precio" runat="server" CssClass="auto-style40"  Width="170px">Precio</asp:Label>
                                 </strong></td>
                         </tr>
                         <tr>
                             <td class="auto-style43">&nbsp;</td>
                             <td class="auto-style41"><strong>
-                                <asp:TextBox ID="TBX_precio" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="20px" Text='<%# Eval("precio_producto") %>' Width="170px"></asp:TextBox>
+                                <asp:TextBox ID="TBX_precio" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("precio_producto") %>' Height="20px" Width="170px"></asp:TextBox>
                                 </strong></td>
                         </tr>
                         <tr>
@@ -292,8 +293,7 @@
                             <td>
                                 <asp:RegularExpressionValidator ID="REV_Cantidad" runat="server" ControlToValidate="TBX_Cantidad" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
                                 <br />
-                                <asp:TextBox ID="TBX_correoaliado" runat="server" Text='<%# Eval("correo_aliado") %>' Enabled="False" EnableTheming="True" Visible="False"></asp:TextBox>
-                                <asp:TextBox ID="TBX_actividadcomercialp" runat="server" Text='<%# Eval("actividad_comercial") %>' Visible="False"></asp:TextBox>
+                                <asp:TextBox ID="TBX_correoaliado" runat="server"  Enabled="False" EnableTheming="True" Visible="False"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -413,7 +413,7 @@
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td>
-                                            <asp:TextBox ID="TBX_correoaliado1" runat="server" Enabled="False" EnableTheming="True" Text='<%# Eval("correo_aliado") %>' Visible="False"></asp:TextBox>
+                                            <asp:TextBox ID="TBX_correoaliado1" runat="server" Enabled="False" EnableTheming="True"  Visible="False"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>

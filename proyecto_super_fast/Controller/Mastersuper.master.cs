@@ -55,7 +55,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                 BT_cerrarsesion.Visible = true;
               //  IB_carrito.Visible = false;
                 BT_Perfil.Visible = true;
-
+                // BT_Productos.Visible = false;
             }
 
             protected void rolCliente() {
@@ -65,7 +65,8 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                 BT_cerrarsesion.Visible = true;
                // IB_carrito.Visible = true;
                 BT_Perfil.Visible = true;
-            }
+             //   BT_Productos.Visible = false;
+    }
             protected void rolDomiciliario() {
                
                 BT_IniciarSesion.Visible = false;
@@ -74,8 +75,9 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
               //  IB_carrito.Visible = false;
                 BT_nosotros.Visible = false;
                 BT_Perfil.Visible = true;
+              //   BT_Productos.Visible = false;
 
-            }
+    }
             protected void rolAliado() {
                 
                 BT_IniciarSesion.Visible = false;
@@ -84,7 +86,8 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                // IB_carrito.Visible = false;
                 BT_nosotros.Visible = false;
                 BT_Perfil.Visible = true;
-            }
+              //  BT_Productos.Visible = true;
+    }
             protected void sinRol() {
               
                 BT_IniciarSesion.Visible = true;
@@ -92,7 +95,8 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
                 BT_cerrarsesion.Visible = false;
               //  IB_carrito.Visible = true;
                 BT_Perfil.Visible = false;
-            }
+              //  BT_Productos.Visible = false;
+    }
 
 
     protected void BT_Perfil_Click(object sender, EventArgs e){       
@@ -110,7 +114,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
             Response.Redirect("inicio.aspx");
         }
         else if (((Usuario)(Session["user"])).Id_rol == 2) {
-            Response.Redirect("Aliado.aspx");
+            Response.Redirect("pedidosaliado.aspx");
         }
         else if (((Usuario)(Session["user"])).Id_rol == 3){
             Response.Redirect("Domiciliario.aspx");

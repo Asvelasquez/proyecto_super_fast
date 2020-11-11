@@ -24,11 +24,15 @@ public class Mapeo: DbContext
     public DbSet<Aliado> aliad { get; set; }
     //
     public DbSet<Pedido> pedido1 { get; set; }
+    public DbSet<Detalle_pedido> detpedido { get; set; }
+    public DbSet<Estado_pedido> estpedido { get; set; }
+
     public DbSet<Producto> producto { get; set; }
     public DbSet<Rol> rol { get; set; }
     public DbSet<Usuario> usuari { get; set; }
     public DbSet<Token> token { get; set; }
     public DbSet<Acceso> acceso { get; set; }
+    public DateTime? Date1 { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder builder){
         builder.HasDefaultSchema("public");

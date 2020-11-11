@@ -35,11 +35,15 @@ public partial class View_Carrito : System.Web.UI.Page
         DAOPedido daopedido6 = new DAOPedido();
         Pedido pedido7 = new Pedido();
         pedido7.Id_pedido= int.Parse(e.CommandArgument.ToString());
+        Detalle_pedido det_pedido = new Detalle_pedido();
+
         if (e.CommandName == "Comprar")
         {
-            pedido7.Cantidad_pedido = int.Parse(((TextBox)DL_pedido.SelectedItem.FindControl("TBX_cantidad")).Text);
-            pedido7.Direccion_cliente = ((TextBox)DL_pedido.SelectedItem.FindControl("TBX_direccion")).Text;
-            pedido7.Telefono_cliente = ((TextBox)DL_pedido.SelectedItem.FindControl("TBX_telefono")).Text;
+
+            det_pedido.Id_dpedido = int.Parse(e.CommandArgument.ToString());
+            det_pedido.Cantidad = int.Parse(((TextBox)DL_pedido.SelectedItem.FindControl("TBX_cantidad")).Text);
+            det_pedido.Direccion_cliente = ((TextBox)DL_pedido.SelectedItem.FindControl("TBX_direccion")).Text;
+            det_pedido.Telefono_cliente = ((TextBox)DL_pedido.SelectedItem.FindControl("TBX_telefono")).Text;
             daopedido6.comprarproducto(pedido7);
             DL_pedido.DataBind();
 

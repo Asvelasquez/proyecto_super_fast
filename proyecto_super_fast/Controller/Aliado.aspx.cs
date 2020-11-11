@@ -17,7 +17,8 @@ public partial class View_Aliado : System.Web.UI.Page
             Response.Redirect("AccesoDenegado.aspx");
         }
 
-        
+        LB_productosdesactivados.Visible = false;
+        GV_Productosdesactivado.Visible = false;
 
     }//
 
@@ -46,11 +47,10 @@ public partial class View_Aliado : System.Web.UI.Page
             producto1.Descripcion_producto = TB_descripcionproducto.Text;
             producto1.Precio_producto = Double.Parse(TB_precioproducto.Text);
             producto1.Imagen_producto1 = "~\\Aliado\\imagenesproducto" + "\\" + nombreArchivo; ;
-            producto1.Estado_producto = 2;
-            producto1.Correo_aliado = (((Usuario)Session["user"]).Correo);
-            producto1.Nombre_aliado = (((Usuario)Session["user"]).Nombre);
-            producto1.Actividad_comercial = (((Usuario)Session["user"]).Actividadcomercial);
+            producto1.Estado_producto = 1;// 1=estado activado del producto 2=desactivado
+            producto1.Id_aliado = (((Usuario)Session["user"]).Id);
 
+   
             new DAOProductos().insertProducto(producto1);
             FP_imagen1.PostedFile.SaveAs(saveLocation);
             Response.Redirect("Aliado.aspx");
@@ -73,20 +73,23 @@ public partial class View_Aliado : System.Web.UI.Page
         ClientScriptManager cm = this.ClientScript;
         DAOProductos us = new DAOProductos();
         Producto producto1 = new Producto();
+        producto1.Id = int.Parse(e.CommandArgument.ToString());
         
-        //producto1.Id = int.Parse(e.CommandArgument.ToString());
         if (e.CommandName == "Editar")
         {
             BTN_guardarproducto.Visible = false;
             BTN_GuardarCambios.Visible = true;
             mostrar(int.Parse(e.CommandArgument.ToString()));
-            
-
-            //us.updateproducto(producto1);
-            //GV_domiciliariiosaprobar.DataBind();
+            GV_Productos.DataBind();
         }
-       
-    }
+        else if (e.CommandName == "Desactivar"){
+            us.Desactivarproducto(producto1);
+            GV_Productos.DataBind();
+        }
+
+    }//
+    
+   
     protected void mostrar(int id3)
     {
 
@@ -98,7 +101,7 @@ public partial class View_Aliado : System.Web.UI.Page
         TB_precioproducto.Text = productos2.Precio_producto.ToString();
         TB_Url.Text = productos2.Imagen_producto1;
         TBX_Id.Text =  productos2.Id.ToString();
-
+        TBX_estado.Text = productos2.Estado_producto.ToString();
 
     }
 
@@ -143,11 +146,9 @@ public partial class View_Aliado : System.Web.UI.Page
             producto1.Nombre_producto = TB_nombreproducto.Text;
             producto1.Descripcion_producto = TB_descripcionproducto.Text;
             producto1.Precio_producto = Double.Parse(TB_precioproducto.Text);
-            producto1.Imagen_producto1 = TB_Url.Text ;
-            producto1.Estado_producto = 2;//REVISAR
-            producto1.Correo_aliado = (((Usuario)Session["user"]).Correo);
-            producto1.Nombre_aliado = (((Usuario)Session["user"]).Nombre);
-            producto1.Actividad_comercial = (((Usuario)Session["user"]).Actividadcomercial);
+            producto1.Imagen_producto1 = TB_Url.Text;
+            producto1.Estado_producto = int.Parse(TBX_estado.Text);
+            producto1.Id_aliado = (((Usuario)Session["user"]).Id);
 
             new DAOProductos().updateproducto(producto1);
             vaciar();
@@ -162,5 +163,46 @@ public partial class View_Aliado : System.Web.UI.Page
         catch (Exception ex)
         { return; }//
        
+    }
+
+    protected void GV_Productosdesactivado_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        ClientScriptManager cm = this.ClientScript;
+        DAOProductos us = new DAOProductos();
+        Producto producto1 = new Producto();
+        producto1.Id = int.Parse(e.CommandArgument.ToString());
+
+        if (e.CommandName == "Editar")
+        {
+            BTN_guardarproducto.Visible = false;
+            BTN_GuardarCambios.Visible = true;
+            mostrar(int.Parse(e.CommandArgument.ToString()));
+            GV_Productos.DataBind();
+        }
+        else if (e.CommandName == "Activar")
+        {
+            us.Activarproducto(producto1);
+            GV_Productos.DataBind();
+        }
+    }
+
+    protected void BTN_productosactivados_Click(object sender, EventArgs e)
+    {
+        GV_Productosdesactivado.Visible = false;
+        LB_productosdesactivados.Visible = false;
+        LB_productosactivos.Visible = true;
+        //  BTN_productosdesactivados.Visible = false;
+        GV_Productos.Visible = true;
+        
+    }
+
+    protected void BTN_productosdesactivados_Click(object sender, EventArgs e)
+    {
+        GV_Productosdesactivado.Visible =true;
+        LB_productosactivos.Visible = false;
+        LB_productosdesactivados.Visible = true;
+
+       // BTN_productosdesactivados.Visible = false;
+        GV_Productos.Visible = false;
     }
 }

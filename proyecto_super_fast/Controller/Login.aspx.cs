@@ -42,7 +42,7 @@ public partial class View_Login : System.Web.UI.Page{
             }
             else {
                 if (usuario.Id_rol == 2 && usuario.Aprobacion==1){
-                    Response.Redirect("Aliado.aspx");
+                    Response.Redirect("pedidosaliado.aspx");
                 }else{
                     cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como aliado, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');window.location=\"Login.aspx\"</script>");
                    
