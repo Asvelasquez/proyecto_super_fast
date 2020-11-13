@@ -34,7 +34,9 @@ public class Detalle_pedido
     private double v_total;
     private string direccion_cliente;
     private string telefono_cliente;
-    private string nombre_producto;
+    private string nombreprodet;
+
+    
 
 
     [Key]
@@ -58,7 +60,5 @@ public class Detalle_pedido
     public string Telefono_cliente { get => telefono_cliente; set => telefono_cliente = value; }
 
     [NotMapped]
-
-    public string Nombre_producto { get => nombre_producto; set => nombre_producto = value; }
-
+    public string Nombreprodet { get => nombreprodet; set => nombreprodet = value; }
 }

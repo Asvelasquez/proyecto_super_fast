@@ -33,13 +33,8 @@ public class Pedido
     private string comentario_aliado;
     private int aliado_id;
     private int estado_pedido;
-   
-    private  int detpedidoid;
-    private int detproductoid;
-    private int detcantidad;
-    private string detdescripcion;
-    private double detvalor_unitario;
-    private double detvalor_total;
+
+    private string detnombrecliente;
     private List<Detalle_pedido> compras;
 
 
@@ -65,18 +60,10 @@ public class Pedido
     public int Aliado_id { get => aliado_id; set => aliado_id = value; }
     [Column("estado_pedido")]
     public int Estado_pedido { get => estado_pedido; set => estado_pedido = value; }
-    [NotMapped]
-    public int Detpedidoid { get => detpedidoid; set => detpedidoid = value; }
-    [NotMapped]
-    public int Detproductoid { get => detproductoid; set => detproductoid = value; }
-    [NotMapped]
-    public int Detcantidad { get => detcantidad; set => detcantidad = value; }
-    [NotMapped]
-    public string Detdescripcion { get => detdescripcion; set => detdescripcion = value; }
-    [NotMapped]
-    public double Detvalor_unitario { get => detvalor_unitario; set => detvalor_unitario = value; }
-    [NotMapped]
-    public double Detvalor_total { get => detvalor_total; set => detvalor_total = value; }
+    
+    
     [NotMapped]
     public List<Detalle_pedido> Compras { get => compras; set => compras = value; }
+    [NotMapped]
+    public string Detnombrecliente { get => detnombrecliente; set => detnombrecliente = value; }
 }

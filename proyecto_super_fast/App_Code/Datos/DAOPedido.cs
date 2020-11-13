@@ -19,33 +19,37 @@ public class DAOPedido
         }
     }//
 
-    public List<Pedido>  obtenercarrito(int usuariop)
+
+    public List<Pedido> obtenerFactura(Usuario usuariopedido)
     {
-        Pedido pedido = new Pedido();
+         Pedido pedido = new Pedido();
         using (var db = new Mapeo())
         {
-         return     (from p in db.pedido1
+         pedido=  (from p in db.pedido1
                       join u in db.usuari on p.Cliente_id equals u.Id
-                      where p.Cliente_id == usuariop
+                      where p.Cliente_id == usuariopedido.Id
 
                       select new
                       {
                           p,
                           u,
-
+                          
 
                       }).ToList().Select(m => new Pedido
                       {
-                          Cliente_id = m.p.Cliente_id,
-                          Fecha = m.p.Fecha,
+                          Id_pedido = m.p.Id_pedido,
+                          Aliado_id = m.p.Aliado_id,
+                          Estado_pedido=m.p.Estado_pedido,
+                            Valor_total=m.p.Valor_total,
+                            Estado_id=m.p.Estado_id,
+                          Fecha=m.p.Fecha,
+                          Cliente_id=m.p.Cliente_id,
 
 
-                      }).ToList();
+                      }).FirstOrDefault();
         }
-
-      //  pedido.Compras = obtenerDetalleFactura(pedido.Id_pedido);
-
-        //return  pedido;
+       pedido.Compras= obtenerDetalleFactura(pedido.Id_pedido);
+        return pedido;
     }
 
     public List<Detalle_pedido> obtenerDetalleFactura(int pedidoId)
@@ -54,7 +58,7 @@ public class DAOPedido
         {
             return (from dp in db.detpedido
                     join p in db.producto on dp.Producto_id equals p.Id
-                    where dp.Pedido_id == pedidoId
+                  //  where dp.Pedido_id == pedidoId
 
                     select new
                     {
@@ -64,47 +68,104 @@ public class DAOPedido
 
                     }).ToList().Select(m => new Detalle_pedido
                     {
-                        
-                        Nombre_producto = m.p.Nombre_producto,
+                        Nombreprodet=m.p.Nombre_producto,
+                       
+                        V_unitario=m.dp.V_unitario,
                         Cantidad = m.dp.Cantidad,
-                        V_unitario = m.dp.V_unitario
+                        
 
                     }).ToList();
         }
     }
-    public List<Detalle_pedido> mostrarpedidoaliado()
-    {
-        using (var db = new Mapeo())
-        {
-            return (from dp in db.detpedido
-                    join p in db.pedido1 on dp.Pedido_id equals p.Id_pedido
-
-                    select new
-                    {
-                        dp,
-                        p.Id_pedido,
-                      
-
-                    }).ToList().Select(m => new Detalle_pedido
-                    {
-                        Id_dpedido = m.dp.Id_dpedido,
-                        Pedido_id = m.Id_pedido,
-                        Producto_id = m.dp.Producto_id,
-                        Cantidad = m.dp.Cantidad,
-                        Descripcion = m.dp.Descripcion,
-                        V_unitario = m.dp.V_unitario,
-                        V_total = m.dp.V_total,
-                        Direccion_cliente = m.dp.Direccion_cliente,
-                        Telefono_cliente = m.dp.Telefono_cliente
 
 
 
-                    }).ToList();
-        }
 
 
-        //  return new Mapeo().pedido1.Where(x =>  x.Estado_pedido == 0).ToList<Pedido>();
-    }//
+    //public List<Pedido>  obtenercarrito(/*int usuariop*/)
+    //{
+    //    Pedido pedido = new Pedido();
+    //    using (var db = new Mapeo())
+    //    {
+    //     return     (from p in db.pedido1
+    //                  join u in db.usuari on p.Cliente_id equals u.Id
+    //             //     where p.Cliente_id == usuariop
+
+    //                  select new
+    //                  {
+    //                      p,
+    //                      u,
+
+
+    //                  }).ToList().Select(m => new Pedido
+    //                  {
+    //                      Cliente_id = m.p.Cliente_id,
+    //                      Fecha = m.p.Fecha,
+
+
+    //                  }).ToList();
+    //    }
+
+    //  //  pedido.Compras = obtenerDetalleFactura(pedido.Id_pedido);
+
+    //    //return  pedido;
+    //}
+
+    //public List<Detalle_pedido> obtenerDetalleFactura(/*int pedidoId*/)
+    //{
+    //    using (var db = new Mapeo())
+    //    {
+    //        return (from dp in db.detpedido
+    //                join p in db.producto on dp.Producto_id equals p.Id
+    //              //  where dp.Pedido_id == pedidoId
+
+    //                select new
+    //                {
+    //                    p,
+    //                    dp
+
+
+    //                }).ToList().Select(m => new Detalle_pedido
+    //                {
+
+    //                    Nombre_producto = m.p.Nombre_producto,
+    //                    Cantidad = m.dp.Cantidad,
+    //                    V_unitario = m.dp.V_unitario
+
+    //                }).ToList();
+    //    }
+    //}
+    //public List<Detalle_pedido> mostrarpedidoaliado()
+    //{
+    //    using (var db = new Mapeo())
+    //    {
+    //        return (from p in db.producto
+    //                join dp in db.detpedido on p.Id equals dp.Producto_id
+
+    //                select new
+    //                {
+    //                    dp,
+    //                    p,
+
+
+    //                }).ToList().Select(m => new Detalle_pedido
+    //                {
+
+    //                    Pedido_id=m.dp.Pedido_id,
+    //                    Id_dpedido=m.dp.Id_dpedido,
+    //                    Producto_id=m.dp.Producto_id,
+    //                    Cantidad=m.dp.Cantidad,
+    //                    Descripcion=m.dp.Descripcion,
+    //                    V_unitario=m.dp.V_unitario,
+    //                    V_total=m.dp.V_total
+
+
+    //                }).ToList();
+    //    }
+
+
+    //    //  return new Mapeo().pedido1.Where(x =>  x.Estado_pedido == 0).ToList<Pedido>();
+    //}//
     public void comprarproducto(Pedido pedido5 ){
         using (var db = new Mapeo())
         {

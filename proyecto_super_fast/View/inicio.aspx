@@ -294,6 +294,7 @@
                                 <asp:RegularExpressionValidator ID="REV_Cantidad" runat="server" ControlToValidate="TBX_Cantidad" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
                                 <br />
                                 <asp:TextBox ID="TBX_correoaliado" runat="server"  Enabled="False" EnableTheming="True" Visible="False"></asp:TextBox>
+                                <asp:TextBox ID="TBX_IDaliado" runat="server" Visible="False" Width="20px" Text='<%# Eval("Id_aliado") %>'></asp:TextBox>
                             </td>
                         </tr>
                         <tr>

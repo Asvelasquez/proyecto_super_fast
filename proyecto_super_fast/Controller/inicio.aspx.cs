@@ -49,8 +49,8 @@ public partial class View_inicio : System.Web.UI.Page
             DAOPedido dao = new DAOPedido();
             pedido3.Cliente_id = ((Usuario)Session["user"]).Id;
             pedido3.Fecha = DateTime.Now;
-            pedido3.Estado_id = 1;
-            pedido3.Aliado_id = 5;/////revisar   
+            pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
+            pedido3.Aliado_id = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text);
             pedido3.Domiciliario_id =1;
             
             dao.insertPedido(pedido3);
@@ -125,12 +125,12 @@ public partial class View_inicio : System.Web.UI.Page
         }
         else if (((Usuario)(Session["user"])).Id_rol == 1)
         {
-            new DAOPedido().obtenercarrito(((Usuario)Session["user"]).Id);
+            //new DAOPedido().obtenercarrito(((Usuario)Session["user"]).Id);
             Response.Redirect("Carrito.aspx");
-            
+
         }
 
-        
+
     }
 
     protected void BTN_buscar_Click(object sender, EventArgs e)

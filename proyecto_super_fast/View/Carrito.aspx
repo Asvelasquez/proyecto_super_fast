@@ -29,181 +29,65 @@
             <td>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_carrito9">
                     <Columns>
-                        <asp:BoundField DataField="Id_dpedido" HeaderText="Id_dpedido" SortExpression="Id_dpedido" />
-                        <asp:BoundField DataField="Pedido_id" HeaderText="Pedido_id" SortExpression="Pedido_id" />
-                        <asp:BoundField DataField="Producto_id" HeaderText="Producto_id" SortExpression="Producto_id" />
-                        <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
-                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
-                        <asp:BoundField DataField="V_unitario" HeaderText="V_unitario" SortExpression="V_unitario" />
-                        <asp:BoundField DataField="V_total" HeaderText="V_total" SortExpression="V_total" />
-                        <asp:BoundField DataField="Direccion_cliente" HeaderText="Direccion_cliente" SortExpression="Direccion_cliente" />
-                        <asp:BoundField DataField="Telefono_cliente" HeaderText="Telefono_cliente" SortExpression="Telefono_cliente" />
+                        <asp:BoundField DataField="Id_pedido" HeaderText="Id_pedido" SortExpression="Id_pedido" />
+                        <asp:BoundField DataField="Cliente_id" HeaderText="Cliente_id" SortExpression="Cliente_id" />
+                        <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
+                        <asp:BoundField DataField="Estado_id" HeaderText="Estado_id" SortExpression="Estado_id" />
+                        <asp:BoundField DataField="Valor_total" HeaderText="Valor_total" SortExpression="Valor_total" />
+                        <asp:BoundField DataField="Domiciliario_id" HeaderText="Domiciliario_id" SortExpression="Domiciliario_id" />
+                        <asp:BoundField DataField="Comentario_cliente" HeaderText="Comentario_cliente" SortExpression="Comentario_cliente" />
+                        <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
+                        <asp:BoundField DataField="Aliado_id" HeaderText="Aliado_id" SortExpression="Aliado_id" />
+                        <asp:BoundField DataField="Estado_pedido" HeaderText="Estado_pedido" SortExpression="Estado_pedido" />
+                        <asp:BoundField DataField="Detnombrecliente" HeaderText="Detnombrecliente" SortExpression="Detnombrecliente" />
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="obtenercarrito" TypeName="DAOPedido">
+                <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="obtenerFactura" TypeName="DAOPedido">
                     <SelectParameters>
-                        <asp:Parameter Name="usuariop" Type="Int32" />
+                        <asp:SessionParameter DefaultValue="" Name="usuariopedido" SessionField="user" Type="Object" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
                 <br />
                 <br />
                 <asp:DataList ID="DL_pedido" runat="server" DataSourceID="ODS_carrito9" OnItemCommand="DL_pedido_ItemCommand" RepeatColumns="4">
                     <ItemTemplate>
-                        <table class="auto-style33">
-                            <tr>
-                                <td class="auto-style34" colspan="2">
-                                    <asp:Label ID="LB_nombrealiado" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style35">&nbsp;</td>
-                                <td class="auto-style36">
-                                    <asp:Label ID="LB_producto" runat="server" Height="25px" Text="Producto :"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_nombreproducto" runat="server" Enabled="False" Text='<%# Eval("nombre_producto") %>'></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_Descripcionproducto" runat="server" Text="Descripcion del Producto"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_descripcionproducto" runat="server" Enabled="False" Height="40px" Text='<%# Eval("descripcion_producto") %>' Width="170px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_especificacionpedido" runat="server" Text="Especificacion del pedido"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_especificacionpedido" runat="server" Enabled="False" Height="40px" Text='<%# Eval("especificacion_pedido") %>' Width="170px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_subtotal" runat="server" Height="25px" Text="Precio producto :"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_subtodal" runat="server" Enabled="False" Text='<%# Eval("precio_pedido") %>' Width="100px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_cantidad" runat="server" Height="25px" Text="Cantidad :"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_cantidad" runat="server" Text='<%# Eval("cantidad_pedido") %>' Width="100px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:RegularExpressionValidator ID="REV_Cantidad" runat="server" ControlToValidate="TBX_Cantidad" ErrorMessage="cantidad entre 1 y 9" ForeColor="White" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Comprar"></asp:RegularExpressionValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_preciodomicilio" runat="server" Height="25px" Text="Domicilio :"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_domicilio" runat="server" Enabled="False" Height="22px" Width="100px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_total" runat="server" Height="25px" Text="Total :"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_total" runat="server" Enabled="False" Width="100px"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_datosclientes" runat="server" Text="Datos del cliente"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_nombrecliente" runat="server" Height="25px" Text="Nombre : "></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_nombrecliente" runat="server" Enabled="False" Text='<%# Eval("nombre_clientec") %>'></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_direccion" runat="server" Height="25px" Text="Direccion :"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_direccion" runat="server" Text='<%# Eval("direccion_cliente") %>'></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:Label ID="LB_telefono" runat="server" Text="Telefono :"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td>
-                                    <asp:TextBox ID="TBX_telefono" runat="server" Text='<%# Eval("telefono_cliente") %>' TextMode="Number"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style37">&nbsp;</td>
-                                <td><strong>
-                                    <asp:RegularExpressionValidator ID="REV_Telefono" runat="server" ControlToValidate="TBX_telefono" ErrorMessage="debe tener 6 o 10 digitos" ForeColor="White" ValidationExpression="[0-9]{6,10}" ValidationGroup="VG_Comprar"></asp:RegularExpressionValidator>
-                                    </strong></td>
-                            </tr>
-                        </table>
-                        <table class="auto-style33">
-                            <tr>
-                                <td>
-                                    <asp:Button ID="BTN_comprar" runat="server" CommandArgument='<%# Eval("Id_pedido") %>' CommandName="Comprar" Text="Comprar" ValidationGroup="VG_Comprar" />
-                                </td>
-                                <td class="auto-style38">
-                                    <asp:Button ID="BTN_cancelar" runat="server" CommandArgument='<%# Eval("Id_pedido") %>' CommandName="Eliminar" Text="Cancelar" />
-                                </td>
-                            </tr>
-                        </table>
+                        Id_pedido:
+                        <asp:Label ID="Id_pedidoLabel" runat="server" Text='<%# Eval("Id_pedido") %>' />
+                        <br />
+                        Cliente_id:
+                        <asp:Label ID="Cliente_idLabel" runat="server" Text='<%# Eval("Cliente_id") %>' />
+                        <br />
+                        Fecha:
+                        <asp:Label ID="FechaLabel" runat="server" Text='<%# Eval("Fecha") %>' />
+                        <br />
+                        Estado_id:
+                        <asp:Label ID="Estado_idLabel" runat="server" Text='<%# Eval("Estado_id") %>' />
+                        <br />
+                        Valor_total:
+                        <asp:Label ID="Valor_totalLabel" runat="server" Text='<%# Eval("Valor_total") %>' />
+                        <br />
+                        Domiciliario_id:
+                        <asp:Label ID="Domiciliario_idLabel" runat="server" Text='<%# Eval("Domiciliario_id") %>' />
+                        <br />
+                        Comentario_cliente:
+                        <asp:Label ID="Comentario_clienteLabel" runat="server" Text='<%# Eval("Comentario_cliente") %>' />
+                        <br />
+                        Comentario_aliado:
+                        <asp:Label ID="Comentario_aliadoLabel" runat="server" Text='<%# Eval("Comentario_aliado") %>' />
+                        <br />
+                        Aliado_id:
+                        <asp:Label ID="Aliado_idLabel" runat="server" Text='<%# Eval("Aliado_id") %>' />
+                        <br />
+                        Estado_pedido:
+                        <asp:Label ID="Estado_pedidoLabel" runat="server" Text='<%# Eval("Estado_pedido") %>' />
+                        <br />
+                        Compras:
+                        <asp:Label ID="ComprasLabel" runat="server" Text='<%# Eval("Compras") %>' />
+                        <br />
+                        Detnombrecliente:
+                        <asp:Label ID="DetnombreclienteLabel" runat="server" Text='<%# Eval("Detnombrecliente") %>' />
+                        <br />
+                        <br />
                     </ItemTemplate>
                 </asp:DataList>
                 <br />
