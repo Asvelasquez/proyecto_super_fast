@@ -35,7 +35,7 @@ public class Detalle_pedido
     private string direccion_cliente;
     private string telefono_cliente;
     private string nombreprodet;
-
+    private string especprodaliado;
     
 
 
@@ -61,4 +61,7 @@ public class Detalle_pedido
 
     [NotMapped]
     public string Nombreprodet { get => nombreprodet; set => nombreprodet = value; }
+
+    [NotMapped]
+    public string Especprodaliado { get => especprodaliado; set => especprodaliado = value; }
 }

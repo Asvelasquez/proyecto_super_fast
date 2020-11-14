@@ -14,6 +14,17 @@ public class DAOProductos{
             db.SaveChanges();
         }
     }//
+    public List<Estado_pedido> estado_Pedidos()
+    {
+        List<Estado_pedido> lista = new Mapeo().estpedido.ToList();
+        Estado_pedido estado_pedido = new Estado_pedido();
+        estado_pedido.Id = 0;
+        estado_pedido.Nombre = "--Seleccione--";
+        lista.Add(estado_pedido);
+        return lista.OrderBy(x => x.Id).ToList();
+    }
+
+
     public List<Producto> mostrarproducto(Usuario consulta ){
 
      
@@ -32,6 +43,7 @@ public class DAOProductos{
         {
             return (from p in db.producto
                     join u in db.usuari on p.Id_aliado equals u.Id
+                    where p.Estado_producto==1
                     select new
                     {
                         p,

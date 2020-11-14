@@ -22,18 +22,22 @@
         <tr>
             <td>
                 <asp:ImageButton ID="IB_recargar" runat="server" ImageUrl="~/Imagenes/Iconos/refrescar.png" OnClick="IB_recargar_Click" />
-                <asp:GridView ID="GV_pedidos" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Pedido">
+                <asp:GridView ID="GV_pedidos" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Pedido"  OnRowDataBound="GV_pedidos_RowDataBound">
                     <Columns>
-                        <asp:BoundField DataField="Id_dpedido" HeaderText="Id_dpedido" SortExpression="Id_dpedido" />
-                        <asp:BoundField DataField="Pedido_id" HeaderText="Pedido_id" SortExpression="Pedido_id" />
-                        <asp:BoundField DataField="Producto_id" HeaderText="Producto_id" SortExpression="Producto_id" />
+                        <asp:BoundField DataField="Pedido_id" HeaderText="Pedido n°" SortExpression="Pedido_id" />
+                        <asp:BoundField DataField="Nombreprodet" HeaderText="Nombre producto" SortExpression="Nombreprodet" />
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion producto" SortExpression="Descripcion" />
+                        <asp:BoundField DataField="Especprodaliado" HeaderText="especificacion pedido" SortExpression="Especprodaliado" />
                         <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
-                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" SortExpression="Descripcion" />
                         <asp:BoundField DataField="V_unitario" HeaderText="V_unitario" SortExpression="V_unitario" />
                         <asp:BoundField DataField="V_total" HeaderText="V_total" SortExpression="V_total" />
-                        <asp:BoundField DataField="Direccion_cliente" HeaderText="Direccion_cliente" SortExpression="Direccion_cliente" />
-                        <asp:BoundField DataField="Telefono_cliente" HeaderText="Telefono_cliente" SortExpression="Telefono_cliente" />
-                        <asp:BoundField DataField="Nombre_producto" HeaderText="Nombre_producto" SortExpression="Nombre_producto" />
+                        <asp:TemplateField HeaderText="estado del pedido">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="DDL_Categoria" runat="server" DataSourceID="ODS_Categorias" DataTextField="Nombre" DataValueField="Id">
+                                </asp:DropDownList>
+                                <asp:ObjectDataSource ID="ODS_Categorias" runat="server" SelectMethod="estado_Pedidos" TypeName="DAOProductos"></asp:ObjectDataSource>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
                 <asp:ObjectDataSource ID="ODS_Pedido" runat="server" SelectMethod="mostrarpedidoaliado" TypeName="DAOPedido"></asp:ObjectDataSource>
