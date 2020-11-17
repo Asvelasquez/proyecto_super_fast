@@ -42,7 +42,7 @@
                         <asp:BoundField DataField="Detnombrecliente" HeaderText="Detnombrecliente" SortExpression="Detnombrecliente" />
                     </Columns>
                 </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="obtenerFactura" TypeName="DAOPedido">
+                <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="obtenerPedidoUsuario" TypeName="DAOPedido">
                     <SelectParameters>
                         <asp:SessionParameter DefaultValue="" Name="usuariopedido" SessionField="user" Type="Object" />
                     </SelectParameters>

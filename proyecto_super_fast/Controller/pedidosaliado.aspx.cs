@@ -32,15 +32,7 @@ public partial class View_pedidosaliado : System.Web.UI.Page
        
     }
 
-  
-
-    protected void GV_pedidos_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-       
-        
-    }
-
-  
+    
 
     protected void GV_pedidos_RowDataBound(object sender, GridViewRowEventArgs e)
     {
@@ -48,7 +40,9 @@ public partial class View_pedidosaliado : System.Web.UI.Page
        
         if (e.Row.FindControl("DDL_Categoria") !=null)
         {
-            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Eror')</script>");
+           // cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error')</script>");
+
+
         }
         //       Pedido pedido = new Pedido();
         //       Estado_pedido estado_ped = new Estado_pedido();
@@ -59,8 +53,25 @@ public partial class View_pedidosaliado : System.Web.UI.Page
         //       var check = row.FindControl("chkId") as CheckBox;
 
         //if(check != null && check.Checked)
-        //{ya voy inge
+        //{
         //	//codigo
         //}
+    }
+
+    protected void GV_pedidos_RowCommand1(object sender, GridViewCommandEventArgs e)
+    {
+
+    }
+
+    protected void DDL_Categoria_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DropDownList opciones = (DropDownList)sender;
+        GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
+        int pedido = int.Parse(((Label)fila.FindControl("L_Pedido")).Text);
+
+        //hacer el update
+
+        GV_pedidos.DataBind();
+
     }
 }

@@ -22,9 +22,16 @@
         <tr>
             <td>
                 <asp:ImageButton ID="IB_recargar" runat="server" ImageUrl="~/Imagenes/Iconos/refrescar.png" OnClick="IB_recargar_Click" />
-                <asp:GridView ID="GV_pedidos" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Pedido"  OnRowDataBound="GV_pedidos_RowDataBound">
+                <asp:GridView ID="GV_pedidos" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Pedido"  OnRowDataBound="GV_pedidos_RowDataBound" OnRowCommand="GV_pedidos_RowCommand1">
                     <Columns>
-                        <asp:BoundField DataField="Pedido_id" HeaderText="Pedido n°" SortExpression="Pedido_id" />
+                        <asp:TemplateField HeaderText="Pedido n°" SortExpression="Pedido_id">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Pedido_id") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="L_Pedido" runat="server" Text='<%# Bind("Pedido_id") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="Nombreprodet" HeaderText="Nombre producto" SortExpression="Nombreprodet" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripcion producto" SortExpression="Descripcion" />
                         <asp:BoundField DataField="Especprodaliado" HeaderText="especificacion pedido" SortExpression="Especprodaliado" />
@@ -33,7 +40,7 @@
                         <asp:BoundField DataField="V_total" HeaderText="V_total" SortExpression="V_total" />
                         <asp:TemplateField HeaderText="estado del pedido">
                             <ItemTemplate>
-                                <asp:DropDownList ID="DDL_Categoria" runat="server" DataSourceID="ODS_Categorias" DataTextField="Nombre" DataValueField="Id">
+                                <asp:DropDownList ID="DDL_Categoria" runat="server" DataSourceID="ODS_Categorias" DataTextField="Nombre" DataValueField="Id" AutoPostBack="True" OnSelectedIndexChanged="DDL_Categoria_SelectedIndexChanged">
                                 </asp:DropDownList>
                                 <asp:ObjectDataSource ID="ODS_Categorias" runat="server" SelectMethod="estado_Pedidos" TypeName="DAOProductos"></asp:ObjectDataSource>
                             </ItemTemplate>

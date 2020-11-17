@@ -20,12 +20,12 @@ public class DAOPedido
     }//
 
 
-    public Pedido obtenerFactura(Usuario usuariopedido)
+    public  List <Pedido> obtenerPedidoUsuario(Usuario usuariopedido)
     {
-         Pedido pedido = new Pedido();
+         List<Pedido> pedido = new List <Pedido>();
         using (var db = new Mapeo())
         {
-         return (from p in db.pedido1
+         pedido= (from p in db.pedido1
                       join u in db.usuari on p.Cliente_id equals u.Id
                       where p.Cliente_id == usuariopedido.Id
 
@@ -46,10 +46,14 @@ public class DAOPedido
                           Cliente_id=m.p.Cliente_id,
 
 
-                      }).FirstOrDefault();
+                      }).ToList();
         }
-       //pedido.Compras= obtenerDetalleFactura(pedido.Id_pedido);
-       // return pedido;
+        foreach (var item in pedido)
+        {
+            item.Compras = obtenerDetalleFactura(item.Id_pedido);
+        }
+      
+        return pedido;
     }
 
     public List<Detalle_pedido> obtenerDetalleFactura(int pedidoId)
