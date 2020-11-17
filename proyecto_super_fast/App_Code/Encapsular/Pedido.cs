@@ -37,6 +37,8 @@ public class Pedido
     private string detnombrecliente;
     private List<Detalle_pedido> compras;
 
+    private string nombre_estado_ped;
+
 
 
     [Key]
@@ -66,4 +68,6 @@ public class Pedido
     public List<Detalle_pedido> Compras { get => compras; set => compras = value; }
     [NotMapped]
     public string Detnombrecliente { get => detnombrecliente; set => detnombrecliente = value; }
+    [NotMapped]
+    public string Nombre_estado_ped { get => nombre_estado_ped; set => nombre_estado_ped = value; }
 }

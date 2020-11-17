@@ -40,6 +40,7 @@
                         <asp:BoundField DataField="Aliado_id" HeaderText="Aliado_id" SortExpression="Aliado_id" />
                         <asp:BoundField DataField="Estado_pedido" HeaderText="Estado_pedido" SortExpression="Estado_pedido" />
                         <asp:BoundField DataField="Detnombrecliente" HeaderText="Detnombrecliente" SortExpression="Detnombrecliente" />
+                        <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Nombre_estado_ped" SortExpression="Nombre_estado_ped" />
                     </Columns>
                 </asp:GridView>
                 <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="obtenerPedidoUsuario" TypeName="DAOPedido">
@@ -86,6 +87,9 @@
                         <br />
                         Detnombrecliente:
                         <asp:Label ID="DetnombreclienteLabel" runat="server" Text='<%# Eval("Detnombrecliente") %>' />
+                        <br />
+                        Nombre_estado_ped:
+                        <asp:Label ID="Nombre_estado_pedLabel" runat="server" Text='<%# Eval("Nombre_estado_ped") %>' />
                         <br />
                         <br />
                     </ItemTemplate>

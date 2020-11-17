@@ -19,6 +19,7 @@ public class DAOPedido
         }
     }//
 
+    
 
     public  List <Pedido> obtenerPedidoUsuario(Usuario usuariopedido)
     {
@@ -42,6 +43,7 @@ public class DAOPedido
                           Estado_pedido=m.p.Estado_pedido,
                             Valor_total=m.p.Valor_total,
                             Estado_id=m.p.Estado_id,
+                            Nombre_estado_ped=m.p.Nombre_estado_ped,
                           Fecha=m.p.Fecha,
                           Cliente_id=m.p.Cliente_id,
 
@@ -51,6 +53,7 @@ public class DAOPedido
         foreach (var item in pedido)
         {
             item.Compras = obtenerDetalleFactura(item.Id_pedido);
+    
         }
       
         return pedido;
@@ -82,13 +85,13 @@ public class DAOPedido
         }
     }
 
-
+    
     public void actualizarPedido(Pedido pedido2, int estadopedido2)
     {
         using (var db = new Mapeo())
         {
             Pedido pedidoanterior = db.pedido1.Where(x => x.Id_pedido == pedido2.Id_pedido).First();
-            pedidoanterior.Estado_pedido = estadopedido2 ;
+            pedidoanterior.Estado_id = estadopedido2 ;
             
             db.pedido1.Attach(pedidoanterior);
             var entry = db.Entry(pedidoanterior);
@@ -151,13 +154,38 @@ public class DAOPedido
     //                }).ToList();
     //    }
     //}
+    public List<Pedido> obtenerEstadoPedido(int pedidoId)
+    {
+        using (var db = new Mapeo())
+        {
+            return (from ped in db.pedido1
+                    join p in db.estpedido on ped.Estado_id equals p.Id
+                    //  where dp.Pedido_id == pedidoId
+                    where ped.Estado_id != 5
+                    select new
+                    {
+                        p,
+                        ped
+
+                    }).ToList().Select(m => new Pedido
+                    {
+
+                        Nombre_estado_ped = m.p.Nombre
+
+                    }).ToList();
+        }
+        //foreach (var item in pedido)
+        //{
+
+        //}
+    }
     public List<Detalle_pedido> mostrarpedidoaliado()
     {
         using (var db = new Mapeo())
         {
             return (from p in db.producto
                     join dp in db.detpedido on p.Id equals dp.Producto_id
-
+                   
                     select new
                     {
                         dp,
