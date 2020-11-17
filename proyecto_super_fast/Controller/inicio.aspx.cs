@@ -52,10 +52,10 @@ public partial class View_inicio : System.Web.UI.Page
             pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
             pedido3.Aliado_id = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text);
             pedido3.Domiciliario_id =1;
-            
+            pedido3.Estado_pedido = 1;
             dao.insertPedido(pedido3);
            // det_pedido.Pedido_id = 1;
-             det_pedido.Pedido_id = pedido3.Id_pedido;
+            det_pedido.Pedido_id = pedido3.Id_pedido;
             det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
             det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
             det_pedido.Cantidad = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);

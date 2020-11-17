@@ -83,7 +83,19 @@ public class DAOPedido
     }
 
 
-
+    public void actualizarPedido(Pedido pedido2, int estadopedido2)
+    {
+        using (var db = new Mapeo())
+        {
+            Pedido pedidoanterior = db.pedido1.Where(x => x.Id_pedido == pedido2.Id_pedido).First();
+            pedidoanterior.Estado_pedido = estadopedido2 ;
+            
+            db.pedido1.Attach(pedidoanterior);
+            var entry = db.Entry(pedidoanterior);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }//
 
 
     //public List<Pedido>  obtenercarrito(/*int usuariop*/)

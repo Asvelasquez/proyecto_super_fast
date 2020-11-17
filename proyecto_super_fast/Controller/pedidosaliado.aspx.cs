@@ -27,35 +27,14 @@ public partial class View_pedidosaliado : System.Web.UI.Page
 
     protected void IB_recargar_Click(object sender, ImageClickEventArgs e)
     {
-        GV_pedidos.DataBind();
-
-       
+        GV_pedidos.DataBind();       
     }
 
     
 
     protected void GV_pedidos_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        ClientScriptManager cm = this.ClientScript;
-       
-        if (e.Row.FindControl("DDL_Categoria") !=null)
-        {
-           // cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Error')</script>");
-
-
-        }
-        //       Pedido pedido = new Pedido();
-        //       Estado_pedido estado_ped = new Estado_pedido();
-        //       pedido.Estado_id = int.Parse(DDL_Categoria);
-        //       FindControl("DDL_Categoria");
-        //       DropDownList ddl = FindControl("", DropDownList) as DropDownList;
-
-        //       var check = row.FindControl("chkId") as CheckBox;
-
-        //if(check != null && check.Checked)
-        //{
-        //	//codigo
-        //}
+        
     }
 
     protected void GV_pedidos_RowCommand1(object sender, GridViewCommandEventArgs e)
@@ -65,13 +44,17 @@ public partial class View_pedidosaliado : System.Web.UI.Page
 
     protected void DDL_Categoria_SelectedIndexChanged(object sender, EventArgs e)
     {
+        DAOPedido pedido3 = new DAOPedido();
+        Pedido pedido4 = new Pedido();
         DropDownList opciones = (DropDownList)sender;
         GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
         int pedido = int.Parse(((Label)fila.FindControl("L_Pedido")).Text);
-
-        //hacer el update
-
-        GV_pedidos.DataBind();
+        pedido4.Id_pedido = pedido;
+        
+        //hacer el update        
+        string idseleccion = opciones.SelectedValue;
+        pedido3.actualizarPedido(pedido4, int.Parse(idseleccion));
+        GV_pedidos.DataBind();//
 
     }
 }
