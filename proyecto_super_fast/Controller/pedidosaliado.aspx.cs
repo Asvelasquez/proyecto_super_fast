@@ -92,8 +92,12 @@ public partial class View_pedidosaliado : System.Web.UI.Page
     {
         DAOPedido daop = new DAOPedido();
         Pedido pedido4 = new Pedido();
+        ImageButton opciones = (ImageButton)sender;
+        GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
         pedido4.Id_pedido = int.Parse(e.CommandArgument.ToString());
+        //int.Parse(((Label)fila.FindControl("L_Pedido")).Text);
         pedido4.Comentario_aliado = ((TextBox)GV_pedidos.FindControl("TBX_comentarioaliado")).Text; ;
+        pedido4.Comentario_aliado = ((TextBox)fila.FindControl("TBX_comentarioaliado")).Text; ;
         if (e.CommandName == "Guardar")
         {
             daop.guardarcomentario(pedido4);

@@ -45,7 +45,7 @@
                 </asp:GridView>
                 <asp:ObjectDataSource ID="ODS_carrito9" runat="server" SelectMethod="obtenerPedidoUsuario" TypeName="DAOPedido">
                     <SelectParameters>
-                        <asp:SessionParameter Name="usuariopedido" SessionField="usser" Type="Object" />
+                        <asp:SessionParameter Name="usuariopedido" SessionField="user" Type="Object" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
                 <br />
