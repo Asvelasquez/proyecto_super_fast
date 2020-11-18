@@ -52,11 +52,7 @@ public partial class View_pedidosaliado : System.Web.UI.Page
             ((GridView)e.Row.FindControl("GV_Compras1")).DataBind();
         }
     }
-    protected void GV_pedidos_RowCommand1(object sender, GridViewCommandEventArgs e)
-    {
-        
-
-    }
+  
 
     protected void DDL_Categoria_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -91,4 +87,17 @@ public partial class View_pedidosaliado : System.Web.UI.Page
     }
 
 
+
+    protected void GV_pedidos_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        DAOPedido daop = new DAOPedido();
+        Pedido pedido4 = new Pedido();
+        pedido4.Id_pedido = int.Parse(e.CommandArgument.ToString());
+        pedido4.Comentario_aliado = ((TextBox)GV_pedidos.FindControl("TBX_comentarioaliado")).Text; ;
+        if (e.CommandName == "Guardar")
+        {
+            daop.guardarcomentario(pedido4);
+            GV_pedidos.DataBind();
+        }
+    }
 }

@@ -305,5 +305,22 @@ public class DAOPedido
         return new Mapeo().pedido1.Where(x => x.Comentario_aliado == consulta.Correo && x.Estado_pedido==1).ToList<Pedido>();
 
     }
+    //
+    public void guardarcomentario(Pedido pedido2)
+    {
+        using (var db = new Mapeo())
+        {
+            Pedido comentarioanterior = db.pedido1.Where(x => x.Id_pedido == pedido2.Id_pedido).First();
+            comentarioanterior.Comentario_aliado = pedido2.Comentario_aliado;
+            
+
+            db.pedido1.Attach(comentarioanterior);
+            var entry = db.Entry(comentarioanterior);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+           
+
+        }
+    }
 
 }

@@ -27,7 +27,7 @@
                 <asp:Label ID="LB_Pedidos" runat="server" Font-Size="Large" ForeColor="White" Text="Pedido(s)"></asp:Label>
                 <br />
                 <br />
-                <asp:GridView ID="GV_pedidos" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Pedido"  OnRowDataBound="GV_pedidos_RowDataBound" OnRowCommand="GV_pedidos_RowCommand1">
+                <asp:GridView ID="GV_pedidos" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Pedido"  OnRowDataBound="GV_pedidos_RowDataBound" OnRowCommand="GV_pedidos_RowCommand">
                     <Columns>
                         <asp:TemplateField HeaderText="Pedido N°" SortExpression="Id_pedido">
                             <EditItemTemplate>
@@ -40,7 +40,17 @@
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
                         <asp:BoundField DataField="Valor_total" HeaderText="Valor_total" SortExpression="Valor_total" />
                         <asp:BoundField DataField="Comentario_cliente" HeaderText="Comentario_cliente" SortExpression="Comentario_cliente" />
-                        <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
+                        <asp:TemplateField HeaderText="Comentario_aliado" SortExpression="Comentario_aliado">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TBX_LB_comentarioadliado" runat="server" Text='<%# Bind("Comentario_aliado") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="LB_comentarioadliado" runat="server" Text='<%# Bind("Comentario_aliado") %>'></asp:Label>
+                                <br />
+                                <asp:TextBox ID="TBX_comentarioaliado" runat="server" Height="32px" Width="137px"></asp:TextBox>
+                                &nbsp;<asp:ImageButton ID="IB_guardarcomentario" runat="server" ImageUrl="~/Imagenes/Iconos/guardar.png" CommandName="Guardar" CommandArgument='<%# Eval("Id_pedido") %>'/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Pedido" SortExpression="Compras">
                             <EditItemTemplate>
                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Compras") %>'></asp:TextBox>
