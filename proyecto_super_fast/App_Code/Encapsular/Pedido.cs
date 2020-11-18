@@ -66,6 +66,7 @@ public class Pedido
     
     [NotMapped]
     public List<Detalle_pedido> Compras { get => compras; set => compras = value; }
+    
     [NotMapped]
     public string Detnombrecliente { get => detnombrecliente; set => detnombrecliente = value; }
     [NotMapped]

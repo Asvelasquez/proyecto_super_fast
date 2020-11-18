@@ -29,16 +29,32 @@ public partial class View_pedidosaliado : System.Web.UI.Page
     {
         GV_pedidos.DataBind();       
     }
-
+    protected void IB_recargar1_Click(object sender, ImageClickEventArgs e)
+    {
+        GV_pedidosterminado.DataBind();
+    }
     
 
     protected void GV_pedidos_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        
+        Pedido pedido = (Pedido)e.Row.DataItem;
+        if (e.Row.FindControl("GV_Compras") != null)
+        {
+            ((GridView)e.Row.FindControl("GV_Compras")).DataSource = pedido.Compras;
+            ((GridView)e.Row.FindControl("GV_Compras")).DataBind();
+        }
     }
-
+    
+    protected void GV_pedidosterminado_RowDataBound(object sender, GridViewRowEventArgs e){
+        Pedido pedido = (Pedido)e.Row.DataItem;
+        if (e.Row.FindControl("GV_Compras1") != null){
+            ((GridView)e.Row.FindControl("GV_Compras1")).DataSource = pedido.Compras;
+            ((GridView)e.Row.FindControl("GV_Compras1")).DataBind();
+        }
+    }
     protected void GV_pedidos_RowCommand1(object sender, GridViewCommandEventArgs e)
     {
+        
 
     }
 
@@ -54,7 +70,25 @@ public partial class View_pedidosaliado : System.Web.UI.Page
         //hacer el update        
         string idseleccion = opciones.SelectedValue;
         pedido3.actualizarPedido(pedido4, int.Parse(idseleccion));
-       // GV_pedidos.DataBind();//
+        GV_pedidos.DataBind();//
 
     }
+
+    protected void DDL_Categoria1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DAOPedido pedido3 = new DAOPedido();
+        Pedido pedido4 = new Pedido();
+        DropDownList opciones = (DropDownList)sender;
+        GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
+        int pedido = int.Parse(((Label)fila.FindControl("L_Pedido1")).Text);
+        pedido4.Id_pedido = pedido;
+
+        //hacer el update        
+        string idseleccion = opciones.SelectedValue;
+        pedido3.actualizarPedido(pedido4, int.Parse(idseleccion));
+        GV_pedidos.DataBind();//
+
+    }
+
+
 }

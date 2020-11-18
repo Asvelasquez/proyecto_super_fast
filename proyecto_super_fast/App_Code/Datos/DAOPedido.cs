@@ -24,18 +24,13 @@ public class DAOPedido
     public  List <Pedido> obtenerPedidoUsuario(Usuario usuariopedido)
     {
          List<Pedido> pedido = new List <Pedido>();
-        using (var db = new Mapeo())
-        {
+        using (var db = new Mapeo()){
          pedido= (from p in db.pedido1
                       join u in db.usuari on p.Cliente_id equals u.Id
                       where p.Cliente_id == usuariopedido.Id
-
-                      select new
-                      {
+                      select new {
                           p,
                           u,
-                          
-
                       }).ToList().Select(m => new Pedido
                       {
                           Id_pedido = m.p.Id_pedido,
@@ -46,40 +41,29 @@ public class DAOPedido
                             Nombre_estado_ped=m.p.Nombre_estado_ped,
                           Fecha=m.p.Fecha,
                           Cliente_id=m.p.Cliente_id,
-
-
                       }).ToList();
         }
-        foreach (var item in pedido)
-        {
+        foreach (var item in pedido){
             item.Compras = obtenerDetalleFactura(item.Id_pedido);
-    
         }
-      
-        return pedido;
+         return pedido;
     }
 
     public List<Detalle_pedido> obtenerDetalleFactura(int pedidoId)
     {
-        using (var db = new Mapeo())
-        {
+        using (var db = new Mapeo()){
             return (from dp in db.detpedido
                     join p in db.producto on dp.Producto_id equals p.Id
                   //  where dp.Pedido_id == pedidoId
-
                     select new
                     {
                         p,
                         dp
-
-
                     }).ToList().Select(m => new Detalle_pedido
                     {
-                        Nombreprodet=m.p.Nombre_producto,
-                       
+                        Nombreprodet=m.p.Nombre_producto,                       
                         V_unitario=m.dp.V_unitario,
-                        Cantidad = m.dp.Cantidad,
-                        
+                        Cantidad = m.dp.Cantidad,                      
 
                     }).ToList();
         }
@@ -154,14 +138,16 @@ public class DAOPedido
     //                }).ToList();
     //    }
     //}
-    public List<Pedido> obtenerEstadoPedido(int pedidoId)
-    {
-        using (var db = new Mapeo())
-        {
-            return (from ped in db.pedido1
+    
+    /// /////////////////////////////////obtener pedido 
+    
+    public List<Pedido> obtenerEstadoPedido(){
+        List<Pedido> pedido = new List<Pedido>();
+        using (var db = new Mapeo()){
+            pedido= (from ped in db.pedido1
                     join p in db.estpedido on ped.Estado_id equals p.Id
                     //  where dp.Pedido_id == pedidoId
-                    where ped.Estado_id != 5
+                    where ped.Estado_id != 5 && ped.Estado_pedido==1
                     select new
                     {
                         p,
@@ -169,50 +155,110 @@ public class DAOPedido
 
                     }).ToList().Select(m => new Pedido
                     {
-
-                        Nombre_estado_ped = m.p.Nombre
-
+                        Id_pedido = m.ped.Id_pedido,
+                        Aliado_id = m.ped.Aliado_id,
+                        Nombre_estado_ped = m.p.Nombre,
+                        Cliente_id=m.ped.Cliente_id,
+                        Comentario_aliado=m.ped.Comentario_aliado,
+                        Comentario_cliente=m.ped.Comentario_cliente,
+                        Domiciliario_id=m.ped.Domiciliario_id,
+                        Estado_id=m.ped.Estado_id,
+                        Estado_pedido=m.ped.Estado_pedido,
+                        Fecha=m.ped.Fecha,                        
+                        Valor_total=m.ped.Valor_total
+                        
                     }).ToList();
         }
-        //foreach (var item in pedido)
-        //{
-
-        //}
-    }
-    public List<Detalle_pedido> mostrarpedidoaliado()
-    {
-        using (var db = new Mapeo())
+        foreach (var item in pedido)
         {
+            item.Compras = mostrarpedidoaliado(item.Id_pedido);
+        }
+        return pedido;
+    }
+    public List<Detalle_pedido> mostrarpedidoaliado(int idpedido){
+        using (var db = new Mapeo()){
             return (from p in db.producto
                     join dp in db.detpedido on p.Id equals dp.Producto_id
-                   
-                    select new
-                    {
+                    where dp.Pedido_id==idpedido
+                    select new{
                         dp,
                         p,
-                        
-
                     }).ToList().Select(m => new Detalle_pedido
-                    {
-
-                        Pedido_id = m.dp.Pedido_id,
-                        Id_dpedido = m.dp.Id_dpedido,
+                    {                      
+                        Pedido_id=m.dp.Pedido_id,
+                        Id_dpedido=m.dp.Id_dpedido,
+                        Direccion_cliente=m.dp.Direccion_cliente,
+                        Telefono_cliente=m.dp.Telefono_cliente,
                         Producto_id = m.dp.Producto_id,
                         Cantidad = m.dp.Cantidad,
-                        Descripcion = m.p.Descripcion_producto,
+                        Descripcion = m.dp.Descripcion,
                         V_unitario = m.dp.V_unitario,
                         V_total = m.dp.V_total,
                         Nombreprodet=m.p.Nombre_producto,
-                        Especprodaliado=m.dp.Descripcion
-                       
-
-
+                        Especprodaliado=m.p.Descripcion_producto
                     }).ToList();
         }
-
-
         //  return new Mapeo().pedido1.Where(x =>  x.Estado_pedido == 0).ToList<Pedido>();
     }//
+     /////////////////////////////////cierre obtener pedido 
+
+    ///////////////////
+    public List<Pedido> obtenerEstadoPedidoterminado(){
+        List<Pedido> pedido = new List<Pedido>();
+        using (var db = new Mapeo()){
+            pedido = (from ped in db.pedido1
+                      join p in db.estpedido on ped.Estado_id equals p.Id
+                      where ped.Estado_id == 5 && ped.Estado_pedido == 1
+                      select new{
+                          p,
+                          ped
+                      }).ToList().Select(m => new Pedido
+                      {
+                          Id_pedido = m.ped.Id_pedido,
+                          Aliado_id = m.ped.Aliado_id,
+                          Nombre_estado_ped = m.p.Nombre,
+                          Cliente_id = m.ped.Cliente_id,
+                          Comentario_aliado = m.ped.Comentario_aliado,
+                          Comentario_cliente = m.ped.Comentario_cliente,
+                          Domiciliario_id = m.ped.Domiciliario_id,
+                          Estado_id = m.ped.Estado_id,
+                          Estado_pedido = m.ped.Estado_pedido,
+                          Fecha = m.ped.Fecha,
+                          Valor_total = m.ped.Valor_total
+
+                      }).ToList();
+        }
+        foreach (var item in pedido){
+            item.Compras = mostrarpedidoaliadoterminado(item.Id_pedido);
+        }
+        return pedido;
+    }
+    public List<Detalle_pedido> mostrarpedidoaliadoterminado(int idpedido){
+        using (var db = new Mapeo()){
+            return (from p in db.producto
+                    join dp in db.detpedido on p.Id equals dp.Producto_id
+                    where dp.Pedido_id == idpedido
+                    select new{
+                        dp,
+                        p,
+                    }).ToList().Select(m => new Detalle_pedido{
+                        Pedido_id = m.dp.Pedido_id,
+                        Id_dpedido = m.dp.Id_dpedido,
+                        Direccion_cliente = m.dp.Direccion_cliente,
+                        Telefono_cliente = m.dp.Telefono_cliente,
+                        Producto_id = m.dp.Producto_id,
+                        Cantidad = m.dp.Cantidad,
+                        Descripcion = m.dp.Descripcion,
+                        V_unitario = m.dp.V_unitario,
+                        V_total = m.dp.V_total,
+                        Nombreprodet = m.p.Nombre_producto,
+                        Especprodaliado = m.p.Descripcion_producto
+                    }).ToList();
+        }
+        //  return new Mapeo().pedido1.Where(x =>  x.Estado_pedido == 0).ToList<Pedido>();
+    }//
+     /////////////////
+
     public void comprarproducto(Pedido pedido5 ){
         using (var db = new Mapeo())
         {
