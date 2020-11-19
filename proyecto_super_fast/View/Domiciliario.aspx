@@ -16,22 +16,16 @@
             <td class="auto-style34" colspan="2">
                 <asp:GridView ID="GV_PedDomi" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Domiciliario" OnRowDataBound="GV_PedDomi_RowDataBound">
                     <Columns>
-                        <asp:BoundField DataField="Id_pedido" HeaderText="Id_pedido" SortExpression="Id_pedido" />
-                        <asp:BoundField DataField="Cliente_id" HeaderText="Cliente_id" SortExpression="Cliente_id" />
+                        <asp:BoundField DataField="Id_pedido" HeaderText="Pedido n°" SortExpression="Id_pedido" />
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
-                        <asp:BoundField DataField="Estado_id" HeaderText="Estado_id" SortExpression="Estado_id" />
-                        <asp:BoundField DataField="Valor_total" HeaderText="Valor_total" SortExpression="Valor_total" />
-                        <asp:BoundField DataField="Domiciliario_id" HeaderText="Domiciliario_id" SortExpression="Domiciliario_id" />
                         <asp:BoundField DataField="Comentario_cliente" HeaderText="Comentario_cliente" SortExpression="Comentario_cliente" />
                         <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
-                        <asp:BoundField DataField="Aliado_id" HeaderText="Aliado_id" SortExpression="Aliado_id" />
-                        <asp:BoundField DataField="Estado_pedido" HeaderText="Estado_pedido" SortExpression="Estado_pedido" />
-                        <asp:BoundField DataField="Detnombrecliente" HeaderText="Detnombrecliente" SortExpression="Detnombrecliente" />
-                        <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Nombre_estado_ped" SortExpression="Nombre_estado_ped" />
-                        <asp:TemplateField HeaderText="Datos">
+                        <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Estado pedido" SortExpression="Nombre_estado_ped" />
+                        <asp:TemplateField HeaderText="Pedido">
                             <ItemTemplate>
                                 <asp:GridView ID="GV_detallespedido" runat="server" AutoGenerateColumns="False">
                                      <Columns>
+                                    <asp:BoundField DataField="Pedido_id" HeaderText="Pedido N°" SortExpression="Pedido_id" />
                                     <asp:BoundField DataField="Nombreprodet" HeaderText="Producto" SortExpression="Nombreprodet" />
                                     <asp:BoundField DataField="Especprodaliado" HeaderText="Descripcion" SortExpression="Especprodaliado" />
                                     <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" /> 
