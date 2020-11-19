@@ -22,7 +22,11 @@ public partial class View_inicio : System.Web.UI.Page
 
         }
 
-        LB_Carrito.Text = lista1.Count().ToString();
+       
+        foreach (var item in lista)
+        {
+            LB_Carrito.Text = lista1.Count().ToString();
+        }
         //(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text)="1";
     }
 
@@ -52,8 +56,9 @@ public partial class View_inicio : System.Web.UI.Page
             pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
             pedido3.Aliado_id = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text);
             pedido3.Domiciliario_id =1;
-            pedido3.Estado_pedido = 1;
+            pedido3.Estado_pedido = 0;
             dao.insertPedido(pedido3);
+
            // det_pedido.Pedido_id = 1;
             det_pedido.Pedido_id = pedido3.Id_pedido;
             det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
@@ -147,7 +152,7 @@ public partial class View_inicio : System.Web.UI.Page
         DL_Productos.Visible = false;
         DL_productosfiltros.Visible = true;
         DL_productosfiltrorest.Visible = false;
-        TBX_buscar.Text = "hamburguesa";
+        TBX_buscar.Text = "carne";
     }
 
     protected void BTN_perrocaliente_Click(object sender, EventArgs e)
@@ -160,23 +165,40 @@ public partial class View_inicio : System.Web.UI.Page
 
     protected void BTN_Restaurantes_Click(object sender, EventArgs e)
     {
-       
+        DL_Productos.Visible = false;
+        DL_productosfiltros.Visible = false;
+        DL_productosfiltrorest.Visible = true;
+        TBX_actividadcomercial.Text = "Restaurante";
+       // DaoRest.mostrarproductoinicioactividad("Restaurante");
     }
 
     protected void BTN_Supermecados_Click(object sender, EventArgs e)
     {
         DL_Productos.Visible = false;
         DL_productosfiltros.Visible = false;
-        TBX_actividadcomercial.Text = "Super mercados";
-        DL_productosfiltrorest.Visible = false;
+        DL_productosfiltrorest.Visible = true;
+        TBX_actividadcomercial.Text = "Super mercado";
+       
 
     }
 
-    protected void BTN_Restaurantes_Click1(object sender, EventArgs e)
+    //protected void BTN_Restaurantes_Click1(object sender, EventArgs e)
+    //{
+    //    DL_Productos.Visible = false;
+    //    DL_productosfiltros.Visible = false;
+    //    DL_productosfiltrorest.Visible = true;
+    //    TBX_actividadcomercial.Text = "Restaurantes";
+    //}
+
+    protected void TBX_filtro1_TextChanged(object sender, EventArgs e)
     {
-        DL_Productos.Visible = false;
-        DL_productosfiltros.Visible = false;
-        DL_productosfiltrorest.Visible = true;
-        TBX_actividadcomercial.Text = "Restaurantes";
+
+    }
+
+
+
+    protected void BTN_Todos_Click(object sender, EventArgs e)
+    {
+         Response.Redirect("inicio.aspx");
     }
 }

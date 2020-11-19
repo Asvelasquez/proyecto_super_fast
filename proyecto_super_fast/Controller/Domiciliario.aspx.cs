@@ -23,4 +23,14 @@ public partial class View_Domiciliario : System.Web.UI.Page
         }
 
     }
+
+    protected void GV_PedDomi_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        Pedido pedido = (Pedido)e.Row.DataItem;
+        if (e.Row.FindControl("GV_detallespedido") != null)
+        {
+            ((GridView)e.Row.FindControl("GV_detallespedido")).DataSource = pedido.Compras;
+            ((GridView)e.Row.FindControl("GV_detallespedido")).DataBind();
+        }
+    }
 }
