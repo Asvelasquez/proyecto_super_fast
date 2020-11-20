@@ -33,6 +33,7 @@ public class Pedido
     private string comentario_aliado;
     private int aliado_id;
     private int estado_pedido;
+    private int estado_domicilio_id;
 
     private string detnombrecliente;
     private List<Detalle_pedido> compras;
@@ -62,8 +63,9 @@ public class Pedido
     public int Aliado_id { get => aliado_id; set => aliado_id = value; }
     [Column("estado_pedido")]
     public int Estado_pedido { get => estado_pedido; set => estado_pedido = value; }
-    
-    
+    [Column("estado_domicilio_id")]
+    public int Estado_domicilio_id { get => estado_domicilio_id; set => estado_domicilio_id = value; }
+
     [NotMapped]
     public List<Detalle_pedido> Compras { get => compras; set => compras = value; }
     
@@ -71,4 +73,5 @@ public class Pedido
     public string Detnombrecliente { get => detnombrecliente; set => detnombrecliente = value; }
     [NotMapped]
     public string Nombre_estado_ped { get => nombre_estado_ped; set => nombre_estado_ped = value; }
+ 
 }

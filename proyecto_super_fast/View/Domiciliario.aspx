@@ -16,7 +16,14 @@
             <td class="auto-style34" colspan="2">
                 <asp:GridView ID="GV_PedDomi" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Domiciliario" OnRowDataBound="GV_PedDomi_RowDataBound">
                     <Columns>
-                        <asp:BoundField DataField="Id_pedido" HeaderText="Pedido n°" SortExpression="Id_pedido" />
+                        <asp:TemplateField HeaderText="Pedido n°" SortExpression="Id_pedido">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Id_pedido") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="L_Pedido" runat="server" Text='<%# Bind("Id_pedido") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
                         <asp:BoundField DataField="Comentario_cliente" HeaderText="Comentario_cliente" SortExpression="Comentario_cliente" />
                         <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
@@ -34,6 +41,13 @@
                                     
                                   </Columns>   
                                 </asp:GridView>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Estado">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="DDL_Estado" runat="server" DataSourceID="ODS_EstadoDomicilio" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Estado_SelectedIndexChanged">
+                                </asp:DropDownList>
+                                <asp:ObjectDataSource ID="ODS_EstadoDomicilio" runat="server" SelectMethod="estado_Domicilios" TypeName="DAOProductos"></asp:ObjectDataSource>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

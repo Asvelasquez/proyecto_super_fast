@@ -101,14 +101,27 @@ public class DAOPedido
     }//
 
 
-    //public List<Pedido>  obtenercarrito(/*int usuariop*/)
-    //{
-    //    Pedido pedido = new Pedido();
-    //    using (var db = new Mapeo())
-    //    {
-    //     return     (from p in db.pedido1
-    //                  join u in db.usuari on p.Cliente_id equals u.Id
-    //             //     where p.Cliente_id == usuariop
+    public void actualizarPedidoDomiciliario(Pedido pedido2, int estadopedido2)
+    {
+        using (var db = new Mapeo())
+        {
+            Pedido pedidoanterior = db.pedido1.Where(x => x.Id_pedido == pedido2.Id_pedido).First();
+            pedidoanterior.Estado_domicilio_id = estadopedido2;
+
+            db.pedido1.Attach(pedidoanterior);
+            var entry = db.Entry(pedidoanterior);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+    }//
+     //public List<Pedido>  obtenercarrito(/*int usuariop*/)
+     //{
+     //    Pedido pedido = new Pedido();
+     //    using (var db = new Mapeo())
+     //    {
+     //     return     (from p in db.pedido1
+     //                  join u in db.usuari on p.Cliente_id equals u.Id
+     //             //     where p.Cliente_id == usuariop
 
     //                  select new
     //                  {
@@ -154,9 +167,9 @@ public class DAOPedido
     //                }).ToList();
     //    }
     //}
-    
+
     /// /////////////////////////////////obtener pedido 
-    
+
     public List<Pedido> obtenerEstadoPedido(){
         List<Pedido> pedido = new List<Pedido>();
         using (var db = new Mapeo()){

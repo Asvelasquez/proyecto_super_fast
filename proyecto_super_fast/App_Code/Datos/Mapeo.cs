@@ -26,7 +26,7 @@ public class Mapeo: DbContext
     public DbSet<Pedido> pedido1 { get; set; }
     public DbSet<Detalle_pedido> detpedido { get; set; }
     public DbSet<Estado_pedido> estpedido { get; set; }
-
+   public DbSet<estado_domicilio>estdomicilio { get; set; }
     public DbSet<Producto> producto { get; set; }
     public DbSet<Rol> rol { get; set; }
     public DbSet<Usuario> usuari { get; set; }

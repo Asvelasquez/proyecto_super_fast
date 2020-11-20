@@ -33,4 +33,20 @@ public partial class View_Domiciliario : System.Web.UI.Page
             ((GridView)e.Row.FindControl("GV_detallespedido")).DataBind();
         }
     }
+
+ 
+    protected void DDL_Estado_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        DAOPedido pedido3 = new DAOPedido();
+        Pedido pedido4 = new Pedido();
+        DropDownList opciones = (DropDownList)sender;
+        GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
+        int pedido = int.Parse(((Label)fila.FindControl("L_Pedido")).Text);
+        pedido4.Id_pedido = pedido;
+
+        //hacer el update
+        string idseleccion = opciones.SelectedValue;
+        pedido3.actualizarPedidoDomiciliario(pedido4, int.Parse(idseleccion));
+        GV_PedDomi.DataBind();//
+    }
 }

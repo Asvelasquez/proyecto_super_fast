@@ -23,6 +23,16 @@ public class DAOProductos{
         lista.Add(estado_pedido);
         return lista.OrderBy(x => x.Id).ToList();
     }
+    public List<estado_domicilio> estado_Domicilios()
+    {
+        List<estado_domicilio> lista = new Mapeo().estdomicilio.ToList();
+        estado_domicilio estado_dom = new estado_domicilio();
+        estado_dom.Id = 0;
+        estado_dom.Nombre = "--Seleccione--";
+
+        lista.Add(estado_dom);
+        return lista.OrderBy(x => x.Id).ToList();
+    }
 
 
     public List<Producto> mostrarproducto(Usuario consulta ){
