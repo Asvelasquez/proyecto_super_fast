@@ -43,7 +43,7 @@
                                     <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" /> 
                                     <asp:BoundField DataField="Descripcion" HeaderText="Especificacion" SortExpression="Descripcion" />
                                     <asp:BoundField DataField="V_unitario" HeaderText="Valor unitario" SortExpression="V_unitario" />
-                                    
+                                    <asp:BoundField DataField="V_total" HeaderText="Valor Total" SortExpression="V_total" />
                                   </Columns>   
                                 </asp:GridView>
                             </ItemTemplate>

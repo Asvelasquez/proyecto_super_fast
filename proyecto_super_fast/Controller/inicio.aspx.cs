@@ -56,7 +56,8 @@ public partial class View_inicio : System.Web.UI.Page
             pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
             pedido3.Aliado_id = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text);
             pedido3.Domiciliario_id =1;
-            pedido3.Estado_pedido = 0;
+            pedido3.Estado_pedido = 0;// 0) posible compra 1)comprado 2)cancelado
+            pedido3.Estado_domicilio_id = 1;
             dao.insertPedido(pedido3);
 
            // det_pedido.Pedido_id = 1;
@@ -67,7 +68,12 @@ public partial class View_inicio : System.Web.UI.Page
             det_pedido.Producto_id =int.Parse(e.CommandArgument.ToString());
             det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
             det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
-
+            double valorunitario, resultado;
+            int cantidad5;
+            valorunitario= double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+            cantidad5= int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+            resultado = valorunitario * cantidad5;
+            det_pedido.V_total = resultado;
             new DAODetalle_Pedido().insertdetallePedido(det_pedido);
             try
             {
