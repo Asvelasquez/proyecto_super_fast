@@ -48,7 +48,7 @@
                                 <asp:Label ID="LB_comentarioadliado" runat="server" Text='<%# Bind("Comentario_aliado") %>'></asp:Label>
                                 <br />
                                 <asp:TextBox ID="TBX_comentarioaliado" runat="server" Height="32px" Width="137px"></asp:TextBox>
-                                &nbsp;<asp:ImageButton ID="IB_guardarcomentario" runat="server" ImageUrl="~/Imagenes/Iconos/guardar.png" CommandName="Guardar" CommandArgument='<%# Eval("Id_pedido") %>'/>
+                                &nbsp;<asp:ImageButton ID="IB_guardarcomentario" runat="server" ImageUrl="~/Imagenes/Iconos/guardar.png" CommandName="Guardar" CommandArgument='<%# Eval("Id_pedido") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Pedido" SortExpression="Compras">

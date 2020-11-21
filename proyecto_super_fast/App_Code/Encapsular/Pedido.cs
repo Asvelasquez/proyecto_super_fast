@@ -37,8 +37,9 @@ public class Pedido
 
     private string detnombrecliente;
     private List<Detalle_pedido> compras;
-
+   
     private string nombre_estado_ped;
+    private string nombre_estado_domicilio;
 
 
 
@@ -73,5 +74,7 @@ public class Pedido
     public string Detnombrecliente { get => detnombrecliente; set => detnombrecliente = value; }
     [NotMapped]
     public string Nombre_estado_ped { get => nombre_estado_ped; set => nombre_estado_ped = value; }
- 
+    [NotMapped]
+    public string Nombre_estado_domicilio { get => nombre_estado_domicilio; set => nombre_estado_domicilio = value; }
+   
 }

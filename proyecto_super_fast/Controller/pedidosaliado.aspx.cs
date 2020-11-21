@@ -106,4 +106,6 @@ public partial class View_pedidosaliado : System.Web.UI.Page
             GV_pedidos.DataBind();
         }
     }
+
+   
 }

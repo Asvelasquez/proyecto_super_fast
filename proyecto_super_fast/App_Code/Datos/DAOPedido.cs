@@ -318,19 +318,20 @@ public class DAOPedido
         foreach (var item in pedido)
         {
             item.Compras = mostrarpedidoDomiciliario(item.Id_pedido);
+           
         }
         return pedido;
     }
     public List<Detalle_pedido> mostrarpedidoDomiciliario(int idpedido)
     {
+        List<Detalle_pedido> pedido = new List<Detalle_pedido>();
         using (var db = new Mapeo())
         {
-            return (from p in db.producto
+            pedido= (from p in db.producto
                     join dp in db.detpedido on p.Id equals dp.Producto_id
                     where dp.Pedido_id == idpedido
                     select new
-                    {
-                        dp,
+                    {   dp,
                         p,
                     }).ToList().Select(m => new Detalle_pedido
                     {
@@ -344,11 +345,55 @@ public class DAOPedido
                         V_unitario = m.dp.V_unitario,
                         V_total = m.dp.V_total,
                         Nombreprodet = m.p.Nombre_producto,
-                        Especprodaliado = m.p.Descripcion_producto
+                        Especprodaliado = m.p.Descripcion_producto,
+                    
                     }).ToList();
         }
+        //foreach (var item in pedido)
+        //{
+        //    item.Compras1 = mostrarpedidoDomiciliario(item.Idpedido);
+
+        //}
+        return pedido;
+
         //  return new Mapeo().pedido1.Where(x =>  x.Estado_pedido == 0).ToList<Pedido>();
     }//
+    //
+    public List<Pedido> mostrarestadodomicilio(int idpedido)
+    {
+        using (var db = new Mapeo())
+        {
+            return (from p in db.pedido1
+                    join ed in db.estdomicilio on p.Estado_domicilio_id equals ed.Id
+                    where p.Id_pedido == idpedido
+                    select new
+                    {
+                        p,
+                        ed,
+                        
+                    }).ToList().Select(m => new Pedido
+                    {
+                        
+                        Id_pedido=m.p.Id_pedido,
+                        Cliente_id=m.p.Cliente_id,
+                        Fecha=m.p.Fecha,
+                        Estado_id=m.p.Estado_id,
+                        Valor_total=m.p.Valor_total,
+                        Domiciliario_id=m.p.Domiciliario_id,
+                        Comentario_cliente=m.p.Comentario_cliente,
+                        Comentario_aliado=m.p.Comentario_aliado,
+                        Aliado_id=m.p.Aliado_id,
+                        Estado_pedido=m.p.Estado_pedido,
+                        Estado_domicilio_id=m.p.Estado_domicilio_id,
+                        Nombre_estado_domicilio=m.ed.Nombre,
+
+
+                    }).ToList();
+        }
+
+        //  return new Mapeo().pedido1.Where(x =>  x.Estado_pedido == 0).ToList<Pedido>();
+    }//
+    //
     public void comprarproducto(Pedido pedido5 ){
         using (var db = new Mapeo())
         {
@@ -398,8 +443,10 @@ public class DAOPedido
     //
     public void guardarcomentario(Pedido pedido2)
     {
+
         using (var db = new Mapeo())
         {
+           
             Pedido comentarioanterior = db.pedido1.Where(x => x.Id_pedido == pedido2.Id_pedido).First();
             comentarioanterior.Comentario_aliado = pedido2.Comentario_aliado;
             

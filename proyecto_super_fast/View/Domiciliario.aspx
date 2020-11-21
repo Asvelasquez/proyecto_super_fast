@@ -43,11 +43,17 @@
                                 </asp:GridView>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Estado">
+                        <asp:TemplateField HeaderText="Cambiar Estado">
                             <ItemTemplate>
-                                <asp:DropDownList ID="DDL_Estado" runat="server" DataSourceID="ODS_EstadoDomicilio" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Estado_SelectedIndexChanged">
+                                <asp:DropDownList ID="DDL_Estado" runat="server" DataSourceID="ODS_EstadoDomicilio" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Estado_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <asp:ObjectDataSource ID="ODS_EstadoDomicilio" runat="server" SelectMethod="estado_Domicilios" TypeName="DAOProductos"></asp:ObjectDataSource>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Estado domicilio">
+                            <ItemTemplate>
+                                <asp:GridView ID="GV_estadodomicilio" runat="server">
+                                </asp:GridView>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

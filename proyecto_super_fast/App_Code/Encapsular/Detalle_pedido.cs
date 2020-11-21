@@ -36,8 +36,8 @@ public class Detalle_pedido
     private string telefono_cliente;
     private string nombreprodet;
     private string especprodaliado;
-    
-
+    private List<Pedido> compras1;
+    private int idpedido;
 
     [Key]
     [Column("id_dpedido")]
@@ -64,4 +64,9 @@ public class Detalle_pedido
 
     [NotMapped]
     public string Especprodaliado { get => especprodaliado; set => especprodaliado = value; }
+
+    [NotMapped]
+    public List<Pedido> Compras1 { get => compras1; set => compras1 = value; }
+    [NotMapped]
+    public int Idpedido { get => idpedido; set => idpedido = value; }
 }

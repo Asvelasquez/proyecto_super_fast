@@ -32,6 +32,7 @@ public partial class View_Domiciliario : System.Web.UI.Page
             ((GridView)e.Row.FindControl("GV_detallespedido")).DataSource = pedido.Compras;
             ((GridView)e.Row.FindControl("GV_detallespedido")).DataBind();
         }
+       
     }
 
  
@@ -47,6 +48,6 @@ public partial class View_Domiciliario : System.Web.UI.Page
         //hacer el update
         string idseleccion = opciones.SelectedValue;
         pedido3.actualizarPedidoDomiciliario(pedido4, int.Parse(idseleccion));
-        GV_PedDomi.DataBind();//
+        //GV_PedDomi.DataBind();//
     }
 }
