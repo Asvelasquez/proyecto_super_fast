@@ -85,6 +85,8 @@ public class DAOPedido
         }
     }
 
+
+
     
     public void actualizarPedido(Pedido pedido2, int estadopedido2)
     {
@@ -312,7 +314,7 @@ public class DAOPedido
                           Estado_pedido = m.ped.Estado_pedido,
                           Fecha = m.ped.Fecha,
                           Valor_total = m.ped.Valor_total
-
+                           
                       }).ToList();
         }
         foreach (var item in pedido)
@@ -349,11 +351,11 @@ public class DAOPedido
                     
                     }).ToList();
         }
-        //foreach (var item in pedido)
-        //{
-        //    item.Compras1 = mostrarpedidoDomiciliario(item.Idpedido);
+        foreach (var item in pedido)
+        {
+            item.Compras1 = mostrarestadodomicilio(item.Pedido_id);
 
-        //}
+        }
         return pedido;
 
         //  return new Mapeo().pedido1.Where(x =>  x.Estado_pedido == 0).ToList<Pedido>();
@@ -382,9 +384,10 @@ public class DAOPedido
                         Domiciliario_id=m.p.Domiciliario_id,
                         Comentario_cliente=m.p.Comentario_cliente,
                         Comentario_aliado=m.p.Comentario_aliado,
-                        Aliado_id=m.p.Aliado_id,
-                        Estado_pedido=m.p.Estado_pedido,
+                        Aliado_id=m.p.Aliado_id,                        
                         Estado_domicilio_id=m.p.Estado_domicilio_id,
+
+
                         Nombre_estado_domicilio=m.ed.Nombre,
 
 
@@ -393,7 +396,12 @@ public class DAOPedido
 
         //  return new Mapeo().pedido1.Where(x =>  x.Estado_pedido == 0).ToList<Pedido>();
     }//
-    //
+    ////////////////////////Inge cuando llegue me avisa por fa 
+
+
+
+    ////////////////////////////
+
     public void comprarproducto(Pedido pedido5 ){
         using (var db = new Mapeo())
         {
@@ -459,5 +467,80 @@ public class DAOPedido
 
         }
     }
+    //
+    public Pedido obtenerFactura(int noFactura)
+    {
+        Pedido pedido = new Pedido();
+        using (var db = new Mapeo())
+        {
+            pedido = (from p in db.pedido1
+                      join u in db.usuari on p.Cliente_id equals u.Id
+                      where p.Id_pedido == noFactura
 
+                      select new
+                      {
+                          p,
+                          u,
+
+
+                      }).ToList().Select(m => new Pedido
+                      {
+                          Fecha = m.p.Fecha,
+                         Id_pedido=m.p.Id_pedido,
+                      Detnombrecliente=m.u.Nombre,
+                            Cliente_id=m.p.Cliente_id,
+                        Valor_total=m.p.Valor_total,
+                       
+                      
+                        Det_valor_unitario=m.p.Det_valor_unitario,
+
+                      }).FirstOrDefault();
+        }
+      //  pedido.Compras = obtenerDetalleFactura(pedido.Id);
+        return pedido;
+    }
+    
+    /// ////////////////////////////////////////
+    
+    public List<Detalle_pedido> obtenerDetalleFactura(int pedidoId)
+    {
+        using (var db = new Mapeo())
+        {
+            return (from dp in db.detpedido
+                    join p in db.producto on dp.Producto_id equals p.Id
+                    where dp.Pedido_id == pedidoId
+
+                    select new
+                    {
+                        p,
+                        dp
+
+
+                    }).ToList().Select(m => new Detalle_pedido
+                    {
+                        Nombreprodet = m.p.Nombre_producto,
+                        Cantidad = m.dp.Cantidad,
+                        V_unitario = m.dp.V_unitario,
+                        V_total=m.dp.V_total,
+
+
+                    }).ToList();
+        }
+    }
+
+    ////////////////////////////
+    public void Cancelarpedido(Pedido pedido3)
+    {
+        using (var db = new Mapeo())
+        {
+            Pedido estadopedidoanterior = db.pedido1.Where(x => x.Id_pedido == pedido3.Id_pedido).First();           
+            estadopedidoanterior.Estado_pedido = 2;
+            db.pedido1.Attach(estadopedidoanterior);
+            var entry = db.Entry(estadopedidoanterior);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();            
+
+        }
+    }
+    ////////////////////
 }

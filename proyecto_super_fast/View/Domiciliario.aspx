@@ -52,7 +52,11 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Estado domicilio">
                             <ItemTemplate>
-                                <asp:GridView ID="GV_estadodomicilio" runat="server">
+                                <asp:GridView ID="GV_estadodomicilio" runat="server" AutoGenerateColumns="False">
+                                    <Columns>
+                                     
+                                    <asp:BoundField DataField="Nombre_estado_domicilio" HeaderText="Estadodomicilio" SortExpression="Nombre_estado_domicilio" />
+                                         </Columns> 
                                 </asp:GridView>
                             </ItemTemplate>
                         </asp:TemplateField>

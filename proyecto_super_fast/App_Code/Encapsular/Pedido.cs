@@ -37,9 +37,11 @@ public class Pedido
 
     private string detnombrecliente;
     private List<Detalle_pedido> compras;
-   
+    private List<Pedido> compras1;
     private string nombre_estado_ped;
     private string nombre_estado_domicilio;
+    private double det_valor_unitario;
+    private int det_cantidad;
 
 
 
@@ -69,12 +71,17 @@ public class Pedido
 
     [NotMapped]
     public List<Detalle_pedido> Compras { get => compras; set => compras = value; }
-    
+    [NotMapped]
+    public List<Pedido> Compras1 { get => compras1; set => compras1 = value; }
     [NotMapped]
     public string Detnombrecliente { get => detnombrecliente; set => detnombrecliente = value; }
     [NotMapped]
     public string Nombre_estado_ped { get => nombre_estado_ped; set => nombre_estado_ped = value; }
     [NotMapped]
     public string Nombre_estado_domicilio { get => nombre_estado_domicilio; set => nombre_estado_domicilio = value; }
-   
+    [NotMapped]
+    public double Det_valor_unitario { get => det_valor_unitario; set => det_valor_unitario = value; }
+    [NotMapped]
+    public int Det_cantidad { get => det_cantidad; set => det_cantidad = value; }
+    
 }

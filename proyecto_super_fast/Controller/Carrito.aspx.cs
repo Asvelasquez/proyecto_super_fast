@@ -23,10 +23,11 @@ public partial class View_Carrito : System.Web.UI.Page
         //    //TextBox1.Text = Convert.ToString(suma);
 
         //}
-        
+
         ////TBX_total2.Text = double.Parse( c);
-        
+
         //Console.ReadKey();
+        mostrardatosentrega();
 
     }
 
@@ -67,4 +68,28 @@ public partial class View_Carrito : System.Web.UI.Page
             ((GridView)e.Row.FindControl("GV_detallespedido")).DataBind();
         }
     }
-}
+    //////////////////////
+    protected void mostrardatosentrega()
+    {
+
+        TBX_direccion.Text = ((Usuario)Session["user"]).Direccion;
+        TBX_telefono.Text = ((Usuario)Session["user"]).Telefono;
+
+    }
+
+    ////////////////
+
+    protected void GV_pedidocarrito_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+
+        DAOPedido daopedido = new DAOPedido();
+        Pedido pedido2 = new Pedido();
+        pedido2.Id_pedido = int.Parse(e.CommandArgument.ToString());
+        if (e.CommandName == "Cancelar")
+        {
+            daopedido.Cancelarpedido(pedido2);
+            GV_pedidocarrito.DataBind();
+
+        }
+    }
+    }
