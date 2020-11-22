@@ -14,7 +14,11 @@
     <tr>
         <td>&nbsp;</td>
         <td>
-            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="50px" ReportSourceID="CRS_Factura" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="350px" />
+            <CR:CrystalReportSource ID="CRS_Factura" runat="server">
+                <Report FileName="C:\Users\nicol\Documents\GitHub\proyecto_super_fast\proyecto_super_fast\Reportes\Factura.rpt">
+                </Report>
+            </CR:CrystalReportSource>
         </td>
     </tr>
     <tr>
