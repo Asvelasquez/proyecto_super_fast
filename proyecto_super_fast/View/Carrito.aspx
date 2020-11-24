@@ -28,6 +28,7 @@
                         <asp:BoundField DataField="Comentario_cliente" HeaderText="Comentario_cliente" SortExpression="Comentario_cliente" />
                         <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
                         <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Estado del pedido" SortExpression="Nombre_estado_ped" />
+                        <asp:BoundField DataField="nombre_estado_domicilio" HeaderText="Estado del domicilio" SortExpression="nombre_estado_domicilio" />
                         <asp:TemplateField HeaderText="Detalles del Pedido">
                             <ItemTemplate>
                                 <asp:GridView ID="GV_detallespedido" runat="server" AutoGenerateColumns="False">
@@ -37,7 +38,7 @@
                                     <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" /> 
                                     <asp:BoundField DataField="Descripcion" HeaderText="Especificacion" SortExpression="Descripcion" />
                                     <asp:BoundField DataField="V_unitario" HeaderText="Valor unitario" SortExpression="V_unitario" />
-                                    <asp:BoundField DataField="V_total" HeaderText="Valor Total" SortExpression="V_total" />
+                                    <asp:BoundField DataField="V_total" HeaderText="Sub Total" SortExpression="V_total" />
                                   </Columns>   
                                 </asp:GridView>
                             </ItemTemplate>
@@ -92,7 +93,7 @@
                         <td class="auto-style34">&nbsp;</td>
                         <td class="auto-style34">&nbsp;</td>
                         <td>
-                            <asp:Button ID="BTN_comprar" runat="server" Text="Compar" ValidationGroup="VG_Comprar" />
+                            <asp:Button ID="BTN_comprar" runat="server" Text="Compar" ValidationGroup="VG_Comprar" OnClick="BTN_comprar_Click" />
                         </td>
                     </tr>
                     <tr>

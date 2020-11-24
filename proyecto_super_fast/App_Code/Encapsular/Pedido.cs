@@ -37,14 +37,16 @@ public class Pedido
 
     private string detnombrecliente;
     private List<Detalle_pedido> compras;
-    private List<Pedido> compras1;
+    private List<Detalle_pedido> compras1;
     private string nombre_estado_ped;
     private string nombre_estado_domicilio;
     private double det_valor_unitario;
     private int det_cantidad;
-
-
-
+    private string nombre_aliado;
+    private string direccion_aliado;
+    private string nombre_cliente;
+    private string direccion_cliente;
+    private string telefono_cliente;
     [Key]
     [Column("id_pedido")]
     public int Id_pedido { get => id_pedido; set => id_pedido = value; }
@@ -72,7 +74,7 @@ public class Pedido
     [NotMapped]
     public List<Detalle_pedido> Compras { get => compras; set => compras = value; }
     [NotMapped]
-    public List<Pedido> Compras1 { get => compras1; set => compras1 = value; }
+    public List<Detalle_pedido> Compras1 { get => compras1; set => compras1 = value; }
     [NotMapped]
     public string Detnombrecliente { get => detnombrecliente; set => detnombrecliente = value; }
     [NotMapped]
@@ -83,5 +85,14 @@ public class Pedido
     public double Det_valor_unitario { get => det_valor_unitario; set => det_valor_unitario = value; }
     [NotMapped]
     public int Det_cantidad { get => det_cantidad; set => det_cantidad = value; }
-    
+    [NotMapped]
+    public string Nombre_aliado { get => nombre_aliado; set => nombre_aliado = value; }
+    [NotMapped]
+    public string Direccion_aliado { get => direccion_aliado; set => direccion_aliado = value; }
+    [NotMapped]
+    public string Nombre_cliente { get => nombre_cliente; set => nombre_cliente = value; }
+    [NotMapped]
+    public string Direccion_cliente { get => direccion_cliente; set => direccion_cliente = value; }
+    [NotMapped]
+    public string Telefono_cliente { get => telefono_cliente; set => telefono_cliente = value; }
 }

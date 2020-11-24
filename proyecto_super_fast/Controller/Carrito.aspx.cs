@@ -27,8 +27,9 @@ public partial class View_Carrito : System.Web.UI.Page
         ////TBX_total2.Text = double.Parse( c);
 
         //Console.ReadKey();
+        TBX_total.Text = "0";
         mostrardatosentrega();
-
+        mostrarpreciototal();
     }
 
     protected void DL_pedido_ItemCommand(object source, DataListCommandEventArgs e){
@@ -92,4 +93,23 @@ public partial class View_Carrito : System.Web.UI.Page
 
         }
     }
+    protected void mostrarpreciototal()
+    {
+        DAOPedido dpedido = new DAOPedido();
+        List<Pedido> pedido3 = new List<Pedido>();
+        Usuario usuario3 = new Usuario();
+        int idusuario = ((Usuario)Session["user"]).Id;
+        pedido3 = dpedido.PrecioTotal(idusuario);
+        double total = 0;
+        foreach (var item in pedido3)
+        {
+            total += item.Valor_total;
+        }
+
+        TBX_total.Text = total.ToString();
     }
+       
+    protected void BTN_comprar_Click(object sender, EventArgs e){
+       
+    }
+}

@@ -94,8 +94,12 @@ public partial class View_pedidosaliado : System.Web.UI.Page
         DAOPedido daop = new DAOPedido();
         Pedido pedido4 = new Pedido();
         
-        ImageButton opciones = (ImageButton)sender;
-        GridViewRow fila = (GridViewRow)e.CommandArgument;
+        //ImageButton opciones = (ImageButton)sender;
+        //GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
+        //GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
+        GridViewRow fila = (GridViewRow)(((ImageButton)e.CommandSource).NamingContainer);
+
+
         pedido4.Id_pedido = int.Parse(e.CommandArgument.ToString());
       
        

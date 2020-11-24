@@ -58,6 +58,12 @@ public partial class View_inicio : System.Web.UI.Page
             pedido3.Domiciliario_id =1;
             pedido3.Estado_pedido = 0;// 0) posible compra 1)comprado 2)cancelado
             pedido3.Estado_domicilio_id = 1;
+            double valorunitario1, resultado1;
+            int cantidad51;
+            valorunitario1 = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+            cantidad51 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+            resultado1 = valorunitario1 * cantidad51;
+            pedido3.Valor_total = resultado1;
             dao.insertPedido(pedido3);
 
            // det_pedido.Pedido_id = 1;

@@ -28,6 +28,8 @@
                         <asp:BoundField DataField="Comentario_cliente" HeaderText="Comentario_cliente" SortExpression="Comentario_cliente" />
                         <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
                         <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Estado pedido" SortExpression="Nombre_estado_ped" />
+                        <asp:BoundField DataField="Nombre_aliado" HeaderText="Aliado" SortExpression="Nombre_aliado" />
+                        <asp:BoundField DataField="Direccion_aliado" HeaderText="Direccion " SortExpression="Direccion_aliado" />
                         <asp:TemplateField HeaderText="Pedido">
                             <ItemTemplate>
                                 <asp:GridView ID="GV_detallespedido" runat="server" AutoGenerateColumns="False">
@@ -37,27 +39,21 @@
                                     <asp:BoundField DataField="Especprodaliado" HeaderText="Descripcion" SortExpression="Especprodaliado" />
                                     <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" /> 
                                     <asp:BoundField DataField="Descripcion" HeaderText="Especificacion" SortExpression="Descripcion" />
-                                    <asp:BoundField DataField="V_unitario" HeaderText="Valor unitario" SortExpression="V_unitario" />
+                                    <asp:BoundField DataField="V_total" HeaderText="Valor total" SortExpression="V_total" />
                                     
                                   </Columns>   
                                 </asp:GridView>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:BoundField DataField="Nombre_cliente" HeaderText="Cliente" SortExpression="Nombre_cliente" />
+                        <asp:BoundField DataField="Direccion_cliente" HeaderText="Direccion" SortExpression="Direccion_cliente" />
+                        <asp:BoundField DataField="Telefono_cliente" HeaderText="Telefono" SortExpression="Telefono_cliente" />
+                        <asp:BoundField DataField="nombre_estado_domicilio" HeaderText="Estado del domicilio" SortExpression="nombre_estado_domicilio" />
                         <asp:TemplateField HeaderText="Cambiar Estado">
                             <ItemTemplate>
                                 <asp:DropDownList ID="DDL_Estado" runat="server" DataSourceID="ODS_EstadoDomicilio" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Estado_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <asp:ObjectDataSource ID="ODS_EstadoDomicilio" runat="server" SelectMethod="estado_Domicilios" TypeName="DAOProductos"></asp:ObjectDataSource>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Estado domicilio">
-                            <ItemTemplate>
-                                <asp:GridView ID="GV_estadodomicilio" runat="server" AutoGenerateColumns="False">
-                                    <Columns>
-                                     
-                                    <asp:BoundField DataField="Nombre_estado_domicilio" HeaderText="Estadodomicilio" SortExpression="Nombre_estado_domicilio" />
-                                         </Columns> 
-                                </asp:GridView>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
