@@ -14,7 +14,18 @@
     <tr>
         <td>&nbsp;</td>
         <td>
-            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="50px" ReportSourceID="CRS_Factura" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="350px" />
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>
+            <CR:CrystalReportViewer ID="CRV_Factura" runat="server" AutoDataBind="True" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CRS_Facturas" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="1104px" HasRefreshButton="True" Visible="False" />
+            <CR:CrystalReportSource ID="CRS_Facturas" runat="server">
+                <Report FileName="C:\Users\Sneider\source\repos\proyecto_super_fast\proyecto_super_fast\Reportes\Factura.rpt">
+                </Report>
+            </CR:CrystalReportSource>
             <CR:CrystalReportSource ID="CRS_Factura" runat="server">
                 <Report FileName="C:\Users\nicol\Documents\GitHub\proyecto_super_fast\proyecto_super_fast\Reportes\Factura.rpt">
                 </Report>

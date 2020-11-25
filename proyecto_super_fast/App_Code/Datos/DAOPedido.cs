@@ -478,22 +478,17 @@ public class DAOPedido
                       }).ToList().Select(m => new Pedido
                       {
                           Fecha = m.p.Fecha,
-                         Id_pedido=m.p.Id_pedido,
-                      Detnombrecliente=m.u.Nombre,
-                            Cliente_id=m.p.Cliente_id,
-                        Valor_total=m.p.Valor_total,
-                       
-                      
-                        Det_valor_unitario=m.p.Det_valor_unitario,
+                          Id_pedido = m.p.Id_pedido,
+                          Nombre_cliente = m.u.Nombre,
+                          Cliente_id = m.p.Cliente_id,
+                          Valor_total = m.p.Valor_total,
 
                       }).FirstOrDefault();
         }
-      //  pedido.Compras = obtenerDetalleFactura(pedido.Id);
+        pedido.Compras = obtenerDetalleFactura(pedido.Id_pedido);
         return pedido;
     }
-    
-    /// ////////////////////////////////////////
-    
+
     public List<Detalle_pedido> obtenerDetalleFactura(int pedidoId)
     {
         using (var db = new Mapeo())
@@ -512,9 +507,7 @@ public class DAOPedido
                     {
                         Nombreprodet = m.p.Nombre_producto,
                         Cantidad = m.dp.Cantidad,
-                        V_unitario = m.dp.V_unitario,
-                        V_total=m.dp.V_total,
-
+                        V_unitario = m.dp.V_unitario
 
                     }).ToList();
         }
