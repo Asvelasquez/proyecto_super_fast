@@ -16,8 +16,8 @@ public partial class View_Reportes : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         int factura = int.Parse(TextBox1.Text);
-        CRS_Factura.ReportDocument.SetDataSource(generarFactura(factura));
-        CRV_Factura.ReportSource = CRS_Factura;
+        CRS_Facturas.ReportDocument.SetDataSource(generarFactura(factura));
+        CRV_Factura.ReportSource = CRS_Facturas;
         CRV_Factura.Visible = true;
     }
 

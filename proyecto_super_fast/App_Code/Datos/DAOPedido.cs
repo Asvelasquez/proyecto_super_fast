@@ -481,7 +481,7 @@ public class DAOPedido
                           Id_pedido = m.p.Id_pedido,
                           Nombre_cliente = m.u.Nombre,
                           Cliente_id = m.p.Cliente_id,
-                          Valor_total = m.p.Valor_total,
+                         
 
                       }).FirstOrDefault();
         }
@@ -507,8 +507,9 @@ public class DAOPedido
                     {
                         Nombreprodet = m.p.Nombre_producto,
                         Cantidad = m.dp.Cantidad,
-                        V_unitario = m.dp.V_unitario
-
+                        V_unitario = m.dp.V_unitario,
+                        V_total=m.dp.V_total
+                        
                     }).ToList();
         }
     }
