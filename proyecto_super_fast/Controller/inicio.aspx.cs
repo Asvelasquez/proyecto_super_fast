@@ -213,4 +213,25 @@ public partial class View_inicio : System.Web.UI.Page
     {
          Response.Redirect("inicio.aspx");
     }
+
+    protected void BTN_Pizza_Click(object sender, EventArgs e)
+    {
+        DL_Productos.Visible = false;
+        DL_productosfiltros.Visible = true;
+        TBX_buscar.Text = "pizza";
+        DL_productosfiltrorest.Visible = false;
+    }
+
+    protected void BTN__Click(object sender, EventArgs e)
+    {
+        DL_Productos.Visible = false;
+        DL_productosfiltros.Visible = true;
+        TBX_buscar.Text = "empanadas";
+        DL_productosfiltrorest.Visible = false;
+    }
+
+    protected void BTN_BuscarValor_Click(object sender, EventArgs e)
+    {
+
+    }
 }

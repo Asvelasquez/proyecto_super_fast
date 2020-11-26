@@ -474,6 +474,7 @@ public class DAOPedido
             db.SaveChanges();
         }
     }//
+   
     public List<Pedido> mostrarproducto(Usuario consulta)
     {
         return new Mapeo().pedido1.Where(x => x.Comentario_aliado == consulta.Correo && x.Estado_pedido==1).ToList<Pedido>();
@@ -574,5 +575,6 @@ public class DAOPedido
             return new Mapeo().pedido1.Where(x => x.Cliente_id == usuario && x.Estado_pedido==0).ToList<Pedido>();
         }//
     }
+
             //////////////
         }

@@ -6,7 +6,8 @@
     .auto-style10 {
         height: 50%;
         vertical-align:top;
-    }
+            margin-left: 80px;
+        }
         .auto-style11 {
             height: 2%;
             vertical-align: top;
@@ -178,7 +179,15 @@
             <h1 class="auto-style13">Filtros<asp:TextBox runat="server" Visible="False"></asp:TextBox>
             </h1>
         </td>
-        <td class="auto-style69" colspan="3"></td>
+        <td class="auto-style69" colspan="3">
+            
+            <asp:Button ID="BTN_hamburguesa" runat="server" OnClick="BTN_hamburguesa_Click" Text="Hamburguesas" />
+            
+            <asp:Button ID="BTN_perrocaliente" runat="server" OnClick="BTN_perrocaliente_Click" Text="perros" />
+            
+            <asp:Button ID="BTN_Pizza" runat="server" OnClick="BTN_Pizza_Click" Text="Pizzas" />
+            <asp:Button ID="BTN_Empanadas" runat="server" OnClick="BTN__Click" Text="Empanadas" />
+        </td>
     </tr>
     <tr>
         <td class="auto-style12" colspan="2">
@@ -186,17 +195,25 @@
             <asp:Button ID="BTN_buscar" runat="server" OnClick="BTN_buscar_Click" Text="buscar" />
             &nbsp;&nbsp;&nbsp;
             
-            <asp:Button ID="BTN_hamburguesa" runat="server" OnClick="BTN_hamburguesa_Click" Text="Hamburguesa" />
-            
             &nbsp;
-            <asp:Button ID="BTN_perrocaliente" runat="server" OnClick="BTN_perrocaliente_Click" Text="perro" />
-            
+                        
             <br />
             <asp:TextBox ID="TBX_buscar" runat="server" Visible="False"></asp:TextBox>
             <asp:TextBox ID="TBX_actividadcomercial" runat="server" Visible="False"></asp:TextBox>
             <br />
+            <br />
+            <asp:Button ID="BT_Rango1" runat="server" Text="1000-10000" Width="111px" />
+            <br />
+            <asp:Button ID="BT_Rango2" runat="server" Text="11000-20000" />
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="21000-30000" />
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </td>
-        <td class="auto-style10" colspan="3"></td>
+        <td class="auto-style10" colspan="3">
+            <br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
     </tr>
     <tr>
         <td class="auto-style38" colspan="5">
