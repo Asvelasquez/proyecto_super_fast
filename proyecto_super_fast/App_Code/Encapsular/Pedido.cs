@@ -47,6 +47,7 @@ public class Pedido
     private string nombre_cliente;
     private string direccion_cliente;
     private string telefono_cliente;
+    
     [Key]
     [Column("id_pedido")]
     public int Id_pedido { get => id_pedido; set => id_pedido = value; }

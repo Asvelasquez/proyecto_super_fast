@@ -5,22 +5,14 @@
         .auto-style33 {
             width: 100%;
         }
-        .auto-style34 {
-            width: 535px;
-        }
-        .auto-style35 {
-            width: 535px;
-            height: 58px;
-        }
-        .auto-style36 {
-            height: 58px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style33">
         <tr>
             <td>
+                <br />
+                <asp:Label ID="LB_pedidoscarrito" runat="server" Text="No tienes pedidos en el carrito" Visible="False"></asp:Label>
                 <asp:GridView ID="GV_pedidocarrito" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_carrito9" OnRowDataBound="GV_pedidocarrito_RowDataBound" OnRowCommand="GV_pedidocarrito_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="Id_pedido" HeaderText="Pedido N°" SortExpression="Id_pedido" />
@@ -29,6 +21,7 @@
                         <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
                         <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Estado del pedido" SortExpression="Nombre_estado_ped" />
                         <asp:BoundField DataField="nombre_estado_domicilio" HeaderText="Estado del domicilio" SortExpression="nombre_estado_domicilio" />
+                        <asp:BoundField DataField="Nombre_aliado" HeaderText="Aliado" SortExpression="Nombre_aliado" />
                         <asp:TemplateField HeaderText="Detalles del Pedido">
                             <ItemTemplate>
                                 <asp:GridView ID="GV_detallespedido" runat="server" AutoGenerateColumns="False">
@@ -42,6 +35,8 @@
                                   </Columns>   
                                 </asp:GridView>
                             </ItemTemplate>
+                        
+
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Calcelar pedido">
                             <ItemTemplate>
@@ -58,52 +53,78 @@
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                &nbsp;&nbsp;&nbsp; <strong>
+                            <br />
+            </strong>
                 <table class="auto-style33">
                     <tr>
-                        <td class="auto-style34">
+                        <td>
                             <asp:Label ID="LB_telefono" runat="server" Text="Telefono"></asp:Label>
                         </td>
-                        <td class="auto-style34">
+                        <td>
                             <asp:Label ID="LB_direccion" runat="server" Text="Direccion"></asp:Label>
                         </td>
-                        <td>
+                        <td><strong>
+                            <asp:Label ID="LB_subtotal" runat="server" Text="Sub total"></asp:Label>
+            </strong></td>
+                        <td><strong>
+                            <asp:Label ID="Label12" runat="server" Text="Domicilios"></asp:Label>
+            </strong></td>
+                        <td><strong>
                             <asp:Label ID="LB_total" runat="server" Text="Total"></asp:Label>
-                        </td>
+            </strong></td>
                     </tr>
                     <tr>
-                        <td class="auto-style35">
-                            <asp:TextBox ID="TBX_telefono" runat="server" Height="25px" TextMode="Number" Width="150px"></asp:TextBox>
+                        <td>
+                            <asp:TextBox ID="TBX_telefono" runat="server" Height="25px" TextMode="Number" Width="150px" Enabled="False"></asp:TextBox>
                             <strong>
+                            <br />
+                            <asp:TextBox ID="TBX_telefono1" runat="server" Visible="False"></asp:TextBox>
                             <br />
             <asp:RegularExpressionValidator ID="REV_Telefono" runat="server" ControlToValidate="TBX_telefono" ErrorMessage="el telefono no contiene entre 7 y  10 digitos" ValidationExpression="[0-9]{6,10}" ValidationGroup="VG_Comprar" ForeColor="White"></asp:RegularExpressionValidator>
             </strong></td>
-                        <td class="auto-style35">
-                            <asp:TextBox ID="TBX_direccion" runat="server" Height="25px" Width="150px"></asp:TextBox>
-                            <strong>
+                        <td><strong>
+                            <asp:TextBox ID="TBX_direccion" runat="server" Height="25px" Width="150px" Enabled="False"></asp:TextBox>
+                            <asp:ImageButton ID="IB_validar" runat="server" ImageUrl="~/Imagenes/Iconos/editar.png" OnClick="IB_validar_Click" Width="24px" />
+                            <br />
+                            <asp:TextBox ID="TBX_direccion1" runat="server" Visible="False"></asp:TextBox>
                             <br />
             <asp:RegularExpressionValidator ID="REV_Direccion" runat="server" ControlToValidate="TBX_direccion" ErrorMessage="por favor revise la direccion" ValidationExpression="^[#.0-9a-zA-Z\s,-]+$" ValidationGroup="VG_Comprar" ForeColor="White"></asp:RegularExpressionValidator>
             </strong></td>
-                        <td class="auto-style36">
-                            <asp:TextBox ID="TBX_total" runat="server" Height="22px" Width="129px"></asp:TextBox>
-&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style34">&nbsp;</td>
-                        <td class="auto-style34">&nbsp;</td>
+                        <td><strong>
+                            <asp:TextBox ID="TBX_subtotal1" runat="server" Height="22px" Width="129px" Enabled="False"></asp:TextBox>
+            </strong></td>
                         <td>
-                            <asp:Button ID="BTN_comprar" runat="server" Text="Compar" ValidationGroup="VG_Comprar" OnClick="BTN_comprar_Click" />
+                            <asp:TextBox ID="TBX_valordomicilio" runat="server" Enabled="False" Width="60px"></asp:TextBox>
+                            <asp:Label ID="Label13" runat="server" Height="25px" Text="X"></asp:Label>
+                            <asp:TextBox ID="TBX_cantidaddomicilios" runat="server" Enabled="False" Width="25px"></asp:TextBox>
+                            <br />
+                            <asp:Label ID="LB_subtotaldomi" runat="server" Text="Sub total"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="TBX_totalpreciodomi" runat="server" Enabled="False" Width="60px"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="TBX_total" runat="server" Enabled="False"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style34">&nbsp;</td>
-                        <td class="auto-style34"> <strong>
-                            <br />
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><strong>
+                            <asp:Button ID="BTN_comprar" runat="server" Text="Compar" ValidationGroup="VG_Comprar" OnClick="BTN_comprar_Click" />
             </strong></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                 </table>
+                <br />
                 <br />
                 <br />
                 <asp:DataList ID="DL_pedido" runat="server" DataSourceID="ODS_carrito9" OnItemCommand="DL_pedido_ItemCommand" RepeatColumns="4">

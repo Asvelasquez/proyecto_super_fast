@@ -7,8 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class View_Domiciliario : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
+    protected void Page_Load(object sender, EventArgs e){
         if (Session["user"] != null) {
             if (((Usuario)Session["user"]).Id_rol != 3) {
                 Response.Redirect("AccesoDenegado.aspx");
@@ -17,27 +16,49 @@ public partial class View_Domiciliario : System.Web.UI.Page
             Response.Redirect("AccesoDenegado.aspx");
         }//
        
-
         }
 
-    protected void GV_PedDomi_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
+    protected void GV_PedDomi_RowDataBound(object sender, GridViewRowEventArgs e){
         Pedido pedido = (Pedido)e.Row.DataItem;
-       
-        if (e.Row.FindControl("GV_detallespedido") != null)
-        {
+        int rowcount = GV_PedDomi.Rows.Count;
+        if (rowcount == 0){
+            LB_nohaydomiciliosdisponibles.Visible = true;
+        }else{
+            LB_nohaydomiciliosdisponibles.Visible = false;
+        }
+        if (e.Row.FindControl("GV_detallespedido") != null){
             ((GridView)e.Row.FindControl("GV_detallespedido")).DataSource = pedido.Compras;
             ((GridView)e.Row.FindControl("GV_detallespedido")).DataBind();
         }
-        if (e.Row.FindControl("GV_detallespedido1") != null)
-        {
+    }
+    protected void GV_mispedidos_RowDataBound(object sender, GridViewRowEventArgs e){
+        Pedido pedido = (Pedido)e.Row.DataItem;
+        int rowcount = GV_mispedidos.Rows.Count;
+        if (rowcount == 0){
+            LB_mispedidosno.Visible = true;
+        } else{
+            LB_mispedidosno.Visible = false;
+        }
+       
+        if (e.Row.FindControl("GV_detallespedido1") != null) {
             ((GridView)e.Row.FindControl("GV_detallespedido1")).DataSource = pedido.Compras;
             ((GridView)e.Row.FindControl("GV_detallespedido1")).DataBind();
         }
-      
+    }
+    protected void GV_historial_RowDataBound(object sender, GridViewRowEventArgs e) {
+        Pedido pedido = (Pedido)e.Row.DataItem;
+        int rowcount = GV_historial.Rows.Count;
+        if (rowcount == 0){
+            LB_historialno.Visible = true;
+        } else{
+          LB_historialno.Visible = false;
+        }
+        if (e.Row.FindControl("GV_detallespedido2") != null){
+            ((GridView)e.Row.FindControl("GV_detallespedido2")).DataSource = pedido.Compras;
+            ((GridView)e.Row.FindControl("GV_detallespedido2")).DataBind();
+        }
     }
 
- 
     protected void DDL_Estado_SelectedIndexChanged(object sender, EventArgs e)
     {
         DAOPedido pedido3 = new DAOPedido();
@@ -83,5 +104,10 @@ public partial class View_Domiciliario : System.Web.UI.Page
     protected void IB_recargar1_Click(object sender, ImageClickEventArgs e)
     {
         ODS_misdomicilios.DataBind();
+    }
+
+    protected void IB_recargar2_Click(object sender, ImageClickEventArgs e)
+    {
+        GV_historial.DataBind();
     }
 }
