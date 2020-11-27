@@ -201,12 +201,12 @@
             <asp:TextBox ID="TBX_buscar" runat="server" Visible="False"></asp:TextBox>
             <asp:TextBox ID="TBX_actividadcomercial" runat="server" Visible="False"></asp:TextBox>
             <br />
+            <strong>Rango de precios</strong><br />
+            <asp:Button ID="BT_Rango1" runat="server" Text="1000-10000" Width="111px" OnClick="BT_Rango1_Click" />
             <br />
-            <asp:Button ID="BT_Rango1" runat="server" Text="1000-10000" Width="111px" />
+            <asp:Button ID="BT_Rango2" runat="server" Text="11000-20000" Width="111px" />
             <br />
-            <asp:Button ID="BT_Rango2" runat="server" Text="11000-20000" />
-            <br />
-            <asp:Button ID="Button1" runat="server" Text="21000-30000" />
+            <asp:Button ID="Button1" runat="server" Text="21000-30000" Width="111px" />
             <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </td>
@@ -555,6 +555,124 @@
             <asp:ObjectDataSource ID="ODS_filtrorest" runat="server" SelectMethod="mostrarproductoinicioactividad" TypeName="DAOProductos">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="TBX_actividadcomercial" Name="busqueda" PropertyName="Text" Type="String" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+            <br />
+            <asp:DataList ID="DL_productosfiltroPrecio" runat="server" RepeatColumns="4" OnItemCommand="DL_productosfiltros_ItemCommand" DataSourceID="ODS_FiltroPrecio" Visible="False" Width="100%" CssClass="auto-style67">
+                <ItemTemplate>
+                    <table class="auto-style33">
+                        <tr>
+                            <td class="auto-style72"><strong>
+                                <table class="auto-style33">
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:Label ID="LB_NombreAliado2" runat="server" CssClass="auto-style40" Text='<%# Eval("actividad_comercial") %>' Width="170px"></asp:Label>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:TextBox ID="TBX_nombrealiado2" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("nombre_aliado") %>' Width="170px"></asp:TextBox>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td>
+                                            <asp:Image ID="I_Productos2" runat="server" Height="170px" ImageUrl='<%# Eval("imagen_producto1") %>' Width="170px" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:Label ID="LB_Nombre2" runat="server" CssClass="auto-style40" Width="170px">Nombre</asp:Label>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:TextBox ID="TBX_nombreproducto2" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("Nombre_producto") %>' Width="170px"></asp:TextBox>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:Label ID="LB_Precio2" runat="server" CssClass="auto-style40" Width="170px">Precio</asp:Label>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:TextBox ID="TBX_precio2" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="20px" Text='<%# Eval("precio_producto") %>' Width="170px"></asp:TextBox>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:Label ID="LB_Descripcion2" runat="server" CssClass="auto-style40" Height="20px" Width="200px">Descripcion del producto</asp:Label>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:TextBox ID="TB_descripcion2" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="58px" Text='<%# Eval("descripcion_producto") %>' Width="170px"></asp:TextBox>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td>
+                                            <asp:Label ID="LB_especificacion2" runat="server" CssClass="auto-style40" Text="Especificacion del pedido"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td>
+                                            <asp:TextBox ID="TB_especificacion2" runat="server" Height="58px" Width="170px"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:Label ID="LB_Cantidad2" runat="server" CssClass="auto-style40" Height="20px" Width="170px">Cantidad</asp:Label>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td><strong>
+                                            <asp:TextBox ID="TBX_Cantidad2" runat="server" CssClass="auto-style63" Font-Names="Times New Roman" Height="20px" TextMode="Number" ValidationGroup="VG_Cantidad" Width="170px"></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="REV_Cantidad2" runat="server" ControlToValidate="TBX_Cantidad2" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
+                                            </strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td>
+                                            <asp:TextBox ID="TBX_correoaliado2" runat="server" Enabled="False" EnableTheming="True"  Visible="False"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td>
+                                            <asp:TextBox ID="TBX_actividadcomercialp2" runat="server" Text='<%# Eval("actividad_comercial") %>'></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style75">&nbsp;</td>
+                                        <td>
+                                            <asp:ImageButton ID="IB_Carrito2" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" OnClick="IB_Carrito_Click" ValidationGroup="VG_Cantidad" Width="32px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                </strong>
+                                <br />
+                            </td>
+                        </tr>
+                    </table>
+                </ItemTemplate>
+            </asp:DataList>
+            <asp:ObjectDataSource ID="ODS_FiltroPrecio" runat="server" SelectMethod="rangoPrecios" TypeName="DAOProductos">
+                <SelectParameters>
+                    <asp:Parameter Name="ValorMinimo" Type="Double" />
+                    <asp:Parameter Name="ValorMaximo" Type="Double" />
                 </SelectParameters>
             </asp:ObjectDataSource>
             <asp:ObjectDataSource ID="ODS_inicioproductos" runat="server" SelectMethod="mostrarproductoinicio" TypeName="DAOProductos"></asp:ObjectDataSource>

@@ -284,4 +284,15 @@ public partial class View_inicio : System.Web.UI.Page
         }
        
     }
+
+    protected void BT_Rango1_Click(object sender, EventArgs e)
+    {
+        DAOProductos dAOProductos = new DAOProductos();
+       
+        double ValorMinimo = 20000;
+        double ValorMaximo = 25000;
+
+        dAOProductos.rangoPrecios(ValorMaximo, ValorMinimo);
+         List<Producto> productoFiltro = new List<Producto>();
+    }
 }
