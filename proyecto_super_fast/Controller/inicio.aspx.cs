@@ -45,8 +45,7 @@ public partial class View_inicio : System.Web.UI.Page
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar session, para poder comprar');</script>");
 
         }
-        else if (((Usuario)(Session["user"])).Id_rol == 1)
-        {
+        else if (((Usuario)(Session["user"])).Id_rol == 1) {
             DL_Productos.SelectedIndex = e.Item.ItemIndex;
             DAOPedido daoped = new DAOPedido();
             List<Pedido> ped20 = new List<Pedido>();
@@ -55,10 +54,8 @@ public partial class View_inicio : System.Web.UI.Page
             DAOPedido dao = new DAOPedido();
             ped20 = daoped.consultarpedido(((Usuario)Session["user"]).Id);
             int contador = 0;
-            foreach (var item in ped20)
-            {
-                if(item.Aliado_id== int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text))
-                {
+            foreach (var item in ped20) {
+                if(item.Aliado_id== int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text)){
                     det_pedido.Pedido_id = item.Id_pedido;
                     det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
                     det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
@@ -77,10 +74,8 @@ public partial class View_inicio : System.Web.UI.Page
                 }
                 
             }
-            if (contador == 0)
-            {
-                try
-                {
+            if (contador == 0){
+                try {
                     pedido3.Cliente_id = ((Usuario)Session["user"]).Id;
                     pedido3.Fecha = DateTime.Now;
                     pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
@@ -88,15 +83,14 @@ public partial class View_inicio : System.Web.UI.Page
                     pedido3.Domiciliario_id = 1;
                     pedido3.Estado_pedido = 0;// 0) posible compra 1)comprado 2)cancelado
                     pedido3.Estado_domicilio_id = 1;
-                //    double valorunitario1, resultado1;
-                //    int cantidad51;
-                //    valorunitario1 = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
-                //    cantidad51 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
-                //    resultado1 = valorunitario1 * cantidad51;
-                ////    pedido3.Valor_total = resultado1;
+                    //    double valorunitario1, resultado1;
+                    //    int cantidad51;
+                    //    valorunitario1 = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    //    cantidad51 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    //    resultado1 = valorunitario1 * cantidad51;
+                    //pedido3.Valor_total = resultado1;
                     dao.insertPedido(pedido3);
 
-                    // det_pedido.Pedido_id = 1;
                     det_pedido.Pedido_id = pedido3.Id_pedido;
                     det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
                     det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
@@ -115,54 +109,209 @@ public partial class View_inicio : System.Web.UI.Page
                 catch (Exception ex)
                 { return; }//
             }
-
-
         }//ELSE
-        
-
     }
 
 
-    protected void DL_productosfiltros_ItemCommand(object source, DataListCommandEventArgs e)
+    protected void DL_productosfiltros_ItemCommand(object source, DataListCommandEventArgs e){
+        ClientScriptManager cm = this.ClientScript;
+        if (Session["user"] == null){
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar session, para poder comprar');</script>");
+         }else if (((Usuario)(Session["user"])).Id_rol == 1){
+            DL_Productos.SelectedIndex = e.Item.ItemIndex;
+            DAOPedido daoped = new DAOPedido();
+            List<Pedido> ped20 = new List<Pedido>();
+            Pedido pedido3 = new Pedido();
+            Detalle_pedido det_pedido = new Detalle_pedido();
+            DAOPedido dao = new DAOPedido();
+            ped20 = daoped.consultarpedido(((Usuario)Session["user"]).Id);
+            int contador = 0;
+            foreach (var item in ped20){
+                if (item.Aliado_id == int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text)){
+                    det_pedido.Pedido_id = item.Id_pedido;
+                    det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
+                    det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    det_pedido.Cantidad = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
+                    det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
+                    det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                    double valorunitario, resultado;
+                    int cantidad5;
+                    valorunitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    cantidad5 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    resultado = valorunitario * cantidad5;
+                    det_pedido.V_total = resultado;
+                    new DAODetalle_Pedido().insertdetallePedido(det_pedido);
+                    contador++;
+                }
+            }
+            if (contador == 0){
+                try {
+                    pedido3.Cliente_id = ((Usuario)Session["user"]).Id;
+                    pedido3.Fecha = DateTime.Now;
+                    pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
+                    pedido3.Aliado_id = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text);
+                    pedido3.Domiciliario_id = 1;
+                    pedido3.Estado_pedido = 0;// 0) posible compra 1)comprado 2)cancelado
+                    pedido3.Estado_domicilio_id = 1;
+                    dao.insertPedido(pedido3);
+
+                    det_pedido.Pedido_id = pedido3.Id_pedido;
+                    det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
+                    det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    det_pedido.Cantidad = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
+                    det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
+                    det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                    double valorunitario, resultado;
+                    int cantidad5;
+                    valorunitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    cantidad5 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    resultado = valorunitario * cantidad5;
+                    det_pedido.V_total = resultado;
+                    new DAODetalle_Pedido().insertdetallePedido(det_pedido);
+                }
+                catch (Exception ex)
+                { return; }//
+            }
+        }
+    }//DL_productosfiltros
+    protected void DL_productosfiltrorest_ItemCommand(object source, DataListCommandEventArgs e)
     {
         ClientScriptManager cm = this.ClientScript;
         if (Session["user"] == null)
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar session, para poder comprar');</script>");
-
         }
         else if (((Usuario)(Session["user"])).Id_rol == 1)
         {
-           
-            DL_Productos.SelectedIndex = e.Item.ItemIndex;
-
-            try
+            DL_productosfiltrorest.SelectedIndex = e.Item.ItemIndex;
+            DAOPedido daoped = new DAOPedido();
+            List<Pedido> ped20 = new List<Pedido>();
+            Pedido pedido3 = new Pedido();
+            Detalle_pedido det_pedido = new Detalle_pedido();
+            DAOPedido dao = new DAOPedido();
+            ped20 = daoped.consultarpedido(((Usuario)Session["user"]).Id);
+            int contador = 0;
+            foreach (var item in ped20)
             {
-                Pedido pedido3 = new Pedido();
-
-                //pedido3.Nombre_producto = ((TextBox)DL_Productos.SelectedItem.FindControl("TBX_nombreproducto1")).Text;
-                //pedido3.Descripcion_producto = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_descripcion1")).Text;
-                //pedido3.Especificacion_pedido = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion1")).Text;
-                //pedido3.Precio_pedido = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio1")).Text);
-                //pedido3.Cantidad_pedido = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad1")).Text);
-                //pedido3.Estado_pedido = 0;
-                //pedido3.Correo_cliente = ((Usuario)Session["user"]).Correo;
-                //pedido3.Nombre_clientec = ((Usuario)Session["user"]).Nombre + " " + ((Usuario)Session["user"]).Apellido;
-                //pedido3.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
-                //pedido3.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
-                //pedido3.Correo_aliadop = ((TextBox)DL_Productos.SelectedItem.FindControl("TBX_correoaliado")).Text;
-                //pedido3.Actividad_comercialp = ((TextBox)DL_Productos.SelectedItem.FindControl("TBX_actividadcomercialp1")).Text;
-
-                //new DAOPedido().insertPedido(pedido3);
+                if (item.Aliado_id == int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text))
+                {
+                    det_pedido.Pedido_id = item.Id_pedido;
+                    det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
+                    det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    det_pedido.Cantidad = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
+                    det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
+                    det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                    double valorunitario, resultado;
+                    int cantidad5;
+                    valorunitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    cantidad5 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    resultado = valorunitario * cantidad5;
+                    det_pedido.V_total = resultado;
+                    new DAODetalle_Pedido().insertdetallePedido(det_pedido);
+                    contador++;
+                }
             }
-            catch (Exception ex)
-            { return; }//
+            if (contador == 0)
+            {
+                try
+                {
+                    pedido3.Cliente_id = ((Usuario)Session["user"]).Id;
+                    pedido3.Fecha = DateTime.Now;
+                    pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
+                    pedido3.Aliado_id = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text);
+                    pedido3.Domiciliario_id = 1;
+                    pedido3.Estado_pedido = 0;// 0) posible compra 1)comprado 2)cancelado
+                    pedido3.Estado_domicilio_id = 1;
+                    dao.insertPedido(pedido3);
+
+                    det_pedido.Pedido_id = pedido3.Id_pedido;
+                    det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
+                    det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    det_pedido.Cantidad = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
+                    det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
+                    det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                    double valorunitario, resultado;
+                    int cantidad5;
+                    valorunitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    cantidad5 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    resultado = valorunitario * cantidad5;
+                    det_pedido.V_total = resultado;
+                    new DAODetalle_Pedido().insertdetallePedido(det_pedido);
+                }
+                catch (Exception ex)
+                { return; }//
+            }
         }
-    }
+    }//DL_productosfiltrorest
+    protected void DL_productosfiltroPrecio_ItemCommand(object source, DataListCommandEventArgs e){
+        ClientScriptManager cm = this.ClientScript;
+        if (Session["user"] == null){
+            cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar session, para poder comprar');</script>");
+        }
+        else if (((Usuario)(Session["user"])).Id_rol == 1){
+            DL_productosfiltroPrecio.SelectedIndex = e.Item.ItemIndex;
+            DAOPedido daoped = new DAOPedido();
+            List<Pedido> ped20 = new List<Pedido>();
+            Pedido pedido3 = new Pedido();
+            Detalle_pedido det_pedido = new Detalle_pedido();
+            DAOPedido dao = new DAOPedido();
+            ped20 = daoped.consultarpedido(((Usuario)Session["user"]).Id);
+            int contador = 0;
+            foreach (var item in ped20){
+                if (item.Aliado_id == int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text))
+                {
+                    det_pedido.Pedido_id = item.Id_pedido;
+                    det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
+                    det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    det_pedido.Cantidad = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
+                    det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
+                    det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                    double valorunitario, resultado;
+                    int cantidad5;
+                    valorunitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    cantidad5 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    resultado = valorunitario * cantidad5;
+                    det_pedido.V_total = resultado;
+                    new DAODetalle_Pedido().insertdetallePedido(det_pedido);
+                    contador++;
+                }
+            }
+            if (contador == 0){
+                try{
+                    pedido3.Cliente_id = ((Usuario)Session["user"]).Id;
+                    pedido3.Fecha = DateTime.Now;
+                    pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
+                    pedido3.Aliado_id = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_IDaliado")).Text);
+                    pedido3.Domiciliario_id = 1;
+                    pedido3.Estado_pedido = 0;// 0) posible compra 1)comprado 2)cancelado
+                    pedido3.Estado_domicilio_id = 1;
+                    dao.insertPedido(pedido3);
 
-
-   
-
+                    det_pedido.Pedido_id = pedido3.Id_pedido;
+                    det_pedido.Descripcion = ((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text;
+                    det_pedido.V_unitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    det_pedido.Cantidad = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
+                    det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
+                    det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                    double valorunitario, resultado;
+                    int cantidad5;
+                    valorunitario = double.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_precio")).Text);
+                    cantidad5 = int.Parse(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text);
+                    resultado = valorunitario * cantidad5;
+                    det_pedido.V_total = resultado;
+                    new DAODetalle_Pedido().insertdetallePedido(det_pedido);
+                }
+                catch (Exception ex)
+                { return; }//
+            }
+        }
+    }//DL_productosfiltroPrecio
     protected void IB_Carrito_Click(object sender, ImageClickEventArgs e)
     {
         ClientScriptManager cm = this.ClientScript;
@@ -287,12 +436,29 @@ public partial class View_inicio : System.Web.UI.Page
 
     protected void BT_Rango1_Click(object sender, EventArgs e)
     {
-        DAOProductos dAOProductos = new DAOProductos();
-       
-        double ValorMinimo = 20000;
-        double ValorMaximo = 25000;
+        TBX_V_minimo.Text = "1000";
+        TBX_V_max.Text = "10000";
+        DL_productosfiltroPrecio.Visible = true;
+        DL_Productos.Visible = false;
+    }
 
-        dAOProductos.rangoPrecios(ValorMaximo, ValorMinimo);
-         List<Producto> productoFiltro = new List<Producto>();
+
+
+
+
+    protected void BT_Rango2_Click(object sender, EventArgs e)
+    {
+        TBX_V_minimo.Text = "11000";
+        TBX_V_max.Text = "20000";
+        DL_productosfiltroPrecio.Visible = true;
+        DL_Productos.Visible = false;
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        TBX_V_minimo.Text = "21000";
+        TBX_V_max.Text = "30000";
+        DL_productosfiltroPrecio.Visible = true;
+        DL_Productos.Visible = false;
     }
 }

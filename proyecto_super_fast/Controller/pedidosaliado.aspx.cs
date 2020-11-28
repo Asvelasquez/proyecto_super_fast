@@ -35,11 +35,15 @@ public partial class View_pedidosaliado : System.Web.UI.Page
     }
     
 
-    protected void GV_pedidos_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
+    protected void GV_pedidos_RowDataBound(object sender, GridViewRowEventArgs e){
+        int rowcount = GV_pedidos.Rows.Count;
+        if (rowcount == 0){
+            LB_notienespedidos.Visible = true;
+        }else{
+            LB_notienespedidos.Visible = false;
+        }
         Pedido pedido = (Pedido)e.Row.DataItem;
-        if (e.Row.FindControl("GV_Compras") != null)
-        {
+        if (e.Row.FindControl("GV_Compras") != null){
             ((GridView)e.Row.FindControl("GV_Compras")).DataSource = pedido.Compras;
             ((GridView)e.Row.FindControl("GV_Compras")).DataBind();
         }
@@ -47,6 +51,12 @@ public partial class View_pedidosaliado : System.Web.UI.Page
     
     protected void GV_pedidosterminado_RowDataBound(object sender, GridViewRowEventArgs e){
         Pedido pedido = (Pedido)e.Row.DataItem;
+        int rowcount = GV_pedidosterminado.Rows.Count;
+        if (rowcount == 0){
+            LB_Notienepedidosterminados.Visible = true;
+        } else {
+            LB_Notienepedidosterminados.Visible = false;
+        }
         if (e.Row.FindControl("GV_Compras1") != null){
             ((GridView)e.Row.FindControl("GV_Compras1")).DataSource = pedido.Compras;
             ((GridView)e.Row.FindControl("GV_Compras1")).DataBind();
@@ -88,28 +98,30 @@ public partial class View_pedidosaliado : System.Web.UI.Page
 
 
 
-    protected void GV_pedidos_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-       
+    protected void GV_pedidos_RowCommand(object sender, GridViewCommandEventArgs e) {
         DAOPedido daop = new DAOPedido();
         Pedido pedido4 = new Pedido();
-        
-        //ImageButton opciones = (ImageButton)sender;
-        //GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
-        //GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
         GridViewRow fila = (GridViewRow)(((ImageButton)e.CommandSource).NamingContainer);
-
-
         pedido4.Id_pedido = int.Parse(e.CommandArgument.ToString());
-      
-       
         pedido4.Comentario_aliado = ((TextBox)fila.FindControl("TBX_comentarioaliado")).Text; ;
-        if (e.CommandName == "Guardar")
-        {
+        if (e.CommandName == "Guardar") {
             daop.guardarcomentario(pedido4);
             GV_pedidos.DataBind();
         }
     }
 
-   
+
+
+    protected void GV_pedidosterminado_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+         DAOPedido daop = new DAOPedido();
+        Pedido pedido4 = new Pedido();
+        GridViewRow fila = (GridViewRow)(((ImageButton)e.CommandSource).NamingContainer);
+        pedido4.Id_pedido = int.Parse(e.CommandArgument.ToString());
+        pedido4.Comentario_aliado = ((TextBox)fila.FindControl("TBX_comentarioaliado")).Text; ;
+        if (e.CommandName == "Guardar") {
+            daop.guardarcomentario(pedido4);
+            GV_pedidos.DataBind();
+        }
+    }
 }

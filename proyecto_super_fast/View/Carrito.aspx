@@ -5,14 +5,32 @@
         .auto-style33 {
             width: 100%;
         }
+        .auto-style34 {
+            text-align: left;
+        }
+        .auto-style35 {
+            text-align: right;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style33">
         <tr>
-            <td>
+            <td class="auto-style34">
+                <table class="auto-style33">
+                    <tr>
+                        <td>
+                            <asp:Label ID="LB_Pedidos" runat="server" Font-Size="Large" Text="Pedidos agragados en el carrito"></asp:Label>
+                        </td>
+                        <td class="auto-style35">
+                            <asp:Button ID="BTN_MisPedidos" runat="server" BorderColor="Black" Text="Mis Pedidos" Width="108px" OnClick="BTN_MisPedidos_Click" />
+                        </td>
+                    </tr>
+                </table>
                 <br />
-                <asp:Label ID="LB_pedidoscarrito" runat="server" Text="No tienes pedidos en el carrito" Visible="False"></asp:Label>
+                <asp:ImageButton ID="IB_recargar0" runat="server" ImageUrl="~/Imagenes/Iconos/refrescar.png" OnClick="IB_recargar0_Click"  />
+                <br />
+                <asp:Label ID="LB_pedidoscarrito" runat="server" Text="No tienes pedidos agregados en el carrito" Visible="False" Font-Size="Large"></asp:Label>
                 <asp:GridView ID="GV_pedidocarrito" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_carrito9" OnRowDataBound="GV_pedidocarrito_RowDataBound" OnRowCommand="GV_pedidocarrito_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="Id_pedido" HeaderText="Pedido N°" SortExpression="Id_pedido" />
@@ -80,7 +98,7 @@
                             <asp:TextBox ID="TBX_telefono" runat="server" Height="25px" TextMode="Number" Width="150px" Enabled="False"></asp:TextBox>
                             <strong>
                             <br />
-                            <asp:TextBox ID="TBX_telefono1" runat="server" Visible="False"></asp:TextBox>
+                            <asp:TextBox ID="TBX_telefono1" runat="server" Visible="False" Height="25px" Width="150px"></asp:TextBox>
                             <br />
             <asp:RegularExpressionValidator ID="REV_Telefono" runat="server" ControlToValidate="TBX_telefono" ErrorMessage="el telefono no contiene entre 7 y  10 digitos" ValidationExpression="[0-9]{6,10}" ValidationGroup="VG_Comprar" ForeColor="White"></asp:RegularExpressionValidator>
             </strong></td>
@@ -88,7 +106,7 @@
                             <asp:TextBox ID="TBX_direccion" runat="server" Height="25px" Width="150px" Enabled="False"></asp:TextBox>
                             <asp:ImageButton ID="IB_validar" runat="server" ImageUrl="~/Imagenes/Iconos/editar.png" OnClick="IB_validar_Click" Width="24px" />
                             <br />
-                            <asp:TextBox ID="TBX_direccion1" runat="server" Visible="False"></asp:TextBox>
+                            <asp:TextBox ID="TBX_direccion1" runat="server" Visible="False" Height="25px" Width="150px"></asp:TextBox>
                             <br />
             <asp:RegularExpressionValidator ID="REV_Direccion" runat="server" ControlToValidate="TBX_direccion" ErrorMessage="por favor revise la direccion" ValidationExpression="^[#.0-9a-zA-Z\s,-]+$" ValidationGroup="VG_Comprar" ForeColor="White"></asp:RegularExpressionValidator>
             </strong></td>
@@ -114,7 +132,7 @@
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td><strong>
-                            <asp:Button ID="BTN_comprar" runat="server" Text="Compar" ValidationGroup="VG_Comprar" OnClick="BTN_comprar_Click" />
+                            <asp:Button ID="BTN_comprar" runat="server" Text="Compar" ValidationGroup="VG_Comprar" OnClick="BTN_comprar_Click" BorderColor="Black" Width="108px" />
             </strong></td>
                     </tr>
                     <tr>

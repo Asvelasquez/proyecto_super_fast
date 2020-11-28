@@ -221,11 +221,8 @@ public partial class View_Perfil : System.Web.UI.Page{
                     FUD_imagenperfil.PostedFile.SaveAs(saveLocation);
                 }//
             }//
-            
-           
             Response.Redirect("Perfil.aspx");
         
-
         }
         catch (Exception ex)
         { return; }

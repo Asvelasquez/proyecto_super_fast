@@ -142,16 +142,12 @@ public class DAOProductos{
         //  return new Mapeo().usuari.Where(x => x.Actividadcomercial == busqueda).ToList();
     }
     //Filtro rango de precios
-    public List<Producto> rangoPrecios(double ValorMinimo,double ValorMaximo)
-    {
-
-        using (var db = new Mapeo())
-        {
+    public List<Producto> rangoPrecios(double ValorMinimo,double ValorMaximo) {
+        using (var db = new Mapeo()){
             return (from p in db.producto
                     join u in db.usuari on p.Id_aliado equals u.Id
                     where (p.Precio_producto >= ValorMinimo && p.Precio_producto <= ValorMaximo)
-                    select new
-                    {
+                    select new{
                         p,
                         u.Nombre,
 
@@ -165,15 +161,10 @@ public class DAOProductos{
                         Estado_producto = m.p.Estado_producto,
                         Id_aliado = m.p.Id_aliado,
                         Nombre_aliado = m.Nombre,
-
-
                     }).ToList();
         }
-
-        //  return new Mapeo().usuari.Where(x => x.Actividadcomercial == busqueda).ToList();
     }
-
-    //////
+    //////Filtro rango de precios
     public List<Producto> mostrarimagenproducto(Usuario consulta)
     {
         return new Mapeo().producto.Where(x => x.Id == consulta.Id).ToList<Producto>();
