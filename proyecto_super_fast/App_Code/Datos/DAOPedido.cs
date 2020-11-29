@@ -855,7 +855,25 @@ public class DAOPedido
         }
     }
     ///////
- 
+
     ///////
     ///
+    //public ActionResult Prueba15(){
+    //    int id = 68;
+    //    public int id2 {
+    //        get {
+    //            return id;
+    //        }
+    //        set
+    //        {
+    //            id = value;
+    //        }
+    //    }
+    //}//
+    public Pedido mostrarfactura(Pedido pedido2){
+        Pedido pedido = new Pedido();
+
+        return new Mapeo().pedido1.Where(x => x.Id_pedido == pedido2.Id_pedido).First();
+    }
+
 }
