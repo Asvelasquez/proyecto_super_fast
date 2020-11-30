@@ -15,39 +15,46 @@ public partial class View_ReporteVentas : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        
-       // CRS_Ventas.ReportDocument.SetDataSource(generarFactura(factura));
+        CRS_Ventas.ReportDocument.SetDataSource(obtenerInformacion());
         CRV_Ventas.ReportSource = CRS_Ventas;
         CRV_Ventas.Visible = true;
     }
-    protected SuministroInformacion generarFactura(int facturaId)
+    protected SuministroInformacion obtenerInformacion()
     {
-        SuministroInformacion informe = new SuministroInformacion();
-        Pedido factura = new DAOPedido().obtenerFactura(facturaId);
 
-        DataTable datosFinal = informe.Factura;
+        SuministroInformacion informe = new SuministroInformacion();
+      //  DateTime fechaInicio = DateTime.Parse(TB_FechaInicio.Text);
+       // DateTime fechaFin = DateTime.Parse(TB_FechaFin.Text);
+        List<Producto> listaProductos = new List<Producto>();
+
+        List<Detalle_pedido> lista = new DAOPedido().productosVendidosXFecha(/*fechaInicio, fechaFin*/);
+        var prod = lista.GroupBy(x => (x.Nombreprodet)).Select(grp => grp.ToList()).ToList();
+
+        foreach (var item in prod)
+        {
+            List<Detalle_pedido> detalle = item;
+            Producto nuevo = new Producto();
+            nuevo.Nombre_producto = detalle.First().Nombreprodet;
+            nuevo.Cantidad = detalle.Sum(x => x.Cantidad);
+            nuevo.Id = detalle.First().Producto_id;
+            nuevo.Precio_producto = detalle.Average(x => x.V_unitario);
+
+            listaProductos.Add(nuevo);
+        }
+
+        DataTable datosFinal = informe.Ventas;
         DataRow fila;
 
-        foreach (var item in factura.Compras)
+        foreach (var item in listaProductos)
         {
             fila = datosFinal.NewRow();
-            fila["No"] = factura.Id_pedido;
-            fila["Fecha"] = factura.Fecha;
-            fila["NombreCliente"] = factura.Nombre_cliente;
-            fila["NombreProducto"] = item.Nombreprodet;
+            fila["ProductoId"] = item.Id;
+            fila["NombreProducto"] = item.Nombre_producto;
             fila["Cantidad"] = item.Cantidad;
-            fila["ValorUnitario"] = item.V_unitario;
-            fila["ValorTotal"] = item.V_total;
-
+            fila["NombreAdmin"] = item.Nombre_aliado;
             datosFinal.Rows.Add(fila);
         }
-        fila = datosFinal.NewRow();
-        fila["NombreProducto"] = "Domicilio";
-        fila["Cantidad"] = "1";
-        fila["ValorUnitario"] = "3000";
-        fila["ValorTotal"] = "3000";
 
-        datosFinal.Rows.Add(fila);
         return informe;
-    }//
+    }
 }

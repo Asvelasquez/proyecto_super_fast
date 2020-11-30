@@ -31,6 +31,7 @@ public class Producto{
 
     private string nombre_aliado;
     private string actividad_comercial;
+    private int cantidad;
 
     [Key]
     [Column("id")]
@@ -51,4 +52,6 @@ public class Producto{
     public string Nombre_aliado { get => nombre_aliado; set => nombre_aliado = value; }
     [NotMapped]
     public string Actividad_comercial { get => actividad_comercial; set => actividad_comercial = value; }
+    [NotMapped]
+    public int Cantidad { get => cantidad; set => cantidad = value; }
 }

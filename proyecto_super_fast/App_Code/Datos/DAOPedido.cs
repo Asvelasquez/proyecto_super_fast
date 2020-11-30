@@ -877,4 +877,30 @@ public class DAOPedido
         return new Mapeo().pedido1.Where(x => x.Id_pedido == pedido2.Id_pedido).First();
     }
 
+
+    //reporte producto mas vendido
+    public List<Detalle_pedido> productosVendidosXFecha(/*DateTime fechaInicio, DateTime fechaFin*/)
+    {
+        using (var db = new Mapeo())
+        {
+            return (from p in db.pedido1
+                    join dp in db.detpedido on p.Id_pedido equals dp.Pedido_id
+                    join po in db.producto on dp.Producto_id equals po.Id
+                   // where p.Fecha >= fechaInicio && p.Fecha <= fechaFin
+
+                    select new
+                    {
+                        po,
+                        dp
+                    }).ToList().Select(m => new Detalle_pedido
+                    {
+                        Nombreprodet = m.po.Nombre_producto,
+                        Cantidad = m.dp.Cantidad,
+                        Producto_id = m.dp.Producto_id,
+                        V_unitario = m.dp.V_unitario,
+                        Nombre_aliado=m.dp.Nombre_aliado,
+
+                    }).ToList();
+        }
+    }
 }

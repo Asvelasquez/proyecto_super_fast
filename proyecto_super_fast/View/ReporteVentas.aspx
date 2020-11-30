@@ -13,9 +13,9 @@
     <table class="auto-style33">
         <tr>
             <td>
-                <CR:CrystalReportViewer ID="CRV_Ventas" runat="server" AutoDataBind="True" GroupTreeImagesFolderUrl="" HasRefreshButton="True" Height="50px" ReportSourceID="CRS_Ventas" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="350px" />
+                <CR:CrystalReportViewer ID="CRV_Ventas" runat="server" AutoDataBind="True" GroupTreeImagesFolderUrl="" HasRefreshButton="True" Height="50px" ReportSourceID="CRS_Ventas" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="350px" Visible="False" />
                 <CR:CrystalReportSource ID="CRS_Ventas" runat="server">
-                    <Report FileName="Reportes\Ventas.rpt">
+                    <Report FileName="~\Reportes\Ventas.rpt">
                     </Report>
                 </CR:CrystalReportSource>
             </td>
