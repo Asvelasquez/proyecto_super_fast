@@ -75,13 +75,11 @@ public partial class View_PedidosCliente : System.Web.UI.Page
         if (e.CommandName == "Guardar"){
             daop.guardarcomentariocliente(pedido4);
             GV_pedidocarrito0.DataBind();
-        }else if (e.CommandName == "Generar"){
-           int idpedidofactura = int.Parse(e.CommandArgument.ToString());    
         }
     }//
 
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void BTN_Generarfactura_Click(object sender, EventArgs e)
     {
         Response.Redirect("Reportes.aspx");
     }

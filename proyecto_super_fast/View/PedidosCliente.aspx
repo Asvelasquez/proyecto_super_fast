@@ -74,7 +74,7 @@
                                 <asp:Label ID="LB_comentariocliente" runat="server" Text='<%# Bind("Comentario_cliente") %>'></asp:Label>
                                 <br />
                                 <asp:TextBox ID="TBX_comentarioaliado" runat="server" Height="32px" Width="137px"></asp:TextBox>
-                                &nbsp;<asp:ImageButton ID="IB_guardarcomentario1" runat="server" CommandArgument='<%# Eval("Id_pedido") %>' CommandName="Guardar" ImageUrl="~/Imagenes/Iconos/guardar.png" />
+                                <asp:ImageButton ID="IB_guardarcomentario1" runat="server" CommandArgument='<%# Eval("Id_pedido") %>' CommandName="Guardar" ImageUrl="~/Imagenes/Iconos/guardar.png" />
                                 &nbsp;&nbsp;
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -97,11 +97,6 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="valor_total" HeaderText="Valor Total" SortExpression="valor_total" />
-                        <asp:TemplateField HeaderText="Factura">
-                            <ItemTemplate>
-                                <asp:Button ID="BTN_generarfactura" runat="server" Text="Generar" CommandName="Generar" CommandArgument='<%# Eval("Id_pedido") %>'/>
-                            </ItemTemplate>
-                        </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
                 <asp:ObjectDataSource ID="ODS_historial" runat="server" SelectMethod="obtenercomprasUsuarioentregado" TypeName="DAOPedido">
@@ -110,7 +105,8 @@
                     </SelectParameters>
             </asp:ObjectDataSource>
                 <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+            <asp:Button ID="BTN_Generarfactura" runat="server" BorderColor="Black" Height="30px" OnClick="BTN_Generarfactura_Click" Text="Generar Facturas" />
+            <br />
                 <br />
         </td>
     </tr>

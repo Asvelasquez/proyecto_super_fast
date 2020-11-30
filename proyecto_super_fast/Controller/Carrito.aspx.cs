@@ -45,8 +45,10 @@ public partial class View_Carrito : System.Web.UI.Page
         int rowcount = GV_pedidocarrito.Rows.Count;
         if (rowcount == 0) {
             LB_pedidoscarrito.Visible = true;
+            BTN_comprar.Enabled = false;
         } else{
             LB_pedidoscarrito.Visible = false;
+            BTN_comprar.Enabled = true;
         }
         if (e.Row.FindControl("GV_detallespedido") != null) {
             ((GridView)e.Row.FindControl("GV_detallespedido")).DataSource = pedido.Compras;
@@ -66,6 +68,7 @@ public partial class View_Carrito : System.Web.UI.Page
         if (e.CommandName == "Cancelar") {
             daopedido.Cancelarpedido(pedido2);
             GV_pedidocarrito.DataBind();
+            Response.Redirect("Carrito.aspx");
         }
     }
     protected void mostrarpreciototal(){

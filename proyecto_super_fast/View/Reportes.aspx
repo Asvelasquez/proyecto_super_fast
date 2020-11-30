@@ -33,10 +33,7 @@
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="LB_comentariocliente" runat="server" Text='<%# Bind("Comentario_cliente") %>'></asp:Label>
-                                <br />
-                                <asp:TextBox ID="TBX_comentarioaliado" runat="server" Height="32px" Width="137px"></asp:TextBox>
-                                &nbsp;<asp:ImageButton ID="IB_guardarcomentario1" runat="server" CommandArgument='<%# Eval("Id_pedido") %>' CommandName="Guardar" ImageUrl="~/Imagenes/Iconos/guardar.png" />
-                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
@@ -78,7 +75,7 @@
         <td>
             <CR:CrystalReportViewer ID="CRV_Factura" runat="server" AutoDataBind="True" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CRS_Facturas" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="1104px" HasRefreshButton="True" Visible="False" />
             <CR:CrystalReportSource ID="CRS_Facturas" runat="server">
-                <Report FileName="C:\Users\Sneider\source\repos\proyecto_super_fast\proyecto_super_fast\Reportes\Factura.rpt">
+                <Report FileName="C:\Users\nicol\Documents\GitHub\proyecto_super_fast\proyecto_super_fast\Reportes\Factura.rpt">
                 </Report>
             </CR:CrystalReportSource>
             <CR:CrystalReportSource ID="CRS_Factura" runat="server">

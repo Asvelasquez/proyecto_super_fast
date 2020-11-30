@@ -30,7 +30,7 @@
                 <br />
                 <asp:ImageButton ID="IB_recargar0" runat="server" ImageUrl="~/Imagenes/Iconos/refrescar.png" OnClick="IB_recargar0_Click"  />
                 <br />
-                <asp:Label ID="LB_pedidoscarrito" runat="server" Text="No tienes pedidos agregados en el carrito" Visible="False" Font-Size="Large"></asp:Label>
+                <asp:Label ID="LB_pedidoscarrito" runat="server" Text="No tienes pedidos agregados en el carrito" Font-Size="Large"></asp:Label>
                 <asp:GridView ID="GV_pedidocarrito" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_carrito9" OnRowDataBound="GV_pedidocarrito_RowDataBound" OnRowCommand="GV_pedidocarrito_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="Id_pedido" HeaderText="Pedido N°" SortExpression="Id_pedido" />
@@ -132,7 +132,7 @@
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td><strong>
-                            <asp:Button ID="BTN_comprar" runat="server" Text="Compar" ValidationGroup="VG_Comprar" OnClick="BTN_comprar_Click" BorderColor="Black" Width="108px" />
+                            <asp:Button ID="BTN_comprar" runat="server" Text="Comprar" ValidationGroup="VG_Comprar" OnClick="BTN_comprar_Click" BorderColor="Black" Width="108px" Enabled="False" />
             </strong></td>
                     </tr>
                     <tr>
