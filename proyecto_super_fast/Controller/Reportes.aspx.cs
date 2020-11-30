@@ -42,6 +42,13 @@ public partial class View_Reportes : System.Web.UI.Page
 
             datosFinal.Rows.Add(fila);
         }
+        fila = datosFinal.NewRow();
+        fila["NombreProducto"] = "Domicilio";
+        fila["Cantidad"] = "1";
+        fila["ValorUnitario"] ="3000";
+        fila["ValorTotal"] = "3000";
+
+        datosFinal.Rows.Add(fila);
         return informe;
     }//
     protected void GV_pedidocarrito0_RowDataBound(object sender, GridViewRowEventArgs e)
