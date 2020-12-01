@@ -72,7 +72,7 @@
                         <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Estado pedido" SortExpression="Nombre_estado_ped" />
                         <asp:TemplateField HeaderText="Cambiar estado">
                             <ItemTemplate>
-                                <asp:DropDownList ID="DDL_Categoria" runat="server" DataSourceID="ODS_categorias" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Categoria_SelectedIndexChanged">
+                                <asp:DropDownList ID="DDL_Categoria" runat="server" DataSourceID="ODS_categorias" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Categoria_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <asp:ObjectDataSource ID="ODS_categorias" runat="server" SelectMethod="estado_Pedidos" TypeName="DAOProductos"></asp:ObjectDataSource>
                             </ItemTemplate>
@@ -137,7 +137,7 @@
                         <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Estado pedido" SortExpression="Nombre_estado_ped" />
                         <asp:TemplateField HeaderText="Cambiar estado">
                             <ItemTemplate>
-                                <asp:DropDownList ID="DDL_Categoria1" runat="server" DataSourceID="ODS_categorias0" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Categoria1_SelectedIndexChanged">
+                                <asp:DropDownList ID="DDL_Categoria1" runat="server" DataSourceID="ODS_categorias0" DataTextField="Nombre" DataValueField="Id" OnSelectedIndexChanged="DDL_Categoria1_SelectedIndexChanged" AutoPostBack="True">
                                 </asp:DropDownList>
                                 <asp:ObjectDataSource ID="ODS_categorias0" runat="server" SelectMethod="estado_Pedidos" TypeName="DAOProductos"></asp:ObjectDataSource>
                             </ItemTemplate>

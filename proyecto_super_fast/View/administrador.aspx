@@ -236,14 +236,8 @@
                 <br />
                 <br />
                 <br />
-                <asp:Label ID="LB_Tarifa" runat="server" Text="Costo Domicilio"></asp:Label>
-                <asp:TextBox ID="TB_CostoDomicilio" runat="server" TextMode="Number" ValidationGroup="VG_CostoDomicilio"></asp:TextBox>
-                <asp:Button ID="BTN_Domicilio" runat="server" Text="Guardar" ValidationGroup="VG_CostoDomicilio" />
          <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    <strong>
-            <asp:RegularExpressionValidator ID="REV_Precio" runat="server" ControlToValidate="TB_CostoDomicilio" ErrorMessage="por favor revise el precio" ValidationExpression="^\d*[1-9]\d*$" ValidationGroup="VG_CostoDomicilio" ForeColor="White"></asp:RegularExpressionValidator>
-            </strong>
             </td>
         </tr>
     </table>

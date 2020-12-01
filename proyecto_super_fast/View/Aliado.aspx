@@ -140,26 +140,6 @@
                 <br />
                 <br />
                 <br />
-                <asp:Label ID="Label10" runat="server" Font-Size="Large" Text="Solicitud de pedidos"></asp:Label>
-                <br />
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="27px" ImageUrl="~/Imagenes/Iconos/refrescar.png" OnClick="ImageButton1_Click" Width="35px" />
-                <br />
-                <asp:GridView ID="GV_pedidosaliado" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_pedidoaliado">
-                    <Columns>
-                        <asp:BoundField DataField="Nombre_producto" HeaderText="Nombre_producto" SortExpression="Nombre_producto" />
-                        <asp:BoundField DataField="Especificacion_pedido" HeaderText="Especificacion_pedido" SortExpression="Especificacion_pedido" />
-                        <asp:BoundField DataField="Descripcion_producto" HeaderText="Descripcion_producto" SortExpression="Descripcion_producto" />
-                        <asp:BoundField DataField="Precio_pedido" HeaderText="Precio_pedido" SortExpression="Precio_pedido" />
-                        <asp:BoundField DataField="Cantidad_pedido" HeaderText="Cantidad_pedido" SortExpression="Cantidad_pedido" />
-                        <asp:BoundField DataField="Nombre_clientec" HeaderText="Nombre_clientec" SortExpression="Nombre_clientec" />
-                        <asp:BoundField DataField="Telefono_cliente" HeaderText="Telefono_cliente" SortExpression="Telefono_cliente" />
-                    </Columns>
-                </asp:GridView>
-                <asp:ObjectDataSource ID="ODS_pedidoaliado" runat="server" SelectMethod="mostrarproducto" TypeName="DAOPedido">
-                    <SelectParameters>
-                        <asp:SessionParameter Name="consulta" SessionField="user" Type="Object" />
-                    </SelectParameters>
-                </asp:ObjectDataSource>
                 <br />
             </td>
         </tr>

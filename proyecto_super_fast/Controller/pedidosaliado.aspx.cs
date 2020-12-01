@@ -76,7 +76,7 @@ public partial class View_pedidosaliado : System.Web.UI.Page
         //hacer el update        
         string idseleccion = opciones.SelectedValue;
         pedido3.actualizarPedido(pedido4, int.Parse(idseleccion));
-        GV_pedidos.DataBind();//
+        GV_pedidos.DataBind();
 
     }
 

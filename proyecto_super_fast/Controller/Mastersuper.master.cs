@@ -9,7 +9,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
 
     protected void Page_Load(object sender, EventArgs e) {
         
-        if (!Page.AppRelativeVirtualPath.Contains("administrador.aspx")) {
+        if (!Page.AppRelativeVirtualPath.Contains("CerrarSession.aspx")) {
             Response.Cache.SetNoStore();
             if (Session["user"] == null) {
                 //   Response.Redirect("inicio.aspx");

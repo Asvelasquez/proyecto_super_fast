@@ -60,13 +60,7 @@ public partial class View_Aliado : System.Web.UI.Page
 
 
     }//
-
-
-
-    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-    {
-        GV_pedidosaliado.DataBind();
-    }
+    
 
     protected void GV_Productos_RowCommand(object sender, GridViewCommandEventArgs e)
     {
