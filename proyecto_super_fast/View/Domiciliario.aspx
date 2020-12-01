@@ -19,7 +19,7 @@
                 <br />
                 <asp:ImageButton ID="IB_recargar0" runat="server" ImageUrl="~/Imagenes/Iconos/refrescar.png" OnClick="IB_recargar0_Click"  />
                 <br />
-                <asp:Label ID="LB_nohaydomiciliosdisponibles" runat="server" Text="No hay domicilios disponibles" Visible="False"></asp:Label>
+                <asp:Label ID="LB_nohaydomiciliosdisponibles" runat="server" Text="No hay domicilios disponibles"></asp:Label>
                 <br />
                 <asp:GridView ID="GV_PedDomi" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_Domiciliario" OnRowDataBound="GV_PedDomi_RowDataBound">
                     <Columns>
@@ -71,7 +71,7 @@
                 <br />
                 <asp:ImageButton ID="IB_recargar1" runat="server" ImageUrl="~/Imagenes/Iconos/refrescar.png" OnClick="IB_recargar1_Click" />
                 <br />
-                <asp:Label ID="LB_mispedidosno" runat="server" Text="No tiene pedidos en proceso" Visible="False"></asp:Label>
+                <asp:Label ID="LB_mispedidosno" runat="server" Text="No tiene pedidos en proceso"></asp:Label>
                 <br />
                 <asp:GridView ID="GV_mispedidos" runat="server" AutoGenerateColumns="False" DataSourceID="ODS_misdomicilios" OnRowDataBound="GV_mispedidos_RowDataBound" >
                     <Columns>
@@ -124,7 +124,6 @@
                 </asp:ObjectDataSource>
                 <br />
                 <asp:Label ID="LB_historial" runat="server" Text="Mi historial"></asp:Label>
-                <br />
                 <br />
                 <asp:ImageButton ID="IB_recargar2" runat="server" ImageUrl="~/Imagenes/Iconos/refrescar.png" OnClick="IB_recargar2_Click" />
                 <br />
