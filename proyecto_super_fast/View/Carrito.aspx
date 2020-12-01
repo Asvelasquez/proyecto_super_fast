@@ -20,7 +20,7 @@
                 <table class="auto-style33">
                     <tr>
                         <td>
-                            <asp:Label ID="LB_Pedidos" runat="server" Font-Size="Large" Text="Pedidos agragados en el carrito"></asp:Label>
+                            <asp:Label ID="LB_Pedidos" runat="server" Font-Size="Large" Text="Pedidos agregados en el carrito"></asp:Label>
                         </td>
                         <td class="auto-style35">
                             <asp:Button ID="BTN_MisPedidos" runat="server" BorderColor="Black" Text="Mis Pedidos" Width="108px" OnClick="BTN_MisPedidos_Click" />
