@@ -136,7 +136,7 @@
                     </SelectParameters>
                 </asp:ObjectDataSource>
                 <asp:Button ID="BTN_productosactivados" runat="server" OnClick="BTN_productosactivados_Click" Text="Productos Activados" />
-&nbsp;<asp:Button ID="BTN_productosdesactivados" runat="server" OnClick="BTN_productosdesactivados_Click" Text="Prductos Desactivados" />
+&nbsp;<asp:Button ID="BTN_productosdesactivados" runat="server" OnClick="BTN_productosdesactivados_Click" Text="Productos Desactivados" />
                 <br />
                 <br />
                 <br />
