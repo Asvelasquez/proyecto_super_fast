@@ -8,7 +8,18 @@ using System.Web.UI.WebControls;
 public partial class View_Carrito : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e){
+        if (Session["user"] != null)
+        {
+            if (((Usuario)Session["user"]).Id_rol != 1)
+            {
+                Response.Redirect("AccesoDenegado.aspx");
+            }
 
+        }
+        else
+        {
+            Response.Redirect("AccesoDenegado.aspx");
+        }//
         TBX_subtotal1.Text = "0";
         mostrardatosentrega();
         mostrarpreciototal();

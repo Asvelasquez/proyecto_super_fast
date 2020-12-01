@@ -5,12 +5,22 @@
         .auto-style33 {
             width: 100%;
         }
+        .auto-style34 {
+            text-align: right;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style33">
         <tr>
-            <td>&nbsp;<br />
+            <td>&nbsp;<table class="auto-style33">
+                <tr>
+                    <td class="auto-style34">
+                        <asp:Button ID="BTN_ventasgenerales" runat="server" BorderColor="Black" Height="30px" PostBackUrl="~/View/ReporteVentasAdmin.aspx" Text="Reporte de Ventas Generales" />
+                    </td>
+                </tr>
+                </table>
+                <br />
         <asp:Label ID="LB_solicitudesaliados" runat="server" Font-Size="X-Large" Height="25px" Text="Solicitudes de aliados"></asp:Label>
                 <br />
                 <br />

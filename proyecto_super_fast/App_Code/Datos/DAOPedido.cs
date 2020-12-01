@@ -879,26 +879,56 @@ public class DAOPedido
 
 
     //reporte producto mas vendido
-    public List<Detalle_pedido> productosVendidosXFecha(/*DateTime fechaInicio, DateTime fechaFin*/)
+    public List<Detalle_pedido> productosVendidosXFecha(int id_aliado)
     {
         using (var db = new Mapeo())
         {
             return (from p in db.pedido1
                     join dp in db.detpedido on p.Id_pedido equals dp.Pedido_id
                     join po in db.producto on dp.Producto_id equals po.Id
-                   // where p.Fecha >= fechaInicio && p.Fecha <= fechaFin
+                    join us in db.usuari on p.Aliado_id equals us.Id
+                    where p.Aliado_id==id_aliado && p.Estado_id==5
 
                     select new
                     {
                         po,
-                        dp
+                        dp,
+                        us
                     }).ToList().Select(m => new Detalle_pedido
                     {
                         Nombreprodet = m.po.Nombre_producto,
                         Cantidad = m.dp.Cantidad,
                         Producto_id = m.dp.Producto_id,
                         V_unitario = m.dp.V_unitario,
-                        Nombre_aliado=m.dp.Nombre_aliado,
+                        Nombre_aliado=m.us.Nombre,
+
+                    }).ToList();
+        }
+    }
+
+    //reporte Administrador
+    public List<Detalle_pedido> productosVendidos(int Id_admin)
+    {
+        using (var db = new Mapeo())
+        {
+            return (from p in db.pedido1
+                    join dp in db.detpedido on p.Id_pedido equals dp.Pedido_id
+                    join po in db.producto on dp.Producto_id equals po.Id
+                    join us in db.usuari on Id_admin equals us.Id
+                    where p.Estado_id == 5 && p.Estado_domicilio_id==4
+
+                    select new
+                    {
+                        po,
+                        dp,
+                       us
+                    }).ToList().Select(m => new Detalle_pedido
+                    {
+                        Nombreprodet = m.po.Nombre_producto,
+                        Cantidad = m.dp.Cantidad,
+                        Producto_id = m.dp.Producto_id,
+                        V_unitario = m.dp.V_unitario,
+                        Nombre_aliado=m.us.Nombre
 
                     }).ToList();
         }

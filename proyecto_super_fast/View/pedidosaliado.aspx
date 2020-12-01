@@ -13,9 +13,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style33">
         <tr>
-            <td class="auto-style34">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td class="auto-style34">&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="BTN_estadisitca" runat="server" BorderColor="Black" Height="30px" PostBackUrl="~/View/ReporteVentas.aspx" Text="Estadisticas de ventas" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <asp:Button ID="BT_Productos" runat="server" BackColor="#3399FF" Height="30px" PostBackUrl="~/View/Aliado.aspx" Text="Productos" Width="95px" />
+                    <asp:Button ID="BT_Productos" runat="server" BackColor="White" Height="30px" PostBackUrl="~/View/Aliado.aspx" Text="Productos" Width="95px" BorderColor="Black" />
 
                 </td>
         </tr>

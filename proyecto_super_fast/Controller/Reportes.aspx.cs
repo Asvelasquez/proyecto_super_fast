@@ -11,6 +11,18 @@ public partial class View_Reportes : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //TextBox1.Text = pedidosclientes;
+        if (Session["user"] != null)
+        {
+            if (((Usuario)Session["user"]).Id_rol != 1)
+            {
+                Response.Redirect("AccesoDenegado.aspx");
+            }
+
+        }
+        else
+        {
+            Response.Redirect("AccesoDenegado.aspx");
+        }//
     }
 
     protected void Button1_Click(object sender, EventArgs e)

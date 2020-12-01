@@ -6,29 +6,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class View_ReporteVentas : System.Web.UI.Page
+public partial class View_ReporteVentasAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["user"] != null)
-        {
-            if (((Usuario)Session["user"]).Id_rol != 2)
-            {
-                Response.Redirect("AccesoDenegado.aspx");
-            }
-
-        }
-        else
-        {
-            Response.Redirect("AccesoDenegado.aspx");
-        }//
-        CRS_Ventas.ReportDocument.SetDataSource(obtenerInformacion());
-        CRV_Ventas.ReportSource = CRS_Ventas;
-        CRV_Ventas.Visible = true;
+        CRS_ReporteAdmin.ReportDocument.SetDataSource(obtenerInformacion());
+        CRV_ReporteAdmin.ReportSource = CRS_ReporteAdmin;
+        CRV_ReporteAdmin.Visible = true;
     }
 
-  
-    protected SuministroInformacion obtenerInformacion()
+     protected SuministroInformacion obtenerInformacion()
     {
 
         SuministroInformacion informe = new SuministroInformacion();
@@ -36,7 +23,7 @@ public partial class View_ReporteVentas : System.Web.UI.Page
        // DateTime fechaFin = DateTime.Parse(TB_FechaFin.Text);
         List<Producto> listaProductos = new List<Producto>();
 
-        List<Detalle_pedido> lista = new DAOPedido().productosVendidosXFecha(((Usuario)Session["user"]).Id);
+        List<Detalle_pedido> lista = new DAOPedido().productosVendidos(((Usuario)Session["user"]).Id);
         var prod = lista.GroupBy(x => (x.Nombreprodet)).Select(grp => grp.ToList()).ToList();
 
 
