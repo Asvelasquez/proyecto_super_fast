@@ -73,11 +73,11 @@
         <td>
             <CR:CrystalReportViewer ID="CRV_Factura" runat="server" AutoDataBind="True" EnableDatabaseLogonPrompt="False" EnableParameterPrompt="False" GroupTreeImagesFolderUrl="" Height="1202px" ReportSourceID="CRS_Facturas" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="1104px" HasRefreshButton="True" Visible="False" />
             <CR:CrystalReportSource ID="CRS_Facturas" runat="server">
-                <Report FileName="C:\Users\nicol\Documents\GitHub\proyecto_super_fast\proyecto_super_fast\Reportes\Factura.rpt">
+                <Report FileName="~\Reportes\Factura.rpt">
                 </Report>
             </CR:CrystalReportSource>
             <CR:CrystalReportSource ID="CRS_Factura" runat="server">
-                <Report FileName="C:\Users\nicol\Documents\GitHub\proyecto_super_fast\proyecto_super_fast\Reportes\Factura.rpt">
+                <Report FileName="~\Reportes\Factura.rpt">
                 </Report>
             </CR:CrystalReportSource>
         </td>
