@@ -350,6 +350,7 @@ public partial class View_inicio : System.Web.UI.Page
         DL_Productos.Visible = false;
         DL_productosfiltros.Visible = true;
         DL_productosfiltrorest.Visible = false;
+        DL_productosfiltroPrecio.Visible = false;
         TBX_buscar.Text=TBX_filtro1.Text;
         TBX_buscar.Text.Contains("");
     }
@@ -359,7 +360,7 @@ public partial class View_inicio : System.Web.UI.Page
         DL_Productos.Visible = false;        
         DL_productosfiltrorest.Visible = false;
         DL_productosfiltroPrecio.Visible = false;
-        TBX_buscar.Text = "carne";
+        TBX_buscar.Text = "Hamburguesa";
     }
 
     protected void BTN_perrocaliente_Click(object sender, EventArgs e){

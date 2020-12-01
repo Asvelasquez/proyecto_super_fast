@@ -14,8 +14,6 @@
     <tr>
         <td>&nbsp;</td>
         <td>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="BTN_" />
             <br />
             <asp:Label ID="Label11" runat="server" Text="Historial de pedidos"></asp:Label>
             <br />
