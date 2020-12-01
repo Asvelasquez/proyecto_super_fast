@@ -175,20 +175,15 @@
         }
         .auto-style85 {
             height: 75px;
+            width: 507px;
         }
         .auto-style88 {
             height: 61px;
+            width: 507px;
         }
         .auto-style89 {
             width: 337px;
             height: 61px;
-        }
-        .auto-style94 {
-            width: 337px;
-            height: 12px;
-        }
-        .auto-style95 {
-            height: 12px;
         }
         .auto-style98 {
             width: 337px;
@@ -200,6 +195,29 @@
         }
         .auto-style100 {
             height: 29px;
+            width: 507px;
+        }
+        .auto-style101 {
+            width: 725px;
+        }
+        .auto-style102 {
+            width: 507px;
+        }
+        .auto-style103 {
+            height: 35px;
+            width: 507px;
+        }
+        .auto-style105 {
+            height: 20px;
+            width: 507px;
+        }
+        .auto-style106 {
+            height: 36px;
+            width: 507px;
+        }
+        .auto-style107 {
+            height: 9px;
+            width: 507px;
         }
     </style>
 </asp:Content>
@@ -392,98 +410,98 @@
                                 <table class="auto-style33">
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:Label ID="LB_NombreAliado1" runat="server" CssClass="auto-style40" Text='<%# Eval("actividad_comercial") %>' Width="170px"></asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:TextBox ID="TBX_nombrealiado1" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("nombre_aliado") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style101">
                                             <asp:Image ID="I_Productos1" runat="server" Height="170px" ImageUrl='<%# Eval("imagen_producto1") %>' Width="170px" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:Label ID="LB_Nombre1" runat="server" CssClass="auto-style40" Width="170px">Nombre</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:TextBox ID="TBX_nombreproducto1" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("Nombre_producto") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:Label ID="LB_Precio1" runat="server" CssClass="auto-style40" Width="170px">Precio</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:TextBox ID="TBX_precio1" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="20px" Text='<%# Eval("precio_producto") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:Label ID="LB_Descripcion1" runat="server" CssClass="auto-style40" Height="20px" Width="200px">Descripcion del producto</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:TextBox ID="TB_descripcion1" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="58px" Text='<%# Eval("descripcion_producto") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style101">
                                             <asp:Label ID="LB_especificacion1" runat="server" CssClass="auto-style40" Text="Especificacion del pedido"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style101">
                                             <asp:TextBox ID="TB_especificacion1" runat="server" Height="58px" Width="170px"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:Label ID="LB_Cantidad1" runat="server" CssClass="auto-style40" Height="20px" Width="170px">Cantidad</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style101"><strong>
                                             <asp:TextBox ID="TBX_Cantidad1" runat="server" CssClass="auto-style63" Font-Names="Times New Roman" Height="20px" TextMode="Number" ValidationGroup="VG_Cantidad" Width="170px"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="REV_Cantidad1" runat="server" ControlToValidate="TBX_Cantidad1" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style101">
                                             <asp:TextBox ID="TBX_correoaliado1" runat="server" Enabled="False" EnableTheming="True"  Visible="False"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td>
-                                            <asp:TextBox ID="TBX_actividadcomercialp1" runat="server" Text='<%# Eval("actividad_comercial") %>'></asp:TextBox>
+                                        <td class="auto-style101">
+                                            <asp:TextBox ID="TBX_actividadcomercialp1" runat="server" Text='<%# Eval("actividad_comercial") %>' Visible="False"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style101">
                                             <asp:ImageButton ID="IB_Carrito1" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" OnClick="IB_Carrito_Click" ValidationGroup="VG_Cantidad" Width="32px" />
                                         </td>
                                     </tr>
@@ -504,98 +522,98 @@
                                 <table class="auto-style33">
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:Label ID="LB_NombreAliado2" runat="server" CssClass="auto-style40" Text='<%# Eval("actividad_comercial") %>' Width="170px"></asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:TextBox ID="TBX_nombrealiado2" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("nombre_aliado") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style102">
                                             <asp:Image ID="I_Productos2" runat="server" Height="170px" ImageUrl='<%# Eval("imagen_producto1") %>' Width="170px" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:Label ID="LB_Nombre2" runat="server" CssClass="auto-style40" Width="170px">Nombre</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:TextBox ID="TBX_nombreproducto2" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("Nombre_producto") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:Label ID="LB_Precio2" runat="server" CssClass="auto-style40" Width="170px">Precio</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:TextBox ID="TBX_precio2" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="20px" Text='<%# Eval("precio_producto") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:Label ID="LB_Descripcion2" runat="server" CssClass="auto-style40" Height="20px" Width="200px">Descripcion del producto</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:TextBox ID="TB_descripcion2" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="58px" Text='<%# Eval("descripcion_producto") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style102">
                                             <asp:Label ID="LB_especificacion2" runat="server" CssClass="auto-style40" Text="Especificacion del pedido"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style102">
                                             <asp:TextBox ID="TB_especificacion2" runat="server" Height="58px" Width="170px"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:Label ID="LB_Cantidad2" runat="server" CssClass="auto-style40" Height="20px" Width="170px">Cantidad</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td><strong>
+                                        <td class="auto-style102"><strong>
                                             <asp:TextBox ID="TBX_Cantidad2" runat="server" CssClass="auto-style63" Font-Names="Times New Roman" Height="20px" TextMode="Number" ValidationGroup="VG_Cantidad" Width="170px"></asp:TextBox>
                                             <asp:RegularExpressionValidator ID="REV_Cantidad2" runat="server" ControlToValidate="TBX_Cantidad2" ErrorMessage="cantidad erronea" ValidationExpression="\b(?![00]\b)\d{1,1}\b" ValidationGroup="VG_Cantidad"></asp:RegularExpressionValidator>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style102">
                                             <asp:TextBox ID="TBX_correoaliado2" runat="server" Enabled="False" EnableTheming="True"  Visible="False"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td>
-                                            <asp:TextBox ID="TBX_actividadcomercialp2" runat="server" Text='<%# Eval("actividad_comercial") %>'></asp:TextBox>
+                                        <td class="auto-style102">
+                                            <asp:TextBox ID="TBX_actividadcomercialp2" runat="server" Text='<%# Eval("actividad_comercial") %>' Visible="False"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style102">
                                             <asp:ImageButton ID="IB_Carrito2" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" OnClick="IB_Carrito_Click" ValidationGroup="VG_Cantidad" Width="32px" />
                                         </td>
                                     </tr>
@@ -621,49 +639,49 @@
                                 <table class="auto-style33">
                                     <tr>
                                         <td class="auto-style83"></td>
-                                        <td class="auto-style82"><strong>
+                                        <td class="auto-style103"><strong>
                                             <asp:Label ID="LB_NombreAliado2" runat="server" CssClass="auto-style40" Text='<%# Eval("actividad_comercial") %>' Width="170px"></asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style83"></td>
-                                        <td class="auto-style82"><strong>
+                                        <td class="auto-style103"><strong>
                                             <asp:TextBox ID="TBX_nombrealiado2" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("nombre_aliado") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style75">&nbsp;</td>
-                                        <td>
+                                        <td class="auto-style102">
                                             <asp:Image ID="I_Productos2" runat="server" Height="170px" ImageUrl='<%# Eval("imagen_producto1") %>' Width="170px" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style77"></td>
-                                        <td class="auto-style76"><strong>
+                                        <td class="auto-style105"><strong>
                                             <asp:Label ID="LB_Nombre2" runat="server" CssClass="auto-style40" Width="170px">Nombre</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style79"></td>
-                                        <td class="auto-style78"><strong>
+                                        <td class="auto-style106"><strong>
                                             <asp:TextBox ID="TBX_nombreproducto2" runat="server" CssClass="auto-style61" Enabled="False" Font-Names="Times New Roman" Text='<%# Eval("Nombre_producto") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style77"></td>
-                                        <td class="auto-style76"><strong>
+                                        <td class="auto-style105"><strong>
                                             <asp:Label ID="LB_Precio2" runat="server" CssClass="auto-style40" Width="170px">Precio</asp:Label>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style83"></td>
-                                        <td class="auto-style82"><strong>
+                                        <td class="auto-style103"><strong>
                                             <asp:TextBox ID="TBX_precio2" runat="server" CssClass="auto-style63" Enabled="False" Font-Names="Times New Roman" Height="20px" Text='<%# Eval("precio_producto") %>' Width="170px"></asp:TextBox>
                                             </strong></td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style77"></td>
-                                        <td class="auto-style76"><strong>
+                                        <td class="auto-style105"><strong>
                                             <asp:Label ID="LB_Descripcion2" runat="server" CssClass="auto-style40" Height="20px" Width="200px">Descripcion del producto</asp:Label>
                                             </strong></td>
                                     </tr>
@@ -675,7 +693,7 @@
                                     </tr>
                                     <tr>
                                         <td class="auto-style77"></td>
-                                        <td class="auto-style76">
+                                        <td class="auto-style105">
                                             <asp:Label ID="LB_especificacion2" runat="server" CssClass="auto-style40" Text="Especificacion del pedido"></asp:Label>
                                         </td>
                                     </tr>
@@ -687,7 +705,7 @@
                                     </tr>
                                     <tr>
                                         <td class="auto-style98"></td>
-                                        <td class="auto-style47"><strong>
+                                        <td class="auto-style107"><strong>
                                             <asp:Label ID="LB_Cantidad2" runat="server" CssClass="auto-style40" Height="20px" Width="170px">Cantidad</asp:Label>
                                             </strong></td>
                                     </tr>
@@ -700,19 +718,19 @@
                                     </tr>
                                     <tr>
                                         <td class="auto-style98"></td>
-                                        <td class="auto-style47">
+                                        <td class="auto-style107">
                                             <asp:TextBox ID="TBX_correoaliado2" runat="server" Enabled="False" EnableTheming="True"  Visible="False"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style98"></td>
-                                        <td class="auto-style47">
+                                        <td class="auto-style107">
                                             <asp:TextBox ID="TBX_actividadcomercialp2" runat="server" Text='<%# Eval("actividad_comercial") %>' Visible="False"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="auto-style79"></td>
-                                        <td class="auto-style78">
+                                        <td class="auto-style106">
                                             <asp:ImageButton ID="IB_Carrito2" runat="server" CommandArgument='<%# Eval("Id") %>' ImageUrl="~/Imagenes/Iconos/anadir-al-carrito.png" OnClick="IB_Carrito_Click" ValidationGroup="VG_Cantidad" Width="32px" />
                                         </td>
                                     </tr>

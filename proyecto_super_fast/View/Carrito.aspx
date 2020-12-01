@@ -35,8 +35,8 @@
                     <Columns>
                         <asp:BoundField DataField="Id_pedido" HeaderText="Pedido N°" SortExpression="Id_pedido" />
                         <asp:BoundField DataField="Fecha" HeaderText="Fecha" SortExpression="Fecha" />
-                        <asp:BoundField DataField="Comentario_cliente" HeaderText="Comentario_cliente" SortExpression="Comentario_cliente" />
-                        <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario_aliado" SortExpression="Comentario_aliado" />
+                        <asp:BoundField DataField="Comentario_cliente" HeaderText="Comentario Cliente" SortExpression="Comentario_cliente" />
+                        <asp:BoundField DataField="Comentario_aliado" HeaderText="Comentario Aliado" SortExpression="Comentario_aliado" />
                         <asp:BoundField DataField="Nombre_estado_ped" HeaderText="Estado del pedido" SortExpression="Nombre_estado_ped" />
                         <asp:BoundField DataField="nombre_estado_domicilio" HeaderText="Estado del domicilio" SortExpression="nombre_estado_domicilio" />
                         <asp:BoundField DataField="Nombre_aliado" HeaderText="Aliado" SortExpression="Nombre_aliado" />
@@ -56,7 +56,7 @@
                         
 
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Calcelar pedido">
+                        <asp:TemplateField HeaderText="Cancelar Pedido">
                             <ItemTemplate>
                                 <asp:Button ID="BTN_cancelar" runat="server" Text="Cancelar" CommandName="Cancelar" CommandArgument='<%# Eval("Id_pedido") %>' />
                             </ItemTemplate>
