@@ -70,7 +70,7 @@ public partial class View_pedidosaliado : System.Web.UI.Page
         Pedido pedido4 = new Pedido();
         DropDownList opciones = (DropDownList)sender;
         GridViewRow fila = (GridViewRow)opciones.Parent.Parent;
-        int pedido = int.Parse(((Label)fila.FindControl("L_Pedido1")).Text);
+        int pedido = int.Parse(((Label)fila.FindControl("L_Pedido")).Text);
         pedido4.Id_pedido = pedido;
         
         //hacer el update        
