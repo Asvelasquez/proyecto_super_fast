@@ -56,9 +56,9 @@
                 </td>
         </tr>
         <tr>
-            <td class="auto-style36">&nbsp;</td>
-            <td class="auto-style34">&nbsp;</td>
-            <td class="auto-style35">&nbsp;</td>
+            <td class="auto-style38" colspan="3">
+                <asp:Image ID="I_Mapa" runat="server" ImageUrl="~/Imagenes/Mapa.JPG" />
+            </td>
         </tr>
     </table>
     <span class="auto-style39">&nbsp;</span><asp:Label ID="LB_quienesomos" runat="server" Text="¿Quienes somos?" CssClass="auto-style39"></asp:Label>
