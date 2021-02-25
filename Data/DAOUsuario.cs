@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using Utilitarios;
 
 /// <summary>
@@ -44,6 +43,7 @@ namespace Data
         //    return ();
         //}
         // public ();
+
         public UUsuario loginusuario(UUsuario usuario)
         {
             return new Mapeo().usuari.Where(x => x.Correo.ToUpper().Equals(usuario.Correo.ToUpper()) && x.Contrasenia.Equals(usuario.Contrasenia)).FirstOrDefault();
@@ -97,7 +97,7 @@ namespace Data
                 var entry = db.Entry(aprobacionanterior);
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
-                UCorreo email = new UCorreo();
+                Correo email = new Correo();
                 String emailmensaje;
                 if (aprobacionanterior.Id_rol == 2)
                 {
@@ -123,7 +123,7 @@ namespace Data
                 var entry = db.Entry(aprobacionanterior);
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
-                UCorreo email = new UCorreo();
+                Correo email = new Correo();
                 String emailmensaje;
                 if (aprobacionanterior.Id_rol == 2)
                 {
@@ -151,7 +151,7 @@ namespace Data
                 var entry = db.Entry(aprobacionanterior);
                 entry.State = EntityState.Modified;
                 db.SaveChanges();
-                UCorreo email = new UCorreo();
+                Correo email = new Correo();
                 String emailmensaje;
                 if (aprobacionanterior.Id_rol == 2)
                 {

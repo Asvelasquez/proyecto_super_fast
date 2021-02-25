@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilitarios;
 using Logica;
-
 
 public partial class View_Login : System.Web.UI.Page{
     protected void Page_Load(object sender, EventArgs e)
@@ -22,10 +18,13 @@ public partial class View_Login : System.Web.UI.Page{
         usuario.Correo = LG_Principal.UserName;
         usuario.Contrasenia = LG_Principal.Password;
         ClientScriptManager cm = this.ClientScript;
-        usuario = new DAOUsuario().loginusuario(usuario);
+        //usuario = new DAOUsuario().loginusuario(usuario);
+        UMac user = new LUser().login(usuario);
 
-        URespuesta resp = new LUser().login(usuario);
-        Response.Redirect(resp.Url);
+        Session["user"] = user.Usuario;
+
+        // URespuesta resp = new UMac().Usuario(usuario);
+        Response.Redirect(user.Url);
         if (usuario == null){   
             
             Session["user"] = null;
@@ -35,16 +34,17 @@ public partial class View_Login : System.Web.UI.Page{
 
             Session["user"] = usuario;
 
-            MAC conexion = new MAC();
-            Acceso acceso = new Acceso();
 
-            acceso.FechaInicio = DateTime.Now;
-            acceso.Ip = conexion.ip();
-            acceso.Mac = conexion.mac();
-            acceso.Session = Session.SessionID;
-            acceso.UserId = usuario.Id;
+            //MAC conexion = new MAC();
+            //Acceso acceso = new Acceso();
 
-            new DAOSeguridad().insertarAcceso(acceso);
+            //acceso.FechaInicio = DateTime.Now;
+            //acceso.Ip = conexion.ip();
+            //acceso.Mac = conexion.mac();
+            //acceso.Session = Session.SessionID;
+            //acceso.UserId = usuario.Id;
+
+           // new DAOSeguridad().insertarAcceso(acceso);
             if (usuario.Id_rol == 1) { 
                 Response.Redirect("inicio.aspx");
                 
@@ -52,6 +52,7 @@ public partial class View_Login : System.Web.UI.Page{
             else {
                 if (usuario.Id_rol == 2 && usuario.Aprobacion==1){
                     Response.Redirect("pedidosaliado.aspx");
+
                 }else if(usuario.Id_rol == 2 && usuario.Aprobacion == 0)
                 {
                     cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('En este momento no puede iniciar sesion, se esta revisando su solicitud de registro como aliado, recibira una respuesta al correo que ingreso en el registro para la aprobacion o no aprobacion para nuestra plataforma');window.location.href=\"CerrarSession.aspx\"</script>");

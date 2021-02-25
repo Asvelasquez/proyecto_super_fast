@@ -43,8 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="UToken.cs" />
+    <Compile Include="ULogin.cs" />
+    <Compile Include="MAC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCorreo.cs" />
+    <Compile Include="Correo.cs" />
+    <Compile Include="UMac.cs" />
     <Compile Include="URespuesta.cs" />
     <Compile Include="UUsuario.cs" />
   </ItemGroup>

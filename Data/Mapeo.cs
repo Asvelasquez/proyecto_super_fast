@@ -22,6 +22,8 @@ namespace Data
         //migrado
 
         public DbSet<UUsuario> usuari { get; set; }
+        public DbSet<UToken> token { get; set; }
+        public DbSet<UMac> acceso { get; set; }
 
         //no migrado
         //public DbSet<Cliente> client { get; set; }
@@ -34,8 +36,8 @@ namespace Data
         //public DbSet<estado_domicilio> estdomicilio { get; set; }
         //public DbSet<Producto> producto { get; set; }
         //public DbSet<Rol> rol { get; set; }
-        //public DbSet<Token> token { get; set; }
-        //public DbSet<Acceso> acceso { get; set; }
+
+        //
         //public DateTime? Date1 { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)

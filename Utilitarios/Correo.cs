@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Utilitarios
 {
-    public class UCorreo
+    public class Correo
     {
         public void enviarCorreo(String correoDestino, String userToken, String mensaje)
         {
