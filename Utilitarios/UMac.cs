@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace Utilitarios
 {
-    [Serializable]
-    [Table("acceso", Schema = "seguridad")]
+   
     public class UMac
     {
         private int id;
         private UUsuario usuario;
-        private DateTime Fecha_Inicio;
+        private DateTime FechaInicio;
         private string ip;
         private string mac;
         private string session;
@@ -26,7 +25,7 @@ namespace Utilitarios
 
 
         public UUsuario Usuario { get => usuario; set => usuario = value; }
-        public DateTime Fecha_Inicio1 { get => Fecha_Inicio1; set => Fecha_Inicio1 = value; }
+      
         public string Ip { get => ip; set => ip = value; }
         public string Mac { get => mac; set => mac = value; }
         public string Session { get => session; set => session = value; }
@@ -34,5 +33,6 @@ namespace Utilitarios
         public string Url { get => url; set => url = value; }
         public DateTime? Fecha_fin { get => fecha_fin; set => fecha_fin = value; }
         public int Id { get => id; set => id = value; }
+        public DateTime Fecha_Inicio1 { get => FechaInicio; set => FechaInicio = value; }
     }
 }

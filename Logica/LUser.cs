@@ -14,7 +14,8 @@ namespace Logica
             MAC mac = new MAC();
             
             datos.Usuario = new DAOUsuario().loginusuario(usuario);
-            datos.FechaInicio1 = DateTime.Now;
+            datos.Fecha_Inicio1 = DateTime.Now;
+           
             datos.Ip = mac.ip();
             datos.Mac = mac.mac();
 

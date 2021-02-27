@@ -6,8 +6,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 /// Descripción breve de Usuario
 /// </summary>
 /// 
-[Serializable]
-[Table("acceso", Schema = "seguridad")]
+//[Serializable]
+//[Table("acceso", Schema = "seguridad")]
 public class Acceso
 {
     private int id;
