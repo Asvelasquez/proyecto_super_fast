@@ -7,8 +7,11 @@ using System.Web;
 /// <summary>
 /// Descripción breve de DAOPedido
 /// </summary>
+/// 
+/*
 public class DAOPedido
 {
+    /*
     public Pedido insertPedido(Pedido pedido2)
     {
         using (var db = new Mapeo())
@@ -232,7 +235,7 @@ public class DAOPedido
                     }).ToList();
         }
     }
-    /////////////////////////////////// 
+    
 
 
 
@@ -248,7 +251,7 @@ public class DAOPedido
             entry.State = EntityState.Modified;
             db.SaveChanges();
         }
-    }//
+    }
 
 
     public void actualizarPedidoDomiciliario(Pedido pedido2, int estadopedido2)
@@ -265,7 +268,7 @@ public class DAOPedido
             db.SaveChanges();
         }
     }//
-     //public List<Pedido>  obtenercarrito(/*int usuariop*/)
+     //public List<Pedido>  obtenercarrito(/*int usuariop*///)
      //{
      //    Pedido pedido = new Pedido();
      //    using (var db = new Mapeo())
@@ -318,9 +321,9 @@ public class DAOPedido
     //                }).ToList();
     //    }
     //}
-
-    /// /////////////////////////////////obtener pedido 
-
+    /*
+    //obtener pedido 
+    /*
     public List<Pedido> obtenerEstadoPedido(Usuario usuario2){
         List<Pedido> pedido = new List<Pedido>();
         using (var db = new Mapeo()){
@@ -934,3 +937,5 @@ public class DAOPedido
         }
     }
 }
+*/
+
