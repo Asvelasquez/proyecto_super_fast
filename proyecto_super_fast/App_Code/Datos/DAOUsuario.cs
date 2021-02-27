@@ -8,10 +8,13 @@ using System.Web;
 /// <summary>
 /// Descripción breve de DAOUsuario
 /// </summary>
-[Serializable]
-[Table("usuario", Schema = "informacion")]
+/// 
+
+//[Serializable]
+//[Table("usuario", Schema = "informacion")]
 public class DAOUsuario
 {
+    /*DATA
     public void insertUsuario(Usuario usuario2)
     {
         using (var db = new Mapeo())
@@ -178,5 +181,5 @@ public class DAOUsuario
         return new Mapeo().usuari.Where(x => x.Id == userId ).First();
     }
 
-
+    */
 }

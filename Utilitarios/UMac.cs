@@ -21,9 +21,6 @@ namespace Utilitarios
         private Nullable<DateTime> fecha_fin;
        
 
-
-
-
         public UUsuario Usuario { get => usuario; set => usuario = value; }
       
         public string Ip { get => ip; set => ip = value; }

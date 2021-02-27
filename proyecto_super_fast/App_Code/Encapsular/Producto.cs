@@ -18,9 +18,12 @@ using System.Web;
     id_aliado integer NOT NULL,
     CONSTRAINT pk_informacion_producto PRIMARY KEY (id)
      * */
+
+
 [Serializable]
 [Table("productos", Schema = "informacion")]
 public class Producto{
+    /* UPRODUCTO
     private int id;
     private string nombre_producto;
     private string descripcion_producto;    
@@ -54,4 +57,5 @@ public class Producto{
     public string Actividad_comercial { get => actividad_comercial; set => actividad_comercial = value; }
     [NotMapped]
     public int Cantidad { get => cantidad; set => cantidad = value; }
+    */
 }

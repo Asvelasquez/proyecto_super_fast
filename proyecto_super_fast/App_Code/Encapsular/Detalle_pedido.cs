@@ -20,11 +20,12 @@ using System.Web;
     v_total double precision NOT NULL,
  */
 
-[Serializable]
-[Table("detalle_pedido", Schema = "informacion")]
+//[Serializable]
+//[Table("detalle_pedido", Schema = "informacion")]
 
 public class Detalle_pedido
 {
+    /*UDetalle_pedido
     private int id_dpedido;
     private int pedido_id;
     private int producto_id;
@@ -71,4 +72,5 @@ public class Detalle_pedido
     public int Idpedido { get => idpedido; set => idpedido = value; }
     [NotMapped]
     public string Nombre_aliado { get => nombre_aliado; set => nombre_aliado = value; }
+    */
 }

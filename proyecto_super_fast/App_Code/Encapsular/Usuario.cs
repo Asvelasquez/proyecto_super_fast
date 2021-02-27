@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-[Serializable]
-[Table("usuario", Schema = "informacion")]
+//[Serializable]
+//[Table("usuario", Schema = "informacion")]
 /*
  id integer NOT NULL DEFAULT nextval('informacion.usuario_id_seq'::regclass),
     nombre text COLLATE pg_catalog."default" NOT NULL,
@@ -25,6 +25,7 @@ using System.Web;
  */
 public class Usuario
 {
+    /* UTILITARIOS UUsuario
     private int id;
     private string nombre;
     private string apellido;
@@ -75,4 +76,5 @@ public class Usuario
     public int Aprobacion { get => aprobacion; set => aprobacion = value; }
     [Column("modificada")]
     public string Auditoria { get => auditoria; set => auditoria = value; }
+    */
 }

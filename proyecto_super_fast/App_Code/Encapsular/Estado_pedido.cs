@@ -15,11 +15,12 @@ using System.Web;
     CONSTRAINT "PK_informacion_estado_pedido" PRIMARY KEY (id)
 )
  * */
-[Serializable]
-[Table("estado_pedido", Schema = "informacion")]
+//[Serializable]
+//[Table("estado_pedido", Schema = "informacion")]
 
 public class Estado_pedido
 {
+    /*UEstado_pedido
     private int id;
     private string nombre;
 
@@ -28,4 +29,5 @@ public class Estado_pedido
     public int Id { get => id; set => id = value; }
     [Column("nombre")]
     public string Nombre { get => nombre; set => nombre = value; }
+    */
 }

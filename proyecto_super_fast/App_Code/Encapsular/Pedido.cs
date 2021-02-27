@@ -19,10 +19,11 @@ id_pedido integer NOT NULL DEFAULT nextval('informacion.pedido_id_pedido_seq'::r
     comentario_aliado text COLLATE pg_catalog."default",
     aliado_id integer NOT NULL,
  */
-[Serializable]
-[Table("pedido", Schema = "informacion")]
+//[Serializable]
+//[Table("pedido", Schema = "informacion")]
 public class Pedido
 {
+    /*UPedido
     private int id_pedido;
     private int cliente_id;
     private DateTime fecha;
@@ -96,4 +97,5 @@ public class Pedido
     public string Direccion_cliente { get => direccion_cliente; set => direccion_cliente = value; }
     [NotMapped]
     public string Telefono_cliente { get => telefono_cliente; set => telefono_cliente = value; }
+    */
 }

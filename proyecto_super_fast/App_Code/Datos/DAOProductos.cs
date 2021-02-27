@@ -8,6 +8,7 @@ using System.Web;
 /// Descripción breve de DAOProductos
 /// </summary>
 public class DAOProductos{
+    /* DATA
     public void insertProducto(Producto producto2){
         using (var db = new Mapeo()) {
             db.producto.Add(producto2);
@@ -222,4 +223,5 @@ public class DAOProductos{
     {
         return new Mapeo().producto.Where(x => x.Id == userId).First();
     }
+    */
 }
