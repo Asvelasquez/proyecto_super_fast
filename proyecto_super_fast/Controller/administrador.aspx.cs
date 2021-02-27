@@ -4,23 +4,26 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Utilitarios;
+using Logica;
 public partial class View_administrador : System.Web.UI.Page{
+    Ladministrador ladministrador1 = new Ladministrador();
     protected void Page_Load(object sender, EventArgs e){
-        if (Session["user"] != null)
-        {
-            if (((Usuario)Session["user"]).Id_rol != 4)
-            {
-                //cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acceso no permitido');</script>");
-                Response.Redirect("AccesoDenegado.aspx");
-            }
+        
+        //if (Session["user"] != null)
+        //{
+        //    if (((Usuario)Session["user"]).Id_rol != 4)
+        //    {
+        //        //cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acceso no permitido');</script>");
+        //        Response.Redirect("AccesoDenegado.aspx");
+        //    }
 
 
-        }
-        else
-        {
-            Response.Redirect("AccesoDenegado.aspx");
-        }
+        //}
+        //else
+        //{
+        //    Response.Redirect("AccesoDenegado.aspx");
+        //}
 
         LB_solicitudalaadosrechazados.Visible = false;
         GV_aliadorechazado.Visible = false;
