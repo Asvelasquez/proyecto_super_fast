@@ -6,8 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilitarios;
 using Logica;
+
 public partial class View_administrador : System.Web.UI.Page{
-    Ladministrador ladministrador1 = new Ladministrador();
+   
     protected void Page_Load(object sender, EventArgs e){
         
         //if (Session["user"] != null)
@@ -17,8 +18,6 @@ public partial class View_administrador : System.Web.UI.Page{
         //        //cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acceso no permitido');</script>");
         //        Response.Redirect("AccesoDenegado.aspx");
         //    }
-
-
         //}
         //else
         //{
@@ -41,90 +40,104 @@ public partial class View_administrador : System.Web.UI.Page{
     }
 
     protected void GV_domiciliariiosaprobar_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e){
-        ClientScriptManager cm = this.ClientScript;
-        DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();
-        Usuario usuario2 = new Usuario();
-        usuario1.Id = int.Parse(e.CommandArgument.ToString());
-        usuario2.Hojavida =(e.CommandArgument.ToString());
-        if (e.CommandName == "Aceptar"){
-            us.aceptarusuario(usuario1,((Usuario)Session["user"]).Correo);
-            GV_domiciliariiosaprobar.DataBind();
-        }else if (e.CommandName == "Rechazar"){
-            us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-           GV_domiciliariiosaprobar.DataBind();
-        }
-        else if (e.CommandName == "hojavida")
-        {
-        Response.Write("window.open(usuario2, '_newtab');");
+        //    // admin.
+        //DAOUsuario us = new DAOUsuario();
+        
+        //UUsuario usuario1 = new UUsuario();
+        //UUsuario usuario2 = new UUsuario();
+        //usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        //usuario2.Hojavida =(e.CommandArgument.ToString());
+        
+        //if (e.CommandName == "Aceptar"){
+        //    us.aceptarusuario(usuario1,((UUsuario)Session["user"]).Correo);
+        //    GV_domiciliariiosaprobar.DataBind();
+        //}else if (e.CommandName == "Rechazar"){
+        //    us.rechazarusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+        //   GV_domiciliariiosaprobar.DataBind();
+        //}
+        //else if (e.CommandName == "hojavida")
+        //{
+        //Response.Write("window.open(usuario2, '_newtab');");
 
-        }
+        //}
 
     }
     //prueba
     protected void GV_aliadoaprobar_RowCommand(object sender, GridViewCommandEventArgs e) {
-      //  ClientScriptManager cm = this.ClientScript;
-        DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();
-        usuario1.Id = int.Parse(e.CommandArgument.ToString());
-        if (e.CommandName == "Aceptar"){
-            us.aceptarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GV_aliadoaprobar.DataBind();
+      ////  ClientScriptManager cm = this.ClientScript;
+      //  DAOUsuario us = new DAOUsuario();
+      //  UUsuario usuario1 = new UUsuario();
+      //  usuario1.Id = int.Parse(e.CommandArgument.ToString());
+      //  if (e.CommandName == "Aceptar"){
+      //      us.aceptarusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+      //      GV_aliadoaprobar.DataBind();
   
-        }
-        else if (e.CommandName== "Rechazar"){
-            us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GV_aliadoaprobar.DataBind();
+      //  }
+      //  else if (e.CommandName== "Rechazar"){
+      //      us.rechazarusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+      //      GV_aliadoaprobar.DataBind();
           
-        }
+      //  }
     }
 
 
 
     protected void GV_aliadorechazado_RowCommand(object sender, GridViewCommandEventArgs e){
-        DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();
+        //DAOUsuario us = new DAOUsuario();
+        //UUsuario usuario1 = new UUsuario();
+        //usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        //if (e.CommandName == "Aceptar")
+        //{
+        //    us.aceptarusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+        //    GV_aliadorechazado.DataBind();
+        //}
+        //else if (e.CommandName == "Revision")
+        //{
+        //    us.revisionusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+        //    GV_aliadorechazado.DataBind();
+        //}
+        //////////
+        UUsuario usuario1 = new UUsuario();
         usuario1.Id = int.Parse(e.CommandArgument.ToString());
-        if (e.CommandName == "Aceptar"){
-            us.aceptarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GV_aliadorechazado.DataBind();
-        }else if (e.CommandName == "Revision"){
-            us.revisionusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GV_aliadorechazado.DataBind();
-        }
+        string usuariocorreo, comanddame;
+        usuariocorreo =((UUsuario)Session["user"]).Correo;
+        comanddame = e.CommandName;
+        Ladministrador ladministrador1 = new Ladministrador();
+        ladministrador1.GV_aliadorechazado1(usuario1,usuariocorreo, comanddame);
+
     }
 
     protected void GV_domiciliariorechazado_RowCommand(object sender, GridViewCommandEventArgs e){
-        DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();
-        usuario1.Id = int.Parse(e.CommandArgument.ToString());
-        if (e.CommandName == "Aceptar"){
-            us.aceptarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GV_domiciliariorechazado.DataBind();
-        }
-        else if (e.CommandName == "Revision"){
-            us.revisionusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GV_domiciliariorechazado.DataBind();
-        }
+        //DAOUsuario us = new DAOUsuario();
+        //UUsuario usuario1 = new UUsuario();
+        //usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        //if (e.CommandName == "Aceptar"){
+        //    us.aceptarusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+        //    GV_domiciliariorechazado.DataBind();
+        //}
+        //else if (e.CommandName == "Revision"){
+        //    us.revisionusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+        //    GV_domiciliariorechazado.DataBind();
+        //}
     }
 
     protected void GV_solicitudaliadosaceptados_RowCommand(object sender, GridViewCommandEventArgs e){
-        DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();
-        usuario1.Id = int.Parse(e.CommandArgument.ToString());
-        if (e.CommandName == "Rechazar"){
-            us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GV_solicitudaliadosaceptados.DataBind();
-        }
+        //DAOUsuario us = new DAOUsuario();
+        //UUsuario usuario1 = new UUsuario();
+        //usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        //if (e.CommandName == "Rechazar"){
+        //    us.rechazarusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+        //    GV_solicitudaliadosaceptados.DataBind();
+        //}
     }
     protected void GV_domiciliariosaceptados_RowCommand(object sender, GridViewCommandEventArgs e){
-        DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();
-        usuario1.Id = int.Parse(e.CommandArgument.ToString());
-        if (e.CommandName == "Rechazar"){
-            us.rechazarusuario(usuario1, ((Usuario)Session["user"]).Correo);
-            GV_domiciliariosaceptados.DataBind();
-        }
+        //DAOUsuario us = new DAOUsuario();
+        //UUsuario usuario1 = new UUsuario();
+        //usuario1.Id = int.Parse(e.CommandArgument.ToString());
+        //if (e.CommandName == "Rechazar"){
+        //    us.rechazarusuario(usuario1, ((UUsuario)Session["user"]).Correo);
+        //    GV_domiciliariosaceptados.DataBind();
+        //}
     }
     protected void BTN_solicitudesrechazas_Click(object sender, EventArgs e){
         LB_solicitudesaliados.Visible = false;

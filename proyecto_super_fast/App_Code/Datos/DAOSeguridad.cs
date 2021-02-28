@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-
+using Utilitarios;
 /// <summary>
 /// Descripción breve de DAOSeguridad
 /// </summary>
+namespace data
+{
+
+
 public class DAOSeguridad
 {
-    public void insertarToken(Token token)
+    public void insertarToken(UToken token)
     {
-        using (var db = new Mapeo())
+        using (var db = new Map())
         {
-            db.token.Add(token);
+            db.Utoken.Add(token);
             db.SaveChanges();
         }
     }
 
-    public void insertarAcceso(Acceso acceso)
+    public void insertarAcceso(UMac acceso)
     {
         using (var db = new Mapeo())
         {
@@ -52,11 +56,11 @@ public class DAOSeguridad
         return new Mapeo().token.Where(x => x.Tokeng == token).FirstOrDefault();
     }
 
-    public void updateClave(Usuario usuario)
+    public void updateClave(UUsuario usuario)
     {
         using (var db = new Mapeo())
         {
-            Usuario usuarioAnterior = db.usuari.Where(x => x.Id == usuario.Id).First();
+            UUsuario usuarioAnterior = db.usuari.Where(x => x.Id == usuario.Id).First();
             usuarioAnterior.Contrasenia = usuario.Contrasenia;
 
             db.usuari.Attach(usuarioAnterior);
@@ -66,4 +70,5 @@ public class DAOSeguridad
             db.SaveChanges();
         }
     }
+}
 }

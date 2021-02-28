@@ -12,8 +12,8 @@ using Utilitarios;
 
 namespace Data
 {
-    [Serializable]
-    [Table("usuario", Schema = "informacion")]
+    //[Serializable]
+    //[Table("usuario", Schema = "informacion")]
     public class DAOUsuario
     {
         public void insertUsuario(UUsuario usuario2)
@@ -85,6 +85,7 @@ namespace Data
         {
             return new Mapeo().usuari.Where(x => x.Id_rol == 3 && x.Aprobacion == 1).ToList<UUsuario>();
         }
+
         public void aceptarusuario(UUsuario usuario, String auditoria)
         {
             using (var db = new Mapeo())

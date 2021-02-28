@@ -7,17 +7,17 @@ using System.Web;
 /// <summary>
 /// Descripción breve de Mapeo
 /// </summary>
-public class Mapeo: DbContext 
+public class mMapeo: DbContext 
 {
-    static Mapeo()
-    {
-        Database.SetInitializer<Mapeo>(null);
-    }
+    //static Mapeo()
+    //{
+    //    Database.SetInitializer<Mapeo>(null);
+    //}
 
-    public Mapeo(): base("name=bd_inicial")
-    {
+    //public Mapeo(): base("name=bd_inicial")
+    //{
 
-    }
+    //}
     //
     public DbSet<Cliente> client { get; set; } 
     public DbSet<Domiciliario> domiciliari { get; set; }

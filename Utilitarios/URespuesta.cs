@@ -12,7 +12,7 @@ namespace Utilitarios
         private string mac;
         private string acceso;
         private string url;
-
+        
 
         public string Mensaje { get => mensaje; set => mensaje = value; }
 
