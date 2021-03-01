@@ -7,7 +7,7 @@ using Utilitarios;
 /// <summary>
 /// Descripción breve de DAOSeguridad
 /// </summary>
-namespace data
+namespace Data
 {
 
 
@@ -15,9 +15,9 @@ public class DAOSeguridad
 {
     public void insertarToken(UToken token)
     {
-        using (var db = new Map())
+        using (var db = new Mapeo())
         {
-            db.Utoken.Add(token);
+            db.token.Add(token);
             db.SaveChanges();
         }
     }
@@ -35,8 +35,8 @@ public class DAOSeguridad
     {
         using (var db = new Mapeo())
         {
-            Acceso acceso = db.acceso.Where(x => x.UserId == userId && x.FechaFin == null).FirstOrDefault();
-            acceso.FechaFin = DateTime.Now;
+            UMac acceso = db.acceso.Where(x => x.User_id == userId && x.Fecha_fin == null).FirstOrDefault();
+            acceso.Fecha_fin = DateTime.Now;
             
             db.acceso.Attach(acceso);
 
@@ -46,12 +46,12 @@ public class DAOSeguridad
         }
     }
 
-    public Token getTokenByUser(int userId)
+    public UToken getTokenByUser(int userId)
     {
         return new Mapeo().token.Where(x => x.User_id == userId && x.Vigencia > DateTime.Now).FirstOrDefault();
     }
 
-    public Token getTokenByToken(string token)
+    public UToken getTokenByToken(string token)
     {
         return new Mapeo().token.Where(x => x.Tokeng == token).FirstOrDefault();
     }

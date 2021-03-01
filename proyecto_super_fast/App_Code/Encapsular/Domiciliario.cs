@@ -19,7 +19,7 @@ hojavida_d text COLLATE pg_catalog."default" NOT NULL,
 tipovehiculo_d text COLLATE pg_catalog."default" NOT NULL,
 CONSTRAINT pk_informacion_Usuario PRIMARY KEY ("Id_Usuario")
 */
-public class Domiciliario{
+public class DDomiciliario{
     private int id_domiciliario;
     private string nombre_d;
     private string apellido_d;

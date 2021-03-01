@@ -21,7 +21,7 @@ id_pedido integer NOT NULL DEFAULT nextval('informacion.pedido_id_pedido_seq'::r
  */
 //[Serializable]
 //[Table("pedido", Schema = "informacion")]
-public class Pedido
+public class pPedido
 {
     /*UPedido
     private int id_pedido;

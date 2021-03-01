@@ -18,7 +18,7 @@ using System.Web;
 //[Serializable]
 //[Table("estado_pedido", Schema = "informacion")]
 
-public class Estado_pedido
+public class Eestado_pedido
 {
     /*UEstado_pedido
     private int id;

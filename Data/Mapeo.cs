@@ -29,12 +29,16 @@ namespace Data
         public DbSet<Uestado_domicilio> estdomicilio { get; set; }
         public DbSet<UPedido> pedido1 { get; set; }
         public DbSet<UDetalle_pedido> detpedido { get; set; }
-
+        public DbSet<UCliente> client { get; set; }
+        public DbSet<UDomiciliario> domiciliari { get; set; }
+        public DbSet<UAliado> aliad { get; set; }
+        public DbSet<URol> rol { get; set; }
+        public DateTime? Date1 { get; set; }
         //no migrado
-        //public DbSet<Cliente> client { get; set; }
-        //public DbSet<Domiciliario> domiciliari { get; set; }
-        //public DbSet<Aliado> aliad { get; set; }
-        //public DbSet<Rol> rol { get; set; }
+
+        //
+        //
+        //
         //public DateTime? Date1 { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)

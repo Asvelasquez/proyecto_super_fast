@@ -12,7 +12,7 @@ using System.Web;
 //[Serializable]
 //[Table("estado_domicilio", Schema = "informacion")]
 
-public class estado_domicilio
+public class eestado_domicilio
 {
     /*Uestado_domicilio
     private int id_domicilio;

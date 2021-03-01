@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Utilitarios;
 public partial class View_RecuperarContrasenia : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e){
@@ -24,16 +24,13 @@ public partial class View_RecuperarContrasenia : System.Web.UI.Page
     }
 
     protected void B_Cambiar_Click(object sender, EventArgs e){
-        Usuario usuario = new Usuario();
-        Usuario usuar = new Usuario();
+        UUsuario usuario = new UUsuario();
+        UUsuario usuar = new UUsuario();
         usuar = new DAOUsuario().nuevacontrasenia(usuario);
 
         usuario.Id = int.Parse(Session["user_id"].ToString());
         usuario.Contrasenia = TB_ConfirmarContrasenia.Text;
-       //if(usuar != null)
-       // {
-       //     this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('error')</script>");
-       // }
+     
         new DAOSeguridad().updateClave(usuario);
 
         this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('Su contraseña fue actualizada');window.location=\"Login.aspx\"</script>");

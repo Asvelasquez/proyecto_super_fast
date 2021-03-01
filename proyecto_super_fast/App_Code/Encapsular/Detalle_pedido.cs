@@ -23,7 +23,7 @@ using System.Web;
 //[Serializable]
 //[Table("detalle_pedido", Schema = "informacion")]
 
-public class Detalle_pedido
+public class DDetalle_pedido
 {
     /*UDetalle_pedido
     private int id_dpedido;

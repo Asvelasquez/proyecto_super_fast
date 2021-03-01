@@ -22,7 +22,7 @@ using System.Web;
 
 [Serializable]
 [Table("productos", Schema = "informacion")]
-public class Producto{
+public class pProducto{
     /* UPRODUCTO
     private int id;
     private string nombre_producto;

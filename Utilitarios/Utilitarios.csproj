@@ -43,11 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="UAliado.cs" />
+    <Compile Include="UCliente.cs" />
     <Compile Include="UDetalle_pedido.cs" />
+    <Compile Include="UDomiciliario.cs" />
     <Compile Include="Uestado_domicilio.cs" />
     <Compile Include="UEstado_pedido.cs" />
     <Compile Include="UPedido.cs" />
     <Compile Include="UProducto.cs" />
+    <Compile Include="URol.cs" />
     <Compile Include="UToken.cs" />
     <Compile Include="ULogin.cs" />
     <Compile Include="MAC.cs" />

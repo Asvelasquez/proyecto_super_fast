@@ -3,14 +3,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web.UI;
 using Newtonsoft.Json;
-
+using Utilitarios;
 public partial class View_GenerarToken : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e){
 
     }
     protected void B_Recuperar_Click(object sender, EventArgs e){
-       Usuario usuario = new DAOUsuario().getUserByUserName(TB_Correo.Text);
+       UUsuario usuario = new DAOUsuario().getUserByUserName(TB_Correo.Text);
 
         if (usuario != null){
             Token validarToken = new DAOSeguridad().getTokenByUser(usuario.Id);

@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-
+using Utilitarios;
 /// <summary>
 /// Descripción breve de DAOCliente
 /// </summary>
-[Serializable]
-[Table("cliente", Schema = "informacion")]
+
+namespace Data
+{
+
 
 public class DAOCliente
 {
-    public Cliente login(Cliente cliente)
+    public UCliente login(UCliente cliente)
     {
         return new Mapeo().client.Where(x => x.Correo.ToUpper().Equals(cliente.Correo.ToUpper()) && x.Contrasenia.Equals(cliente.Contrasenia)).FirstOrDefault();
     }
     //metodo insertar cliente
-    public void insertCliente(Cliente cliente){
+    public void insertCliente(UCliente cliente){
         using (var db = new Mapeo())
         {
             db.client.Add(cliente);
@@ -26,7 +28,7 @@ public class DAOCliente
         }
     }
 
-    public List<Cliente> obtenerCliente()
+    public List<UCliente> obtenerCliente()
     {
         using (var db = new Mapeo())
         {
@@ -37,7 +39,7 @@ public class DAOCliente
                     {
                         u,
                         r.Nombre
-                    }).ToList().Select(m => new Cliente
+                    }).ToList().Select(m => new UCliente
                     {
                         Apellido = m.u.Apellido,
                         Contrasenia = m.u.Contrasenia,
@@ -51,4 +53,5 @@ public class DAOCliente
                     }).ToList();
         }
     }
+}
 }

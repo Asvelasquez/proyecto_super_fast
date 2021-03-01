@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using Utilitarios;
 /// <summary>
 /// Descripción breve de DAODetalle_Pedido
 /// </summary>
-public class DAODetalle_Pedido
-{
-    public void insertdetallePedido(Detalle_pedido d_pedido2)
-    {
-        using (var db = new Mapeo())
-        {
+namespace Data{
+ public class DAODetalle_Pedido{
+    public void insertdetallePedido(UDetalle_pedido d_pedido2){
+        using (var db = new Mapeo()) {
             db.detpedido.Add(d_pedido2);
-            db.SaveChanges();
-           
+            db.SaveChanges();  
         }
     }//
+ }
 }

@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 /// 
 //[Serializable]
 //[Table("acceso", Schema = "seguridad")]
-public class Acceso
+public class AAcceso
 {
     /* UTILITARIOS UMac
     private int id;

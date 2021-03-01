@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Utilitarios;
 public partial class View_Mastersuper : System.Web.UI.MasterPage{
 
     protected void Page_Load(object sender, EventArgs e) {
@@ -23,7 +23,7 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
             }
             protected void menu() {
                 if (Session["user"] != null) {
-                    switch (((Usuario)Session["user"]).Id_rol) {
+                    switch (((UUsuario)Session["user"]).Id_rol) {
                         case 1:
                             rolCliente();
                             break;
@@ -110,16 +110,16 @@ public partial class View_Mastersuper : System.Web.UI.MasterPage{
     protected void BT_Inicio_Click(object sender, EventArgs e){
         if (Session["user"] == null){
             Response.Redirect("inicio.aspx");
-        }else if (((Usuario)(Session["user"])).Id_rol == 1){
+        }else if (((UUsuario)(Session["user"])).Id_rol == 1){
             Response.Redirect("inicio.aspx");
         }
-        else if (((Usuario)(Session["user"])).Id_rol == 2) {
+        else if (((UUsuario)(Session["user"])).Id_rol == 2) {
             Response.Redirect("pedidosaliado.aspx");
         }
-        else if (((Usuario)(Session["user"])).Id_rol == 3){
+        else if (((UUsuario)(Session["user"])).Id_rol == 3){
             Response.Redirect("Domiciliario.aspx");
         }
-        else if (((Usuario)(Session["user"])).Id_rol == 4){
+        else if (((UUsuario)(Session["user"])).Id_rol == 4){
             Response.Redirect("administrador.aspx");
         }
        

@@ -10,7 +10,7 @@ using System.Web;
 /// </summary>
 [Serializable]
 [Table("rol", Schema = "informacion")]
-public class Rol
+public class RRol
 {
    
 
