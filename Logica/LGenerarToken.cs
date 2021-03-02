@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Data;
 using Utilitarios;
+
+
 namespace Logica
 {
     public class LGenerarToken{
 
-        public string LB_Recuperar(String TB_Correo,UToken token){
+        public string LB_Recuperar(String TB_Correo,UToken token1){
             UUsuario usuario = new DAOUsuario().getUserByUserName(TB_Correo);
 
             if (usuario != null){
@@ -21,12 +23,12 @@ namespace Logica
                 //}
                 //else
                 //{
-                
-                token.Creado = DateTime.Now;
+                UToken token = new UToken();
+                token.Creado = token1.Creado;
                 token.User_id = usuario.Id;
-                token.Vigencia = DateTime.Now.AddHours(1);
+                token.Vigencia = token1.Vigencia;
+                token.Tokeng = token1.Tokeng;
 
-                token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
                 new DAOSeguridad().insertarToken(token);
                 Correo correo = new Correo();
                 new DAOUsuario().getCorreoByCorreos(usuario.Correo);
@@ -40,15 +42,7 @@ namespace Logica
 
         }
         //
-        private string encriptar(string input){
-            SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();
-            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-            byte[] hashedBytes = provider.ComputeHash(inputBytes);
-            StringBuilder output = new StringBuilder();
-            for (int i = 0; i < hashedBytes.Length; i++)
-                output.Append(hashedBytes[i].ToString("x2").ToLower());
-            return output.ToString();
-        }
+  
         //
 
     }

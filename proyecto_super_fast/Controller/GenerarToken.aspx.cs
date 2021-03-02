@@ -12,36 +12,40 @@ public partial class View_GenerarToken : System.Web.UI.Page
 
     }
     protected void B_Recuperar_Click(object sender, EventArgs e){
-       UUsuario usuario = new DAOUsuario().getUserByUserName(TB_Correo.Text);
+       ////UUsuario usuario = new DAOUsuario().getUserByUserName(TB_Correo.Text);
 
-        if (usuario != null){
-            UToken validarToken = new DAOSeguridad().getTokenByUser(usuario.Id);
-            //if (validarToken != null)
-            //{
-            //    L_Mensaje.Text = "Ya extsite un token, por favor verifique su correo.";
-            //}
-            //else
-            //{
-            UToken token = new UToken();
-            token.Creado = DateTime.Now;
-            token.User_id = usuario.Id;
-            token.Vigencia = DateTime.Now.AddHours(1);
-            token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
-            new DAOSeguridad().insertarToken(token);
-            Correo correo = new Correo();
-            new DAOUsuario().getCorreoByCorreos(usuario.Correo);
-            String mensaje = "su link de acceso es: " + "http://localhost:56248/View/RecuperarContrasenia.aspx?" + token.Tokeng;
-            correo.enviarCorreo(usuario.Correo, token.Tokeng, mensaje);
-            LB_Mensaje.Text = "Su nueva contraseña ha sido enviada a su correo";
-            //}
-        }else{
-            LB_Mensaje.Text = "El usurio digitado no existe";
-        }
+       //// if (usuario != null){
+       ////     UToken validarToken = new DAOSeguridad().getTokenByUser(usuario.Id);
+       ////     //if (validarToken != null)
+       ////     //{
+       ////     //    L_Mensaje.Text = "Ya extsite un token, por favor verifique su correo.";
+       ////     //}
+       ////     //else
+       ////     //{
+       ////     UToken token = new UToken();
+       ////     token.Creado = DateTime.Now;
+       ////     token.User_id = usuario.Id;
+       ////     token.Vigencia = DateTime.Now.AddHours(1);
+       ////     token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
+       ////     new DAOSeguridad().insertarToken(token);
+       ////     Correo correo = new Correo();
+       ////     new DAOUsuario().getCorreoByCorreos(usuario.Correo);
+       ////     String mensaje = "su link de acceso es: " + "http://localhost:56248/View/RecuperarContrasenia.aspx?" + token.Tokeng;
+       ////     correo.enviarCorreo(usuario.Correo, token.Tokeng, mensaje);
+       ////     LB_Mensaje.Text = "Su nueva contraseña ha sido enviada a su correo";
+       ////     //}
+       //// }else{
+       ////     LB_Mensaje.Text = "El usurio digitado no existe";
+       //// }
 
         string TB_correo1 = TB_Correo.Text;
-        UToken token1 = new UToken();
-        token1.Tokeng = encriptar(JsonConvert.SerializeObject(token1));
-        lGenerarToken.LB_Recuperar(TB_correo1);
+        UToken token = new UToken();
+        token.Creado = DateTime.Now;
+      //  token.User_id = usuario.Id;
+        token.Vigencia = DateTime.Now.AddHours(1);
+        token.Tokeng = encriptar(JsonConvert.SerializeObject(token));
+        
+        lGenerarToken.LB_Recuperar(TB_correo1,token);
 
 
     }
