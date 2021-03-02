@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="LGenerarToken.cs" />
     <Compile Include="Ladministrador.cs" />
     <Compile Include="LRecuperarContrasenia.cs" />
     <Compile Include="LUser.cs" />
