@@ -18,9 +18,7 @@ namespace Data
         {
 
         }
-
         //migrado
-
         public DbSet<UUsuario> usuari { get; set; }
         public DbSet<UToken> token { get; set; }
         public DbSet<UMac> acceso { get; set; }
@@ -35,10 +33,6 @@ namespace Data
         public DbSet<URol> rol { get; set; }
         public DateTime? Date1 { get; set; }
         //no migrado
-
-        //
-        //
-        //
         //public DateTime? Date1 { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)

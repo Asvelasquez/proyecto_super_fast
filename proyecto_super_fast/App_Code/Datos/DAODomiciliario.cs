@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Utilitarios;
-namespace Data{
+
+/*
  public class DAODomiciliario{
-    public void insertDomiciliario(UDomiciliario domiciliario){
+    public void insertDomiciliario(Domiciliario domiciliario){
         using (var db = new Mapeo()){
             db.domiciliari.Add(domiciliario);
             db.SaveChanges();
@@ -14,4 +14,4 @@ namespace Data{
 
     }
  }
-}
+ */

@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using Utilitarios;
+
 /// <summary>
 /// Descripción breve de DAOSeguridad
 /// </summary>
-namespace Data
-{
 
-
+    /*
 public class DAOSeguridad
 {
-    public void insertarToken(UToken token)
+    public void insertarToken(Token token)
     {
         using (var db = new Mapeo())
         {
@@ -22,7 +20,7 @@ public class DAOSeguridad
         }
     }
 
-    public void insertarAcceso(UMac acceso)
+    public void insertarAcceso(Mac acceso)
     {
         using (var db = new Mapeo())
         {
@@ -35,7 +33,7 @@ public class DAOSeguridad
     {
         using (var db = new Mapeo())
         {
-            UMac acceso = db.acceso.Where(x => x.User_id == userId && x.Fecha_fin == null).FirstOrDefault();
+            Mac acceso = db.acceso.Where(x => x.User_id == userId && x.Fecha_fin == null).FirstOrDefault();
             acceso.Fecha_fin = DateTime.Now;
             
             db.acceso.Attach(acceso);
@@ -46,21 +44,21 @@ public class DAOSeguridad
         }
     }
 
-    public UToken getTokenByUser(int userId)
+    public Token getTokenByUser(int userId)
     {
         return new Mapeo().token.Where(x => x.User_id == userId && x.Vigencia > DateTime.Now).FirstOrDefault();
     }
 
-    public UToken getTokenByToken(string token)
+    public Token getTokenByToken(string token)
     {
         return new Mapeo().token.Where(x => x.Tokeng == token).FirstOrDefault();
     }
 
-    public void updateClave(UUsuario usuario)
+    public void updateClave(Usuario usuario)
     {
         using (var db = new Mapeo())
         {
-            UUsuario usuarioAnterior = db.usuari.Where(x => x.Id == usuario.Id).First();
+            Usuario usuarioAnterior = db.usuari.Where(x => x.Id == usuario.Id).First();
             usuarioAnterior.Contrasenia = usuario.Contrasenia;
 
             db.usuari.Attach(usuarioAnterior);
@@ -71,4 +69,5 @@ public class DAOSeguridad
         }
     }
 }
-}
+
+    */

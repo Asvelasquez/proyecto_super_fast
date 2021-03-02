@@ -7,7 +7,7 @@ using System.Web;
 /// <summary>
 /// Descripción breve de DAOProductos
 /// </summary>
-public class DAOProductos{
+public class DDAOProductos{
     /* DATA
     public void insertProducto(Producto producto2){
         using (var db = new Mapeo()) {

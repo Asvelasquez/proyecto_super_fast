@@ -18,6 +18,8 @@ namespace Utilitarios
         private string session;
         private int user_id;
         private string url;
+        private bool falso;
+        private bool verdadero;
         private Nullable<DateTime> fecha_fin;
        
 
@@ -31,5 +33,7 @@ namespace Utilitarios
         public DateTime? Fecha_fin { get => fecha_fin; set => fecha_fin = value; }
         public int Id { get => id; set => id = value; }
         public DateTime Fecha_Inicio1 { get => FechaInicio; set => FechaInicio = value; }
+        public bool Falso { get => falso; set => falso = value; }
+        public bool Verdadero { get => verdadero; set => verdadero = value; }
     }
 }

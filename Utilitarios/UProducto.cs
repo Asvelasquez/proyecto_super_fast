@@ -19,6 +19,7 @@ namespace Utilitarios
         private string nombre_aliado;
         private string actividad_comercial;
         private int cantidad;
+        private bool decision;
 
         [Key]
         [Column("id")]
@@ -41,5 +42,7 @@ namespace Utilitarios
         public string Actividad_comercial { get => actividad_comercial; set => actividad_comercial = value; }
         [NotMapped]
         public int Cantidad { get => cantidad; set => cantidad = value; }
+
+        
     }
 }
