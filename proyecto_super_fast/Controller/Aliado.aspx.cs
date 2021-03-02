@@ -42,7 +42,7 @@ public partial class View_Aliado : System.Web.UI.Page
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Ya existe un archivo en el servidor con ese nombre, cambielo y entente de nuevo');</script>");
             return;
         }
-            
+         //prueba   
         try {
             UProducto producto1 = new UProducto();
             producto1.Nombre_producto = TB_nombreproducto.Text;
