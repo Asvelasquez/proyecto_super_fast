@@ -47,6 +47,7 @@
     <Compile Include="Ladministrador.cs" />
     <Compile Include="LAliado.cs" />
     <Compile Include="LInicio.cs" />
+    <Compile Include="LPedidosaliado.cs" />
     <Compile Include="LRecuperarContrasenia.cs" />
     <Compile Include="LUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

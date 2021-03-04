@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAOAliado.cs" />
+    <Compile Include="DAODetalle_Pedido.cs" />
     <Compile Include="DAOPedido.cs" />
     <Compile Include="DAOProductos.cs" />
     <Compile Include="DAOSeguridad.cs" />

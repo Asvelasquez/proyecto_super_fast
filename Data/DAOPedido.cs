@@ -10,14 +10,11 @@ using Utilitarios;
 /// </summary>
 /// 
 
-namespace Data
-{
-    public class DAOPedido
-    {
-        public UPedido insertPedido(UPedido pedido2)
-        {
-            using (var db = new Mapeo())
-            {
+namespace Data{
+    public class DAOPedido{
+
+        public UPedido insertPedido(UPedido pedido2) {
+            using (var db = new Mapeo())  {
                 db.pedido1.Add(pedido2);
                 db.SaveChanges();
                 return pedido2;
