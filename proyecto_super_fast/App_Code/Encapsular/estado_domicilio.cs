@@ -9,11 +9,12 @@ using System.Web;
 /// Descripción breve de esttado_domicilio
 /// </summary>
 /// 
-[Serializable]
-[Table("estado_domicilio", Schema = "informacion")]
+//[Serializable]
+//[Table("estado_domicilio", Schema = "informacion")]
 
-public class estado_domicilio
+public class eestado_domicilio
 {
+    /*Uestado_domicilio
     private int id_domicilio;
     private string nombre;
 
@@ -22,4 +23,5 @@ public class estado_domicilio
     public int Id { get => id_domicilio; set => id_domicilio = value; }
     [Column("nombre")]
     public string Nombre { get => nombre; set => nombre = value; }
+    */
 }

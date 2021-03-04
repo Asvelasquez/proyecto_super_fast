@@ -19,9 +19,9 @@ using System.Web;
     CONSTRAINT aliado_pkey PRIMARY KEY (id_aliado)
     */
 
-[Serializable]
-[Table("aliado", Schema = "informacion")]
-
+//[Serializable]
+//[Table("aliado", Schema = "informacion")]
+/*UAliado
 public class Aliado
 {
      private int id_aliado;
@@ -56,3 +56,4 @@ public class Aliado
     [Column("rut")]
     public string Rut { get => rut; set => rut = value; }
 }
+*/

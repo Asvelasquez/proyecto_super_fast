@@ -6,14 +6,14 @@ using System.Web;
 /// <summary>
 /// Descripción breve de DAOAliado
 /// </summary>
-public class DAOAliado
-{
+
+    /*DATA
+    class DAOAliado{
     public void insertAliado(Aliado aliado){
         using (var db = new Mapeo()){
             db.aliad.Add(aliado);
             db.SaveChanges();
         }
-
-
     }
-}
+ }
+ */

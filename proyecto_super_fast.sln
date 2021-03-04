@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "proyecto_super_fast", "proyecto_super_fast\", "{79EAB348-3109-4813-B29E-B0DA3D5A85F7}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{cd7d101f-a74e-4d81-bbf1-a830e874c707}|Logica.dll;{ea287417-d9a1-431b-9290-f6526d47c9c7}|Utilitarios.dll;{508C3440-1E68-4FF4-A45C-229786CE494A}|Data.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_56248"
 		Debug.AspNetCompiler.PhysicalPath = "proyecto_super_fast\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56248\"
@@ -25,13 +26,34 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "proyecto_super_fast", "proy
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{CD7D101F-A74E-4D81-BBF1-A830E874C707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilitarios", "Utilitarios\Utilitarios.csproj", "{EA287417-D9A1-431B-9290-F6526D47C9C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{508C3440-1E68-4FF4-A45C-229786CE494A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{79EAB348-3109-4813-B29E-B0DA3D5A85F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79EAB348-3109-4813-B29E-B0DA3D5A85F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79EAB348-3109-4813-B29E-B0DA3D5A85F7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{79EAB348-3109-4813-B29E-B0DA3D5A85F7}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{CD7D101F-A74E-4D81-BBF1-A830E874C707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7D101F-A74E-4D81-BBF1-A830E874C707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7D101F-A74E-4D81-BBF1-A830E874C707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7D101F-A74E-4D81-BBF1-A830E874C707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA287417-D9A1-431B-9290-F6526D47C9C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA287417-D9A1-431B-9290-F6526D47C9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA287417-D9A1-431B-9290-F6526D47C9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA287417-D9A1-431B-9290-F6526D47C9C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508C3440-1E68-4FF4-A45C-229786CE494A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508C3440-1E68-4FF4-A45C-229786CE494A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508C3440-1E68-4FF4-A45C-229786CE494A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508C3440-1E68-4FF4-A45C-229786CE494A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,8 +7,10 @@ using System.Web;
 /// <summary>
 /// Descripción breve de DAOCliente
 /// </summary>
-[Serializable]
-[Table("cliente", Schema = "informacion")]
+
+
+    /*DATA
+
 
 public class DAOCliente
 {
@@ -52,3 +54,4 @@ public class DAOCliente
         }
     }
 }
+*/

@@ -11,7 +11,7 @@ using System.Web;
 
 [Serializable]
 [Table("cliente",Schema="informacion")]
-public class Cliente
+public class cCliente
 {
     /* id_cliente integer NOT NULL DEFAULT nextval('informacion.cliente_id_cliente_seq'::regclass),
      nombre text COLLATE pg_catalog."default" NOT NULL,

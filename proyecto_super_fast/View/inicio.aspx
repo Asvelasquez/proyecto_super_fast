@@ -11,6 +11,8 @@
         .auto-style11 {
             height: 2%;
             vertical-align: top;
+            2;
+            2;
         }
         .auto-style12 {
             height: 50%;

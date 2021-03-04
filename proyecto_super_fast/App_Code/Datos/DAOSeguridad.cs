@@ -7,6 +7,8 @@ using System.Web;
 /// <summary>
 /// Descripción breve de DAOSeguridad
 /// </summary>
+
+    /*
 public class DAOSeguridad
 {
     public void insertarToken(Token token)
@@ -18,7 +20,7 @@ public class DAOSeguridad
         }
     }
 
-    public void insertarAcceso(Acceso acceso)
+    public void insertarAcceso(Mac acceso)
     {
         using (var db = new Mapeo())
         {
@@ -31,8 +33,8 @@ public class DAOSeguridad
     {
         using (var db = new Mapeo())
         {
-            Acceso acceso = db.acceso.Where(x => x.UserId == userId && x.FechaFin == null).FirstOrDefault();
-            acceso.FechaFin = DateTime.Now;
+            Mac acceso = db.acceso.Where(x => x.User_id == userId && x.Fecha_fin == null).FirstOrDefault();
+            acceso.Fecha_fin = DateTime.Now;
             
             db.acceso.Attach(acceso);
 
@@ -67,3 +69,5 @@ public class DAOSeguridad
         }
     }
 }
+
+    */

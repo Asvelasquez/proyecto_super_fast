@@ -6,10 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 /// Descripción breve de Usuario
 /// </summary>
 /// 
-[Serializable]
-[Table("acceso", Schema = "seguridad")]
-public class Acceso
+//[Serializable]
+//[Table("acceso", Schema = "seguridad")]
+public class AAcceso
 {
+    /* UTILITARIOS UMac
     private int id;
     private int user_id;
     private string ip;
@@ -33,5 +34,6 @@ public class Acceso
     public string Session { get => session; set => session = value; }
     [Column("fecha_fin")]
     public Nullable<DateTime> FechaFin { get => fecha_fin; set => fecha_fin = value; }
+    */
 }
  

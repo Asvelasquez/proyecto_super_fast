@@ -4,20 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Utilitarios;
 public partial class View_inicio : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["user"] != null)
         {
-            if (((Usuario)Session["user"]).Id_rol == 2)
+            if (((UUsuario)Session["user"]).Id_rol == 2)
             {
                 Response.Redirect("pedidosaliado.aspx");
-            }else if(((Usuario)Session["user"]).Id_rol == 3)
+            }else if(((UUsuario)Session["user"]).Id_rol == 3)
             {
                 Response.Redirect("Domiciliario.aspx");
-            }else if (((Usuario)Session["user"]).Id_rol == 4)
+            }else if (((UUsuario)Session["user"]).Id_rol == 4)
             {
                 Response.Redirect("administrador.aspx");
             }
@@ -40,7 +40,7 @@ public partial class View_inicio : System.Web.UI.Page
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar session, para poder comprar');</script>");
 
         }
-        else if (((Usuario)(Session["user"])).Id_rol == 1) {
+        else if (((UUsuario)(Session["user"])).Id_rol == 1) {
             DL_Productos.SelectedIndex = e.Item.ItemIndex;
             if (String.IsNullOrEmpty(((TextBox)DL_Productos.SelectedItem.FindControl("TBX_cantidad")).Text) || String.IsNullOrEmpty(((TextBox)DL_Productos.SelectedItem.FindControl("TB_especificacion")).Text)){
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe Diligenciar todos los campos, para poder comprar');</script>");
@@ -203,7 +203,7 @@ public partial class View_inicio : System.Web.UI.Page
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar session, para poder comprar');</script>");
         }
-        else if (((Usuario)(Session["user"])).Id_rol == 1)
+        else if (((UUsuario)(Session["user"])).Id_rol == 1)
         {
             DL_productosfiltrorest.SelectedIndex = e.Item.ItemIndex;
             if (String.IsNullOrEmpty(((TextBox)DL_productosfiltrorest.SelectedItem.FindControl("TBX_cantidad")).Text) || String.IsNullOrEmpty(((TextBox)DL_productosfiltrorest.SelectedItem.FindControl("TB_especificacion")).Text))
@@ -248,7 +248,7 @@ public partial class View_inicio : System.Web.UI.Page
                 {
                     try
                     {
-                        pedido3.Cliente_id = ((Usuario)Session["user"]).Id;
+                        pedido3.Cliente_id = ((UUsuario)Session["user"]).Id;
                         pedido3.Fecha = DateTime.Now;
                         pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
                         pedido3.Aliado_id = int.Parse(((TextBox)DL_productosfiltrorest.SelectedItem.FindControl("TBX_IDaliado")).Text);
@@ -262,8 +262,8 @@ public partial class View_inicio : System.Web.UI.Page
                         det_pedido.V_unitario = double.Parse(((TextBox)DL_productosfiltrorest.SelectedItem.FindControl("TBX_precio")).Text);
                         det_pedido.Cantidad = int.Parse(((TextBox)DL_productosfiltrorest.SelectedItem.FindControl("TBX_cantidad")).Text);
                         det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
-                        det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
-                        det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                        det_pedido.Direccion_cliente = ((UUsuario)Session["user"]).Direccion;
+                        det_pedido.Telefono_cliente = ((UUsuario)Session["user"]).Telefono;
                         double valorunitario, resultado;
                         int cantidad5;
                         valorunitario = double.Parse(((TextBox)DL_productosfiltrorest.SelectedItem.FindControl("TBX_precio")).Text);
@@ -284,7 +284,7 @@ public partial class View_inicio : System.Web.UI.Page
         {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar session, para poder comprar');</script>");
         }
-        else if (((Usuario)(Session["user"])).Id_rol == 1)
+        else if (((UUsuario)(Session["user"])).Id_rol == 1)
         {
             DL_productosfiltroPrecio.SelectedIndex = e.Item.ItemIndex;
             if (String.IsNullOrEmpty(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TBX_cantidad")).Text) || String.IsNullOrEmpty(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TB_especificacion")).Text))
@@ -296,7 +296,7 @@ public partial class View_inicio : System.Web.UI.Page
                 Pedido pedido3 = new Pedido();
                 Detalle_pedido det_pedido = new Detalle_pedido();
                 DAOPedido dao = new DAOPedido();
-                ped20 = daoped.consultarpedido(((Usuario)Session["user"]).Id);
+                ped20 = daoped.consultarpedido(((UUsuario)Session["user"]).Id);
                 int contador = 0;
                 foreach (var item in ped20)
                 {
@@ -309,8 +309,8 @@ public partial class View_inicio : System.Web.UI.Page
                             det_pedido.V_unitario = double.Parse(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TBX_precio")).Text);
                             det_pedido.Cantidad = int.Parse(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TBX_cantidad")).Text);
                             det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
-                            det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
-                            det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                            det_pedido.Direccion_cliente = ((UUsuario)Session["user"]).Direccion;
+                            det_pedido.Telefono_cliente = ((UUsuario)Session["user"]).Telefono;
                             double valorunitario, resultado;
                             int cantidad5;
                             valorunitario = double.Parse(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TBX_precio")).Text);
@@ -329,7 +329,7 @@ public partial class View_inicio : System.Web.UI.Page
                 {
                     try
                     {
-                        pedido3.Cliente_id = ((Usuario)Session["user"]).Id;
+                        pedido3.Cliente_id = ((UUsuario)Session["user"]).Id;
                         pedido3.Fecha = DateTime.Now;
                         pedido3.Estado_id = 1;//1) posible compra 2)comprado 3)cancelado
                         pedido3.Aliado_id = int.Parse(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TBX_IDaliado")).Text);
@@ -343,8 +343,8 @@ public partial class View_inicio : System.Web.UI.Page
                         det_pedido.V_unitario = double.Parse(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TBX_precio")).Text);
                         det_pedido.Cantidad = int.Parse(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TBX_cantidad")).Text);
                         det_pedido.Producto_id = int.Parse(e.CommandArgument.ToString());
-                        det_pedido.Direccion_cliente = ((Usuario)Session["user"]).Direccion;
-                        det_pedido.Telefono_cliente = ((Usuario)Session["user"]).Telefono;
+                        det_pedido.Direccion_cliente = ((UUsuario)Session["user"]).Direccion;
+                        det_pedido.Telefono_cliente = ((UUsuario)Session["user"]).Telefono;
                         double valorunitario, resultado;
                         int cantidad5;
                         valorunitario = double.Parse(((TextBox)DL_productosfiltroPrecio.SelectedItem.FindControl("TBX_precio")).Text);
@@ -364,7 +364,7 @@ public partial class View_inicio : System.Web.UI.Page
         ClientScriptManager cm = this.ClientScript;
         if (Session["user"] == null) {
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('debe iniciar sesion, para poder comprar');</script>");
-         } else if (((Usuario)(Session["user"])).Id_rol == 1) {
+         } else if (((UUsuario)(Session["user"])).Id_rol == 1) {
             //new DAOPedido().obtenercarrito(((Usuario)Session["user"]).Id);
             Response.Redirect("Carrito.aspx");
         }
@@ -462,7 +462,7 @@ public partial class View_inicio : System.Web.UI.Page
         {
             DAOPedido dpedido = new DAOPedido();
             List<Pedido> pedido3 = new List<Pedido>();
-            Usuario usuario3 = new Usuario();
+            UUsuario usuario3 = new UUsuario();
             int idusuario = ((Usuario)Session["user"]).Id;
             pedido3 = dpedido.PedidosTotal(idusuario);
             int total = 0;
