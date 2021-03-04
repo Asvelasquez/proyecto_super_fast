@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Utilitarios;
 public partial class View_Carrito : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e){
         if (Session["user"] != null)
         {
-            if (((Usuario)Session["user"]).Id_rol != 1)
+            if (((UUsuario)Session["user"]).Id_rol != 1)
             {
                 Response.Redirect("AccesoDenegado.aspx");
             }
@@ -30,7 +30,7 @@ public partial class View_Carrito : System.Web.UI.Page
    
 
     protected void GV_pedidocarrito_RowDataBound(object sender, GridViewRowEventArgs e){
-        Pedido pedido = (Pedido)e.Row.DataItem;
+        UPedido pedido = (UPedido)e.Row.DataItem;
         int rowcount = GV_pedidocarrito.Rows.Count;
         if (rowcount == 0) {
             LB_pedidoscarrito.Visible = true;
@@ -46,13 +46,13 @@ public partial class View_Carrito : System.Web.UI.Page
     }
     //////////////////////
     protected void mostrardatosentrega(){
-        TBX_direccion.Text = ((Usuario)Session["user"]).Direccion;
-        TBX_telefono.Text = ((Usuario)Session["user"]).Telefono;
+        TBX_direccion.Text = ((UUsuario)Session["user"]).Direccion;
+        TBX_telefono.Text = ((UUsuario)Session["user"]).Telefono;
     }
     ////////////////
     protected void GV_pedidocarrito_RowCommand(object sender, GridViewCommandEventArgs e){
         DAOPedido daopedido = new DAOPedido();
-        Pedido pedido2 = new Pedido();
+        UPedido pedido2 = new UPedido();
         pedido2.Id_pedido = int.Parse(e.CommandArgument.ToString());
         if (e.CommandName == "Cancelar") {
             daopedido.Cancelarpedido(pedido2);
@@ -62,9 +62,9 @@ public partial class View_Carrito : System.Web.UI.Page
     }
     protected void mostrarpreciototal(){
         DAOPedido dpedido = new DAOPedido();
-        List<Pedido> pedido3 = new List<Pedido>();
-        List<Detalle_pedido> detallepedido3 = new List<Detalle_pedido>();
-        int idusuario = ((Usuario)Session["user"]).Id;
+        List<UPedido> pedido3 = new List<UPedido>();
+        List<UDetalle_pedido> detallepedido3 = new List<UDetalle_pedido>();
+        int idusuario = ((UUsuario)Session["user"]).Id;
        pedido3 = dpedido.preciototal(idusuario);
         double total = 0;
         int idpedido8=0;
@@ -79,9 +79,9 @@ public partial class View_Carrito : System.Web.UI.Page
     }
     protected void mostrarpreciodomicilio(){
         DAOPedido dpedido = new DAOPedido();
-        List<Pedido> pedido3 = new List<Pedido>();
-        Usuario usuario3 = new Usuario();
-        int idusuario = ((Usuario)Session["user"]).Id;
+        List<UPedido> pedido3 = new List<UPedido>();
+        UUsuario usuario3 = new UUsuario();
+        int idusuario = ((UUsuario)Session["user"]).Id;
         pedido3 = dpedido.PedidosTotal(idusuario);
         int total = 0;
         foreach (var item in pedido3) {
@@ -100,11 +100,11 @@ public partial class View_Carrito : System.Web.UI.Page
     }
     protected void BTN_comprar_Click(object sender, EventArgs e){
         DAOPedido dpedido = new DAOPedido();
-        List<Pedido> pedido3 = new List<Pedido>();
-        Pedido pedido4 = new Pedido();
-        Detalle_pedido detapedido4 = new Detalle_pedido();
-        Usuario usuario3 = new Usuario();
-        int idusuario = ((Usuario)Session["user"]).Id;
+        List<UPedido> pedido3 = new List<UPedido>();
+        UPedido pedido4 = new UPedido();
+        UDetalle_pedido detapedido4 = new UDetalle_pedido();
+        UUsuario usuario3 = new UUsuario();
+        int idusuario = ((UUsuario)Session["user"]).Id;
         pedido3 = dpedido.pedidoscomprar(idusuario);
         pedido4.Valor_total = double.Parse(TBX_total.Text);
         detapedido4.Telefono_cliente = TBX_telefono1.Text;
