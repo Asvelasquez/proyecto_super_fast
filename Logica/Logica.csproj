@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="LAccesoDenegado.cs" />
     <Compile Include="LGenerarToken.cs" />
     <Compile Include="Ladministrador.cs" />
     <Compile Include="LAliado.cs" />

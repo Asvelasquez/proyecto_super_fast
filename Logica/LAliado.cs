@@ -3,16 +3,15 @@ using Utilitarios;
 using Data;
 using System.Web.UI;
 
-namespace Logica
-{
+namespace Logica{
 
     public class LAliado {
         URespuesta respuesta = new URespuesta();
         UMac datos = new UMac();
         //
-        public void LBTN_guardarproducto(UProducto producto2){
+        public string LBTN_guardarproducto(UProducto producto2){
             new DAOProductos().insertProducto(producto2);
-               datos.Url=("Aliado.aspx");    
+             return  datos.Url="Aliado.aspx";    
 
         }//
         public UMac LGV_Producto(UProducto producto1,string err,int idmostrar ) {
@@ -38,9 +37,9 @@ namespace Logica
         }
         //
         //
-        public void LBTN_GuardarCambios(UProducto producto2){
+        public string LBTN_GuardarCambios(UProducto producto2){
             new DAOProductos().updateproducto(producto2);           
-            datos.Url = ("Aliado.aspx");
+            return datos.Url = "Aliado.aspx";
 
         }//
         //  

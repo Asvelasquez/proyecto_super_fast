@@ -12,6 +12,7 @@ public partial class View_Aliado : System.Web.UI.Page
 {
     UMac datos1 = new UMac();
     LAliado Laliado1 = new LAliado();
+    string redireccion1;
     protected void Page_Load(object sender, EventArgs e){
         if (Session["user"] != null){
             if (((UUsuario)Session["user"]).Id_rol != 2){
@@ -51,8 +52,9 @@ public partial class View_Aliado : System.Web.UI.Page
             producto1.Imagen_producto1 = "~\\Aliado\\imagenesproducto" + "\\" + nombreArchivo; ;
             producto1.Estado_producto = 1;// 1=estado activado del producto 2=desactivado
             producto1.Id_aliado = (((UUsuario)Session["user"]).Id);
-            Laliado1.LBTN_guardarproducto(producto1);
+            redireccion1= Laliado1.LBTN_guardarproducto(producto1);
             FP_imagen1.PostedFile.SaveAs(saveLocation);
+            Response.Redirect(redireccion1);
         }
         catch (Exception ex)
         { return; }//
@@ -136,7 +138,8 @@ public partial class View_Aliado : System.Web.UI.Page
             producto1.Estado_producto = int.Parse(TBX_estado.Text);
             producto1.Id_aliado = (((UUsuario)Session["user"]).Id);
 
-            Laliado1.LBTN_GuardarCambios(producto1);
+            redireccion1= Laliado1.LBTN_GuardarCambios(producto1);
+            Response.Redirect(redireccion1);
             vaciar();
             if (!(TB_Url.Text == ((UUsuario)Session["user"]).Imagenperfil))  {//
                 FP_imagen1.PostedFile.SaveAs(saveLocation);
