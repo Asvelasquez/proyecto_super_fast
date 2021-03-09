@@ -49,6 +49,7 @@
     <Compile Include="LAliado.cs" />
     <Compile Include="LInicio.cs" />
     <Compile Include="LPedidosaliado.cs" />
+    <Compile Include="LPerfil.cs" />
     <Compile Include="LRecuperarContrasenia.cs" />
     <Compile Include="LUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
