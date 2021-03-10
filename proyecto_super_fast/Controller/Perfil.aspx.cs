@@ -4,8 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using Utilitarios;
+using Logica;
 public partial class View_Perfil : System.Web.UI.Page{
+    LPerfil lperfil1 = new LPerfil();
+    string redireccion1;
     protected void Page_Load(object sender, EventArgs e) {//1
         
         menu();
@@ -26,7 +29,7 @@ public partial class View_Perfil : System.Web.UI.Page{
     }//1
     protected void menu() {//2
         if (Session["user"] != null) {//3
-            switch (((Usuario)Session["user"]).Id_rol) {//4
+            switch (((UUsuario)Session["user"]).Id_rol) {//4
                 case 1:
                     rolCliente();
                     break;
@@ -114,7 +117,7 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_documentoperfila.Visible = true;
         LB_actualizarfoto.Visible = true;
         FUD_imagenperfil.Visible = true;
-        if (((Usuario)Session["user"]).Id_rol == 2)
+        if (((UUsuario)Session["user"]).Id_rol == 2)
         {
             TB_apellidoperfila.Visible = false;
         }
@@ -138,17 +141,13 @@ public partial class View_Perfil : System.Web.UI.Page{
 
     }//
     protected void mostrar(){
-
-        DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();
-        if (Session["user"] == null)
-        {
-            Response.Redirect("AccesoDenegado.aspx");
-        }
-        else
-        {
-
-        usuario1 = us.mostrar(((Usuario)Session["user"]).Id);
+        //DAOUsuario us = new DAOUsuario();
+        UUsuario usuario1 = new UUsuario();
+        if (Session["user"] == null){
+            redireccion1 = lperfil1.mostrar1();
+            Response.Redirect(redireccion1);
+        } else{
+        usuario1 = lperfil1.mostrar(((UUsuario)Session["user"]).Id);
         TB_nombreperfil.Text = usuario1.Nombre;
         TB_apellidoperfil.Text = usuario1.Apellido;
         TB_correoperfil.Text = usuario1.Correo;
@@ -194,12 +193,9 @@ public partial class View_Perfil : System.Web.UI.Page{
         TB_urlfotoa.Text = TB_urlfoto.Text;
 
         try{
-
-       
-
-        DAOUsuario us = new DAOUsuario();
-        Usuario usuario1 = new Usuario();
-        usuario1.Id = ((Usuario)Session["user"]).Id;
+       // DAOUsuario us = new DAOUsuario();
+        UUsuario usuario1 = new UUsuario();
+        usuario1.Id = ((UUsuario)Session["user"]).Id;
         usuario1.Nombre = TB_nombreperfila.Text;
         usuario1.Apellido = TB_apellidoperfila.Text;
         usuario1.Correo = TB_correoperfila.Text;
@@ -210,9 +206,10 @@ public partial class View_Perfil : System.Web.UI.Page{
         usuario1.Tipovehiculo = TB_tipodevehiculoperfila.Text;
         usuario1.Actividadcomercial = TB_actividadcomercialperfil.Text;            
         usuario1.Imagenperfil= TB_urlfotoa.Text;
-        us.actualizarperfil(usuario1);
-            if (((Usuario)Session["user"]).Id_rol == 2){//
-                if (!(TB_urlfoto.Text == ((Usuario)Session["user"]).Imagenperfil)){//
+            lperfil1.BTN_guardar(usuario1);
+       // us.actualizarperfil(usuario1);
+            if (((UUsuario)Session["user"]).Id_rol == 2){//
+                if (!(TB_urlfoto.Text == ((UUsuario)Session["user"]).Imagenperfil)){//
                     FUD_imagenperfil.PostedFile.SaveAs(saveLocation1);
                 }//
                
