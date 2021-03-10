@@ -4,9 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Utilitarios;
+using Logica;
+
 
 public partial class View_registrar_domiciliario : System.Web.UI.Page
 {
+    Lregistar_domiciliario lregistar_Domiciliario1 = new Lregistar_domiciliario();
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -29,8 +33,8 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
         try{
            
           //  cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('El archivo ha sido cargado');</script>");
-            DAOUsuario dAOUsuario = new DAOUsuario();
-            Usuario domiciliario = new Usuario();
+           
+            UUsuario domiciliario = new UUsuario();
             domiciliario.Nombre = TBD_nombre.Text;
             domiciliario.Apellido = TBD_apellido.Text;
             domiciliario.Correo = TBD_correo.Text;
@@ -43,8 +47,9 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             domiciliario.Id_rol = rol3;
             domiciliario.Aprobacion = aprob;
             domiciliario.Auditoria = TBD_nombre.Text;
-            Usuario validarUsuario = dAOUsuario.getCorreoByregistrarse(TBD_correo.Text);
-            new DAOUsuario().getCorreoByregistrarse(TBD_correo.Text);
+            UUsuario validarUsuario = lregistar_Domiciliario1.LBTND_registrar2(TBD_correo.Text);
+            lregistar_Domiciliario1.LBTND_registrar(TBD_correo.Text);
+          
 
 
             if (!CB_Terminos.Checked){
@@ -57,7 +62,7 @@ public partial class View_registrar_domiciliario : System.Web.UI.Page
             }else {
               
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud sera revisada y respondida al correo que ingreso');</script>");
-                new DAOUsuario().insertUsuario(domiciliario);
+                    lregistar_Domiciliario1.LBTND_registrar1(domiciliario);
                     FUD_hojavida.PostedFile.SaveAs(saveLocation);
                    // vaciar();
                    // Response.Redirect("registrar_domiciliario.aspx");

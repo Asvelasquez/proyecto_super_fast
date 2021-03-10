@@ -12,8 +12,6 @@ public partial class View_Login : System.Web.UI.Page{
    {
 
     }
-
-
     protected void LG_Principal_Authenticate(object sender, AuthenticateEventArgs e){
         UUsuario usuario = new UUsuario();
         usuario.Correo = LG_Principal.UserName;
@@ -23,16 +21,12 @@ public partial class View_Login : System.Web.UI.Page{
         UMac user = new LUser().Llogin(usuario);
         Session["user"] = user.Usuario;
         // URespuesta resp = new UMac().Usuario(usuario);
-        Response.Redirect(user.Url);
         if (usuario == null){   
             
             Session["user"] = null;
             cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('revise sus credenciales de acceso');window.location=\"Login.aspx\"</script>");
         }
         else{
-
-            Session["user"] = usuario;
-
             idrol2 = usuario.Id_rol;
             aprobacion1 = usuario.Aprobacion;
             redireccion1= luser1.Llogin1(idrol2, aprobacion1);
@@ -57,8 +51,6 @@ public partial class View_Login : System.Web.UI.Page{
                     cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud como Domiciliario ha sido rachazada');window.location.href=\"CerrarSession.aspx\"</script>");
                     return;
                 }
-            
-
         }
         //
     }

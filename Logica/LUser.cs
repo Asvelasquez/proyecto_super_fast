@@ -24,8 +24,11 @@ namespace Logica
         }
 
         public string Llogin1(int idrol3,int aprobacion1){
-
-               if (idrol3 == 1){
+            if (idrol3 == 0)
+            {
+                redireccion1 = "inicio.aspx";
+            }
+            if (idrol3 == 1){
                 redireccion1 = "inicio.aspx";
                 }else{
                     if (idrol3 == 2 && aprobacion1 == 1){

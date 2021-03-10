@@ -4,9 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Utilitarios;
+using Logica;
+
 
 public partial class View_Registrar_aliado : System.Web.UI.Page
 {
+    LRegistrar_aliado lregistrar = new LRegistrar_aliado();
     protected void Page_Load(object sender, EventArgs e)
     {
    
@@ -57,8 +61,8 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
         try{
             FUA_logo.PostedFile.SaveAs(saveLocation);
             FUA_rut.PostedFile.SaveAs(saveLocation1);
-            DAOUsuario dAOUsuario = new DAOUsuario();
-            Usuario aliado1 = new Usuario();
+           // DAOUsuario dAOUsuario = new DAOUsuario();
+            UUsuario aliado1 = new UUsuario();
             aliado1.Nombre = TBA_nombrecomercial.Text;
             aliado1.Documento = TBA_nit.Text;
             aliado1.Correo = TBA_correo.Text;
@@ -72,8 +76,8 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
             aliado1.Id_rol = rol2;
             aliado1.Aprobacion = aprob;
             aliado1.Auditoria = TBA_nombrecomercial.Text;
-            Usuario validarUsuario = dAOUsuario.getCorreoByregistrarse(TBA_correo.Text);
-            new DAOUsuario().getCorreoByregistrarse(TBA_correo.Text);
+            UUsuario validarUsuario = lregistrar.LBTN_registrar( TBA_correo.Text);
+            //new DAOUsuario().getCorreoByregistrarse(TBA_correo.Text);
             if (!CB_terminos.Checked){
                 cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('acepte terminos y condiciones');</script>");
             }
@@ -85,7 +89,7 @@ public partial class View_Registrar_aliado : System.Web.UI.Page
                 }
                 else
                 {
-                    new DAOUsuario().insertUsuario(aliado1);
+                    lregistrar.LBTN_registrar1(aliado1);
                     cm.RegisterClientScriptBlock(this.GetType(), "", "<script type='text/javascript'>alert('Su solicitud sera revisada y respondida al correo que ingreso');</script>");
                 }
             }
