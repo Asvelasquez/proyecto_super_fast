@@ -44,8 +44,12 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="LAccesoDenegado.cs" />
+<<<<<<< Updated upstream
     <Compile Include="LCerrarSession.cs" />
     <Compile Include="LDomiciliario.cs" />
+=======
+    <Compile Include="LCarrito.cs" />
+>>>>>>> Stashed changes
     <Compile Include="LGenerarToken.cs" />
     <Compile Include="Ladministrador.cs" />
     <Compile Include="LAliado.cs" />
